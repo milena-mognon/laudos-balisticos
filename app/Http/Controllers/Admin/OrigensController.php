@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\OrigemRequest;
 use App\Models\Origem;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class OrigensController extends Controller
@@ -15,7 +15,8 @@ class OrigensController extends Controller
      */
     public function index()
     {
-        //
+        $origens = Origem::orderBy('nome')->get();
+        return view('admin/origens/index', compact('origens'));
     }
 
     /**
@@ -25,7 +26,7 @@ class OrigensController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin/origens/create');
     }
 
     /**
@@ -34,9 +35,12 @@ class OrigensController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(OrigemRequest $request)
     {
-        //
+        Origem::create($request->all());
+
+        return redirect()->route('origens.index')
+            ->with('success', 'País cadastrado com sucesso!');
     }
 
     /**
@@ -58,7 +62,8 @@ class OrigensController extends Controller
      */
     public function edit(Origem $origem)
     {
-        //
+        return view('admin/origens/edit', compact('origem'));
+
     }
 
     /**
@@ -68,9 +73,13 @@ class OrigensController extends Controller
      * @param  \App\Models\Origem  $origem
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Origem $origem)
+    public function update(OrigemRequest $request, Origem $origem)
     {
-        //
+        $origem_updates = $request->all();
+        Origem::find($origem->id)->fill($origem_updates)->save();
+
+        return redirect()->route('origens.index')
+            ->with('success', 'País atualizado com sucesso!');;
     }
 
     /**
@@ -81,6 +90,10 @@ class OrigensController extends Controller
      */
     public function destroy(Origem $origem)
     {
-        //
+        Origem::destroy($origem->id);
+        return redirect()->route('origens.index')
+        ->with('success', 'País deletado com sucesso!');;
+        // Verificar como fazer
+        // não pode deletar se alguma tabela estiver relacionada
     }
 }

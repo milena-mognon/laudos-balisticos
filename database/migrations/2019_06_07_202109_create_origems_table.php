@@ -13,9 +13,10 @@ class CreateOrigemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('origems', function (Blueprint $table) {
+        Schema::create('origens', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->string('nome');
+            $table->string('fabricacao');
         });
     }
 

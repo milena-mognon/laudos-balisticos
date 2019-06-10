@@ -11,6 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('dashboard', 'Admin\DashboardController@index');
+
+//Route::resource('origens', 'Admin\OrigensController');
+
+Route::get('origens', 'Admin\OrigensController@index')->name('origens.index');
+Route::get('origens/create', 'Admin\OrigensController@create')->name('origens.create');
+Route::post('origens', 'Admin\OrigensController@store')->name('origens.store');
+Route::get('origens/{origem}', 'Admin\OrigensController@show')->name('origens.show');
+Route::get('origens/{origem}/edit', 'Admin\OrigensController@edit')->name('origens.edit');
+Route::patch('origens/{origem}', 'Admin\OrigensController@update')->name('origens.update');
+Route::delete('origens/{origem}', 'Admin\OrigensController@destroy')->name('origens.destroy');
+
+
+
+

@@ -24,6 +24,14 @@ Route::get('origens/{origem}/edit', 'Admin\OrigensController@edit')->name('orige
 Route::patch('origens/{origem}', 'Admin\OrigensController@update')->name('origens.update');
 Route::delete('origens/{origem}', 'Admin\OrigensController@destroy')->name('origens.destroy');
 
+Route::get('secoes', 'Admin\SecoesController@index')->name('secoes.index');
+Route::get('secoes/create', 'Admin\SecoesController@create')->name('secoes.create');
+Route::post('secoes', 'Admin\SecoesController@store')->name('secoes.store');
+Route::get('secoes/{secao}', 'Admin\SecoesController@show')->name('secoes.show');
+Route::get('secoes/{secao}/edit', 'Admin\SecoesController@edit')->name('secoes.edit');
+Route::patch('secoes/{secao}', 'Admin\SecoesController@update')->name('secoes.update');
+Route::delete('secoes/{secao}', 'Admin\SecoesController@destroy')->name('secoes.destroy');
+
 
 
 

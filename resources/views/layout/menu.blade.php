@@ -32,6 +32,9 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" href="{{ route('origens.index') }}">Países</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ route('solicitantes.index') }}">Órgãos Solicitantes</a>
+                    </li>
             {{--<li class="nav-item">--}}
                         {{--<a class="nav-link text-white" href="{{ route('pesquisa.create') }}">Pesquisar</a>--}}
                     {{--</li>--}}

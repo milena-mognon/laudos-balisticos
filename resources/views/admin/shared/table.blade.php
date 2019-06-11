@@ -4,7 +4,7 @@
     <div class="col-lg-12">
         <div>
             <h3 class="float-left">{{ $model_name_plural }}: </h3>
-            <a class="btn btn-success float-right" href="{{ route('origens.create') }}">
+            <a class="btn btn-success float-right" href="{{ route($route_create_name) }}">
                 <i class="fa fa-plus"></i> Cadastrar {{ $model_name_singular }}</a>
         </div>
         <div class="table-responsive">

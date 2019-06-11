@@ -1,6 +1,6 @@
 @extends('layout.card')
 @section('size', "col-md-8")
-@section('card-name', __('atributes.user.user') )
+@section('card-name', 'País' )
 @section('card-content')
     {!! Form::open(['route' => 'origens.store']) !!}
     <div class="col-lg-12">
@@ -16,14 +16,11 @@
                 ['id' => 'fabricacao', 'type' => 'text', 'name' => 'fabricacao'])
         </div>
 
-        <div class="row">
-            <div class="col-lg-6 ">
-                <a class="btn btn-secondary float-left" href="{{ route('origens.index') }}">Voltar</a>
-            </div>
-            <div class="col-lg-6">
-                <button class="btn btn-success " type="submit">Cadastrar</button>
-                {{ Form::close() }}
-            </div>
+        <div class="col-lg-10 float-right">
+            <a class="btn btn-secondary" href="{{ route('origens.index') }}">Voltar</a>
+            <button class="btn btn-success" type="submit">Cadastrar</button>
+            {{ Form::close() }}
         </div>
+    </div>
     </div>
 @endsection

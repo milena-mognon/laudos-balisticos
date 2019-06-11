@@ -14,7 +14,7 @@
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('dashboard', 'Admin\DashboardController@index');
 
-//Route::resource('origens', 'Admin\OrigensController');
+Route::resource('solicitantes', 'Admin\OrgaosSolicitantesController');
 
 Route::get('origens', 'Admin\OrigensController@index')->name('origens.index');
 Route::get('origens/create', 'Admin\OrigensController@create')->name('origens.create');

@@ -10,7 +10,7 @@
 {{--{!! Html::script('js/outro.js') !!}--}}
 {{--{!! Html::script('js/cropper.js') !!}--}}
 {{--{!! Html::script('js/newImageCrop.js') !!}--}}
-{!! Html::script('js/sweetalert2.min.js') !!}
+{{--{!! Html::script('js/sweetalert2.min.js') !!}--}}
 {{--{!! Html::script('js/componentes.js') !!}--}}
 
 

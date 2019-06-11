@@ -63,7 +63,6 @@ class OrigensController extends Controller
     public function edit(Origem $origem)
     {
         return view('admin/origens/edit', compact('origem'));
-
     }
 
     /**
@@ -90,9 +89,9 @@ class OrigensController extends Controller
      */
     public function destroy(Origem $origem)
     {
-        Origem::destroy($origem->id);
-        return redirect()->route('origens.index')
-        ->with('success', 'País deletado com sucesso!');;
+//        Origem::destroy($origem->id);
+//        return redirect()->route('origens.index')
+//        ->with('success', 'País deletado com sucesso!');;
         // Verificar como fazer
         // não pode deletar se alguma tabela estiver relacionada
     }

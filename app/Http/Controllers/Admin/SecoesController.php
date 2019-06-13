@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\SecaoRequest;
 use App\Models\Secao;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -36,7 +37,7 @@ class SecoesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SecaoRequest $request)
     {
         Secao::create($request->all());
 
@@ -74,7 +75,7 @@ class SecoesController extends Controller
      * @param  \App\Models\Secao  $secao
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Secao $secao)
+    public function update(SecaoRequest $request, Secao $secao)
     {
         $secao_updates = $request->all();
         Secao::find($secao->id)->fill($secao_updates)->save();

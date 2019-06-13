@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="{{ URL::asset('css/layout.css')}}">
     {{--<link rel="stylesheet" href="{{ URL::asset('css/cropper.css')}}">--}}
     {{--<link rel="stylesheet" href="{{ URL::asset('css/sweetalert2.min.css')}}">--}}
+    <link rel="stylesheet" href="{{ URL::asset('tinytoggle/css/tiny-toggle.css')}}">
+
     <link rel="stylesheet" href="{{ URL::asset('font-awesome-4.7.0/css/font-awesome.min.css')}}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">

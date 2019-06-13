@@ -32,6 +32,14 @@ Route::get('secoes/{secao}/edit', 'Admin\SecoesController@edit')->name('secoes.e
 Route::patch('secoes/{secao}', 'Admin\SecoesController@update')->name('secoes.update');
 Route::delete('secoes/{secao}', 'Admin\SecoesController@destroy')->name('secoes.destroy');
 
+Route::get('diretores', 'Admin\DiretoresController@index')->name('diretores.index');
+Route::get('diretores/create', 'Admin\DiretoresController@create')->name('diretores.create');
+Route::post('diretores', 'Admin\DiretoresController@store')->name('diretores.store');
+Route::get('diretores/{diretor}', 'Admin\DiretoresController@show')->name('diretores.show');
+Route::get('diretores/{diretor}/edit', 'Admin\DiretoresController@edit')->name('diretores.edit');
+Route::patch('diretores/{diretor}', 'Admin\DiretoresController@update')->name('diretores.update');
+Route::delete('diretores/{diretor}', 'Admin\DiretoresController@destroy')->name('diretores.destroy');
+
 
 
 

@@ -11,9 +11,4 @@ class Secao extends Model
     protected $fillable = ['nome', 'cidade_id'];
 
     public $timestamps = false;
-
-    public function cidade()
-    {
-        return $this->belongsTo(Cidade::class);
-    }
 }

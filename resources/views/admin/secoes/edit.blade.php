@@ -15,7 +15,6 @@
 
                 <button class="btn btn-success" type="submit">Editar</button>
                 {{ Form::close() }}
-            </div>
         </div>
     </div>
 @endsection

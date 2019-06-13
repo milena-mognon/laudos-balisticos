@@ -35,6 +35,12 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" href="{{ route('solicitantes.index') }}">Órgãos Solicitantes</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ route('diretores.index') }}">Diretores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ route('users.index') }}">Usuários</a>
+                    </li>
             {{--<li class="nav-item">--}}
                         {{--<a class="nav-link text-white" href="{{ route('pesquisa.create') }}">Pesquisar</a>--}}
                     {{--</li>--}}

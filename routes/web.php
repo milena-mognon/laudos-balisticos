@@ -15,6 +15,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('dashboard', 'Admin\DashboardController@index');
 
 Route::resource('solicitantes', 'Admin\OrgaosSolicitantesController');
+Route::resource('users', 'Admin\UsersController');
 
 Route::get('origens', 'Admin\OrigensController@index')->name('origens.index');
 Route::get('origens/create', 'Admin\OrigensController@create')->name('origens.create');
@@ -40,6 +41,4 @@ Route::get('diretores/{diretor}/edit', 'Admin\DiretoresController@edit')->name('
 Route::patch('diretores/{diretor}', 'Admin\DiretoresController@update')->name('diretores.update');
 Route::delete('diretores/{diretor}', 'Admin\DiretoresController@destroy')->name('diretores.destroy');
 
-
-
-
+Auth::routes();

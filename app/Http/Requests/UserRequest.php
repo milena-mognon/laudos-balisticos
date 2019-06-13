@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class OrgaoSolicitanteRequest extends FormRequest
+class UserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,12 @@ class OrgaoSolicitanteRequest extends FormRequest
     public function rules()
     {
         return [
-            'nome' => 'required|min:8',
-            'cidade_id' => 'required'
+            'email' => 'required|string|email|max:255|unique:users',
+            'nome' => 'required|min:6',
+            'secao_id' => 'required|int',
+            'cargo_id' => 'required|int',
+            'senha' => 'required|string|min:6',
+            'confirmacao_senha' => 'required|same:senha|min:6'
         ];
     }
 
@@ -38,7 +42,9 @@ class OrgaoSolicitanteRequest extends FormRequest
     public function attributes()
     {
         return [
-            'cidade_id' => 'cidade',
+            'secao_id' => 'seção',
+            'cargo_id' => 'cargo',
+            'confirmacao_senha' => 'confirmação de senha'
         ];
     }
 }

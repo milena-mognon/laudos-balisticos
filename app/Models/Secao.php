@@ -11,4 +11,8 @@ class Secao extends Model
     protected $fillable = ['nome', 'cidade_id'];
 
     public $timestamps = false;
+
+    public function users(){
+        return $this->hasMany(User::class);
+    }
 }

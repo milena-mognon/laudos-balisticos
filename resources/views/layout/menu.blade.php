@@ -77,6 +77,8 @@
                             </a>
                             <a class="dropdown-item" href="{{ route('diretores.index') }}">Diretores
                             </a>
+                            <a class="dropdown-item" href="{{ route('marcas.index') }}">Marcas
+                            </a>
                         </div>
 
                             {{--<a class="dropdown-item" href="{{ route('logout') }}"--}}

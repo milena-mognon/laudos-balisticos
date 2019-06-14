@@ -12,7 +12,7 @@
 
         <div class="form-group row">
             @include('admin.shared.label', ['for_label' => 'cidade_id', 'label' => 'Cidade'])
-            @include('admin.shared.select',
+            @include('admin.shared.select_with_id',
                 ['id' => 'cidade_id', 'name' => 'cidade_id', 'dados' => $cidades, 'value' => ""])
         </div>
 

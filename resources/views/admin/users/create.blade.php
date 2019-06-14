@@ -14,7 +14,7 @@
 
         <div class="form-group row">
             @include('admin.shared.label', ['for_label' => 'cargo_id', 'label' => 'Cargo'])
-            @include('admin.shared.select',
+            @include('admin.shared.select_with_id',
                 ['id' => 'cargo_id', 'name' => 'cargo_id', 'dados' => $cargos,
                 'value' => ""])
         </div>
@@ -22,7 +22,7 @@
         <div class="form-group row">
 
             @include('admin.shared.label', ['for_label' => 'secao_id', 'label' => 'Seção'])
-            @include('admin.shared.select',
+            @include('admin.shared.select_with_id',
                 ['id' => 'secao_id', 'name' => 'secao_id', 'dados' => $secoes,
                 'value' => ""])
         </div>

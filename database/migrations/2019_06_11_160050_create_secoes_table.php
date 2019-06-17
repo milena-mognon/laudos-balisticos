@@ -16,6 +16,7 @@ class CreateSecoesTable extends Migration
         Schema::create('secoes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');
+            $table->softDeletes();
         });
     }
 

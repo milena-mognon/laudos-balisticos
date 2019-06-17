@@ -25,7 +25,7 @@ Route::post('origens', 'Admin\OrigensController@store')->name('origens.store');
 Route::get('origens/{origem}', 'Admin\OrigensController@show')->name('origens.show');
 Route::get('origens/{origem}/edit', 'Admin\OrigensController@edit')->name('origens.edit');
 Route::patch('origens/{origem}', 'Admin\OrigensController@update')->name('origens.update');
-Route::delete('origens/{origem}', 'Admin\OrigensController@destroy')->name('origens.destroy');
+Route::delete('origens/{id}', 'Admin\OrigensController@destroy')->name('origens.destroy');
 
 Route::get('secoes', 'Admin\SecoesController@index')->name('secoes.index');
 Route::get('secoes/create', 'Admin\SecoesController@create')->name('secoes.create');
@@ -33,7 +33,7 @@ Route::post('secoes', 'Admin\SecoesController@store')->name('secoes.store');
 Route::get('secoes/{secao}', 'Admin\SecoesController@show')->name('secoes.show');
 Route::get('secoes/{secao}/edit', 'Admin\SecoesController@edit')->name('secoes.edit');
 Route::patch('secoes/{secao}', 'Admin\SecoesController@update')->name('secoes.update');
-Route::delete('secoes/{secao}', 'Admin\SecoesController@destroy')->name('secoes.destroy');
+Route::delete('secoes/{id}', 'Admin\SecoesController@destroy')->name('secoes.destroy');
 
 Route::get('diretores', 'Admin\DiretoresController@index')->name('diretores.index');
 Route::get('diretores/create', 'Admin\DiretoresController@create')->name('diretores.create');

@@ -11,14 +11,13 @@
                 <td> {{ $origem->nome }}</td>
                 <td> {{ $origem->fabricacao }}</td>
                 <td>
-                    <a class="btn btn-primary" href="{{ route('origens.edit', ['origen' => $origem]) }}">
+                    <a class="btn btn-primary" href="{{ route('origens.edit', $origem) }}">
                         <i class="fa fa-pencil"></i> Editar</a>
 
-                    <button value="{{ $origem }}" type="submit" class="btn btn-danger deletePais">
+                    <button value="{{ "/origens/"  . $origem->id }}" type="submit" class="btn btn-danger delete">
                         <i class="fa fa-trash"></i>
                         Deletar
                     </button>
-
                 </td>
             </tr>
         @endforeach

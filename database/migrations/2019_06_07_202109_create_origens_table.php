@@ -17,6 +17,7 @@ class CreateOrigensTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->string('fabricacao');
+            $table->softDeletes();
         });
     }
 

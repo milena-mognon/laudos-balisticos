@@ -17,6 +17,7 @@ class CreateCalibresTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->string('tipo_arma');
+            $table->softDeletes();
         });
     }
 

@@ -5,8 +5,10 @@
 {!! Html::script('js/jquery.maskedinput.js') !!}
 {!! Html::script('jquery-ui-1.12.1.custom/jquery-ui.js') !!}
 {!! Html::script('js/calendar.js') !!}
-{!! Html::script('js/checkbox.js') !!}
-{!! Html::script('tinytoggle/js/tiny-toggle.js') !!}
+{{--{!! Html::script('js/checkbox.js') !!}--}}
+{{--{!! Html::script('tinytoggle/js/tiny-toggle.js') !!}--}}
+{!! Html::script('js/sweetalert2.min.js') !!}
+{!! Html::script('js/deletes.js') !!}
 
 
 {{--{!! Html::script('js/myJS.js') !!}--}}

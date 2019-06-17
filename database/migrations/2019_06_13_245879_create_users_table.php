@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->foreign('cargo_id')->references('id')->on('cargos');
             $table->integer('secao_id')->unsigned();
             $table->foreign('secao_id')->references('id')->on('secoes');
+            $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
         });

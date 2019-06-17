@@ -84,15 +84,12 @@ class OrigensController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Origem  $origem
+     * @param  int $origem
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Origem $origem)
+    public function destroy($origem)
     {
-//        Origem::destroy($origem->id);
-//        return redirect()->route('origens.index')
-//        ->with('success', 'País deletado com sucesso!');;
-        // Verificar como fazer
-        // não pode deletar se alguma tabela estiver relacionada
+        Origem::destroy($origem);
+        return response()->json(['success'=>'done']);
     }
 }

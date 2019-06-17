@@ -99,11 +99,12 @@ class DiretoresController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Diretor  $diretor
+     * @param  int $diretor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Diretor $diretor)
+    public function destroy($diretor)
     {
-        //
+        Diretor::destroy($diretor);
+        return response()->json(['success'=>'done']);
     }
 }

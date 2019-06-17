@@ -18,6 +18,7 @@ class CreateDiretoresTable extends Migration
             $table->string('nome');
             $table->date('inicio_direcao');
             $table->date('fim_direcao');
+            $table->softDeletes();
         });
     }
 

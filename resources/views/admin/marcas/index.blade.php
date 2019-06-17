@@ -14,7 +14,7 @@
                     <a class="btn btn-primary" href="{{ route('marcas.edit', $marca) }}">
                         <i class="fa fa-pencil"></i> Editar</a>
 
-                    <button value="{{ $marca }}" type="submit" class="btn btn-danger deletePais">
+                    <button value="{{ "/marcas/"  . $marca->id }}" type="submit" class="btn btn-danger delete">
                         <i class="fa fa-trash"></i>
                         Deletar
                     </button>

@@ -13,7 +13,7 @@
                     <a class="btn btn-primary" href="{{ route('secoes.edit', ['origen' => $secao]) }}">
                         <i class="fa fa-pencil"></i> Editar</a>
 
-                    <button value="{{ $secao }}" type="submit" class="btn btn-danger deletePais">
+                    <button value="{{ "/secoes/"  . $secao->id }}" type="submit" class="btn btn-danger delete">
                         <i class="fa fa-trash"></i>
                         Deletar
                     </button>

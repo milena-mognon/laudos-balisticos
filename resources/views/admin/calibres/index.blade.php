@@ -14,7 +14,7 @@
                     <a class="btn btn-primary" href="{{ route('calibres.edit', $calibre) }}">
                         <i class="fa fa-pencil"></i> Editar</a>
 
-                    <button value="{{ $calibre }}" type="submit" class="btn btn-danger deletePais">
+                    <button value="{{ "/calibres/"  . $calibre->id }}" type="submit" class="btn btn-danger delete">
                         <i class="fa fa-trash"></i>
                         Deletar
                     </button>

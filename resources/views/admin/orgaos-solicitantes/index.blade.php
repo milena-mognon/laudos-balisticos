@@ -14,7 +14,7 @@
                     <a class="btn btn-primary" href="{{ route('solicitantes.edit', ['origen' => $solicitante]) }}">
                         <i class="fa fa-pencil"></i> Editar</a>
 
-                    <button value="{{ $solicitante }}" type="submit" class="btn btn-danger deletePais">
+                    <button value="{{ "/solicitantes/"  . $solicitante->id }}" type="submit" class="btn btn-danger delete">
                         <i class="fa fa-trash"></i>
                         Deletar
                     </button>

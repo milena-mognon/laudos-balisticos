@@ -90,11 +90,12 @@ class OrgaosSolicitantesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param  int $solicitante
      * @return \Illuminate\Http\Response
      */
-    public function destroy(OrgaoSolicitante $solicitante)
+    public function destroy($solicitante)
     {
-        //
+        OrgaoSolicitante::destroy($solicitante);
+        return response()->json(['success'=>'done']);
     }
 }

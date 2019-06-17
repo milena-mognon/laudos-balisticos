@@ -17,6 +17,7 @@ Route::get('dashboard', 'Admin\DashboardController@index');
 Route::resource('solicitantes', 'Admin\OrgaosSolicitantesController');
 Route::resource('users', 'Admin\UsersController');
 Route::resource('marcas', 'Admin\MarcasController');
+Route::resource('calibres', 'Admin\CalibresController');
 
 Route::get('origens', 'Admin\OrigensController@index')->name('origens.index');
 Route::get('origens/create', 'Admin\OrigensController@create')->name('origens.create');

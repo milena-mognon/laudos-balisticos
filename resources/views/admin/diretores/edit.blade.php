@@ -6,8 +6,7 @@
     <div class="col-lg-12">
         <div class="form-group row">
             @include('admin.shared.label', ['for_label' => 'nome', 'label' => 'Nome'])
-            @include('admin.shared.input',
-                ['id' => 'nome', 'type' => 'text', 'name' => 'nome', 'value' => $diretor->nome])
+            @include('admin.shared.input', ['name' => 'nome', 'value' => $diretor->nome])
         </div>
 
         <div class="form-group row">

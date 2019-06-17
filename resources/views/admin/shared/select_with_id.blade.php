@@ -1,6 +1,6 @@
 <div class="col-md-8">
     <select class="form-control {{ $errors->has($name) ? ' is-invalid' : '' }}"
-    name="{{ $name }}" id="{{ $id }}">
+    name="{{ $name }}" id="{{ $id ?? $name }}">
         @foreach($dados as $dado)
             @if($dado->id == old($name) || $dado->id == $value)
                 <option value="{{$dado->id}}" selected>{{$dado->nome}}</option>

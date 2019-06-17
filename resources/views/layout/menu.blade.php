@@ -79,6 +79,8 @@
                             </a>
                             <a class="dropdown-item" href="{{ route('marcas.index') }}">Marcas
                             </a>
+                            <a class="dropdown-item" href="{{ route('calibres.index') }}">Calibres
+                            </a>
                         </div>
 
                             {{--<a class="dropdown-item" href="{{ route('logout') }}"--}}

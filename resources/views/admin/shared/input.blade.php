@@ -1,5 +1,5 @@
 <div class="col-md-8">
-    <input id="{{ $id }}" type="{{ $type }}"
+    <input id="{{ $id ?? $name }}" type="{{ $type ?? 'text' }}"
            class="form-control{{ $errors->has($name) ? ' is-invalid' : '' }}"
            name="{{ $name }}" value="{{ empty($value) ? old($name) : old($name, $value)}}">
 

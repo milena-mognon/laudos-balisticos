@@ -20,4 +20,8 @@ class Secao extends Model
     public function users(){
         return $this->hasMany(User::class);
     }
+
+//    public function laudos(){
+//        return $this->hasMany(Laudo::class);
+//    }
 }

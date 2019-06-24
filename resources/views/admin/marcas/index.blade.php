@@ -1,4 +1,4 @@
-@extends('admin.shared.table', ['card_name' => 'Listar Marcas',
+@extends('shared.table', ['card_name' => 'Listar Marcas',
 'model_name_plural' => 'Marcas',
 'model_name_singular' => 'Marca',
 'route_create_name' => 'marcas.create',
@@ -12,10 +12,10 @@
                 <td> {{ $marca->categoria }}</td>
                 <td>
                     <a class="btn btn-primary" href="{{ route('marcas.edit', $marca) }}">
-                        <i class="fa fa-pencil"></i> Editar</a>
+                        <i class="fa fa-fw fa-edit"></i> Editar</a>
 
                     <button value="{{ "/marcas/"  . $marca->id }}" type="submit" class="btn btn-danger delete">
-                        <i class="fa fa-trash"></i>
+                        <i class="fa fa-fw fa-trash"></i>
                         Deletar
                     </button>
 

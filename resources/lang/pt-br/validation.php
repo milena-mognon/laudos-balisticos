@@ -117,7 +117,13 @@ return [
     'attributes' => [
         'current_password' => 'Senha atual',
         'new_password' => 'Nova senha',
-        'confirm_new_password' => 'Confirmação da senha'
+        'confirm_new_password' => 'Confirmação da senha',
+        'rep' => 'REP',
+        'oficio' => 'Ofício',
+        'cidade_id' => 'cidade',
+        'solicitante_id' => 'órgão solicitante',
+        'secao_id' => 'seção',
+        'diretor_id' => 'diretor',
+        'inquerito' => 'inquerito policial'
     ],
-
 ];

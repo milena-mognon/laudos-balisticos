@@ -98,4 +98,9 @@ class OrgaosSolicitantesController extends Controller
         OrgaoSolicitante::destroy($solicitante);
         return response()->json(['success'=>'done']);
     }
+
+    public function filtrar_por_cidade($cidade_id){
+        $solicitantes = Cidade::find($cidade_id)->solicitantes;
+        return response()->json(['data' => $solicitantes]);
+    }
 }

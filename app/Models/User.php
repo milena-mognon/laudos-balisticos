@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nome', 'email', 'senha', 'cargo_id', 'secao_id',
+        'nome', 'email', 'password', 'cargo_id', 'secao_id',
     ];
 
     /**
@@ -26,7 +26,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'senha', 'remember_token',
+        'password', 'remember_token',
     ];
 
     protected $dates = ['deleted_at'];
@@ -38,5 +38,9 @@ class User extends Authenticatable
 
     public function cargo(){
         return $this->belongsTo(Cargo::class);
+    }
+
+    public function laudos(){
+        return $this->hasMany(Laudo::class);
     }
 }

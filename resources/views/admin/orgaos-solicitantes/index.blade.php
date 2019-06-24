@@ -1,4 +1,4 @@
-@extends('admin.shared.table', ['card_name' => 'Órgãos Solicitantes',
+@extends('shared.table', ['card_name' => 'Órgãos Solicitantes',
 'model_name_plural' => 'Órgãos Solicitantes',
 'model_name_singular' => 'Órgão Solicitante',
 'route_create_name' => 'solicitantes.create',
@@ -12,10 +12,10 @@
                 <td> {{ $solicitante->cidade->nome }}</td>
                 <td>
                     <a class="btn btn-primary" href="{{ route('solicitantes.edit', ['origen' => $solicitante]) }}">
-                        <i class="fa fa-pencil"></i> Editar</a>
+                        <i class="fa fa-fw fa-edit"></i> Editar</a>
 
                     <button value="{{ "/solicitantes/"  . $solicitante->id }}" type="submit" class="btn btn-danger delete">
-                        <i class="fa fa-trash"></i>
+                        <i class="fa fa-fw fa-trash"></i>
                         Deletar
                     </button>
                 </td>

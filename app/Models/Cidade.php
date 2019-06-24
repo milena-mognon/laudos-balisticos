@@ -14,4 +14,8 @@ class Cidade extends Model
     {
         return $this->belongsTo(Estado::class);
     }
+
+    public function solicitantes(){
+        return $this->hasMany(OrgaoSolicitante::class);
+    }
 }

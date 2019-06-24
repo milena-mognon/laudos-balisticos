@@ -1,0 +1,1 @@
+<label for="{{ $for_label }}">{{ $label }}</label>

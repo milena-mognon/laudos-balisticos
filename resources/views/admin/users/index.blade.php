@@ -1,4 +1,4 @@
-@extends('admin.shared.table', ['card_name' => 'Listar Usuários',
+@extends('shared.table', ['card_name' => 'Listar Usuários',
 'model_name_plural' => 'Usuários',
 'model_name_singular' => 'Usuário',
 'route_create_name' => 'register',
@@ -14,10 +14,10 @@
                 <td> {{ $user->secao->nome }}</td>
                 <td>
                     <a class="btn btn-primary" href="{{ route('users.edit', ['user' => $user]) }}">
-                        <i class="fa fa-pencil"></i> Editar</a>
+                        <i class="fa fa-fw fa-edit"></i> Editar</a>
 
                     <button value="{{ $user }}" type="submit" class="btn btn-danger deletePais">
-                        <i class="fa fa-trash"></i>
+                        <i class="fa fa-fw fa-trash"></i>
                         Deletar
                     </button>
 

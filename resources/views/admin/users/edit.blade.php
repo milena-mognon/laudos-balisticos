@@ -1,35 +1,37 @@
-@extends('layout.card')
-@section('size', "col-md-8")
-@section('card-name', 'Editar Usuário' )
-@section('card-content')
+@extends('new_layout.component')
+@section('page')
 
+    <div class="col-8">
+        <h4>Editar Usuário</h4>
+    </div>
+    <hr>
     {!! Form::open(['route' => ['users.update', $user], 'method' => 'patch']) !!}
     <div class="col-lg-12">
 
         <div class="form-group row">
-            @include('admin.shared.label', ['for_label' => 'nome', 'label' => 'Nome'])
-            @include('admin.shared.input',
+            @include('shared.label', ['for_label' => 'nome', 'label' => 'Nome'])
+            @include('shared.input',
                 ['id' => 'nome', 'type' => 'text', 'name' => 'nome', 'value' => $user->nome])
         </div>
 
         <div class="form-group row">
-            @include('admin.shared.label', ['for_label' => 'cargo_id', 'label' => 'Cargo'])
-            @include('admin.shared.select_with_id',
+            @include('shared.label', ['for_label' => 'cargo_id', 'label' => 'Cargo'])
+            @include('shared.select_with_id',
                 ['id' => 'cargo_id', 'name' => 'cargo_id', 'dados' => $cargos,
                 'value' => $user->cargo_id])
         </div>
 
         <div class="form-group row">
-            @include('admin.shared.label', ['for_label' => 'secao_id', 'label' => 'Seção'])
-            @include('admin.shared.select_with_id',
+            @include('shared.label', ['for_label' => 'secao_id', 'label' => 'Seção'])
+            @include('shared.select_with_id',
                 ['id' => 'secao_id', 'name' => 'secao_id', 'dados' => $secoes,
                 'value' => $user->secao_id])
         </div>
 
         <div class="form-group row">
-            @include('admin.shared.label', ['for_label' => 'email', 'label' => 'Email'])
+            @include('shared.label', ['for_label' => 'email', 'label' => 'Email'])
 
-            @include('admin.shared.input',
+            @include('shared.input',
             ['id' => 'email', 'type' => 'email', 'name' => 'email', 'value' => $user->email])
         </div>
 

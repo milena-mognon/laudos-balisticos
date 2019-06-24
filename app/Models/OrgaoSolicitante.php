@@ -21,4 +21,8 @@ class OrgaoSolicitante extends Model
     {
         return $this->belongsTo(Cidade::class);
     }
+
+//    public function laudos(){
+//        return $this->hasMany(Laudo::class);
+//    }
 }

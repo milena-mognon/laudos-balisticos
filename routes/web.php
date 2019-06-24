@@ -10,14 +10,19 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('dashboard', 'Admin\DashboardController@index');
+Route::get('dashboard', 'Admin\DashboardController@index')->name('dashboard');
 
 Route::resource('solicitantes', 'Admin\OrgaosSolicitantesController');
 Route::resource('users', 'Admin\UsersController');
 Route::resource('marcas', 'Admin\MarcasController');
 Route::resource('calibres', 'Admin\CalibresController');
+Route::resource('laudos', 'Perito\LaudosController');
+
+Route::get('laudos/solicitantes/cidade/{cidade_id}', 'Admin\OrgaosSolicitantesController@filtrar_por_cidade')->name('solicitantes.filtrar');
+
 
 Route::get('origens', 'Admin\OrigensController@index')->name('origens.index');
 Route::get('origens/create', 'Admin\OrigensController@create')->name('origens.create');
@@ -43,4 +48,3 @@ Route::get('diretores/{diretor}/edit', 'Admin\DiretoresController@edit')->name('
 Route::patch('diretores/{diretor}', 'Admin\DiretoresController@update')->name('diretores.update');
 Route::delete('diretores/{diretor}', 'Admin\DiretoresController@destroy')->name('diretores.destroy');
 
-Auth::routes();

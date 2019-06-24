@@ -28,8 +28,8 @@ class UserRequest extends FormRequest
             'nome' => 'required|min:6',
             'secao_id' => 'required|int',
             'cargo_id' => 'required|int',
-            'senha' => 'required|string|min:6',
-            'confirmacao_senha' => 'required|same:senha|min:6'
+            'password' => 'required|string|min:6',
+            'confirmacao_senha' => 'required|same:password|min:6'
         ];
     }
 

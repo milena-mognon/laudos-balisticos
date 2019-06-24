@@ -1,4 +1,4 @@
-@extends('admin.shared.table', ['card_name' => 'Países',
+@extends('shared.table', ['card_name' => 'Países',
 'model_name_plural' => 'Países',
 'model_name_singular' => 'País',
 'route_create_name' => 'origens.create',
@@ -12,10 +12,10 @@
                 <td> {{ $origem->fabricacao }}</td>
                 <td>
                     <a class="btn btn-primary" href="{{ route('origens.edit', $origem) }}">
-                        <i class="fa fa-pencil"></i> Editar</a>
+                        <i class="fa fa-fw fa-edit"></i> Editar</a>
 
                     <button value="{{ "/origens/"  . $origem->id }}" type="submit" class="btn btn-danger delete">
-                        <i class="fa fa-trash"></i>
+                        <i class="fa fa-fw fa-trash"></i>
                         Deletar
                     </button>
                 </td>

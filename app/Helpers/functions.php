@@ -12,3 +12,11 @@ function formatar_data_do_bd($value, $format = 'd/m/Y')
 {
     return Carbon\Carbon::parse($value)->format($format);
 }
+
+function formatar_data_por_extenso(){
+    setlocale(LC_TIME, 'portuguese');
+    date_default_timezone_set('America/Sao_Paulo');
+
+    $date = date('Y-m-d');
+    echo strftime("%A, %d de %B de %Y", strtotime($date));
+}

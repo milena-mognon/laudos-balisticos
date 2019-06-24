@@ -1,17 +1,20 @@
-@extends('layout.card')
-@section('size', "col-md-8")
-@section('card-name', 'País' )
-@section('card-content')
+@extends('new_layout.component')
+@section('page')
+
+    <div class="col-8">
+        <h4>Cadastrar País</h4>
+    </div>
+    <hr>
     {!! Form::open(['route' => 'origens.store']) !!}
     <div class="col-lg-12">
         <div class="form-group row">
-            @include('admin.shared.label', ['for_label' => 'nome', 'label' => 'Nome'])
-            @include('admin.shared.input', [ 'name' => 'nome'])
+            @include('shared.label', ['for_label' => 'nome', 'label' => 'Nome'])
+            @include('shared.input', [ 'name' => 'nome'])
         </div>
 
         <div class="form-group row">
-            @include('admin.shared.label', ['for_label' => 'fabricacao', 'label' => 'Fabricação'])
-            @include('admin.shared.input', ['name' => 'fabricacao'])
+            @include('shared.label', ['for_label' => 'fabricacao', 'label' => 'Fabricação'])
+            @include('shared.input', ['name' => 'fabricacao'])
         </div>
 
         <div class="col-lg-10 float-right">

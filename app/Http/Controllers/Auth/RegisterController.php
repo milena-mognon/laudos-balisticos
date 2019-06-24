@@ -31,7 +31,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('auth');
     }
 
     /**
@@ -41,9 +41,9 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        $cargos = Cargo::all();
-        $secoes = Secao::all();
-        return view('admin/users/create', ['cargos' => $cargos, 'secoes' => $secoes]);
+        $cargos = Cargo::orderBy('nome')->get();
+        $secoes = Secao::orderBy('nome')->get();
+        return view('admin/users/create', compact('cargos', 'secoes'));
     }
 
     /**
@@ -73,7 +73,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'secao_id' => $data['secao_id'],
             'cargo_id' => $data['cargo_id'],
-            'senha' => Hash::make($data['senha']),
+            'password' => Hash::make($data['password']),
         ]);
     }
 }

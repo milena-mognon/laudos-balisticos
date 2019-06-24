@@ -16,4 +16,8 @@ class Diretor extends Model
     public $timestamps = false;
 
     protected $dates = ['deleted_at'];
+
+    public function laudos(){
+        return $this->hasMany(Laudo::class);
+    }
 }

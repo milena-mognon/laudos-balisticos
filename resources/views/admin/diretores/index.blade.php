@@ -1,4 +1,4 @@
-@extends('admin.shared.table', ['card_name' => 'Diretores',
+@extends('shared.table', ['card_name' => 'Diretores',
 'model_name_plural' => 'Diretores',
 'model_name_singular' => 'Diretor',
 'route_create_name' => 'diretores.create',
@@ -13,10 +13,10 @@
                 <td>{{ formatar_data_do_bd($diretor->fim_direcao) }}</td>
                 <td>
                     <a class="btn btn-primary" href="{{ route('diretores.edit', ['diretor' => $diretor]) }}">
-                        <i class="fa fa-pencil"></i> Editar</a>
+                        <i class="fa fa-fw fa-edit"></i> Editar</a>
 
                     <button value="{{ "/diretores/"  . $diretor->id }}" type="submit" class="btn btn-danger delete">
-                        <i class="fa fa-trash"></i>
+                        <i class="fa fa-fw fa-trash"></i>
                         Deletar
                     </button>
 

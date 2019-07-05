@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{ URL::asset('css/home.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('jquery-ui-1.12.1.custom/jquery-ui.min.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('css/layout.css')}}">
-    {{--<link rel="stylesheet" href="{{ URL::asset('css/cropper.css')}}">--}}
+    <link rel="stylesheet" href="{{ URL::asset('css/cropper.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('css/sweetalert2.min.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('css/sb-admin.css')}}">
 
@@ -30,9 +30,10 @@
 <body>
     @includeWhen($admin ?? false, 'new_layout.menu')
 <div id="content-wrapper">
-    <div class="container-fluid">
-        @include('flash-messege')
-        @yield('content')
+    <div class="container-fluid" >
+            @include('flash-messege')
+            @yield('content')
+
     </div>
     <!-- Sticky Footer -->
     <footer class="sticky-footer">

@@ -14,7 +14,7 @@
         <div class="form-group row">
             @include('shared.label', ['for_label' => 'categoria', 'label' => 'Categoria'])
             @include('shared.select_with_array',
-                ['name' => 'cidade_id', 'dados' => ['Armas', 'Munições'], 'value' => ""])
+                ['name' => 'categoria', 'dados' => ['Armas', 'Munições'], 'value' => ""])
         </div>
 
         <div class="col-lg-10 float-right">

@@ -3,9 +3,9 @@
     name="{{ $name }}" id="{{ $id ?? $name}}">
         @foreach($dados as $dado)
             @if($dado == old($name) || $dado == $value)
-                <option value="{{$dado}}" selected>{{$dado}}</option>
+                <option value="{{mb_strtolower($dado)}}" selected>{{$dado}}</option>
             @else
-                <option value="{{$dado}}">{{$dado}}</option>
+                <option value="{{mb_strtolower($dado)}}">{{$dado}}</option>
             @endif
         @endforeach
     </select>

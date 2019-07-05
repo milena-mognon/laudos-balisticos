@@ -2,7 +2,15 @@
 
 namespace App\Providers;
 
+use App\Models\Calibre;
+use App\Models\Diretor;
+use App\Models\Laudo;
+use App\Models\Marca;
+use App\Models\OrgaoSolicitante;
 use App\Models\Origem;
+use App\Models\Revolver;
+use App\Models\Secao;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -29,6 +37,15 @@ class RouteServiceProvider extends ServiceProvider
         parent::boot();
 
         Route::model('origem', Origem::class);
+        Route::model('marca', Marca::class);
+        Route::model('calibre', Calibre::class);
+        Route::model('secao', Secao::class);
+        Route::model('laudo', Laudo::class);
+        Route::model('revolver', Revolver::class);
+        Route::model('diretor', Diretor::class);
+        Route::model('user', User::class);
+        Route::model('solicitante', OrgaoSolicitante::class);
+
     }
 
     /**

@@ -34,7 +34,6 @@ class LaudosController extends Controller
         $secoes = Secao::orderBy('nome')->get();
         $cidades = Cidade::orderBy('nome')->get();
         $diretores = Diretor::orderBy('nome')->get();
-        $solicitantes = OrgaoSolicitante::orderBy('nome')->get();
 
         return view('perito.laudo.create',
             compact('secoes', 'cidades', 'diretores'));
@@ -45,7 +44,12 @@ class LaudosController extends Controller
      */
     public function store(LaudoRequest $request)
     {
-        //
+        $data_designacao = formatar_data($request->input('data_designacao'));
+        $data_solicitacao = formatar_data($request->input('data_solicitacao'));
+        $laudo = $request->except(['data_designacao', 'data_solicitacao']);
+        $laudo_info = array_merge($laudo, ['data_solicitacao' => $data_solicitacao, 'data_designacao' => $data_designacao]);
+        $saved_laudo = Laudo::create($laudo_info);
+        return redirect()->route('laudos.materiais', ['laudo_id' => $saved_laudo->id]);
     }
 
     /**
@@ -91,5 +95,10 @@ class LaudosController extends Controller
     public function destroy($laudo)
     {
         //
+    }
+
+    public function materiais($laudo_id)
+    {
+        return view('perito/materiais', compact('laudo_id'));
     }
 }

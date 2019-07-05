@@ -13,7 +13,7 @@
                 @auth
                     <a class="btn-get-started" href="{{ url('/dashboard') }}">Home</a>
                 @else
-                    {{--<a class="btn-get-started" href="{{ route('login') }}">Login</a>--}}
+                    <a class="btn-get-started" href="{{ route('login') }}">Login</a>
                 @endauth
                 <a href="#" class="btn-solicita">Solicitar Acesso</a>
 

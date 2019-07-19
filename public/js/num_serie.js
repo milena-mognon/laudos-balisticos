@@ -5,13 +5,13 @@ $(function () {
             case 'legível':
             case 'revelado':
             case 'regravado':
-                $("#serie").prop('disabled', false); //mostrar o elemento
+                $("#num_serie").prop('disabled', false); //mostrar o elemento
                 break;
             case 'ilegível':
             case 'suprimido intencionalmente':
             case 'não aparente':
             case 'adulterado':
-                $("#serie").prop('disabled', true);
+                $("#num_serie").prop('disabled', true);
                 break;
         }
     });

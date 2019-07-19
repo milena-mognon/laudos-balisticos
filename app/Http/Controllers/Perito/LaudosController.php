@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Auth;
 
 class LaudosController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -49,7 +53,8 @@ class LaudosController extends Controller
         $laudo = $request->except(['data_designacao', 'data_solicitacao']);
         $laudo_info = array_merge($laudo, ['data_solicitacao' => $data_solicitacao, 'data_designacao' => $data_designacao]);
         $saved_laudo = Laudo::create($laudo_info);
-        return redirect()->route('laudos.materiais', ['laudo_id' => $saved_laudo->id]);
+        $laudo_id = $saved_laudo->id;
+        return redirect()->route('laudos.materiais', compact('laudo_id'));
     }
 
     /**
@@ -60,7 +65,22 @@ class LaudosController extends Controller
      */
     public function show(Laudo $laudo)
     {
-        //
+        $rep = Laudo::find($laudo->id);
+        $cidades = Cidade::orderBy('nome')->get();
+        $secoes = Secao::orderBy('nome')->get();
+        $diretores = Diretor::orderBy('nome')->get();
+        $solicitantes = OrgaoSolicitante::orderBy('nome')->get();
+//        $armas = Arma::findAll($id);
+//        $municoes = Municao::findAll($id);
+//        $componentes = Componente::findAll($id);
+
+//        $perito = User::find($rep->perito_id)->first();
+//        $diretor = Funcionario::find("Diretor", $rep->diretor_id)->first();
+        return view('perito.laudo.show', compact('rep', 'cidades', 'solicitantes',
+            'diretores', 'secoes'));
+//        return view('perito.laudo.show', ['rep' => $rep, 'armas' => $armas, 'perito' => $perito,
+//            'diretor' => $diretor, 'municoes' => $municoes, 'componentes' => $componentes, 'cidades' => $cidades,'diretores' => $diretores,
+//            'delegacias' => $delegacias, 'secoes' => $secoes]);
     }
 
     /**

@@ -32,7 +32,7 @@
                 @include('perito.attributes.capacidade_tambor', ['acao' => 'cadastrar'])
             </div>
             <div class="col-lg-3">
-                @include('perito.attributes.percutor', ['acao' => 'cadastrar'])
+                @include('perito.attributes.sistema_percussao', ['acao' => 'cadastrar'])
             </div>
             <div class="col-lg-3">
                 @include('perito.attributes.tipo_acabamento', ['acao' => 'cadastrar'])

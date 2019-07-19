@@ -24,9 +24,8 @@ class CreateRevolveresTable extends Migration
             $table->foreign('origem_id')->references('id')->on('origens');
             $table->integer('laudo_id')->unsigned();
             $table->foreign('laudo_id')->references('id')->on('laudos');
-            $table->string('calibre_real');
             $table->string('tipo_serie');
-            $table->string('num_serie');
+            $table->string('num_serie')->nullable();
             $table->string('tambor_rebate');
             $table->string('capacidade_tambor');
             $table->string('sistema_percussao');
@@ -39,7 +38,7 @@ class CreateRevolveresTable extends Migration
             $table->string('sentido_raias');
             $table->string('num_lacre');
             $table->string('cabo');
-            $table->string('ref_image');
+            $table->string('ref_image')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

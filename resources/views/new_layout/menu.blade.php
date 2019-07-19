@@ -44,4 +44,17 @@
                 <i class="fa fa-fw fa-chart-bar"></i>
                 <span>Relátórios</span></a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('logout') }}"
+               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                <i class="fa fa-fw fa-sign-out-alt"></i>
+                <span>{{ __('Logout') }}</span>
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+            </form>
+        </li>
     </ul>

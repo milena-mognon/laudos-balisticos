@@ -1,5 +1,7 @@
     <div class="col-lg-{{ $size ?? "8" }}">
+        @if(!empty($label))
         <label for="{{ $name }}" class="col-form-label">{{ $label ?? ''}}</label>
+        @endif
 
         <select class="form-control {{ $errors->has($name) ? ' is-invalid' : '' }}"
             name="{{ $name }}" id="{{ $id ?? $name }}">

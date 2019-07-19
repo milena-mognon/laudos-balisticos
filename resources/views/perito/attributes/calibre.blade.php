@@ -3,7 +3,7 @@
 	@if($acao == 'cadastrar')
 	<select class="form-control" name="calibre_id" id="calibre">
 				@foreach ($calibres as $calibre)
-						<option value="{{ $calibre->id }}">{{ $calibre->calibre }}
+						<option value="{{ $calibre->id }}">{{ $calibre->nome }}
 						</option>
 				@endforeach
 				<option value="outroCalibre">Outro(cadastrar)</option>
@@ -15,7 +15,7 @@
 				<option value="{{ $calibre_id }}">{{ $calibre }} </option>
 				@foreach ($calibres as $calibre)
 						@if($calibre->id<>$calibre_id)
-							<option value="{{ $calibre->id }}">{{ $calibre->calibre }}
+							<option value="{{ $calibre->id }}">{{ $calibre->nome }}
 							</option>
 						@endif
 				@endforeach

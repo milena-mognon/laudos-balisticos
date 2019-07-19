@@ -11,6 +11,10 @@ use App\Http\Controllers\Controller;
 
 class RevolveresController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -28,10 +32,10 @@ class RevolveresController extends Controller
      */
     public function create($laudo_id)
     {
-        $marcas = Marca::where('categoria', 'Armas')->get();
+        $laudo_id = $laudo_id->id;
+        $marcas = Marca::where('categoria', 'Arma')->get();
         $origens = Origem::orderBy('nome')->get();
         $calibres = Calibre::where('tipo_arma', 'revolver')->get();
-//        dd($marcas);
         return view('perito.revolver.create',
             compact('laudo_id', 'marcas', 'origens', 'calibres'));
     }

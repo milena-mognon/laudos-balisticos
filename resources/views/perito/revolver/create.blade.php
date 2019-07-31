@@ -4,7 +4,7 @@
         <h4>Cadastro de Revólver</h4>
     </div>
     <hr>
-    {{ Form::open(['route' => 'revolveres.store']) }}
+    {{ Form::open(['route' => 'armas.store']) }}
     <input type="hidden" name="laudo_id" id="laudo_id" value="{{ $laudo_id }}">
     <input type="hidden" name="tipo_arma" id="tipo_arma" value="Revólver">
 

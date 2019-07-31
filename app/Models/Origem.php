@@ -16,4 +16,9 @@ class Origem extends Model
     public $timestamps = false;
 
     protected $dates = ['deleted_at'];
+
+    public function arma()
+    {
+        return $this->belongsTo(Arma::class);
+    }
 }

@@ -15,10 +15,10 @@
 
     <div class="form-group row">
         @include('shared.label', ['for_label' => 'data_solicitacao', 'label' => 'Data de Solicitação'])
-        @include('shared.input_calendar', ['name' => 'data_solicitacao', 'size' => '3'])
+        @include('shared.input_calendar', ['name' => 'data_solicitacao', 'size' => '3', 'value' => ''])
 
         @include('shared.label', ['for_label' => 'data_designacao', 'label' => 'Data de Designação'])
-        @include('shared.input_calendar', ['name' => 'data_designacao', 'size' => '3'])
+        @include('shared.input_calendar', ['name' => 'data_designacao', 'size' => '3', 'value' => ''])
     </div>
 
     <div class="form-group row">

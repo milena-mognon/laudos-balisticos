@@ -14,4 +14,9 @@ class Marca extends Model
     public $timestamps = false;
 
     protected $dates = ['deleted_at'];
+
+    public function arma()
+    {
+        return $this->hasMany(Arma::class);
+    }
 }

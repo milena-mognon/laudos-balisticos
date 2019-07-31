@@ -36,4 +36,9 @@ class Laudo extends Model
     {
         return $this->belongsTo(OrgaoSolicitante::class);
     }
+
+    public function armas()
+    {
+        return $this->hasMany(Arma::class);
+    }
 }

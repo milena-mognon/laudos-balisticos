@@ -6,10 +6,10 @@
     <hr>
     <h5>Armas de fogo</h5>
     <div class="col-lg-4">
-        @include('shared.block_button', ['col_name' => 'tipo_arma', 'value' => 'Revólver', 'route' => 'revolveres.create', 'laudo_id' => $laudo_id])
-        @include('shared.block_button', ['col_name' => 'tipo_arma', 'value' => 'Garrucha', 'route' => 'revolveres.create'])
-        @include('shared.block_button', ['col_name' => 'tipo_arma', 'value' => 'Pistola', 'route' => 'revolveres.create'])
-        @include('shared.block_button', ['col_name' => 'tipo_arma', 'value' => 'Espingarda', 'route' => 'revolveres.create'])
+        @include('shared.block_button', ['col_name' => 'tipo_arma', 'value' => 'Revólver', 'route' => 'armas.create', 'laudo_id' => $laudo_id])
+        @include('shared.block_button', ['col_name' => 'tipo_arma', 'value' => 'Garrucha', 'route' => 'armas.create'])
+        @include('shared.block_button', ['col_name' => 'tipo_arma', 'value' => 'Pistola', 'route' => 'armas.create'])
+        @include('shared.block_button', ['col_name' => 'tipo_arma', 'value' => 'Espingarda', 'route' => 'armas.create'])
 
 
 

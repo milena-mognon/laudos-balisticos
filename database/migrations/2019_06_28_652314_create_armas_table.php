@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRevolveresTable extends Migration
+class CreateArmasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateRevolveresTable extends Migration
      */
     public function up()
     {
-        Schema::create('revolveres', function (Blueprint $table) {
+        Schema::create('armas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('tipo_arma');
+            $table->string('tipo_arma', 30);
             $table->integer('marca_id')->unsigned();
             $table->foreign('marca_id')->references('id')->on('marcas');
             $table->integer('calibre_id')->unsigned();
@@ -24,21 +24,22 @@ class CreateRevolveresTable extends Migration
             $table->foreign('origem_id')->references('id')->on('origens');
             $table->integer('laudo_id')->unsigned();
             $table->foreign('laudo_id')->references('id')->on('laudos');
-            $table->string('tipo_serie');
-            $table->string('num_serie')->nullable();
-            $table->string('tambor_rebate');
-            $table->string('capacidade_tambor');
-            $table->string('sistema_percussao');
-            $table->string('tipo_acabamento');
-            $table->string('estado_geral');
-            $table->string('comprimento_total');
-            $table->string('comprimento_cano');
-            $table->string('altura');
-            $table->string('quantidade_raias');
-            $table->string('sentido_raias');
-            $table->string('num_lacre');
-            $table->string('cabo');
-            $table->string('ref_image')->nullable();
+            $table->string('tipo_serie', 30);
+            $table->string('num_serie', 30)->nullable();
+            $table->string('tambor_rebate', 30);
+            $table->integer('capacidade_tambor');
+            $table->string('sistema_percussao', 30);
+            $table->string('tipo_acabamento', 30);
+            $table->string('estado_geral', 30);
+            $table->string('comprimento_total', 10);
+            $table->string('comprimento_cano', 10);
+            $table->string('altura', 10);
+            $table->integer('quantidade_raias');
+            $table->string('sentido_raias', 30);
+            $table->string('num_lacre', 15);
+            $table->string('cabo', 30);
+            $table->string('funcionamento', 15);
+            $table->string('ref_image', 30)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -51,6 +52,6 @@ class CreateRevolveresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('revolveres');
+        Schema::dropIfExists('armas');
     }
 }

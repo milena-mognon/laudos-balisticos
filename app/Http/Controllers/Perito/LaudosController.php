@@ -8,6 +8,7 @@ use App\Models\Diretor;
 use App\Models\Laudo;
 use App\Models\OrgaoSolicitante;
 use App\Models\Secao;
+use App\Models\Gerador\Gerar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -65,22 +66,17 @@ class LaudosController extends Controller
      */
     public function show(Laudo $laudo)
     {
-        $rep = Laudo::find($laudo->id);
+        $rep = $laudo;
         $cidades = Cidade::orderBy('nome')->get();
         $secoes = Secao::orderBy('nome')->get();
         $diretores = Diretor::orderBy('nome')->get();
         $solicitantes = OrgaoSolicitante::orderBy('nome')->get();
-//        $armas = Arma::findAll($id);
+        $armas = $laudo->armas;
+//        dd($laudo->armas[0]->marca->nome);
 //        $municoes = Municao::findAll($id);
 //        $componentes = Componente::findAll($id);
-
-//        $perito = User::find($rep->perito_id)->first();
-//        $diretor = Funcionario::find("Diretor", $rep->diretor_id)->first();
         return view('perito.laudo.show', compact('rep', 'cidades', 'solicitantes',
-            'diretores', 'secoes'));
-//        return view('perito.laudo.show', ['rep' => $rep, 'armas' => $armas, 'perito' => $perito,
-//            'diretor' => $diretor, 'municoes' => $municoes, 'componentes' => $componentes, 'cidades' => $cidades,'diretores' => $diretores,
-//            'delegacias' => $delegacias, 'secoes' => $secoes]);
+            'diretores', 'secoes', 'armas'));
     }
 
     /**
@@ -120,5 +116,36 @@ class LaudosController extends Controller
     public function materiais($laudo_id)
     {
         return view('perito/materiais', compact('laudo_id'));
+    }
+
+    public function generate(Laudo $laudo)
+    {
+//        dd($laudo->armas->isEmpty());
+
+//        $rep = $laudo;
+//        $rep = Laudo::findLaudo($id); // busca o laudo e retorna os dados no formato desejado
+//        $perito = User::find($rep->perito_id); // busca o nome do perito
+//        $diretor = Funcionario::find("Diretor", $rep->diretor_id)->first(); // busca o nome do diretor
+//        $armas = Arma::findAll($id); // encontra todas as armas referentes a um laudo
+//        $municoes = Municao::findAll($id);
+//        $componentes = Componente::findAll($id);
+        if($laudo->armas->isEmpty()){
+            dd('sff');
+            return redirect()->route('laudos.show', compact('laudo'))
+                ->with('warning', 'É preciso ter ao menos 1 (um) material cadastrado para gerar o laudo!');
+        } else {
+//            $data_extenso = Laudo::data($rep->data_designacao); // envia a data do banco (2018-10-20) e retorna por extenso
+            $phpWord = new Gerar();
+            $phpWord = $phpWord->create($laudo);
+
+            return $phpWord;
+        }
+//
+//
+//        $data_extenso = Laudo::data($rep->data_designacao); // envia a data do banco (2018-10-20) e retorna por extenso
+//        $phpWord = new Gerar();
+//        $phpWord = $phpWord->create($id, $rep, $perito, $diretor, $data_extenso, $armas, $municoes, $componentes);
+//
+//        return $phpWord;
     }
 }

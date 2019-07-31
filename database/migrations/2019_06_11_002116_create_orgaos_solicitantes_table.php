@@ -15,7 +15,7 @@ class CreateOrgaosSolicitantesTable extends Migration
     {
         Schema::create('orgaos_solicitantes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome');
+            $table->string('nome', 100);
             $table->integer('cidade_id')->unsigned();
             $table->foreign('cidade_id')->references('id')->on('cidades');
             $table->softDeletes();

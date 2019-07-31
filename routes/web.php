@@ -55,12 +55,13 @@ Route::delete('diretores/{diretor}', 'Admin\DiretoresController@destroy')->name(
 /* Peritos routes */
 Route::resource('laudos', 'Perito\LaudosController');
 
-Route::get('laudos/revolveres', 'Perito\RevolveresController@index')->name('revolveres.index');
-Route::get('laudos/{laudo}/revolveres/create', 'Perito\RevolveresController@create')->name('revolveres.create');
-Route::post('revolveres', 'Perito\RevolveresController@store')->name('revolveres.store');
-Route::get('laudos/revolveres/{revolver}', 'Perito\RevolveresController@show')->name('revolveres.show');
-Route::get('laudos/revolveres/{revolver}/edit', 'Perito\RevolveresController@edit')->name('revolveres.edit');
-Route::patch('laudos/revolveres/{revolver}', 'Perito\RevolveresController@update')->name('revolveres.update');
-Route::delete('laudos/revolveres/{revolver}', 'Perito\RevolveresController@destroy')->name('revolveres.destroy');
+Route::get('laudos/armas', 'Perito\ArmasController@index')->name('armas.index');
+Route::get('laudos/{laudo}/armas/create', 'Perito\ArmasController@create')->name('armas.create');
+Route::post('laudos/armas', 'Perito\ArmasController@store')->name('armas.store');
+Route::get('laudos/armas/{arma}', 'Perito\ArmasController@show')->name('armas.show');
+Route::get('laudos/armas/{arma}/edit', 'Perito\ArmasController@edit')->name('armas.edit');
+Route::patch('laudos/armas/{arma}', 'Perito\ArmasController@update')->name('armas.update');
+Route::delete('laudos/armas/{arma}', 'Perito\ArmasController@destroy')->name('armas.destroy');
 
 Route::get('laudos/materiais/{laudo_id}', 'Perito\LaudosController@materiais')->name('laudos.materiais');
+Route::get('laudos/gerar/{laudo}', 'Perito\LaudosController@generate')->name('laudos.generate');

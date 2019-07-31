@@ -8,7 +8,7 @@ use App\Models\Laudo;
 use App\Models\Marca;
 use App\Models\OrgaoSolicitante;
 use App\Models\Origem;
-use App\Models\Revolver;
+use App\Models\Arma;
 use App\Models\Secao;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -41,7 +41,7 @@ class RouteServiceProvider extends ServiceProvider
         Route::model('calibre', Calibre::class);
         Route::model('secao', Secao::class);
         Route::model('laudo', Laudo::class);
-        Route::model('revolver', Revolver::class);
+        Route::model('revolver', Arma::class);
         Route::model('diretor', Diretor::class);
         Route::model('user', User::class);
         Route::model('solicitante', OrgaoSolicitante::class);

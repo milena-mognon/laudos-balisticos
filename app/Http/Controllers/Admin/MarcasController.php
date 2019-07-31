@@ -21,7 +21,7 @@ class MarcasController extends Controller
     public function index()
     {
         $marcas = Marca::all();
-        return view('admin/marcas/index',
+        return view('admin.marcas.index',
             compact('marcas'));
     }
 
@@ -32,7 +32,7 @@ class MarcasController extends Controller
      */
     public function create()
     {
-        return view('admin/marcas/create');
+        return view('admin.marcas.create');
     }
 
     /**
@@ -57,7 +57,7 @@ class MarcasController extends Controller
      */
     public function edit(Marca $marca)
     {
-        return view('admin/marcas/edit', compact('marca'));
+        return view('admin.marcas.edit', compact('marca'));
 
     }
 

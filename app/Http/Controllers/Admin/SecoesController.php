@@ -21,7 +21,7 @@ class SecoesController extends Controller
     public function index()
     {
         $secoes = Secao::all();
-        return view('admin/secoes/index',
+        return view('admin.secoes.index',
             compact('secoes'));
     }
 
@@ -57,7 +57,7 @@ class SecoesController extends Controller
      */
     public function edit(Secao $secao)
     {
-        return view('admin/secoes/edit',
+        return view('admin.secoes.edit',
             compact('secao'));
     }
 

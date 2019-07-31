@@ -21,7 +21,7 @@ class CalibresController extends Controller
     public function index()
     {
         $calibres = Calibre::all();
-        return view('admin/calibres/index',
+        return view('admin.calibres.index',
             compact('calibres'));
     }
 
@@ -32,7 +32,7 @@ class CalibresController extends Controller
      */
     public function create()
     {
-        return view('admin/calibres/create');
+        return view('admin.calibres.create');
     }
 
     /**
@@ -56,7 +56,7 @@ class CalibresController extends Controller
      */
     public function edit(Calibre $calibre)
     {
-        return view('admin/calibres/edit', compact('calibre'));
+        return view('admin.calibres.edit', compact('calibre'));
     }
 
     /**

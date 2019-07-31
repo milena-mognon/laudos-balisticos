@@ -32,8 +32,8 @@ class OrgaosSolicitantesController extends Controller
      */
     public function create()
     {
-        $cidades = Cidade::orderBy('nome')->get();
-        return view('admin/orgaos-solicitantes/create',
+        $cidades = Cidade::all();
+        return view('admin.orgaos-solicitantes.create',
             compact('cidades'));
     }
 
@@ -59,8 +59,8 @@ class OrgaosSolicitantesController extends Controller
      */
     public function edit(OrgaoSolicitante $solicitante)
     {
-        $cidades = Cidade::orderBy('nome')->get();
-        return view('admin/orgaos-solicitantes/edit',
+        $cidades = Cidade::all();
+        return view('admin.orgaos-solicitantes.edit',
             compact('solicitante', 'cidades'));
     }
 

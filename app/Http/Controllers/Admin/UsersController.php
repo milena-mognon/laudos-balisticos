@@ -22,7 +22,7 @@ class UsersController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('admin/users/index', compact('users'));
+        return view('admin.users.index', compact('users'));
     }
 
     /**
@@ -35,7 +35,7 @@ class UsersController extends Controller
     {
         $secoes = Secao::orderBy('nome')->get();
         $cargos = Cargo::orderBy('nome')->get();
-        return view('admin/users/edit',
+        return view('admin.users.edit',
             compact('user', 'secoes', 'cargos'));
     }
 
@@ -48,12 +48,6 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $request->validate([
-            'email' => 'required|string|email|max:255|unique:users',
-            'nome' => 'required|min:6',
-            'secao_id' => 'required|int',
-            'cargo_id' => 'required|int'
-        ]);
         $user_updates = $request->all();
         User::find($user->id)->fill($user_updates)->save();
 

@@ -114,7 +114,7 @@ class LaudosController extends Controller
 
     public function materiais($laudo_id)
     {
-        return view('perito/materiais', compact('laudo_id'));
+        return view('perito.materiais', compact('laudo_id'));
     }
 
     public function generate(Laudo $laudo)

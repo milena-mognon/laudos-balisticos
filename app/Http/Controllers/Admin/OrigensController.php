@@ -30,7 +30,7 @@ class OrigensController extends Controller
      */
     public function create()
     {
-        return view('admin/origens/create');
+        return view('admin.origens.create');
     }
 
     /**
@@ -55,7 +55,7 @@ class OrigensController extends Controller
      */
     public function edit(Origem $origem)
     {
-        return view('admin/origens/edit', compact('origem'));
+        return view('admin.origens.edit', compact('origem'));
     }
 
     /**

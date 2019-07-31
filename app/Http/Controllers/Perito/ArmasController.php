@@ -26,7 +26,7 @@ class ArmasController extends Controller
         $marcas = Marca::categoria('Arma')->get();
         $origens = Origem::all();
         $calibres = Calibre::arma('revolver')->get();
-        return view('perito.revolver.create2',
+        return view('perito.revolver.create',
             compact('laudo_id', 'marcas', 'origens', 'calibres'));
     }
 
@@ -54,7 +54,7 @@ class ArmasController extends Controller
         $marcas = Marca::categoria('Arma')->get();
         $origens = Origem::all();
         $calibres = Calibre::arma('revolver')->get();
-        return view('perito/revolver/edit',
+        return view('perito.revolver.edit',
             compact('arma', 'laudo_id', 'marcas', 'origens', 'calibres'));
 
     }

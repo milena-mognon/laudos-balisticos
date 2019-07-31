@@ -21,7 +21,7 @@ class DiretoresController extends Controller
     public function index()
     {
         $diretores = Diretor::all();
-        return view('admin/diretores/index', compact('diretores'));
+        return view('admin.diretores.index', compact('diretores'));
     }
 
     /**
@@ -31,7 +31,7 @@ class DiretoresController extends Controller
      */
     public function create()
     {
-        return view('admin/diretores/create');
+        return view('admin.diretores.create');
     }
 
     /**
@@ -64,7 +64,7 @@ class DiretoresController extends Controller
     {
         $inicio_direcao = formatar_data_do_bd($diretor->inicio_direcao);
         $fim_direcao = formatar_data_do_bd($diretor->fim_direcao);
-        return view('admin/diretores/edit',
+        return view('admin.diretores.edit',
             compact('diretor', 'inicio_direcao', 'fim_direcao'));
 
     }

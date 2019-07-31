@@ -20,7 +20,7 @@ class OrgaosSolicitantesController extends Controller
      */
     public function index()
     {
-        $solicitantes = OrgaoSolicitante::orderBy('nome')->get();
+        $solicitantes = OrgaoSolicitante::all();
         return view('admin/orgaos-solicitantes/index',
             compact('solicitantes'));
     }
@@ -49,17 +49,6 @@ class OrgaosSolicitantesController extends Controller
 
         return redirect()->route('solicitantes.index')
             ->with('success', 'Órgão Solicitante cadastrado com sucesso!');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(OrgaoSolicitante $solicitante)
-    {
-        //
     }
 
     /**

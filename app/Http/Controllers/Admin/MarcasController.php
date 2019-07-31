@@ -20,7 +20,7 @@ class MarcasController extends Controller
      */
     public function index()
     {
-        $marcas = Marca::orderBy('nome')->get();
+        $marcas = Marca::all();
         return view('admin/marcas/index',
             compact('marcas'));
     }
@@ -47,17 +47,6 @@ class MarcasController extends Controller
 
         return redirect()->route('marcas.index')
             ->with('success', 'Marca cadastrada com sucesso!');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Marca  $marca
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Marca $marca)
-    {
-        //
     }
 
     /**

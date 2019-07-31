@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Scopes\NomeScope;
 use Illuminate\Database\Eloquent\Model;
 
 class Cidade extends Model
@@ -17,5 +18,15 @@ class Cidade extends Model
 
     public function solicitantes(){
         return $this->hasMany(OrgaoSolicitante::class);
+    }
+
+    /**
+     * Global scope utilizado para ordenar a busca pelo nome
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope(new NomeScope());
     }
 }

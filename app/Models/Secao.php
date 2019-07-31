@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Scopes\NomeScope;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -21,7 +22,13 @@ class Secao extends Model
         return $this->hasMany(User::class);
     }
 
-//    public function laudos(){
-//        return $this->hasMany(Laudo::class);
-//    }
+    /**
+     * Global scope utilizado para ordenar a busca pelo nome
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope(new NomeScope());
+    }
 }

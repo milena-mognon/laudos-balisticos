@@ -21,19 +21,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('nome')->get();
+        $users = User::all();
         return view('admin/users/index', compact('users'));
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function show(User $user)
-    {
-        //
     }
 
     /**

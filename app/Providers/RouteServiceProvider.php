@@ -36,15 +36,15 @@ class RouteServiceProvider extends ServiceProvider
 
         parent::boot();
 
-        Route::model('origem', Origem::class);
-        Route::model('marca', Marca::class);
-        Route::model('calibre', Calibre::class);
+//        Route::model('origem', Origem::class);
+//        Route::model('marca', Marca::class);
+//        Route::model('calibre', Calibre::class);
         Route::model('secao', Secao::class);
-        Route::model('laudo', Laudo::class);
-        Route::model('revolver', Arma::class);
-        Route::model('diretor', Diretor::class);
-        Route::model('user', User::class);
-        Route::model('solicitante', OrgaoSolicitante::class);
+//        Route::model('laudo', Laudo::class);
+//        Route::model('revolver', Arma::class);
+//        Route::model('diretor', Diretor::class);
+//        Route::model('user', User::class);
+//        Route::model('solicitante', OrgaoSolicitante::class);
 
     }
 

@@ -24,13 +24,13 @@ class CreateArmasTable extends Migration
             $table->foreign('origem_id')->references('id')->on('origens');
             $table->integer('laudo_id')->unsigned();
             $table->foreign('laudo_id')->references('id')->on('laudos');
-            $table->string('tipo_serie', 30);
-            $table->string('num_serie', 30)->nullable();
-            $table->string('tambor_rebate', 30);
+            $table->string('tipo_serie', 40);
+            $table->string('num_serie', 20)->nullable();
+            $table->string('tambor_rebate', 15);
             $table->integer('capacidade_tambor');
             $table->string('sistema_percussao', 30);
             $table->string('tipo_acabamento', 30);
-            $table->string('estado_geral', 30);
+            $table->string('estado_geral', 15);
             $table->string('comprimento_total', 10);
             $table->string('comprimento_cano', 10);
             $table->string('altura', 10);
@@ -39,7 +39,7 @@ class CreateArmasTable extends Migration
             $table->string('num_lacre', 15);
             $table->string('cabo', 30);
             $table->string('funcionamento', 15);
-            $table->string('ref_image', 30)->nullable();
+            $table->string('ref_image', 40)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

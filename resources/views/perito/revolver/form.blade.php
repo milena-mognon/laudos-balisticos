@@ -1,7 +1,7 @@
 @if ($acao == 'Cadastrar')
-    {!! Form::open(['route' => 'armas.store']) !!}
+    {!! Form::open(['route' => ['armas.store', $laudo_id ]]) !!}
 @elseif ($acao == 'Atualizar')
-    {!! Form::open(['route' => ['armas.update', $arma], 'method' => 'patch']) !!}
+    {!! Form::open(['route' => ['armas.update', $laudo_id, $arma], 'method' => 'patch']) !!}
 @else
     {!! Form::open() !!}
 @endif
@@ -30,4 +30,21 @@
         @include('perito.attributes2.funcionamento', ['funcionamento2' =>  $arma->funcionamento ?? old('funcionamento')])
         @include('perito.attributes2.lacre', ['num_lacre' =>  $arma->num_lacre ?? old('num_lacre')])
     </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <button type="submit" class="btn btn-outline-success btn-block"><strong>{{ $acao }}</strong></button>
+            {{ Form::close() }}
+        </div>
+        <input type="hidden" name="img" id="ref_imagem">
+        <div class="col-lg-4">
+            <button class="btn btn-outline-primary btn-block" type="button" id="addImagem"><strong>Adicionar
+                    Imagem</strong></button>
+        </div>
+        <div class="col-lg-4" id="div-button-imagem">
+            <button class="btn btn-outline-primary btn-block" type="button" id="visualizarImagem"><strong>Visualizar
+                    Imagem</strong></button>
+        </div>
+    </div>
 </div>
+
+@include('perito.modals.all_modals')

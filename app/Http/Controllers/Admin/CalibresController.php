@@ -20,7 +20,7 @@ class CalibresController extends Controller
      */
     public function index()
     {
-        $calibres = Calibre::orderBy('nome')->get();
+        $calibres = Calibre::all();
         return view('admin/calibres/index',
             compact('calibres'));
     }
@@ -46,17 +46,6 @@ class CalibresController extends Controller
         Calibre::create($request->all());
         return redirect()->route('calibres.index')
             ->with('success', 'Calibre cadastrado com sucesso.');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Calibre  $calibre
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Calibre $calibre)
-    {
-        //
     }
 
     /**

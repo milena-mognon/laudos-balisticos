@@ -17,26 +17,15 @@ class ArmasController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create($laudo_id)
     {
-        $laudo_id = $laudo_id->id;
-        $marcas = Marca::where('categoria', 'Arma')->get();
-        $origens = Origem::orderBy('nome')->get();
-        $calibres = Calibre::where('tipo_arma', 'revolver')->get();
+        $marcas = Marca::categoria('Arma')->get();
+        $origens = Origem::all();
+        $calibres = Calibre::arma('revolver')->get();
         return view('perito.revolver.create2',
             compact('laudo_id', 'marcas', 'origens', 'calibres'));
     }
@@ -55,28 +44,16 @@ class ArmasController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Arma $revolver
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Arma $arma)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Arma $revolver
      * @return \Illuminate\Http\Response
      */
-    public function edit(Arma $arma)
+    public function edit($laudo_id, Arma $arma)
     {
-        $marcas = Marca::where('categoria', 'Arma')->get();
-        $origens = Origem::orderBy('nome')->get();
-        $calibres = Calibre::where('tipo_arma', 'revolver')->get();
-        $laudo_id = $arma->laudo_id;
+        $marcas = Marca::categoria('Arma')->get();
+        $origens = Origem::all();
+        $calibres = Calibre::arma('revolver')->get();
         return view('perito/revolver/edit',
             compact('arma', 'laudo_id', 'marcas', 'origens', 'calibres'));
 
@@ -89,9 +66,11 @@ class ArmasController extends Controller
      * @param  \App\Models\Arma $revolver
      * @return \Illuminate\Http\Response
      */
-    public function update(ArmaRequest $request, Arma $arma)
+    public function update(ArmaRequest $request, $laudo_id, Arma $arma)
     {
-        //
+        $updated_arma = $request->all();
+        Arma::find($arma->id)->fill($updated_arma)->save();
+        return redirect()->route('laudos.show', ['id' => $laudo_id]);
     }
 
     /**

@@ -69,7 +69,7 @@
                             <td> {{ $arma->num_lacre }} </td>
 
                             <td>
-                                <a class="btn btn-primary" href="{{ route('armas.edit', $arma) }}"> <i
+                                <a class="btn btn-primary" href="{{ route('armas.edit', [$rep->id, $arma]) }}"> <i
                                             class="fa fa-pencil"></i> Editar</a>
                             </td>
                             <td>

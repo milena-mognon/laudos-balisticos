@@ -19,7 +19,7 @@ class OrigensController extends Controller
      */
     public function index()
     {
-        $origens = Origem::orderBy('nome')->get();
+        $origens = Origem::all();
         return view('admin/origens/index', compact('origens'));
     }
 
@@ -45,17 +45,6 @@ class OrigensController extends Controller
 
         return redirect()->route('origens.index')
             ->with('success', 'País cadastrado com sucesso!');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Origem  $origem
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Origem $origem)
-    {
-        //
     }
 
     /**

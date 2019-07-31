@@ -20,7 +20,7 @@ class SecoesController extends Controller
      */
     public function index()
     {
-        $secoes = Secao::orderBy('nome')->get();
+        $secoes = Secao::all();
         return view('admin/secoes/index',
             compact('secoes'));
     }
@@ -47,17 +47,6 @@ class SecoesController extends Controller
 
         return redirect()->route('secoes.index')
             ->with('success', 'Seção cadastrada com sucesso!');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Secao  $secao
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Secao $secao)
-    {
-        //
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Scopes\NomeScope;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -42,5 +43,15 @@ class User extends Authenticatable
 
     public function laudos(){
         return $this->hasMany(Laudo::class);
+    }
+
+    /**
+     * Global scope utilizado para ordenar a busca pelo nome
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope(new NomeScope());
     }
 }

@@ -20,7 +20,7 @@ class DiretoresController extends Controller
      */
     public function index()
     {
-        $diretores = Diretor::orderBy('nome')->get();
+        $diretores = Diretor::all();
         return view('admin/diretores/index', compact('diretores'));
     }
 
@@ -52,17 +52,6 @@ class DiretoresController extends Controller
 
         return redirect()->route('diretores.index')
             ->with('success', 'Diretor cadastrado com sucesso!');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Diretor  $diretor
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Diretor $diretor)
-    {
-        //
     }
 
     /**

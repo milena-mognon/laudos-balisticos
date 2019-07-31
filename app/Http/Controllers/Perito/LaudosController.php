@@ -36,9 +36,9 @@ class LaudosController extends Controller
      */
     public function create()
     {
-        $secoes = Secao::orderBy('nome')->get();
-        $cidades = Cidade::orderBy('nome')->get();
-        $diretores = Diretor::orderBy('nome')->get();
+        $secoes = Secao::all();
+        $cidades = Cidade::all();
+        $diretores = Diretor::all();
 
         return view('perito.laudo.create',
             compact('secoes', 'cidades', 'diretores'));
@@ -67,12 +67,11 @@ class LaudosController extends Controller
     public function show(Laudo $laudo)
     {
         $rep = $laudo;
-        $cidades = Cidade::orderBy('nome')->get();
-        $secoes = Secao::orderBy('nome')->get();
-        $diretores = Diretor::orderBy('nome')->get();
-        $solicitantes = OrgaoSolicitante::orderBy('nome')->get();
+        $cidades = Cidade::all();
+        $secoes = Secao::all();
+        $diretores = Diretor::all();
+        $solicitantes = OrgaoSolicitante::all();
         $armas = $laudo->armas;
-//        dd($laudo->armas[0]->marca->nome);
 //        $municoes = Municao::findAll($id);
 //        $componentes = Componente::findAll($id);
         return view('perito.laudo.show', compact('rep', 'cidades', 'solicitantes',
@@ -120,32 +119,14 @@ class LaudosController extends Controller
 
     public function generate(Laudo $laudo)
     {
-//        dd($laudo->armas->isEmpty());
-
-//        $rep = $laudo;
-//        $rep = Laudo::findLaudo($id); // busca o laudo e retorna os dados no formato desejado
-//        $perito = User::find($rep->perito_id); // busca o nome do perito
-//        $diretor = Funcionario::find("Diretor", $rep->diretor_id)->first(); // busca o nome do diretor
-//        $armas = Arma::findAll($id); // encontra todas as armas referentes a um laudo
-//        $municoes = Municao::findAll($id);
-//        $componentes = Componente::findAll($id);
         if($laudo->armas->isEmpty()){
-            dd('sff');
             return redirect()->route('laudos.show', compact('laudo'))
                 ->with('warning', 'É preciso ter ao menos 1 (um) material cadastrado para gerar o laudo!');
         } else {
-//            $data_extenso = Laudo::data($rep->data_designacao); // envia a data do banco (2018-10-20) e retorna por extenso
             $phpWord = new Gerar();
             $phpWord = $phpWord->create($laudo);
 
             return $phpWord;
         }
-//
-//
-//        $data_extenso = Laudo::data($rep->data_designacao); // envia a data do banco (2018-10-20) e retorna por extenso
-//        $phpWord = new Gerar();
-//        $phpWord = $phpWord->create($id, $rep, $perito, $diretor, $data_extenso, $armas, $municoes, $componentes);
-//
-//        return $phpWord;
     }
 }

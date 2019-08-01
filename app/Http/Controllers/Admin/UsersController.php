@@ -33,8 +33,8 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
-        $secoes = Secao::orderBy('nome')->get();
-        $cargos = Cargo::orderBy('nome')->get();
+        $secoes = Secao::all();
+        $cargos = Cargo::all();
         return view('admin.users.edit',
             compact('user', 'secoes', 'cargos'));
     }
@@ -58,12 +58,12 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $user
+     * @param  User $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy($user)
+    public function destroy(User $user)
     {
-        User::destroy($user);
+        User::destroy($user->id);
         return response()->json(['success'=>'done']);
     }
 }

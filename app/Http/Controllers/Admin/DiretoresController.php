@@ -62,10 +62,7 @@ class DiretoresController extends Controller
      */
     public function edit(Diretor $diretor)
     {
-        $inicio_direcao = formatar_data_do_bd($diretor->inicio_direcao);
-        $fim_direcao = formatar_data_do_bd($diretor->fim_direcao);
-        return view('admin.diretores.edit',
-            compact('diretor', 'inicio_direcao', 'fim_direcao'));
+        return view('admin.diretores.edit', compact('diretor'));
 
     }
 
@@ -92,12 +89,12 @@ class DiretoresController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $diretor
+     * @param  Diretor $diretor
      * @return \Illuminate\Http\Response
      */
-    public function destroy($diretor)
+    public function destroy(Diretor $diretor)
     {
-        Diretor::destroy($diretor);
+        Diretor::destroy($diretor->id);
         return response()->json(['success'=>'done']);
     }
 }

@@ -77,12 +77,12 @@ class OrigensController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $origem
+     * @param  Origem $origem
      * @return \Illuminate\Http\Response
      */
-    public function destroy($origem)
+    public function destroy(Origem $origem)
     {
-        Origem::destroy($origem);
+        Origem::destroy($origem->id);
         return response()->json(['success'=>'done']);
     }
 }

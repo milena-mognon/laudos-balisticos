@@ -43,6 +43,6 @@
 
     </div>
 
-@include('new_layout.scripts')
+@include('layout.scripts')
 </body>
 </html>

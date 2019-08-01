@@ -28,7 +28,7 @@
 </head>
 {{--<body class="bg-dark">--}}
 <body>
-    @includeWhen($admin ?? false, 'new_layout.menu')
+    @includeWhen($admin ?? false, 'layout')
 <div id="content-wrapper">
     <div class="container-fluid" >
             @include('flash-messege')
@@ -45,6 +45,6 @@
     </footer>
 
 </div>
-@include('new_layout.scripts')
+@include('layout.scripts')
 </body>
 </html>

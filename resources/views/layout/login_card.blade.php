@@ -1,4 +1,4 @@
-@extends('new_layout.app')
+@extends('layout.app')
 @section('content')
 <div class="container">
     <div class="card card-login mx-auto mt-5">

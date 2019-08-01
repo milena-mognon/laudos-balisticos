@@ -1,4 +1,4 @@
-@extends('new_layout.app', [$admin = true])
+@extends('layout.app', [$admin = true])
 @section('content')
     <div class="container" >
         <div class="row justify-content-center">

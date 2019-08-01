@@ -1,4 +1,4 @@
-@extends('new_layout.component')
+@extends('layout.component')
 @section('page')
     <div class="col-8">
         <h4>Informações Gerais do Laudo</h4>

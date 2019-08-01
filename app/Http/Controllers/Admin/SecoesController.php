@@ -80,12 +80,12 @@ class SecoesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param  Secao $secao
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Secao $secao)
     {
-        Secao::destroy($id);
+        Secao::destroy($secao->id);
         return response()->json(['success'=>'done']);
     }
 }

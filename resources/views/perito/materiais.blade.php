@@ -1,4 +1,4 @@
-@extends('new_layout.component')
+@extends('layout.component')
 @section('page')
     <div class="col-12">
         <h4>Selecione o Material</h4>

@@ -46,5 +46,4 @@
         </div>
     </div>
 </div>
-
 @include('perito.modals.all_modals')

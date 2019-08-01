@@ -80,12 +80,12 @@ class MarcasController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $marca
+     * @param  Marca $marca
      * @return \Illuminate\Http\Response
      */
-    public function destroy($marca)
+    public function destroy(Marca $marca)
     {
-        Marca::destroy($marca);
+        Marca::destroy($marca->id);
         return response()->json(['success'=>'done']);
     }
 }

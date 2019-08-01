@@ -1,5 +1,4 @@
-@extends('new_layout.component')
-{{--@section('card-name', $card_name )--}}
+@extends('layout.component')
 @section('page')
     <div class="col-lg-12">
         <div>
@@ -18,7 +17,7 @@
                 </tr>
                 </thead>
                 <tbody align="center">
-                    @yield('table-content')
+                @yield('table-content')
                 </tbody>
             </table>
         </div>

@@ -78,12 +78,12 @@ class CalibresController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $calibre
+     * @param  Calibre $calibre
      * @return \Illuminate\Http\Response
      */
-    public function destroy($calibre)
+    public function destroy(Calibre $calibre)
     {
-        Calibre::destroy($calibre);
+        Calibre::destroy($calibre->id);
         return response()->json(['success'=>'done']);
     }
 }

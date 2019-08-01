@@ -1,9 +1,9 @@
-    <div class="col-lg-{{ $size ?? "8" }}">
-        @if(!empty($label))
+<div class="col-lg-{{ $size ?? "8" }}">
+    @if(!empty($label))
         <label for="{{ $name }}" class="col-form-label">{{ $label ?? ''}}</label>
-        @endif
+    @endif
 
-        <select class="form-control {{ $errors->has($name) ? ' is-invalid' : '' }}"
+    <select class="form-control {{ $errors->has($name) ? ' is-invalid' : '' }}"
             name="{{ $name }}" id="{{ $id ?? $name }}">
         @foreach($dados as $dado)
             @if($dado->id == old($name) || $dado->id == $value)
@@ -14,9 +14,5 @@
             @includeWhen($option_create ?? false, 'perito.shared.option_other')
         @endforeach
     </select>
-    @if ($errors->has($name))
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $errors->first($name) }}</strong>
-        </span>
-    @endif
+    @include('shared.error_feedback', ['name' => $name])
 </div>

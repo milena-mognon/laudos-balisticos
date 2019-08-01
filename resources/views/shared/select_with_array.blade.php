@@ -9,9 +9,5 @@
             @endif
         @endforeach
     </select>
-    @if ($errors->has($name))
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $errors->first($name) }}</strong>
-        </span>
-    @endif
+    @include('shared.error_feedback', ['name' => $name])
 </div>

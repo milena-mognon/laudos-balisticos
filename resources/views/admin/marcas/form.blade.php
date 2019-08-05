@@ -7,7 +7,7 @@
 @endif
 
 @include('admin.attributes.nome', ['nome' => $marca->nome ?? old('nome')])
-@include('admin.attributes.nome', ['categoria2' => $marca->categoria ?? old('categoria')])
+@include('admin.attributes.categoria', ['categoria2' => $marca->categoria ?? old('categoria')])
 
 <div class="col-lg-10 float-right">
     <a class="btn btn-secondary" href="{{ route('marcas.index') }}">Voltar</a>

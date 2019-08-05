@@ -4,7 +4,7 @@
         <h4>Cadastrar Marca</h4>
     </div>
     <hr>
-    <div class="col-lg-10">
+    <div class="col-lg-10 m-auto">
         @include('admin.marcas.form', ['acao' => 'Cadastrar'])
     </div>
 @endsection

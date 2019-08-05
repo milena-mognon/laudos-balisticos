@@ -10,7 +10,7 @@
 {!! Html::script('js/sb-admin.js') !!}
 {!! Html::script('fontawesome-free/js/all.js') !!}
 {!! Html::script('js/cropper.js') !!}
-{!! Html::script('new_image_crop.jsjs') !!}
+{!! Html::script('new_image_crop.js') !!}
 {!! Html::script('js/num_serie.js') !!}
 {!! Html::script('js/mascara.js') !!}
 

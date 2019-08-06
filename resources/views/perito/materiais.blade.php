@@ -5,8 +5,9 @@
     </div>
     <hr>
     <h5>Armas de fogo</h5>
+    <input type="hidden" name="laudo_id" value="{{$laudo}}">
     <div class="col-lg-4">
-        @include('shared.block_button', ['col_name' => 'tipo_arma', 'value' => 'Revólver', 'route' => 'armas.create', 'laudo_id' => $laudo_id])
+        @include('shared.block_button', ['col_name' => 'tipo_arma', 'value' => 'Revólver', 'route' => 'armas.create', 'laudo' => $laudo])
         @include('shared.block_button', ['col_name' => 'tipo_arma', 'value' => 'Garrucha', 'route' => 'armas.create'])
         @include('shared.block_button', ['col_name' => 'tipo_arma', 'value' => 'Pistola', 'route' => 'armas.create'])
         @include('shared.block_button', ['col_name' => 'tipo_arma', 'value' => 'Espingarda', 'route' => 'armas.create'])

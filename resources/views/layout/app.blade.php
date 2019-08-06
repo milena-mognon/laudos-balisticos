@@ -28,11 +28,12 @@
 </head>
 {{--<body class="bg-dark">--}}
 <body>
-    @includeWhen($admin ?? false, 'layout.menu')
+@includeWhen($admin ?? false, 'layout.menu')
 <div id="content-wrapper">
-    <div class="container-fluid" >
-            @include('flash-messege')
-            @yield('content')
+    <div class="container-fluid">
+        {{ Breadcrumbs::render() }}
+        @include('flash-messege')
+        @yield('content')
 
     </div>
     <!-- Sticky Footer -->

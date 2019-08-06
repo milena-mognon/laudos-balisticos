@@ -11,7 +11,7 @@ class Revolver extends Model
 {
     public static function text($arma)
     {
-        dd($arma);
+//        dd($arma);
         $calibre = $arma->calibre->nome;
         $origem = mb_strtolower($arma->origem->fabricacao);
 //        dd($origem);

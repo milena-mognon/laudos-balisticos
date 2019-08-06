@@ -1,12 +1,12 @@
 @if ($acao == 'Cadastrar')
-    {!! Form::open(['route' => ['armas.store', $laudo_id ]]) !!}
+    {!! Form::open(['route' => ['armas.store', $laudo ]]) !!}
 @elseif ($acao == 'Atualizar')
-    {!! Form::open(['route' => ['armas.update', $laudo_id, $arma], 'method' => 'patch']) !!}
+    {!! Form::open(['route' => ['armas.update', $laudo, $arma], 'method' => 'patch']) !!}
 @else
     {!! Form::open() !!}
 @endif
 
-<input type="hidden" name="laudo_id" id="laudo_id" value="{{ $laudo_id }}">
+<input type="hidden" name="laudo_id" id="laudo_id" value="{{ $laudo->id }}">
 <input type="hidden" name="tipo_arma" id="tipo_arma" value="Revólver">
 
 <div class="col-lg-12" style="padding: 0 5% 0">

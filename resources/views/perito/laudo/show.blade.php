@@ -69,7 +69,7 @@
                             <td> {{ $arma->num_lacre }} </td>
 
                             <td>
-                                <a class="btn btn-primary" href="{{ route('armas.edit', [$rep->id, $arma]) }}"> <i
+                                <a class="btn btn-primary" href="{{ route('armas.edit', [$rep, $arma]) }}"> <i
                                             class="fa fa-pencil"></i> Editar</a>
                             </td>
                             <td>
@@ -133,13 +133,17 @@
             </table>
         </div>
 
-        <a class="btn btn-success" href="{{ route('laudos.materiais', $rep->id )}}">
+        <a class="btn btn-success" href="{{ route('laudos.materiais', $rep )}}">
             <i class="fas fa-plus" aria-hidden="true"></i>
             Adicionar Material
         </a>
-        <a class="btn btn-primary" href="{{ route('laudos.generate', $rep )}}">
+        <a class="btn btn-primary" href="{{ route('laudos.docx', $rep )}}">
             <i class="fas fa-file-download" aria-hidden="true"></i>
-            Gerar Laudo
+            Gerar Docx
         </a>
+        {{--<a class="btn btn-danger" href="{{ route('laudos.pdf', $rep )}}">--}}
+            {{--<i class="fas fa-file-pdf" aria-hidden="true"></i>--}}
+            {{--Gerar PDF--}}
+        {{--</a>--}}
     </div>
 @endsection

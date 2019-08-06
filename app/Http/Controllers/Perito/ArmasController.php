@@ -21,13 +21,13 @@ class ArmasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($laudo_id)
+    public function create($laudo)
     {
         $marcas = Marca::categoria('Arma')->get();
         $origens = Origem::all();
         $calibres = Calibre::arma('revolver')->get();
         return view('perito.revolver.create',
-            compact('laudo_id', 'marcas', 'origens', 'calibres'));
+            compact('laudo', 'marcas', 'origens', 'calibres'));
     }
 
     /**
@@ -46,16 +46,17 @@ class ArmasController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Arma $revolver
+     * @param  \App\Models\Laudo $laudo
+     * @param  \App\Models\Arma $arma
      * @return \Illuminate\Http\Response
      */
-    public function edit($laudo_id, Arma $arma)
+    public function edit($laudo, Arma $arma)
     {
         $marcas = Marca::categoria('Arma')->get();
         $origens = Origem::all();
         $calibres = Calibre::arma('revolver')->get();
         return view('perito.revolver.edit',
-            compact('arma', 'laudo_id', 'marcas', 'origens', 'calibres'));
+            compact('arma', 'laudo', 'marcas', 'origens', 'calibres'));
 
     }
 

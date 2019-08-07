@@ -66,7 +66,6 @@ class LaudosController extends Controller
      */
     public function show(Laudo $laudo)
     {
-        $rep = $laudo;
         $cidades = Cidade::all();
         $secoes = Secao::all();
         $diretores = Diretor::all();
@@ -74,7 +73,8 @@ class LaudosController extends Controller
         $armas = $laudo->armas;
 //        $municoes = Municao::findAll($id);
 //        $componentes = Componente::findAll($id);
-        return view('perito.laudo.show', compact('rep', 'cidades', 'solicitantes',
+        return view('perito.laudo.show',
+            compact('laudo', 'cidades', 'solicitantes',
             'diretores', 'secoes', 'armas'));
     }
 

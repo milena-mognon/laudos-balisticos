@@ -11,7 +11,7 @@
             <h1>Gerador de Laudos Balísticos</h1>
             <div class="actions">
                 @auth
-                    <a class="btn-get-started" href="{{ url('/dashboard') }}">Home</a>
+                    <a class="btn-get-started" href="{{ route('dashboard') }}">Home</a>
                 @else
                     <a class="btn-get-started" href="{{ route('login') }}">Login</a>
                 @endauth

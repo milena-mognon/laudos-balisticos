@@ -7,13 +7,13 @@
 @section('table-content')
     @if (count($secoes) > 0)
         @foreach ($secoes as $secao)
-            <tr value="{{ $secao->id }}" name="">
+            <tr>
                 <td> {{ $secao->nome }}</td>
                 <td>
-                    <a class="btn btn-primary" href="{{ route('secoes.edit', ['origen' => $secao]) }}">
+                    <a class="btn btn-primary" href="{{ route('secoes.edit', $secao) }}">
                         <i class="fa fa-fw fa-edit"></i> Editar</a>
 
-                    <button value="{{ "/secoes/"  . $secao->id }}" type="submit" class="btn btn-danger delete">
+                    <button value="{{ route('secoes.destroy', $secao) }}" class="btn btn-danger delete">
                         <i class="fa fa-fw fa-trash"></i>
                         Deletar
                     </button>

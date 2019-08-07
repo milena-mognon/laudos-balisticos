@@ -14,6 +14,7 @@
                 <span>Dashboard</span>
             </a>
         </li>
+        @if(Auth::user()->cargo->nome=='Administrador')
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-fw fa-folder"></i>
@@ -29,6 +30,7 @@
                 <a class="dropdown-item" href="{{ route('users.index') }}">Usuários</a>
             </div>
         </li>
+        @endif
         <li class="nav-item">
             <a class="nav-link" href="{{ route('laudos.create') }}">
                 <i class="fa fa-fw fa-file"></i>

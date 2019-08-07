@@ -18,8 +18,8 @@
                 <i class="far fa-edit"></i> Editar
             </a>
 
-            <button value="{{ $arma->id }}" type="submit" class="btn btn-danger deleteArma">
-                <i class="far fa-trash-alt"></i>
+            <button value="{{ route('armas.destroy', $arma) }}" type="submit"
+                    class="btn btn-danger delete"><i class="far fa-trash-alt"></i>
                 Deletar
             </button>
         </td>

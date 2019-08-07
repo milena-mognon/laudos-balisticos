@@ -7,14 +7,14 @@
 @section('table-content')
     @if (count($calibres) > 0)
         @foreach ($calibres as $calibre)
-            <tr value="{{ $calibre->id }}" name="">
+            <tr>
                 <td> {{ $calibre->nome }}</td>
                 <td> {{ $calibre->tipo_arma }}</td>
                 <td>
                     <a class="btn btn-primary" href="{{ route('calibres.edit', $calibre) }}">
                         <i class="fa fa-fw fa-edit"></i> Editar</a>
 
-                    <button value="{{ "/calibres/"  . $calibre->id }}" type="submit" class="btn btn-danger delete">
+                    <button value="{{ route('calibres.destroy', $calibre) }}" class="btn btn-danger delete">
                         <i class="fa fa-fw fa-trash"></i>
                         Deletar
                     </button>

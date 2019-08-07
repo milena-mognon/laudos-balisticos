@@ -7,15 +7,15 @@
 @section('table-content')
     @if (count($diretores) > 0)
         @foreach ($diretores as $diretor)
-            <tr value="{{ $diretor->id }}" name="">
+            <tr>
                 <td> {{ $diretor->nome }}</td>
                 <td>{{ formatar_data_do_bd($diretor->inicio_direcao) }}</td>
                 <td>{{ formatar_data_do_bd($diretor->fim_direcao) }}</td>
                 <td>
-                    <a class="btn btn-primary" href="{{ route('diretores.edit', ['diretor' => $diretor]) }}">
+                    <a class="btn btn-primary" href="{{ route('diretores.edit', $diretor) }}">
                         <i class="fa fa-fw fa-edit"></i> Editar</a>
 
-                    <button value="{{ "/diretores/"  . $diretor->id }}" type="submit" class="btn btn-danger delete">
+                    <button value="{{ route('diretores.destroy', $diretor) }}" class="btn btn-danger delete">
                         <i class="fa fa-fw fa-trash"></i>
                         Deletar
                     </button>

@@ -1,4 +1,4 @@
-@extends('layout.app', [$admin = true])
+@extends('layout.app')
 @section('content')
     @yield('page')
 @endsection

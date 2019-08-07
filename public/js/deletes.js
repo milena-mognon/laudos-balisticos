@@ -16,6 +16,7 @@ $(".delete").on('click', function () {
     var $tr = $(this).closest("tr");
 
     url_with_id = $(this).val();
+    console.log(url_with_id);
 
     Swal.fire({
         title: 'Tem certeza que deseja deletar?',

@@ -7,14 +7,14 @@
 @section('table-content')
     @if (count($solicitantes) > 0)
         @foreach ($solicitantes as $solicitante)
-            <tr value="{{ $solicitante->id }}" name="">
+            <tr>
                 <td> {{ $solicitante->nome }}</td>
                 <td> {{ $solicitante->cidade->nome }}</td>
                 <td>
-                    <a class="btn btn-primary" href="{{ route('solicitantes.edit', ['origen' => $solicitante]) }}">
+                    <a class="btn btn-primary" href="{{ route('solicitantes.edit', $solicitante) }}">
                         <i class="fa fa-fw fa-edit"></i> Editar</a>
 
-                    <button value="{{ "/solicitantes/"  . $solicitante->id }}" type="submit" class="btn btn-danger delete">
+                    <button value="{{ route('solicitantes.destroy', $solicitante) }}" class="btn btn-danger delete">
                         <i class="fa fa-fw fa-trash"></i>
                         Deletar
                     </button>

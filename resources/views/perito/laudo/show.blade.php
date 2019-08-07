@@ -49,7 +49,7 @@
                     <th>Quantidade</th>
                     <th>Nº de Série</th>
                     <th>Nº do Lacre</th>
-                    <th colspan="3">Ações</th>
+                    <th colspan="2">Ações</th>
                 </tr>
                 </thead>
                 <tbody align="center">

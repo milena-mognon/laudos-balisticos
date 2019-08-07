@@ -50,8 +50,8 @@ Route::prefix('laudos/{laudo}')->group(function () {
     Route::post('armas', 'Perito\ArmasController@store')->name('armas.store');
     Route::get('armas/{arma}/edit', 'Perito\ArmasController@edit')->name('armas.edit');
     Route::patch('armas/{arma}', 'Perito\ArmasController@update')->name('armas.update');
-    Route::delete('armas/{arma}', 'Perito\ArmasController@destroy')->name('armas.destroy');
 });
+Route::delete('armas/{arma}', 'Perito\ArmasController@destroy')->name('armas.destroy');
 
 Route::get('materiais/{laudo}', 'Perito\LaudosController@materiais')->name('laudos.materiais');
 Route::get('gerar_docx/{laudo}', 'Perito\LaudosController@generate_docx')->name('laudos.docx');

@@ -7,20 +7,19 @@
 @section('table-content')
     @if (count($users) > 0)
         @foreach ($users as $user)
-            <tr value="{{ $user->id }}" name="">
+            <tr>
                 <td> {{ $user->nome }}</td>
                 <td> {{ $user->email }}</td>
                 <td> {{ $user->cargo->nome }}</td>
                 <td> {{ $user->secao->nome }}</td>
                 <td>
-                    <a class="btn btn-primary" href="{{ route('users.edit', ['user' => $user]) }}">
+                    <a class="btn btn-primary" href="{{ route('users.edit', $user) }}">
                         <i class="fa fa-fw fa-edit"></i> Editar</a>
 
-                    <button value="{{ $user }}" type="submit" class="btn btn-danger deletePais">
+                    <button value="{{ route('users.destroy', $user)  }}" type="submit" class="btn btn-danger delete">
                         <i class="fa fa-fw fa-trash"></i>
                         Deletar
                     </button>
-
                 </td>
             </tr>
         @endforeach

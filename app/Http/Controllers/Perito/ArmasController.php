@@ -77,11 +77,12 @@ class ArmasController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Arma $revolver
+     * @param  int $arma
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Arma $arma)
+    public function destroy($arma)
     {
-        //
+        Arma::destroy($arma);
+        return response()->json(['success'=>'done']);
     }
 }

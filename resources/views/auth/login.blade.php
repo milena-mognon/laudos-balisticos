@@ -5,7 +5,7 @@
         <div class="card-header">Login</div>
         <div class="card-body">
             {{ Form::open(['route' => 'login']) }}
-            @include('flash-messege')
+            @include('flash_message')
             <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
                 <div class="form-label-group">
                     <input id="email" type="email" class="form-control" name="email" required

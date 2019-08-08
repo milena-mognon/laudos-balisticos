@@ -1,4 +1,4 @@
-<div class="col-lg-{{ $size ?? "8" }} mt-2" id="tipo_arma">
+<div class="col-lg-{{ $size ?? "12" }} mt-2" id="tipo_arma">
     <label>Utilizado em:</label>
     <select class="form-control{{ $errors->has('tipo_arma') ? ' is-invalid' : '' }}" name="tipo_arma">
         @foreach (['Espingarda', 'Pistola', 'Revólver'] as $tipo_arma)

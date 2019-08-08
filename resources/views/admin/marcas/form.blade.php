@@ -5,12 +5,15 @@
 @else
     {!! Form::open() !!}
 @endif
+<div class="row">
+    <div class="col-md-4" id="imagem"></div>
 
-@include('admin.attributes.nome', ['nome' => $marca->nome ?? old('nome')])
-@include('admin.attributes.categoria', ['categoria2' => $marca->categoria ?? old('categoria')])
+    <div class="col-lg-8">
+        @include('admin.attributes.nome', ['nome' => $marca->nome ?? old('nome')])
+        @include('admin.attributes.categoria', ['categoria2' => $marca->categoria ?? old('categoria')])
 
-<div class="col-lg-10 float-right">
-    <a class="btn btn-secondary" href="{{ route('marcas.index') }}">Voltar</a>
-    <button class="btn btn-success" type="submit">{{ $acao }}</button>
+        @include('admin.shared.buttons', ['acao' => $acao, 'voltar_route' => route('marcas.index')])
+
+        {{ Form::close() }}
+    </div>
 </div>
-{{ Form::close() }}

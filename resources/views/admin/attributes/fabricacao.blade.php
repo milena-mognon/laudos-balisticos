@@ -1,4 +1,4 @@
-<div class="col-lg-{{ $size ?? "8" }} mt-2">
+<div class="col-lg-{{ $size ?? "12" }} mt-2">
     <label for="fabricacao">Fabricacao</label>
     <input class="form-control{{ $errors->has('fabricacao') ? ' is-invalid' : '' }}"
            name="fabricacao" autocomplete="off" type="text"

@@ -5,12 +5,16 @@
 @else
     {!! Form::open() !!}
 @endif
+<div class="row">
+    <div class="col-md-4" id="imagem"></div>
 
-@include('admin.attributes.nome', ['nome' => $origem->nome ?? old('nome')])
-@include('admin.attributes.fabricacao', ['fabricacao' => $origem->fabricacao ?? old('fabricacao')])
+    <div class="col-lg-8">
 
-<div class="col-lg-10 float-right">
-    <a class="btn btn-secondary" href="{{ route('origens.index') }}">Voltar</a>
-    <button class="btn btn-success" type="submit">{{ $acao }}</button>
+        @include('admin.attributes.nome', ['nome' => $origem->nome ?? old('nome')])
+        @include('admin.attributes.fabricacao', ['fabricacao' => $origem->fabricacao ?? old('fabricacao')])
+
+        @include('admin.shared.buttons', ['acao' => $acao, 'voltar_route' => route('origens.index')])
+
+        {{ Form::close() }}
+    </div>
 </div>
-{{ Form::close() }}

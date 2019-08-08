@@ -6,11 +6,15 @@
     {!! Form::open() !!}
 @endif
 
-@include('admin.attributes.nome', ['nome' => $solicitante->nome ?? old('nome')])
-@include('shared.attributes.cidades', ['cidades' => $cidades, 'cidade2' =>  $solicitante->cidade_id ?? old('cidade_id')])
+<div class="row">
+    <div class="col-md-4" id="imagem"></div>
 
-<div class="col-lg-10 float-right">
-    <a class="btn btn-secondary" href="{{ route('solicitantes.index') }}">Voltar</a>
-    <button class="btn btn-success" type="submit">{{ $acao }}</button>
+    <div class="col-lg-8">
+        @include('admin.attributes.nome', ['nome' => $solicitante->nome ?? old('nome')])
+        @include('shared.attributes.cidades', ['cidades' => $cidades, 'cidade2' =>  $solicitante->cidade_id ?? old('cidade_id')])
+
+        @include('admin.shared.buttons', ['acao' => $acao, 'voltar_route' => route('solicitantes.index')])
+
+        {{ Form::close() }}
+    </div>
 </div>
-{{ Form::close() }}

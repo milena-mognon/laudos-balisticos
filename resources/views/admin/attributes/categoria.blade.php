@@ -1,4 +1,4 @@
-<div class="col-lg-{{ $size ?? "8" }} mt-2" id="categoria">
+<div class="col-lg-{{ $size ?? "12" }} mt-2" id="categoria">
     <label>Categoria</label>
     <select class="form-control{{ $errors->has('categoria') ? ' is-invalid' : '' }}" name="categoria">
         @foreach (['Arma', 'Munição'] as $categoria)

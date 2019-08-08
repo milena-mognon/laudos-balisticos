@@ -1,4 +1,4 @@
-<div class="col-lg-{{ $size ?? "8" }} mt-2">
+<div class="col-lg-{{ $size ?? "12" }} mt-2">
     <label for="cargo_id">Cargo</label>
     <select class="form-control {{ $errors->has('cargo_id') ? ' is-invalid' : '' }}"
             name="cargo_id">

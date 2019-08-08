@@ -6,6 +6,6 @@
     </div>
     <hr>
     <div class="col-lg-10 m-auto">
-        @include('admin.secoes.form', ['acao' => 'Editar'])
+        @include('admin.secoes.form', ['acao' => 'Atualizar'])
     </div>
 @endsection

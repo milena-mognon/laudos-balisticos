@@ -42,11 +42,12 @@
                  'value' => "", 'option_create' => true, 'size' => '3'])
 
         <input class="form-control" type="hidden" name="perito_id" autocomplete="off"
-        value="{{ Auth::id() }}"/>
+               value="{{ Auth::id() }}"/>
 
         @include('shared.label', ['for_label' => 'diretor_id', 'label' => 'Diretor'])
         @include('shared.select_with_id', ['name' => 'diretor_id', 'dados' => $diretores, 'size' => '3', 'value' => ''])
     </div>
+
     <div class="col-lg-10 float-right">
         <a class="btn btn-secondary" href="{{ route('users.index') }}">Voltar</a>
         <button class="btn btn-success" type="submit">Cadastrar</button>

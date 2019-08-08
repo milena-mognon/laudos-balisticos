@@ -6,18 +6,22 @@
     {!! Form::open() !!}
 @endif
 
-@include('admin.attributes.nome', ['nome' => $diretor->nome ?? old('nome')])
+<div class="row">
+    <div class="col-md-4" id="imagem"></div>
 
-@include('shared.attributes.data',
-['label' => 'Início da Direção', 'name' => 'inicio_direcao',
-'value' => formatar_data_do_bd($diretor->inicio_direcao) ?? old('inicio_direcao')])
+    <div class="col-lg-8">
+        @include('admin.attributes.nome', ['nome' => $diretor->nome ?? old('nome')])
 
-@include('shared.attributes.data',
-['label' => 'Fim da Direção','name' => 'fim_direcao',
-'value' => formatar_data_do_bd($diretor->fim_direcao) ?? old('fim_direcao')])
+        @include('shared.attributes.data',
+        ['label' => 'Início da Direção', 'name' => 'inicio_direcao',
+        'value' => $diretor->inicio_direcao ?? old('inicio_direcao')])
 
-<div class="col-lg-10 float-right">
-    <a class="btn btn-secondary" href="{{ route('diretores.index') }}">Voltar</a>
-    <button class="btn btn-success" type="submit">{{ $acao }}</button>
+        @include('shared.attributes.data',
+        ['label' => 'Fim da Direção','name' => 'fim_direcao',
+        'value' => $diretor->fim_direcao ?? old('fim_direcao')])
+
+        @include('admin.shared.buttons', ['acao' => $acao, 'voltar_route' => route('diretores.index')])
+
+        {{ Form::close() }}
+    </div>
 </div>
-{{ Form::close() }}

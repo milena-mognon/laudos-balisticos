@@ -2,6 +2,7 @@
 'model_name_plural' => 'Seções',
 'model_name_singular' => 'Seção',
 'route_create_name' => 'secoes.create',
+'dados' => $secoes,
 'ths' => ['Nome']])
 
 @section('table-content')

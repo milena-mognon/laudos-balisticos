@@ -2,6 +2,7 @@
 'model_name_plural' => 'Países',
 'model_name_singular' => 'País',
 'route_create_name' => 'origens.create',
+'dados' => $origens,
 'ths' => ['Nome', 'Fabricação']])
 
 @section('table-content')

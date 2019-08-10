@@ -19,7 +19,7 @@ class OrigensController extends Controller
      */
     public function index()
     {
-        $origens = Origem::all();
+        $origens = Origem::paginate(10);
         return view('admin/origens/index', compact('origens'));
     }
 

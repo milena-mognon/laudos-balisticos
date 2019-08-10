@@ -2,6 +2,7 @@
 'model_name_plural' => 'Usuários',
 'model_name_singular' => 'Usuário',
 'route_create_name' => 'register',
+'dados' => $users,
 'ths' => ['Nome', 'Email', 'Cargo', 'Seção']])
 
 @section('table-content')

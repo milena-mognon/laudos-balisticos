@@ -40,7 +40,8 @@ Route::prefix('admin')->middleware('cargo:Administrador')->group(function () {
 /* Peritos routes */
 Route::resource('laudos', 'Perito\LaudosController');
 
-Route::get('laudos/solicitantes/cidade/{cidade_id}', 'Admin\OrgaosSolicitantesController@filtrar_por_cidade')->name('solicitantes.filtrar');
+Route::get('laudos/solicitantes/cidade/{cidade_id}',
+    'Admin\OrgaosSolicitantesController@filtrar_por_cidade')->name('solicitantes.filtrar');
 
 Route::prefix('laudos/{laudo}')->group(function () {
     Route::resource('armas', 'Perito\ArmasController')->except(['destroy']);

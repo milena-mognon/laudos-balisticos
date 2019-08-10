@@ -2,6 +2,7 @@
 'model_name_plural' => 'Marcas',
 'model_name_singular' => 'Marca',
 'route_create_name' => 'marcas.create',
+'dados' => $marcas,
 'ths' => ['Nome', 'Categoria']])
 
 @section('table-content')

@@ -20,7 +20,7 @@ class SecoesController extends Controller
      */
     public function index()
     {
-        $secoes = Secao::all();
+        $secoes = Secao::paginate(10);
         return view('admin.secoes.index',
             compact('secoes'));
     }

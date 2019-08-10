@@ -20,7 +20,7 @@ class DiretoresController extends Controller
      */
     public function index()
     {
-        $diretores = Diretor::all();
+        $diretores = Diretor::paginate(10);
         return view('admin.diretores.index', compact('diretores'));
     }
 

@@ -20,7 +20,7 @@ class CalibresController extends Controller
      */
     public function index()
     {
-        $calibres = Calibre::all();
+        $calibres = Calibre::paginate(10);
         return view('admin.calibres.index',
             compact('calibres'));
     }

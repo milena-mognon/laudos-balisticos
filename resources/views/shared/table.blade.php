@@ -22,4 +22,5 @@
             </table>
         </div>
     </div>
+    @include('shared.pagination_results', ['dados' => $dados])
 @endsection

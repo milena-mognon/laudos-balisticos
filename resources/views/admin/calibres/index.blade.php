@@ -2,9 +2,11 @@
 'model_name_plural' => 'Calibres',
 'model_name_singular' => 'Calibre',
 'route_create_name' => 'calibres.create',
+'dados' => $calibres,
 'ths' => ['Nome', 'Utilizado em:']])
 
 @section('table-content')
+
     @if (count($calibres) > 0)
         @foreach ($calibres as $calibre)
             <tr>

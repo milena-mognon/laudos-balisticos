@@ -2,6 +2,7 @@
 'model_name_plural' => 'Órgãos Solicitantes',
 'model_name_singular' => 'Órgão Solicitante',
 'route_create_name' => 'solicitantes.create',
+'dados' => $solicitantes,
 'ths' => ['Nome', 'Cidade']])
 
 @section('table-content')

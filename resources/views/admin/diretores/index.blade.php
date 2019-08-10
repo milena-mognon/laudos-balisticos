@@ -2,6 +2,7 @@
 'model_name_plural' => 'Diretores',
 'model_name_singular' => 'Diretor',
 'route_create_name' => 'diretores.create',
+'dados' => $diretores,
 'ths' => ['Nome', 'Inicio da Direção', 'Fim da Direção']])
 
 @section('table-content')

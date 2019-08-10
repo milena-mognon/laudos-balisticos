@@ -20,7 +20,7 @@ class OrgaosSolicitantesController extends Controller
      */
     public function index()
     {
-        $solicitantes = OrgaoSolicitante::all();
+        $solicitantes = OrgaoSolicitante::paginate(10);
         return view('admin/orgaos-solicitantes/index',
             compact('solicitantes'));
     }

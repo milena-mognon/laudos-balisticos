@@ -11,7 +11,7 @@
         @foreach ($calibres as $calibre)
             <tr>
                 <td> {{ $calibre->nome }}</td>
-                <td> {{ $calibre->tipo_arma }}</td>
+                <td> {{ ucfirst($calibre->tipo_arma) }}</td>
                 <td>
                     <a class="btn btn-primary" href="{{ route('calibres.edit', $calibre) }}">
                         <i class="fa fa-fw fa-edit"></i> Editar</a>

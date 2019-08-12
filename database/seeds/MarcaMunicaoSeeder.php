@@ -15,7 +15,7 @@ class MarcaMunicaoSeeder extends Seeder
         foreach ($marcas_municoes as $marca) {
             Marca::create([
                 'nome' => $marca,
-                'categoria' => 'Munição',
+                'categoria' => 'munições',
             ]);
         }
     }

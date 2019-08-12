@@ -10,7 +10,7 @@
         @foreach ($marcas as $marca)
             <tr>
                 <td> {{ $marca->nome }}</td>
-                <td> {{ $marca->categoria }}</td>
+                <td> {{ ucfirst($marca->categoria) }}</td>
                 <td>
                     <a class="btn btn-primary" href="{{ route('marcas.edit', $marca) }}">
                         <i class="fa fa-fw fa-edit"></i> Editar</a>
@@ -19,7 +19,6 @@
                         <i class="fa fa-fw fa-trash"></i>
                         Deletar
                     </button>
-
                 </td>
             </tr>
         @endforeach

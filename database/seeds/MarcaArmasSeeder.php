@@ -16,7 +16,7 @@ class MarcaArmasSeeder extends Seeder
         foreach ($marcas_armas as $marca) {
             Marca::create([
                 'nome' => $marca,
-                'categoria' => 'Arma',
+                'categoria' => 'armas',
             ]);
         }
     }

@@ -23,9 +23,9 @@ class ArmasController extends Controller
      */
     public function create($laudo)
     {
-        $marcas = Marca::categoria('Arma')->get();
+        $marcas = Marca::categoria('armas');
         $origens = Origem::all();
-        $calibres = Calibre::arma('revolver')->get();
+        $calibres = Calibre::arma('revólver');
         return view('perito.revolver.create',
             compact('laudo', 'marcas', 'origens', 'calibres'));
     }
@@ -52,9 +52,9 @@ class ArmasController extends Controller
      */
     public function edit($laudo, Arma $arma)
     {
-        $marcas = Marca::categoria('Arma')->get();
-        $origens = Origem::all();
-        $calibres = Calibre::arma('revolver')->get();
+        $marcas = Marca::marcasWithTrashed('armas', $arma->marca);
+        $origens = Origem::origensWithTrashed($arma->origem);
+        $calibres = Calibre::calibresWithTrashed('revólver', $arma->calibre);
         return view('perito.revolver.edit',
             compact('arma', 'laudo', 'marcas', 'origens', 'calibres'));
 

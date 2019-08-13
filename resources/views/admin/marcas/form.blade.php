@@ -9,8 +9,8 @@
     <div class="col-md-4" id="imagem"></div>
 
     <div class="col-lg-8">
-        @include('admin.attributes.nome', ['nome' => $marca->nome ?? old('nome')])
-        @include('admin.attributes.categoria', ['categoria2' => $marca->categoria ?? old('categoria')])
+        @include('admin.shared.attributes.nome', ['nome' => $marca->nome ?? old('nome')])
+        @include('admin.shared.attributes.categoria', ['categoria2' => $marca->categoria ?? old('categoria')])
 
         @include('admin.shared.buttons', ['acao' => $acao, 'voltar_route' => route('marcas.index')])
 

@@ -41,6 +41,28 @@ class Marca extends Model
      */
     public function scopeCategoria($query, $categoria)
     {
-        return $query->where('categoria', $categoria);
+        return $query->where('categoria', $categoria)->get();
+    }
+
+    /**
+     * Local Scope utilizado para filtrar as Marcas
+     * cadastradas.
+     *
+     * Busca todas as marca validas de determinada categoria
+     * e se a marca cadastrada tiver sido excluída, traz
+     * também como resultado (para evitar erro ao editar)
+     *
+     * OBS: não traz todos os registros excluidos, apenas o que
+     * foi excluído e estava em uso.
+     *
+     * @param $query
+     * @param $categoria
+     * @param $used_marca
+     * @return mixed
+     */
+    public function scopeMarcasWithTrashed($query, $categoria, $used_marca)
+    {
+        return $query->whereRaw("(nome = '$used_marca->nome' and categoria = '$categoria') 
+        or categoria = '$categoria'")->get();
     }
 }

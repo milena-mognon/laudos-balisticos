@@ -36,6 +36,28 @@ class Calibre extends Model
      */
     public function scopeArma($query, $tipo_arma)
     {
-        return $query->where('tipo_arma', $tipo_arma);
+        return $query->where('tipo_arma', $tipo_arma)->get();
+    }
+
+    /**
+     * Local Scope utilizado para filtrar os Calibres
+     * cadastrados.
+     *
+     * Busca todas os calibres validos de determinado tipo de arma
+     * e se o calibre cadastrado tiver sido excluído, traz
+     * também como resultado (para evitar erro ao editar)
+     *
+     * OBS: não traz todos os registros excluidos, apenas o que
+     * foi excluído e estava em uso.
+     *
+     * @param $query
+     * @param $tipo_arma
+     * @param $used_calibre
+     * @return mixed
+     */
+    public function scopeCalibresWithTrashed($query, $tipo_arma, $used_calibre)
+    {
+        return $query->whereRaw("(nome = '$used_calibre->nome' and tipo_arma = '$tipo_arma') 
+        or tipo_arma = '$tipo_arma'")->get();
     }
 }

@@ -10,7 +10,7 @@
     <div class="col-md-4" id="imagem"></div>
 
     <div class="col-lg-8">
-        @include('admin.attributes.nome', ['nome' => $diretor->nome ?? old('nome')])
+        @include('admin.shared.attributes.nome', ['nome' => $diretor->nome ?? old('nome')])
 
         @include('shared.attributes.data',
         ['label' => 'Início da Direção', 'name' => 'inicio_direcao',

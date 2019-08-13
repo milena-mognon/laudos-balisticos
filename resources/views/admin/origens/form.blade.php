@@ -10,8 +10,8 @@
 
     <div class="col-lg-8">
 
-        @include('admin.attributes.nome', ['nome' => $origem->nome ?? old('nome')])
-        @include('admin.attributes.fabricacao', ['fabricacao' => $origem->fabricacao ?? old('fabricacao')])
+        @include('admin.shared.attributes.nome', ['nome' => $origem->nome ?? old('nome')])
+        @include('admin.shared.attributes.fabricacao', ['fabricacao' => $origem->fabricacao ?? old('fabricacao')])
 
         @include('admin.shared.buttons', ['acao' => $acao, 'voltar_route' => route('origens.index')])
 

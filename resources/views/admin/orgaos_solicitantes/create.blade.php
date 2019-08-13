@@ -6,6 +6,6 @@
     <hr>
     {!! Form::open(['route' => 'solicitantes.store']) !!}
     <div class="col-lg-10 m-auto">
-        @include('admin.orgaos-solicitantes.form', ['acao' => 'Cadastrar'])
+        @include('admin.orgaos_solicitantes.form', ['acao' => 'Cadastrar'])
     </div>
 @endsection

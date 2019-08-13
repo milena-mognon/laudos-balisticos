@@ -10,7 +10,7 @@
     <div class="col-md-4" id="imagem"></div>
 
     <div class="col-lg-8">
-        @include('admin.attributes.nome', ['nome' => $secao->nome ?? old('nome')])
+        @include('admin.shared.attributes.nome', ['nome' => $secao->nome ?? old('nome')])
 
         @include('admin.shared.buttons', ['acao' => $acao, 'voltar_route' => route('secoes.index')])
 

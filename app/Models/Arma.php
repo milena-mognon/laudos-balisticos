@@ -16,7 +16,7 @@ class Arma extends Model
         'laudo_id', 'tipo_serie', 'num_serie', 'tambor_rebate', 'capacidade_tambor',
         'sistema_percussao', 'tipo_acabamento', 'estado_geral', 'comprimento_cano',
         'comprimento_total', 'altura', 'quantidade_raias', 'sentido_raias', 'num_lacre',
-        'cabo', 'ref_image'];
+        'cabo', 'ref_image', 'funcionamento'];
 
     protected $dates = ['deleted_at'];
 
@@ -26,15 +26,15 @@ class Arma extends Model
     }
 
     public function marca(){
-        return $this->belongsTo(Marca::class);
+        return $this->belongsTo(Marca::class)->withTrashed();
     }
 
     public function calibre(){
-        return $this->belongsTo(Calibre::class);
+        return $this->belongsTo(Calibre::class)->withTrashed();
     }
 
     public function origem(){
-        return $this->belongsTo(Origem::class);
+        return $this->belongsTo(Origem::class)->withTrashed();
     }
 
     public static function arma($arma)

@@ -11,8 +11,8 @@
 
     <div class="col-lg-8">
 
-        @include('admin.attributes.nome', ['nome' => $calibre->nome ?? old('nome')])
-        @include('admin.attributes.tipo_arma', ['tipo_arma2' => $calibre->tipo_arma ?? old('tipo_arma')])
+        @include('admin.shared.attributes.nome', ['nome' => $calibre->nome ?? old('nome')])
+        @include('admin.shared.attributes.tipo_arma', ['tipo_arma2' => $calibre->tipo_arma ?? old('tipo_arma')])
         @include('admin.shared.buttons', ['acao' => $acao, 'voltar_route' => route('calibres.index')])
         {{ Form::close() }}
     </div>

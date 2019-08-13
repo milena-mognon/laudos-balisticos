@@ -1,5 +1,5 @@
 <div class="col-lg-3">
-    <div class="form-group" id="funcionamento">
+    <div class="form-group">
         <label>Funcionamento</label>
         <select class="form-control{{ $errors->has('funcionamento') ? ' is-invalid' : '' }}" name="funcionamento">
             @foreach (['Eficiente', 'Ineficiente'] as $funcionamento)

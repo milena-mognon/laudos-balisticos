@@ -21,7 +21,7 @@ class OrgaosSolicitantesController extends Controller
     public function index()
     {
         $solicitantes = OrgaoSolicitante::paginate(10);
-        return view('admin/orgaos-solicitantes/index',
+        return view('admin/orgaos_solicitantes/index',
             compact('solicitantes'));
     }
 
@@ -33,7 +33,7 @@ class OrgaosSolicitantesController extends Controller
     public function create()
     {
         $cidades = Cidade::all();
-        return view('admin.orgaos-solicitantes.create',
+        return view('admin.orgaos_solicitantes.create',
             compact('cidades'));
     }
 
@@ -60,7 +60,7 @@ class OrgaosSolicitantesController extends Controller
     public function edit(OrgaoSolicitante $solicitante)
     {
         $cidades = Cidade::all();
-        return view('admin.orgaos-solicitantes.edit',
+        return view('admin.orgaos_solicitantes.edit',
             compact('solicitante', 'cidades'));
     }
 

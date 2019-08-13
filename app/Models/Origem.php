@@ -32,4 +32,24 @@ class Origem extends Model
 
         static::addGlobalScope(new NomeScope());
     }
+
+    /**
+     * Local Scope utilizado para filtrar os Países de Origem
+     * cadastrados.
+     *
+     * Busca todas as origens validas
+     * e se a origem cadastrada tiver sido excluída, traz
+     * também como resultado (para evitar erro ao editar)
+     *
+     * OBS: não traz todos os registros excluidos, apenas o que
+     * foi excluído e estava em uso.
+     *
+     * @param $query
+     * @param $used_origem
+     * @return mixed
+     */
+    public function scopeOrigensWithTrashed($query, $used_origem)
+    {
+        return $query->whereRaw("nome = '$used_origem->nome' or deleted_at is null ")->get();
+    }
 }

@@ -7,7 +7,7 @@
     letter-spacing: 0.05em;
 }
 
-#my-dropzone .message {
+#my-dropzone .dz-message {
     font-family: "Segoe UI Light", "Arial", serif;
     font-weight: 600;
     color: #0087F7;
@@ -22,4 +22,9 @@
     min-height: 300px;
     padding: 90px 0;
     vertical-align: baseline;
+}
+
+#image-info {
+    color: #be2626;
+    text-align: center;
 }

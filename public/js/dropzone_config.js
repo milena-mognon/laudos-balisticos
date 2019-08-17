@@ -11,10 +11,13 @@ Dropzone.options.myDropzone = {
     previewTemplate: document.querySelector('#preview').innerHTML,
     addRemoveLinks: true,
     dictRemoveFile: "Remover Imagem",
-    dictFileTooBig: 'Image is larger than 16MB',
+    dictFileTooBig: 'A imagem é maior que 16MB. Limite de tamanho excedido!',
+    dictDefaultMessage: 'Arraste uma imagem ou clique para selecionar',
+    dictMaxFilesExceeded: 'Quantidade máxima de arquivos atingida. Imagem não foi salva!',
     timeout: 10000,
     autoProcessQueue: false,
     parallelUploads: 1,
+    maxFiles: 3,
 
     init: function () {
         var _this = this;
@@ -67,6 +70,10 @@ Dropzone.options.myDropzone = {
                 alert('arrate apenas 1 arquivo por vez');
                 files.destroy(); // funcionamento não está correto
             }
+        });
+
+        this.on("maxfilesexceeded", function () {
+            alert("Limite Atingido! Arrumar para não aparecer o modal");
         });
     },
 };

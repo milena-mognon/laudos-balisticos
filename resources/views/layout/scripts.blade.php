@@ -7,8 +7,6 @@
 {!! Html::script('js/sb-admin.js') !!}
 {!! Html::script('js/jquery.maskedinput.js') !!}
 {!! Html::script('js/sweetalert2.min.js') !!}
-{!! Html::script('js/dropzone.js') !!}
-{!! Html::script('js/cropper.js') !!}
 
 {{--My js files--}}
 {!! Html::script('js/calendar.js') !!}
@@ -16,5 +14,5 @@
 {!! Html::script('js/filtrar_solicitantes.js') !!}
 {!! Html::script('js/num_serie.js') !!}
 {!! Html::script('js/mascara.js') !!}
-{!! Html::script('js/dropzone_config.js') !!}
-{!! Html::script('js/cropper_image.js') !!}
+
+@yield('js')

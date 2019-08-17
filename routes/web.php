@@ -43,6 +43,8 @@ Route::resource('laudos', 'Perito\LaudosController');
 Route::get('laudos/solicitantes/cidade/{cidade_id}',
     'Admin\OrgaosSolicitantesController@filtrar_por_cidade')->name('solicitantes.filtrar');
 
+Route::post('laudos/armas/{arma}/images', 'Perito\ArmasController@store_image')->name('armas.images');
+
 Route::prefix('laudos/{laudo}')->group(function () {
     Route::resource('armas', 'Perito\ArmasController')->except(['destroy']);
 });

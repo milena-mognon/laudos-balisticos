@@ -39,7 +39,6 @@ class CreateArmasTable extends Migration
             $table->string('num_lacre', 15);
             $table->string('cabo', 30);
             $table->string('funcionamento', 15);
-            $table->string('ref_image', 40)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

@@ -10,8 +10,8 @@
 
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('jquery')) :
-  typeof define === 'function' && define.amd ? define(['jquery'], factory) :
-  (factory(global.jQuery));
+      typeof define === 'function' && define.amd ? define(['jquery'], factory) :
+          (factory(global.jQuery));
 }(this, (function ($) { 'use strict';
 
   $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
@@ -285,16 +285,16 @@
   function forEach(data, callback) {
     if (data && isFunction(callback)) {
       if (Array.isArray(data) || isNumber(data.length) /* array-like */) {
-          var length = data.length;
+        var length = data.length;
 
-          var i = void 0;
+        var i = void 0;
 
-          for (i = 0; i < length; i += 1) {
-            if (callback.call(data, data[i], i, data) === false) {
-              break;
-            }
+        for (i = 0; i < length; i += 1) {
+          if (callback.call(data, data[i], i, data) === false) {
+            break;
           }
-        } else if (isObject(data)) {
+        }
+      } else if (isObject(data)) {
         Object.keys(data).forEach(function (key) {
           callback.call(data, data[key], key, data);
         });
@@ -1082,14 +1082,14 @@
         littleEndian = endianness === 0x4949;
 
         if (littleEndian || endianness === 0x4D4D /* bigEndian */) {
-            if (dataView.getUint16(tiffOffset + 2, littleEndian) === 0x002A) {
-              var firstIFDOffset = dataView.getUint32(tiffOffset + 4, littleEndian);
+          if (dataView.getUint16(tiffOffset + 2, littleEndian) === 0x002A) {
+            var firstIFDOffset = dataView.getUint32(tiffOffset + 4, littleEndian);
 
-              if (firstIFDOffset >= 0x00000008) {
-                ifdStart = tiffOffset + firstIFDOffset;
-              }
+            if (firstIFDOffset >= 0x00000008) {
+              ifdStart = tiffOffset + firstIFDOffset;
             }
           }
+        }
       }
     }
 
@@ -1102,16 +1102,16 @@
         _offset = ifdStart + i * 12 + 2;
 
         if (dataView.getUint16(_offset, littleEndian) === 0x0112 /* Orientation */) {
-            // 8 is the offset of the current tag's value
-            _offset += 8;
+          // 8 is the offset of the current tag's value
+          _offset += 8;
 
-            // Get the original orientation value
-            orientation = dataView.getUint16(_offset, littleEndian);
+          // Get the original orientation value
+          orientation = dataView.getUint16(_offset, littleEndian);
 
-            // Override the orientation with its default value
-            dataView.setUint16(_offset, 1, littleEndian);
-            break;
-          }
+          // Override the orientation with its default value
+          dataView.setUint16(_offset, 1, littleEndian);
+          break;
+        }
       }
     }
 
@@ -1129,39 +1129,39 @@
     var scaleY = 1;
 
     switch (orientation) {
-      // Flip horizontal
+        // Flip horizontal
       case 2:
         scaleX = -1;
         break;
 
-      // Rotate left 180°
+        // Rotate left 180°
       case 3:
         rotate = -180;
         break;
 
-      // Flip vertical
+        // Flip vertical
       case 4:
         scaleY = -1;
         break;
 
-      // Flip vertical and rotate right 90°
+        // Flip vertical and rotate right 90°
       case 5:
         rotate = 90;
         scaleY = -1;
         break;
 
-      // Rotate right 90°
+        // Rotate right 90°
       case 6:
         rotate = 90;
         break;
 
-      // Flip horizontal and rotate right 90°
+        // Flip horizontal and rotate right 90°
       case 7:
         rotate = 90;
         scaleX = -1;
         break;
 
-      // Rotate left 90°
+        // Rotate left 90°
       case 8:
         rotate = -90;
         break;
@@ -1359,10 +1359,10 @@
 
       if (transformed) {
         var _getRotatedSizes = getRotatedSizes({
-          width: imageData.naturalWidth * Math.abs(imageData.scaleX || 1),
-          height: imageData.naturalHeight * Math.abs(imageData.scaleY || 1),
-          degree: imageData.rotate || 0
-        }),
+              width: imageData.naturalWidth * Math.abs(imageData.scaleX || 1),
+              height: imageData.naturalHeight * Math.abs(imageData.scaleY || 1),
+              degree: imageData.rotate || 0
+            }),
             naturalWidth = _getRotatedSizes.width,
             naturalHeight = _getRotatedSizes.height;
 
@@ -2071,13 +2071,13 @@
       };
 
       switch (action) {
-        // Move crop box
+          // Move crop box
         case ACTION_ALL:
           left += range.x;
           top += range.y;
           break;
 
-        // Resize crop box
+          // Resize crop box
         case ACTION_EAST:
           if (range.x >= 0 && (right >= maxWidth || aspectRatio && (top <= minTop || bottom >= maxHeight))) {
             renderable = false;
@@ -2364,19 +2364,19 @@
 
           break;
 
-        // Move canvas
+          // Move canvas
         case ACTION_MOVE:
           this.move(range.x, range.y);
           renderable = false;
           break;
 
-        // Zoom canvas
+          // Zoom canvas
         case ACTION_ZOOM:
           this.zoom(getMaxZoomRatio(pointers), e);
           renderable = false;
           break;
 
-        // Create crop box
+          // Create crop box
         case ACTION_CROP:
           if (!range.x || !range.y) {
             renderable = false;
@@ -3100,10 +3100,10 @@
       }, 'cover');
 
       var _getAdjustedSizes = getAdjustedSizes({
-        aspectRatio: aspectRatio,
-        width: options.width || (ratio !== 1 ? source.width : initialWidth),
-        height: options.height || (ratio !== 1 ? source.height : initialHeight)
-      }),
+            aspectRatio: aspectRatio,
+            width: options.width || (ratio !== 1 ? source.width : initialWidth),
+            height: options.height || (ratio !== 1 ? source.height : initialHeight)
+          }),
           width = _getAdjustedSizes.width,
           height = _getAdjustedSizes.height;
 

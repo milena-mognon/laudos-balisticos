@@ -4,16 +4,21 @@ namespace App\Http\Controllers\Perito;
 
 use App\Http\Requests\ArmaRequest;
 use App\Models\Calibre;
+use App\Models\Imagem;
 use App\Models\Marca;
 use App\Models\Origem;
 use App\Models\Arma;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class ArmasController extends Controller
 {
+    private $images_path;
+
     public function __construct()
     {
         $this->middleware('auth');
+        $this->images_path = public_path('/uploads/');
     }
 
     /**
@@ -84,5 +89,28 @@ class ArmasController extends Controller
     {
         Arma::destroy($arma);
         return response()->json(['success'=>'done']);
+    }
+
+    public function store_image($arma)
+    {
+        $imagem = $_FILES['croppedImage']['tmp_name'];
+
+//        $arma_id = $request->input('arma_id');
+        $image_name = md5(time() + random_int(1, 10)) . '.png';
+
+        if (!is_dir($this->images_path)) { // verifica se existe a pasta upload
+            mkdir($this->images_path, 0777, true); // cria a pasta caso não exista
+        };
+
+        // salva no banco referencia para a imagem//
+//        $image = Arma::find($arma)->fill(['ref_image' => $image_name])->save();
+        $image = Imagem::create(['nome' => $image_name, 'arma_id' => $arma]);
+        // fim //
+
+        $path = $this->images_path . $image_name;
+
+        move_uploaded_file($imagem, $path);
+
+        return response()->json(['success' => 'done', 'image' => $image, 'teste' => $imagem]);
     }
 }

@@ -10,7 +10,7 @@
 
         <title>{{ config('app.name') }}</title>
         <!-- Fonts -->
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+        {{--<link rel="dns-prefetch" href="https://fonts.gstatic.com">--}}
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
@@ -18,10 +18,12 @@
         <link rel="stylesheet" href="{{ URL::asset('css/home.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('jquery-ui-1.12.1.custom/jquery-ui.min.css')}}">
         <link rel="stylesheet" href="{{ URL::asset('css/layout.css')}}">
-        <link rel="stylesheet" href="{{ URL::asset('css/cropper.css')}}">
         <link rel="stylesheet" href="{{ URL::asset('css/sweetalert2.min.css')}}">
         <link rel="stylesheet" href="{{ URL::asset('css/sb-admin.css')}}">
         <link rel="stylesheet" href="{{ URL::asset('fontawesome-free/css/all.css')}}">
+        <link rel="stylesheet" href="{{ URL::asset('css/dropzone.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('css/cropper.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('css/custom.css') }}">
     </head>
     <body>
         @include('layout.menu')

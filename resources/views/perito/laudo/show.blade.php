@@ -53,8 +53,9 @@
                 </tr>
                 </thead>
                 <tbody align="center">
-                </tbody>
                 @includeWhen(count($armas) > 0, 'perito.laudo.partials.arma')
+
+                </tbody>
                 {{--@includeWhen(count($municoes) > 0, 'perito.laudo.partials.municao', ['municoes' => $municoes])--}}
                 {{--@includeWhen(count($componentes) > 0, 'perito.laudo.partials.componente', ['componentes' => $componentes])--}}
             </table>
@@ -73,4 +74,5 @@
         {{--Gerar PDF--}}
         {{--</a>--}}
     </div>
+{{--    @include('perito.modals.upload')--}}
 @endsection

@@ -6,26 +6,21 @@
                 <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
             </div>
             <div class="modal-body">
+                <form method="post" action="#"
+                      enctype="multipart/form-data" class="dropzone" id="my-dropzone">
+                    {{ csrf_field() }}
 
-                {{--<input type="hidden" name="arma_id" id="arma_id" value="{{ $id }}">--}}
-                <div id="wrapper">
-                    <input id="fileUpload" type="file" accept="image/*"><br/>
-
-                </div>
-                <div style="max-width: 750px" id="image-holder"></div>
-                <br>
-
-
-                <div class="btn-group">
-
-                    <button type="button" class="btn btn-primary" id="girarEsquerda"><i class="fas fa-rotate-left"></i>
-                    </button>
-                    <button type="button" class="btn btn-primary" id="girarDireita"><i class="fa fa-rotate-right"></i>
-                    </button>
-                </div>
-
-                <button type="button" class="btn btn-success" id="uploadCroppedImage">Recortar e Salvar</button>
-
+                    <div class="dz-message">
+                        <div class="col-xs-8">
+                            <div class="message">
+                                <p>Arraste uma imagem ou clique para adicionar</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fallback">
+                        <input type="file" name="file">
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
                 <a type="button" class="btn btn-default" data-dismiss="modal">Fechar</a>

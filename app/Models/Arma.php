@@ -16,7 +16,7 @@ class Arma extends Model
         'laudo_id', 'tipo_serie', 'num_serie', 'tambor_rebate', 'capacidade_tambor',
         'sistema_percussao', 'tipo_acabamento', 'estado_geral', 'comprimento_cano',
         'comprimento_total', 'altura', 'quantidade_raias', 'sentido_raias', 'num_lacre',
-        'cabo', 'ref_image', 'funcionamento'];
+        'cabo', 'funcionamento'];
 
     protected $dates = ['deleted_at'];
 
@@ -25,6 +25,10 @@ class Arma extends Model
         return $this->belongsTo(Laudo::class);
     }
 
+    /* ->withTrashed() é utilizado para retornar um registro
+     *  mesmo que tenha sido deletado.
+     * Objetivo é evitar erros quando acessar $arma->marca->nome, por exemplo
+     */
     public function marca(){
         return $this->belongsTo(Marca::class)->withTrashed();
     }

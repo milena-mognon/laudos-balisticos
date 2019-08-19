@@ -26,7 +26,9 @@ class LaudosController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::id();
+        $laudos = Laudo::findMyReps($user);
+        return view('perito.laudo.index', compact('laudos'));
     }
 
     /**
@@ -40,7 +42,7 @@ class LaudosController extends Controller
         $cidades = Cidade::all();
         $diretores = Diretor::all();
 
-        return view('perito.laudo.create',
+        return view('perito.laudo.create2',
             compact('secoes', 'cidades', 'diretores'));
     }
      /*

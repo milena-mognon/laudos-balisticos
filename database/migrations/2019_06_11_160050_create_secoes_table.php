@@ -17,6 +17,7 @@ class CreateSecoesTable extends Migration
             $table->increments('id');
             $table->string('nome', 30);
             $table->softDeletes();
+            $table->index('nome');
         });
     }
 

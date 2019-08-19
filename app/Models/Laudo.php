@@ -41,4 +41,19 @@ class Laudo extends Model
     {
         return $this->hasMany(Arma::class);
     }
+
+    /**
+     * Local Scope utilizado para filtrar a categoria da Marca
+     * (Arma ou Munição)
+     *
+     * @param $query
+     * @param $categoria
+     * @return mixed
+     */
+    public function scopeFindMyReps($query, $perito)
+    {
+        return $query->where('perito_id', $perito)
+            ->orderBy('created_at')
+            ->paginate(10);
+    }
 }

@@ -19,6 +19,7 @@ class CreateOrgaosSolicitantesTable extends Migration
             $table->integer('cidade_id')->unsigned();
             $table->foreign('cidade_id')->references('id')->on('cidades');
             $table->softDeletes();
+            $table->index('nome');
         });
     }
 

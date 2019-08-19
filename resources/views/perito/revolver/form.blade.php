@@ -11,10 +11,10 @@
 
 <div class="col-lg-12" style="padding: 0 5% 0">
     <div class="row mb-3">
-        @include('perito.attributes2.marca', ['marcas' => $marcas, 'marca2' =>  $arma->marca->id ?? old('marca_id')])
+        @include('perito.attributes2.marca', ['marca2' =>  $arma->marca->id ?? old('marca_id')])
         @include('perito.attributes2.modelo', ['modelo' => $arma->modelo ?? old('modelo')])
-        @include('perito.attributes2.origem', ['origens' => $origens, 'origem2' =>  $arma->origem->id ?? old('origem_id')])
-        @include('perito.attributes2.calibre', ['calibres' => $calibres, 'calibre2' =>  $arma->calibre->id ?? old('calibre_id')])
+        @include('perito.attributes2.origem', ['origem2' =>  $arma->origem->id ?? old('origem_id')])
+        @include('perito.attributes2.calibre', ['calibre2' =>  $arma->calibre->id ?? old('calibre_id')])
         @include('perito.attributes2.serie', ['tipo_serie2' =>  $arma->tipo_serie ?? old('tipo_serie'), 'num_serie' =>  $arma->num_serie ?? old('num_serie')])
         @include('perito.attributes2.tambor', ['tambor_rebate2' =>  $arma->tambor_rebate ?? old('tambor_rebate')])
         @include('perito.attributes2.capacidade_tambor', ['capacidade_tambor' =>  $arma->capacidade_tambor ?? old('capacidade_tambor')])
@@ -31,18 +31,11 @@
         @include('perito.attributes2.lacre', ['num_lacre' =>  $arma->num_lacre ?? old('num_lacre')])
     </div>
     <div class="row">
-        <div class="col-lg-4">
-            <button type="submit" class="btn btn-outline-success btn-block"><strong>{{ $acao }}</strong></button>
+        <div class="col-lg-4 mb-4">
+            <button type="submit" class="btn btn-success btn-block"><strong>
+                    <i class="fas fa-plus" aria-hidden="true"></i> {{ $acao }}</strong>
+            </button>
             {{ Form::close() }}
-        </div>
-        <input type="hidden" name="img" id="ref_imagem">
-        <div class="col-lg-4">
-            <button class="btn btn-outline-primary btn-block" type="button" id="addImagem"><strong>Adicionar
-                    Imagem</strong></button>
-        </div>
-        <div class="col-lg-4" id="div-button-imagem">
-            <button class="btn btn-outline-primary btn-block" type="button" id="visualizarImagem"><strong>Visualizar
-                    Imagem</strong></button>
         </div>
     </div>
 </div>

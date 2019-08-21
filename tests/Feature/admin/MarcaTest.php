@@ -27,7 +27,8 @@ class MarcaTest extends TestCase
 //        $this->assertAuthenticated();
         $marcas = factory(Marca::class, 3)->create();
         $response = $this->get(route('marcas.index'));
-        $response->assertSuccessful();
+        var_dump($response);
+//        $response->assertSuccessful();
         foreach ($marcas as $marca) {
             $response->assertSeeText($marca->nome);
             $response->assertSeeText($marca->categoria);
@@ -44,6 +45,7 @@ class MarcaTest extends TestCase
 //        $this->assertAuthenticated();
         $marca = factory(Marca::class)->make();
         $this->get(route('marcas.create'));
+        var_dump($response);
 
         $this->post(route('marcas.store', array_merge($marca->toArray(), ['_token' => csrf_field()])))
             ->assertRedirect(route('marcas.index'));

@@ -7,6 +7,7 @@
 {!! Html::script('js/sb-admin.js') !!}
 {!! Html::script('js/jquery.maskedinput.js') !!}
 {!! Html::script('js/sweetalert2.min.js') !!}
+{!! Html::script('js/select2.min.js') !!}
 
 {{--My js files--}}
 {!! Html::script('js/calendar.js') !!}

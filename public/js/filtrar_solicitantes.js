@@ -5,8 +5,10 @@ $.ajaxSetup({
 });
 
 $(function () {
-    $('#cidade_id').on('click', function () {
+    console.log('entroeu');
+    $('.js-single-cidades').on('change', function () {
         var cidade_id = $('#cidade_id').val();
+        var solicitante = $("#solicitante_id");
         $.ajax('solicitantes/cidade/' + cidade_id, {
             method: "GET",
             processData: false,
@@ -20,23 +22,16 @@ $(function () {
                         text: solicitante.nome
                     }));
                 });
-                console.log(data.size);
-                if(data){
-                    $("#solicitante_id").append($('<option>', {
-                        text: 'Selecione uma Cidade'
-                    }));
-                }
-                $("#solicitante_id").append($('<option>', {
+                solicitante.append($('<option>'));
+                solicitante.append($('<option>', {
                     id: 'cadastrar_solicitante',
                     text: 'Cadastrar Opção'
                 }));
             },
             error() {
-                $('#solicitante_id').html("");
-                $("#solicitante_id").append($('<option>', {
-                    text: 'Selecione uma Cidade'
-                }));
-                $("#solicitante_id").append($('<option>', {
+                solicitante.html("");
+                solicitante.append($('<option>'));
+                solicitante.append($('<option>', {
                     id: 'cadastrar_solicitante',
                     text: 'Cadastrar Opção'
                 }));
@@ -44,3 +39,5 @@ $(function () {
         });
     });
 });
+
+

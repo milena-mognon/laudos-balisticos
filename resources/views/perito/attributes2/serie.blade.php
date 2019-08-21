@@ -1,7 +1,7 @@
 <div class="col-lg-3">
     <div class="form-group">
         <label>Nº de Série</label>
-        <select class="form-control{{ $errors->has('tipo_serie') ? ' is-invalid' : '' }}"
+        <select class="js-single form-control{{ $errors->has('tipo_serie') ? ' is-invalid' : '' }}"
                 name="tipo_serie" id="tipo_serie">
             @foreach (
             ['Não Aparente', 'Adulterado', 'Ilegível', 'Legível',

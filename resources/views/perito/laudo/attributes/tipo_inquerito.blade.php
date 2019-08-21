@@ -1,10 +1,10 @@
-<div class="col-lg-{{ $size ?? "8" }} mt-2">
+<div class="col-lg-{{ $size ?? "3" }} mt-2">
     <label for="tipo_inquerito">Tipo do Inquerito</label>
-    <select class="form-control {{ $errors->has('tipo_inquerito') ? ' is-invalid' : '' }}"
+    <select class="js-single form-control {{ $errors->has('tipo_inquerito') ? ' is-invalid' : '' }}"
             name="tipo_inquerito">
         @foreach(['BO', 'Inquerito Policial', 'Inquerito Policial Flagrante Delito'] as $tipo_inquerito)
-            <option value="{{ $tipo_inquerito->id }}" {{ $tipo_inquerito->id == $tipo_inquerito2 ? 'selected=selected' : '' }}>
-                {{$tipo_inquerito->nome}}
+            <option value="{{ $tipo_inquerito }}" {{ $tipo_inquerito == $tipo_inquerito2 ? 'selected=selected' : '' }}>
+                {{$tipo_inquerito}}
             </option>
         @endforeach
     </select>

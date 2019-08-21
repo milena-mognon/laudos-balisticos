@@ -49,6 +49,21 @@ class ArmasController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Arma  $arma
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Arma $arma)
+    {
+//        $marcas = Marca::marcasWithTrashed('armas', $arma->marca);
+//        $origens = Origem::origensWithTrashed($arma->origem);
+//        $calibres = Calibre::calibresWithTrashed('revólver', $arma->calibre);
+        return view('perito.revolver.show',
+            compact('arma'));
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Laudo $laudo

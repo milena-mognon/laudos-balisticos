@@ -11,6 +11,7 @@ $(function () {
             case 'suprimido intencionalmente':
             case 'não aparente':
             case 'adulterado':
+                $('#num_serie').val("");
                 $("#num_serie").prop('disabled', true);
                 break;
         }

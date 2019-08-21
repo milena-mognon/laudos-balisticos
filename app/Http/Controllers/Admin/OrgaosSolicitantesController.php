@@ -93,7 +93,7 @@ class OrgaosSolicitantesController extends Controller
     }
 
     public function filtrar_por_cidade($cidade_id){
-        $solicitantes = Cidade::find($cidade_id)->solicitantes;
+        $solicitantes = OrgaoSolicitante::fromCity($cidade_id);
         return response()->json(['data' => $solicitantes]);
     }
 }

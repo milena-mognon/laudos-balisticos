@@ -17,7 +17,7 @@ class CreateImagensTable extends Migration
             $table->increments('id');
             $table->integer('arma_id')->unsigned();
             $table->foreign('arma_id')->references('id')->on('armas');
-            $table->string('nome', 40);
+            $table->string('nome', 50);
         });
     }
 

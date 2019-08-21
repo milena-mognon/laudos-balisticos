@@ -1,7 +1,7 @@
 <div class="col-lg-3">
     <div class="form-group">
         <label>Cabo</label>
-        <select class="form-control{{ $errors->has('cabo') ? ' is-invalid' : '' }}" name="cabo">
+        <select class="js-single form-control{{ $errors->has('cabo') ? ' is-invalid' : '' }}" name="cabo">
             @foreach (['Madeira', 'Material Sintético', 'Madrepérola', 'Desprovido'] as $cabo)
                 <option value="{{ mb_strtolower($cabo)}}" {{ (mb_strtolower($cabo) == mb_strtolower($cabo2)) ? 'selected=selected' : '' }}>
                     {{$cabo}}

@@ -3,7 +3,7 @@
     <select class="form-control js-single-solicitante {{ $errors->has('solicitante_id') ? ' is-invalid' : '' }}"
             name="solicitante_id" id="solicitante_id">
         <option></option>
-        @foreach([] ?? $solicitantes as $solicitante)
+        @foreach($solicitantes ?? [] as $solicitante)
             <option value="{{ $solicitante->id }}" {{ $solicitante->id == $solicitante2 ? 'selected=selected' : '' }}>
                 {{$solicitante->nome}}
             </option>

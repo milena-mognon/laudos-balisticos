@@ -15,7 +15,7 @@ class CreateDiretoresTable extends Migration
     {
         Schema::create('diretores', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome', 50);
+            $table->string('nome', 80);
             $table->date('inicio_direcao');
             $table->date('fim_direcao');
             $table->softDeletes();

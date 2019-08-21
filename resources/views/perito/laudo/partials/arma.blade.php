@@ -13,7 +13,7 @@
                 <i class="fas fa-camera"></i>
             </button>
 
-            <a class="btn btn-primary" href="{{ route('armas.edit', [$laudo, $arma]) }}">
+            <a class="btn btn-primary" href="{{ route('armas.show', [$laudo, $arma]) }}">
                 <i class="far fa-eye"></i>
             </a>
 

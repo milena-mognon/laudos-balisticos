@@ -8,6 +8,8 @@
 {!! Html::script('js/jquery.maskedinput.js') !!}
 {!! Html::script('js/sweetalert2.min.js') !!}
 {!! Html::script('js/select2.min.js') !!}
+{!! Html::script('js/pt-BR.js') !!}
+
 
 {{--My js files--}}
 {!! Html::script('js/calendar.js') !!}

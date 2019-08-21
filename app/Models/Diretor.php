@@ -23,12 +23,14 @@ class Diretor extends Model
     }
 
     /**
-     * Global scope utilizado para ordenar a busca pelo nome
+     * Local Scope utilizado para ordenar os diretores
+     * pelo inicio da direção
+     *
+     * @param $query
+     * @return mixed
      */
-    protected static function boot()
+    public function scopeAllOrdered($query)
     {
-        parent::boot();
-
-        static::addGlobalScope(new NomeScope());
+        return $query->orderBy('inicio_direcao', 'desc')->get();
     }
 }

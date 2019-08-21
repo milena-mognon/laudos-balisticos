@@ -22,8 +22,8 @@
                         Deletar
                     </button>
 
-                    <a class="btn btn-primary" href="{{ route('laudos.docx', $laudo) }}"><i
-                                class="fa fa-download" aria-hidden="true"></i> Gerar Laudo</a>
+                    <a class="btn btn-primary" href="{{ route('laudos.docx', $laudo) }}">
+                        <i class="fa fa-download" aria-hidden="true"></i> Gerar Laudo</a>
                 </td>
             </tr>
         @endforeach

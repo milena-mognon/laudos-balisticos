@@ -15,8 +15,8 @@ class CreateCalibresTable extends Migration
     {
         Schema::create('calibres', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome', 15);
-            $table->string('tipo_arma', 30);
+            $table->string('nome', 25);
+            $table->string('tipo_arma', 40);
             $table->softDeletes();
             $table->index('nome');
         });

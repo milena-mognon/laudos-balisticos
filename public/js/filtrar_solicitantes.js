@@ -5,7 +5,6 @@ $.ajaxSetup({
 });
 
 $(function () {
-    console.log('entroeu');
     $('.js-single-cidades').on('change', function () {
         var cidade_id = $('#cidade_id').val();
         var solicitante = $("#solicitante_id");
@@ -15,7 +14,7 @@ $(function () {
             contentType: false,
             dataType: "JSON",
             success(data) {
-                $('#solicitante_id').html("");
+                solicitante.html("");
                 $.each(data['data'], function(i, solicitante) {
                     $("#solicitante_id").append($('<option>', {
                         value: solicitante.id,

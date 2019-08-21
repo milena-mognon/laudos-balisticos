@@ -32,4 +32,17 @@ class OrgaoSolicitante extends Model
 
         static::addGlobalScope(new NomeScope());
     }
+
+    /**
+     * Local Scope utilizado para filtrar os órgãos solicitantes
+     * de determinada cidade
+     *
+     * @param $query
+     * @param $cidade_id
+     * @return mixed
+     */
+    public function scopeFromCity($query, $cidade_id)
+    {
+        return $query->where('cidade_id', $cidade_id)->get();
+    }
 }

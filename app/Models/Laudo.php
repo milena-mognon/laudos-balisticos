@@ -3,14 +3,19 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Laudo extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = [
         'oficio', 'rep', 'data_designacao', 'data_solicitacao',
         'secao_id', 'cidade_id', 'solicitante_id' ,'perito_id',
-        'diretor_id', 'indiciado', 'inquerito'
+        'diretor_id', 'indiciado', 'inquerito', 'tipo_inquerito'
     ];
+
+    protected $dates = ['deleted_at'];
 
     public function secao()
     {
@@ -42,6 +47,17 @@ class Laudo extends Model
         return $this->hasMany(Arma::class);
     }
 
+    // this is a recommended way to declare event handlers
+    public static function boot() {
+        parent::boot();
+
+        static::deleting(function($laudo) { // before delete() method call this
+
+            $laudo->armas()->delete();
+            // do the rest of the cleanup...
+        });
+    }
+
     /**
      * Local Scope utilizado para filtrar a categoria da Marca
      * (Arma ou Munição)
@@ -55,5 +71,13 @@ class Laudo extends Model
         return $query->where('perito_id', $perito)
             ->orderBy('created_at')
             ->paginate(10);
+    }
+
+    public static function config_laudo_info($request){
+        $data_designacao = formatar_data($request->input('data_designacao'));
+        $data_solicitacao = formatar_data($request->input('data_solicitacao'));
+        $laudo = $request->except(['data_designacao', 'data_solicitacao']);
+        $laudo_info = array_merge($laudo, ['data_solicitacao' => $data_solicitacao, 'data_designacao' => $data_designacao]);
+        return $laudo_info;
     }
 }

@@ -15,8 +15,8 @@ class CreateLaudosTable extends Migration
     {
         Schema::create('laudos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('oficio', 20);
-            $table->string('rep', 15);
+            $table->string('oficio', 30);
+            $table->string('rep', 20);
             $table->date('data_solicitacao');
             $table->date('data_designacao');
             $table->integer('secao_id')->unsigned();
@@ -29,8 +29,9 @@ class CreateLaudosTable extends Migration
             $table->foreign('perito_id')->references('id')->on('users');
             $table->integer('diretor_id')->unsigned();
             $table->foreign('diretor_id')->references('id')->on('diretores');
-            $table->string('indiciado', 30);
-            $table->string('inquerito', 15);
+            $table->string('indiciado', 50);
+            $table->string('inquerito', 20);
+            $table->string('tipo_inquerito', 60);
             $table->softDeletes();
             $table->timestamps();
         });

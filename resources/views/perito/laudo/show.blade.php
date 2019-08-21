@@ -5,35 +5,36 @@
     </div>
     <hr>
     <div class="col-lg-12">
+        {!! Form::open(['route' => ['laudos.update', $laudo], 'method' => 'patch']) !!}
+
         <input type="hidden" value="{{$laudo->id}}" id="laudo_id" name="laudo_id">
         <div class="form-group row">
-            @include('shared.input', ['name' => 'rep', 'label' => 'REP', 'size' => '3', 'value' => $laudo->rep])
-            @include('shared.input', ['name' => 'oficio', 'label' => 'Ofício', 'size' => '3', 'value' => $laudo->oficio])
-            @include('shared.input', ['name' => 'inquerito' , 'label' => 'Inquerito Policial', 'size' => '3', 'value' => $laudo->inquerito])
-            @include('shared.select_with_id', ['name' => 'secao_id', 'label' => 'Seção', 'dados' => $secoes, 'value' => $laudo->secao_id, 'size' => '3'])
-        </div>
-        <div class="form-group row">
-            @include('shared.input_calendar', ['name' => 'data_solicitacao' , 'label' => 'Data da Solicitação', 'size' => '3', 'value' => formatar_data_do_bd($laudo->data_solicitacao)])
-            @include('shared.input_calendar', ['name' => 'data_designacao', 'label' => 'Data da Designação', 'size' => '3', 'value' => formatar_data_do_bd($laudo->data_designacao)])
-            @include('shared.input', ['name' => 'indiciado', 'label' => 'Indiciado', 'size' => '3', 'value' => $laudo->indiciado])
-        </div>
-        <div class="form-group row">
-            {{--<input class="form-control" type="hidden" name="perito_id" autocomplete="off"--}}
-            {{--value="{{ Auth::id() }}"/>--}}
+            @include('perito.laudo.attributes.rep', ['rep' =>  $laudo->rep ?? old('rep')])
+            @include('perito.laudo.attributes.oficio', ['oficio' =>  $laudo->oficio ?? old('oficio')])
+            @include('perito.laudo.attributes.indiciado', ['indiciado' =>  $laudo->indiciado ?? old('indiciado')])
+            @include('perito.laudo.attributes.tipo_inquerito', ['tipo_inquerito2' =>  $laudo->tipo_inquerito ?? old('tipo_inquerito')])
+            @include('perito.laudo.attributes.inquerito', ['inquerito' =>  $laudo->inquerito ?? old('inquerito')])
 
-            @include('shared.select_with_id', ['name' => 'cidade_id', 'label' => 'Cidade', 'dados' => $cidades, 'value' => $laudo->cidade_id, 'size' => '3'])
-            @include('shared.select_with_id', ['name' => 'solicitante_id', 'label' => 'Órgão Solicitante', 'dados' => $solicitantes,
-                         'value' => $laudo->solicitante_id, 'size' => '3'])
-            @include('shared.select_with_id', ['name' => 'diretor_id', 'label' => 'Diretor', 'dados' => $diretores, 'size' => '3', 'value' => $laudo->diretor->id])
+            @include('shared.input_calendar', ['label' => 'Data da Solicitação',
+            'name' => 'data_solicitacao', 'size' => '3', 'value' => formatar_data_do_bd($laudo->data_solicitacao)])
+
+            @include('shared.input_calendar', ['label' => 'Data da Designação',
+            'name' => 'data_designacao', 'size' => '3', 'value' => formatar_data_do_bd($laudo->data_designacao)])
+
+            <input class="form-control" type="hidden" name="perito_id" autocomplete="off"
+                   value="{{ Auth::id() }}"/>
+            @include('shared.attributes.secao', ['secao2' =>  $laudo->secao_id ?? old('secao_id')])
+            @include('shared.attributes.cidades', ['id' => 'cidade_id', 'size' => '4', 'cidade2' =>  $laudo->cidade_id ?? old('cidade_id')])
+            @include('perito.laudo.attributes.solicitante', ['solicitante2' =>  $laudo->solicitante_id ?? old('solicitante_id')])
+            @include('perito.laudo.attributes.diretor', ['diretor2' =>  $laudo->diretor_id ?? old('diretor_id')])
+
             <div class="col-lg-3 mt-auto">
-                <button type="submit" id="edit" class="btn btn-primary mt-2">
-                    <i class="far fa-edit"></i> Editar
-                </button>
                 <button type="submit" id="salvar" class="btn btn-primary mt-2">
                     <i class="far fa-save" aria-hidden="true"></i>
-                    Salvar
+                    Atualizar Informações
                 </button>
             </div>
+            {{ Form::close() }}
         </div>
     </div>
     <hr>
@@ -74,5 +75,5 @@
         {{--Gerar PDF--}}
         {{--</a>--}}
     </div>
-{{--    @include('perito.modals.upload')--}}
+    {{--    @include('perito.modals.upload')--}}
 @endsection

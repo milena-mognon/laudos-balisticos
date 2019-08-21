@@ -42,7 +42,7 @@ class LaudosController extends Controller
         $cidades = Cidade::all();
         $diretores = Diretor::all();
 
-        return view('perito.laudo.create2',
+        return view('perito.laudo.create',
             compact('secoes', 'cidades', 'diretores'));
     }
      /*
@@ -51,12 +51,9 @@ class LaudosController extends Controller
      */
     public function store(LaudoRequest $request)
     {
-        $data_designacao = formatar_data($request->input('data_designacao'));
-        $data_solicitacao = formatar_data($request->input('data_solicitacao'));
-        $laudo = $request->except(['data_designacao', 'data_solicitacao']);
-        $laudo_info = array_merge($laudo, ['data_solicitacao' => $data_solicitacao, 'data_designacao' => $data_designacao]);
-        $saved_laudo = Laudo::create($laudo_info);
-        $laudo_id = $saved_laudo->id;
+        $laudo = Laudo::config_laudo_info($request);
+        $laudo = Laudo::create($laudo);
+        $laudo_id = $laudo->id;
         return redirect()->route('laudos.materiais', compact('laudo_id'));
     }
 
@@ -70,8 +67,8 @@ class LaudosController extends Controller
     {
         $cidades = Cidade::all();
         $secoes = Secao::all();
-        $diretores = Diretor::all();
-        $solicitantes = OrgaoSolicitante::all();
+        $diretores = Diretor::allOrdered();
+        $solicitantes = OrgaoSolicitante::fromCity($laudo->cidade_id);
         $armas = $laudo->armas;
 //        $municoes = Municao::findAll($id);
 //        $componentes = Componente::findAll($id);
@@ -81,26 +78,20 @@ class LaudosController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Laudo  $laudo
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Laudo $laudo)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Laudo  $laudo
+     * @param  Laudo $laudo
      * @return \Illuminate\Http\Response
      */
-    public function update(LaudoRequest $request, Laudo $laudo)
+    public function update(LaudoRequest $request, $laudo)
     {
-        //
+        $updated_laudo = Laudo::config_laudo_info($request);
+        Laudo::find($laudo->id)->fill($updated_laudo)->save();
+        $laudo_id = $laudo->id;
+        return redirect()->route('laudos.show', compact('laudo_id'))
+            ->with('success', 'Laudo Atualizado com sucesso!');
+
     }
 
     /**
@@ -111,7 +102,9 @@ class LaudosController extends Controller
      */
     public function destroy($laudo)
     {
-        //
+//        dd($laudo->id);
+        Laudo::destroy($laudo->id);
+        return response()->json(['success'=>'done']);
     }
 
     public function materiais($laudo)

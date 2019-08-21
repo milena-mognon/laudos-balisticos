@@ -15,7 +15,7 @@ class CreateEstadosTable extends Migration
     {
         Schema::create('estados', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome', 30);
+            $table->string('nome', 40);
             $table->string('uf');
         });
     }

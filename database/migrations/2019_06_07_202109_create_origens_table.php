@@ -15,7 +15,7 @@ class CreateOrigensTable extends Migration
     {
         Schema::create('origens', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome', 30);
+            $table->string('nome', 50);
             $table->string('fabricacao', 50);
             $table->softDeletes();
         });

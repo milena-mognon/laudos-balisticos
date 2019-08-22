@@ -1,6 +1,6 @@
 <div class="col-lg-{{ $size ?? "12" }} mt-2" id="tipo_arma">
     <label>Utilizado em:</label>
-    <select class="form-control{{ $errors->has('tipo_arma') ? ' is-invalid' : '' }}" name="tipo_arma">
+    <select class="js-single form-control{{ $errors->has('tipo_arma') ? ' is-invalid' : '' }}" name="tipo_arma">
         @foreach (['Espingarda', 'Pistola', 'Revólver'] as $tipo_arma)
             <option value="{{ mb_strtolower($tipo_arma)}}"
                     {{ (mb_strtolower($tipo_arma) == mb_strtolower($tipo_arma2)) ? 'selected=selected' : '' }}>

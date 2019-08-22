@@ -46,7 +46,7 @@ class MarcasController extends Controller
         Marca::create($request->all());
 
         return redirect()->route('marcas.index')
-            ->with('success', 'Marca cadastrada com sucesso!');
+            ->with('success', __('flash.create_f', ['model' => 'Marca']));
     }
 
     /**
@@ -74,7 +74,7 @@ class MarcasController extends Controller
         Marca::find($marca->id)->fill($marca_updates)->save();
 
         return redirect()->route('marcas.index')
-            ->with('success', 'Marca atualizada com sucesso!');;
+            ->with('success', __('flash.update_f', ['model' => 'Marca']));;
     }
 
     /**

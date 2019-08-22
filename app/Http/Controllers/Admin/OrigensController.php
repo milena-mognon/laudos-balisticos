@@ -44,7 +44,7 @@ class OrigensController extends Controller
         Origem::create($request->all());
 
         return redirect()->route('origens.index')
-            ->with('success', 'País cadastrado com sucesso!');
+            ->with('success', __('flash.create_m', ['model' => 'País de Origem']));
     }
 
     /**
@@ -71,7 +71,7 @@ class OrigensController extends Controller
         Origem::find($origem->id)->fill($origem_updates)->save();
 
         return redirect()->route('origens.index')
-            ->with('success', 'País atualizado com sucesso!');;
+            ->with('success', __('flash.update_m', ['model' => 'País de Origem']));
     }
 
     /**

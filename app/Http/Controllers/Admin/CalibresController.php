@@ -45,7 +45,7 @@ class CalibresController extends Controller
     {
         Calibre::create($request->all());
         return redirect()->route('calibres.index')
-            ->with('success', 'Calibre cadastrado com sucesso.');
+            ->with('success', __('flash.create_m', ['model' => 'Calibre']));
     }
 
     /**
@@ -72,7 +72,7 @@ class CalibresController extends Controller
         Calibre::find($calibre->id)->fill($calibre_update)->save();
 
         return redirect()->route('calibres.index')
-            ->with('success', 'Calibre atualizado com sucesso.');
+            ->with('success', __('flash.update_m', ['model' => 'Calibre']));
     }
 
     /**

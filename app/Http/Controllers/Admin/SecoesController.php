@@ -46,7 +46,7 @@ class SecoesController extends Controller
         Secao::create($request->all());
 
         return redirect()->route('secoes.index')
-            ->with('success', 'Seção cadastrada com sucesso!');
+            ->with('success', __('flash.create_f', ['model' => 'Seção']));
     }
 
     /**
@@ -74,7 +74,7 @@ class SecoesController extends Controller
         Secao::find($secao->id)->fill($secao_updates)->save();
 
         return redirect()->route('secoes.index')
-            ->with('success', 'Seção atualizada com sucesso!');
+            ->with('success', __('flash.update_f', ['model' => 'Seção']));
     }
 
     /**

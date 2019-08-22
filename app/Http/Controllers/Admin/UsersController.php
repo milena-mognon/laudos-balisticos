@@ -52,7 +52,7 @@ class UsersController extends Controller
         User::find($user->id)->fill($user_updates)->save();
 
         return redirect()->route('users.index')
-            ->with('success', 'Usuário atualizado com sucesso!');
+            ->with('success', __('flash.update_m', ['model' => 'Usuário']));
     }
 
     /**

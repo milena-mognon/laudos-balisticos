@@ -51,7 +51,7 @@ class DiretoresController extends Controller
         Diretor::create($diretor);
 
         return redirect()->route('diretores.index')
-            ->with('success', 'Diretor cadastrado com sucesso!');
+            ->with('success', __('flash.create_m', ['model' => 'Diretor']));
     }
 
     /**
@@ -83,7 +83,7 @@ class DiretoresController extends Controller
         Diretor::find($diretor->id)->fill($diretor_updates)->save();
 
         return redirect()->route('diretores.index')
-            ->with('success', 'Diretor atualizado com sucesso!');;
+            ->with('success', __('flash.update_m', ['model' => 'Diretor']));
     }
 
     /**

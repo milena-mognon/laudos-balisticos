@@ -48,7 +48,7 @@ class OrgaosSolicitantesController extends Controller
         OrgaoSolicitante::create($request->all());
 
         return redirect()->route('solicitantes.index')
-            ->with('success', 'Órgão Solicitante cadastrado com sucesso!');
+            ->with('success', __('flash.create_m', ['model' => 'Órgão Requisitante']));
     }
 
     /**
@@ -77,7 +77,7 @@ class OrgaosSolicitantesController extends Controller
         OrgaoSolicitante::find($solicitante->id)->fill($solicitante_updates)->save();
 
         return redirect()->route('solicitantes.index')
-            ->with('success', 'Órgão solicitante atualizado com sucesso!');
+            ->with('success', __('flash.update_m', ['model' => 'Órgãos Requisitante']));
     }
 
     /**

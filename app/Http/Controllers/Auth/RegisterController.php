@@ -57,7 +57,7 @@ class RegisterController extends Controller
         event(new Registered($user = $this->create($request->all())));
 
         return redirect()->route('users.index')
-            ->with('success', 'Usuário cadastrado com sucesso.');
+            ->with('success', __('flash.create_m', ['model' => 'Usuário']));
     }
 
     /**

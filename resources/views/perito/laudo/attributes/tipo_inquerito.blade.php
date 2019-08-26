@@ -1,4 +1,4 @@
-<div class="col-lg-{{ $size ?? "3" }} mt-2">
+<div class="col-lg-3 mt-2">
     <label for="tipo_inquerito">Tipo do Inquerito</label>
     <select class="js-single form-control {{ $errors->has('tipo_inquerito') ? ' is-invalid' : '' }}"
             name="tipo_inquerito">

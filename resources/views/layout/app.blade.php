@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -17,15 +17,16 @@
 
         <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('css/home.css') }}">
-        <link rel="stylesheet" href="{{ URL::asset('jquery-ui-1.12.1.custom/jquery-ui.min.css')}}">
         <link rel="stylesheet" href="{{ URL::asset('css/layout.css')}}">
+
+        <link rel="stylesheet" href="{{ URL::asset('jquery-ui-1.12.1.custom/jquery-ui.min.css')}}">
         <link rel="stylesheet" href="{{ URL::asset('css/sweetalert2.min.css')}}">
         <link rel="stylesheet" href="{{ URL::asset('css/sb-admin.css')}}">
         <link rel="stylesheet" href="{{ URL::asset('fontawesome-free/css/all.css')}}">
         <link rel="stylesheet" href="{{ URL::asset('css/select2.min.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('css/select2-bootstrap.css') }}">
 
-        {{--<link rel="stylesheet" href="{{ URL::asset('css/cropper.css') }}">--}}
+        <link rel="stylesheet" href="{{ URL::asset('css/my_select2.css') }}">
 {{--        <link rel="stylesheet" href="{{ URL::asset('css/dropzone_custom.css') }}">--}}
         @yield('style')
     </head>

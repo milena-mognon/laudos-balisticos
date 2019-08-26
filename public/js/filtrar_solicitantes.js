@@ -24,7 +24,7 @@ $(function () {
                 solicitante.append($('<option>'));
                 solicitante.append($('<option>', {
                     id: 'cadastrar_solicitante',
-                    text: 'Cadastrar Opção'
+                    text: 'Cadastrar Opção',
                 }));
             },
             error() {
@@ -32,7 +32,7 @@ $(function () {
                 solicitante.append($('<option>'));
                 solicitante.append($('<option>', {
                     id: 'cadastrar_solicitante',
-                    text: 'Cadastrar Opção'
+                    text: 'Cadastrar Opção',
                 }));
             },
         });

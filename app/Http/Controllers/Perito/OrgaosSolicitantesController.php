@@ -1,10 +1,14 @@
 <?php
 
+/*
+ * Developed by Milena Mognon
+ */
+
 namespace App\Http\Controllers\Perito;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\OrgaoSolicitanteRequest;
 use App\Models\OrgaoSolicitante;
-use App\Http\Controllers\Controller;
 
 class OrgaosSolicitantesController extends Controller
 {
@@ -23,7 +27,7 @@ class OrgaosSolicitantesController extends Controller
     {
         $solicitante = OrgaoSolicitante::create($request->all());
         return response()->json([
-            'success'=>'done',
+            'success' => 'done',
             'id' => $solicitante->id,
             'nome' => $solicitante->nome
         ]);

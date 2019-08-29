@@ -1,11 +1,14 @@
 <?php
 
+/*
+ * Developed by Milena Mognon
+ */
+
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\SecaoRequest;
 use App\Models\Secao;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class SecoesController extends Controller
 {
@@ -13,6 +16,7 @@ class SecoesController extends Controller
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -38,7 +42,7 @@ class SecoesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(SecaoRequest $request)
@@ -52,7 +56,7 @@ class SecoesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Secao  $secao
+     * @param  \App\Models\Secao $secao
      * @return \Illuminate\Http\Response
      */
     public function edit(Secao $secao)
@@ -64,8 +68,8 @@ class SecoesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Secao  $secao
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Models\Secao $secao
      * @return \Illuminate\Http\Response
      */
     public function update(SecaoRequest $request, Secao $secao)
@@ -86,6 +90,6 @@ class SecoesController extends Controller
     public function destroy(Secao $secao)
     {
         Secao::destroy($secao->id);
-        return response()->json(['success'=>'done']);
+        return response()->json(['success' => 'done']);
     }
 }

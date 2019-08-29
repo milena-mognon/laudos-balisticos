@@ -1,16 +1,19 @@
 <?php
 
+/*
+ * Developed by Milena Mognon
+ */
+
 namespace App\Http\Controllers\Perito;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\LaudoRequest;
 use App\Models\Cidade;
 use App\Models\Diretor;
+use App\Models\Gerador\Gerar;
 use App\Models\Laudo;
 use App\Models\OrgaoSolicitante;
 use App\Models\Secao;
-use App\Models\Gerador\Gerar;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class LaudosController extends Controller
@@ -19,6 +22,7 @@ class LaudosController extends Controller
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -45,10 +49,11 @@ class LaudosController extends Controller
         return view('perito.laudo.create',
             compact('secoes', 'cidades', 'diretores'));
     }
-     /*
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
+    /*
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
     public function store(LaudoRequest $request)
     {
         $laudo = Laudo::config_laudo_info($request);
@@ -60,7 +65,7 @@ class LaudosController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Laudo  $laudo
+     * @param  \App\Models\Laudo $laudo
      * @return \Illuminate\Http\Response
      */
     public function show(Laudo $laudo)
@@ -74,13 +79,13 @@ class LaudosController extends Controller
 //        $componentes = Componente::findAll($id);
         return view('perito.laudo.show',
             compact('laudo', 'cidades', 'solicitantes',
-            'diretores', 'secoes', 'armas'));
+                'diretores', 'secoes', 'armas'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @param  Laudo $laudo
      * @return \Illuminate\Http\Response
      */
@@ -104,7 +109,7 @@ class LaudosController extends Controller
     {
 //        dd($laudo->id);
         Laudo::destroy($laudo->id);
-        return response()->json(['success'=>'done']);
+        return response()->json(['success' => 'done']);
     }
 
     public function materiais($laudo)
@@ -114,7 +119,7 @@ class LaudosController extends Controller
 
     public function generate_docx(Laudo $laudo)
     {
-        if($laudo->armas->isEmpty()){
+        if ($laudo->armas->isEmpty()) {
             return redirect()->route('laudos.show', compact('laudo'))
                 ->with('warning', 'É preciso ter ao menos 1 (um) material cadastrado para gerar o laudo!');
         } else {

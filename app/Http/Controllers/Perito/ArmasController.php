@@ -22,33 +22,6 @@ class ArmasController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create($laudo)
-    {
-        $marcas = Marca::categoria('armas');
-        $origens = Origem::all();
-        $calibres = Calibre::arma('revólver');
-        return view('perito.revolver.create',
-            compact('laudo', 'marcas', 'origens', 'calibres'));
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(ArmaRequest $request)
-    {
-        Arma::create($request->all());
-        return redirect()->route('laudos.show',
-            ['laudo_id' => $request->input('laudo_id')]);
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  \App\Models\Arma  $arma
@@ -56,9 +29,9 @@ class ArmasController extends Controller
      */
     public function show(Arma $arma)
     {
-//        $marcas = Marca::marcasWithTrashed('armas', $arma->marca);
-//        $origens = Origem::origensWithTrashed($arma->origem);
-//        $calibres = Calibre::calibresWithTrashed('revólver', $arma->calibre);
+        dd('Redirecionar para responsavel');
+
+        /*Verficar o tipo_arma e redirecionar para o controlelr responsavel*/
         return view('perito.revolver.show',
             compact('arma'));
     }
@@ -72,6 +45,9 @@ class ArmasController extends Controller
      */
     public function edit($laudo, Arma $arma)
     {
+        /*Verficar o tipo_arma e redirecionar para o controlelr responsavel*/
+        dd('Redirecionar para responsavel');
+
         $marcas = Marca::marcasWithTrashed('armas', $arma->marca);
         $origens = Origem::origensWithTrashed($arma->origem);
         $calibres = Calibre::calibresWithTrashed('revólver', $arma->calibre);
@@ -89,6 +65,9 @@ class ArmasController extends Controller
      */
     public function update(ArmaRequest $request, $laudo_id, Arma $arma)
     {
+        /*Verficar o tipo_arma e redirecionar para o controlelr responsavel*/
+
+        dd('Redirecionar para responsavel');
         $updated_arma = $request->all();
         Arma::find($arma->id)->fill($updated_arma)->save();
         return redirect()->route('laudos.show', ['id' => $laudo_id]);

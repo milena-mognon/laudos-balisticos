@@ -1,9 +1,12 @@
 <?php
 
+/*
+ * Developed by Milena Mognon
+ */
+
 namespace app\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
@@ -15,6 +18,6 @@ class DashboardController extends Controller
 
     public function index()
     {
-      return view('dashboard');
+        return view('dashboard');
     }
 }

@@ -1,10 +1,14 @@
 <?php
 
+/*
+ * Developed by Milena Mognon
+ */
+
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\OrigemRequest;
 use App\Models\Origem;
-use App\Http\Controllers\Controller;
 
 class OrigensController extends Controller
 {
@@ -12,6 +16,7 @@ class OrigensController extends Controller
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -36,7 +41,7 @@ class OrigensController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(OrigemRequest $request)
@@ -50,7 +55,7 @@ class OrigensController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Origem  $origem
+     * @param  \App\Models\Origem $origem
      * @return \Illuminate\Http\Response
      */
     public function edit(Origem $origem)
@@ -61,8 +66,8 @@ class OrigensController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Origem  $origem
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Models\Origem $origem
      * @return \Illuminate\Http\Response
      */
     public function update(OrigemRequest $request, Origem $origem)
@@ -83,6 +88,6 @@ class OrigensController extends Controller
     public function destroy(Origem $origem)
     {
         Origem::destroy($origem->id);
-        return response()->json(['success'=>'done']);
+        return response()->json(['success' => 'done']);
     }
 }

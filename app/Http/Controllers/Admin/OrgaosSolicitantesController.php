@@ -1,11 +1,15 @@
 <?php
 
+/*
+ * Developed by Milena Mognon
+ */
+
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\OrgaoSolicitanteRequest;
 use App\Models\Cidade;
 use App\Models\OrgaoSolicitante;
-use App\Http\Controllers\Controller;
 
 class OrgaosSolicitantesController extends Controller
 {
@@ -13,6 +17,7 @@ class OrgaosSolicitantesController extends Controller
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -89,10 +94,11 @@ class OrgaosSolicitantesController extends Controller
     public function destroy(OrgaoSolicitante $solicitante)
     {
         OrgaoSolicitante::destroy($solicitante->id);
-        return response()->json(['success'=>'done']);
+        return response()->json(['success' => 'done']);
     }
 
-    public function filtrar_por_cidade($cidade_id){
+    public function filtrar_por_cidade($cidade_id)
+    {
         $solicitantes = OrgaoSolicitante::fromCity($cidade_id);
         return response()->json(['data' => $solicitantes]);
     }

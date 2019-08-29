@@ -47,6 +47,10 @@ Route::post('laudos/armas/{arma}/images', 'Perito\ArmasController@store_image')-
 
 Route::prefix('laudos/{laudo}')->group(function () {
     Route::resource('armas', 'Perito\ArmasController')->except(['destroy']);
+    Route::resource('revolveres', 'Perito\Armas\RevolveresController')
+        ->parameters(['revolveres' => 'revolver'])->except(['destroy']);
+    Route::resource('espingardas', 'Perito\Armas\EspingardasController')->except(['destroy']);
+
 });
 
 Route::delete('armas/{arma}', 'Perito\ArmasController@destroy')->name('armas.destroy');

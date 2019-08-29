@@ -12,11 +12,15 @@ class Arma extends Model
 
     protected $table = 'armas';
 
-    protected $fillable = ['tipo_arma', 'marca_id', 'calibre_id', 'origem_id',
+    protected $fillable = [
+        'tipo_arma', 'marca_id', 'calibre_id', 'origem_id',
         'laudo_id', 'tipo_serie', 'num_serie', 'tambor_rebate', 'capacidade_tambor',
         'sistema_percussao', 'tipo_acabamento', 'estado_geral', 'comprimento_cano',
         'comprimento_total', 'altura', 'quantidade_raias', 'sentido_raias', 'num_lacre',
-        'cabo', 'funcionamento'];
+        'cabo', 'funcionamento', 'sistema_funcionamento', 'num_canos', 'disposicao_canos',
+        'teclas_gatilho', 'sistema_carregamento', 'sistema_engatilhamento', 'coronha_fuste',
+        'chave_abertura', 'tipo_carregador'
+    ];
 
     protected $dates = ['deleted_at'];
 

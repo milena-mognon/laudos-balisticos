@@ -1,12 +1,16 @@
 <?php
 
+/*
+ * Developed by Milena Mognon
+ */
+
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Cargo;
 use App\Models\Secao;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class UsersController extends Controller
 {
@@ -14,6 +18,7 @@ class UsersController extends Controller
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -28,7 +33,7 @@ class UsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
@@ -42,8 +47,8 @@ class UsersController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
@@ -64,6 +69,6 @@ class UsersController extends Controller
     public function destroy(User $user)
     {
         User::destroy($user->id);
-        return response()->json(['success'=>'done']);
+        return response()->json(['success' => 'done']);
     }
 }

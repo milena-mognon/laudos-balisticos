@@ -25,6 +25,11 @@ $(document).ready(function() {
         placeholder: "Selecione um País de Origem",
         language: 'pt-BR'
     });
+    $('.js-single-select').select2({
+        placeholder: "Selecione",
+        language: 'pt-BR',
+        minimumResultsForSearch: -1
+    });
     $('.js-single').select2({
         language: 'pt-BR',
         minimumResultsForSearch: -1

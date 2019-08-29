@@ -1,11 +1,14 @@
 <?php
 
+/*
+ * Developed by Milena Mognon
+ */
+
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\CalibreRequest;
 use App\Models\Calibre;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class CalibresController extends Controller
 {
@@ -13,6 +16,7 @@ class CalibresController extends Controller
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -38,7 +42,7 @@ class CalibresController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(CalibreRequest $request)
@@ -51,7 +55,7 @@ class CalibresController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Calibre  $calibre
+     * @param  \App\Models\Calibre $calibre
      * @return \Illuminate\Http\Response
      */
     public function edit(Calibre $calibre)
@@ -62,8 +66,8 @@ class CalibresController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Calibre  $calibre
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Models\Calibre $calibre
      * @return \Illuminate\Http\Response
      */
     public function update(CalibreRequest $request, Calibre $calibre)
@@ -84,6 +88,6 @@ class CalibresController extends Controller
     public function destroy(Calibre $calibre)
     {
         Calibre::destroy($calibre->id);
-        return response()->json(['success'=>'done']);
+        return response()->json(['success' => 'done']);
     }
 }

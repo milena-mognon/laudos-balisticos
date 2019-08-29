@@ -1,11 +1,14 @@
 <?php
 
+/*
+ * Developed by Milena Mognon
+ */
+
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\MarcaRequest;
 use App\Models\Marca;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class MarcasController extends Controller
 {
@@ -13,6 +16,7 @@ class MarcasController extends Controller
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -38,7 +42,7 @@ class MarcasController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(MarcaRequest $request)
@@ -52,7 +56,7 @@ class MarcasController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Marca  $marca
+     * @param  \App\Models\Marca $marca
      * @return \Illuminate\Http\Response
      */
     public function edit(Marca $marca)
@@ -64,8 +68,8 @@ class MarcasController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Marca  $marca
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Models\Marca $marca
      * @return \Illuminate\Http\Response
      */
     public function update(MarcaRequest $request, Marca $marca)
@@ -86,6 +90,6 @@ class MarcasController extends Controller
     public function destroy(Marca $marca)
     {
         Marca::destroy($marca->id);
-        return response()->json(['success'=>'done']);
+        return response()->json(['success' => 'done']);
     }
 }

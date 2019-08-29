@@ -1,11 +1,14 @@
 <?php
 
+/*
+ * Developed by Milena Mognon
+ */
+
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\DiretorRequest;
 use App\Models\Diretor;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class DiretoresController extends Controller
 {
@@ -13,6 +16,7 @@ class DiretoresController extends Controller
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -37,7 +41,7 @@ class DiretoresController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(DiretorRequest $request)
@@ -57,7 +61,7 @@ class DiretoresController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Diretor  $diretor
+     * @param  \App\Models\Diretor $diretor
      * @return \Illuminate\Http\Response
      */
     public function edit(Diretor $diretor)
@@ -69,8 +73,8 @@ class DiretoresController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Diretor  $diretor
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Models\Diretor $diretor
      * @return \Illuminate\Http\Response
      */
     public function update(DiretorRequest $request, Diretor $diretor)
@@ -95,6 +99,6 @@ class DiretoresController extends Controller
     public function destroy(Diretor $diretor)
     {
         Diretor::destroy($diretor->id);
-        return response()->json(['success'=>'done']);
+        return response()->json(['success' => 'done']);
     }
 }

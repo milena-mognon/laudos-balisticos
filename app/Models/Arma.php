@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Armas\Espingarda;
 use App\Models\Armas\Revolver;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -54,9 +55,9 @@ class Arma extends Model
 //            case "Pistola":
 //                return Pistola::pistola($arma);
 //                break;
-//            case "Espingarda":
-//                return Espingarda::espingarda($arma);
-//                break;
+            case "Espingarda":
+                return Espingarda::text($arma);
+                break;
 //            case "Garrucha":
 //                return Garrucha::garrucha($arma);
 //                break;

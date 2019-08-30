@@ -11,10 +11,8 @@ class Revolver extends Model
 {
     public static function text($arma)
     {
-//        dd($arma);
         $calibre = $arma->calibre->nome;
         $origem = mb_strtolower($arma->origem->fabricacao);
-//        dd($origem);
         $quantidade_raias = converter_numero($arma->quantidade_raias);
         $capacidade = converter_numero($arma->capacidade_tambor);
         $tipo_acabamento = Shared::acabamento($arma->tipo_acabamento);

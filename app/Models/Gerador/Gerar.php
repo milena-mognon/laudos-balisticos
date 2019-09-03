@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * Developed by Milena Mognon
+ */
+
 namespace App\Models\Gerador;
 
 use Illuminate\Database\Eloquent\Model;

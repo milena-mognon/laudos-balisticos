@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * Developed by Milena Mognon
+ */
+
 namespace App\Models\Gerador;
 
 use Criminalistica\Models\Util;

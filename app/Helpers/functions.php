@@ -100,3 +100,13 @@ function data($data)
 
     return $data_extenso;
 }
+
+function armas_route_name($material){
+    switch ($material){
+        case 'Revólver': return 'revolveres';
+        break;
+        case 'Espingarda': return 'espingardas';
+        break;
+        default: return 'armas';
+    }
+}

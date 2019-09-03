@@ -13,16 +13,18 @@
                 <i class="fas fa-camera"></i>
             </button>
 
-            <a class="btn btn-primary" href="{{ route('armas.show', [$laudo, $arma]) }}">
+            <a class="btn btn-primary"
+               href="{{ route(armas_route_name($arma->tipo_arma).'.show', [$laudo, $arma]) }}">
                 <i class="far fa-eye"></i>
             </a>
 
-            <a class="btn btn-primary" href="{{ route('armas.edit', [$laudo, $arma]) }}">
+            <a class="btn btn-primary"
+               href="{{ route(armas_route_name($arma->tipo_arma).'.edit', [$laudo, $arma]) }}">
                 <i class="far fa-edit"></i>
             </a>
 
-            <button value="{{ route('armas.destroy', $arma) }}" type="submit"
-                    class="btn btn-danger delete"><i class="far fa-trash-alt"></i>
+            <button value="{{ route('armas.destroy', $arma) }}" type="submit" class="btn btn-danger delete">
+                <i class="far fa-trash-alt"></i>
             </button>
         </td>
     </tr>

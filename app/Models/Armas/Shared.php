@@ -1,10 +1,12 @@
 <?php
 
+/*
+ * Developed by Milena Mognon
+ */
+
 namespace App\Models\Armas;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
-use App\Models\Util;
 
 class Shared extends Model
 {

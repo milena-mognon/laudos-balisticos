@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * Developed by Milena Mognon
+ */
+
 namespace App\Models\Armas;
 
 use Illuminate\Database\Eloquent\Model;

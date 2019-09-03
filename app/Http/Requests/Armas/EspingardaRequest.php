@@ -46,7 +46,7 @@ class EspingardaRequest extends FormRequest
             'disposicao_canos' => 'nullable|max: 40',
             'teclas_gatilho' => 'nullable|max: 25',
             'sistema_carregamento' => 'required|between:5,40',
-            'sistema_engtilhamento' => 'required|between: 5,40',
+            'sistema_engatilhamento' => 'required|between: 5,40',
             'coronha_fuste' => 'required|between:5,30',
             'chave_abertura' => 'nullable|max: 70',
             'tipo_carregador' => 'nullable|max: 40',

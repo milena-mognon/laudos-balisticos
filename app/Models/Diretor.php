@@ -33,4 +33,13 @@ class Diretor extends Model
     {
         return $query->orderBy('inicio_direcao', 'desc')->get();
     }
+
+    public static function config_diretor_info($request){
+        $inicio_direcao = formatar_data($request->input('inicio_direcao'));
+        $fim_direcao = formatar_data($request->input('fim_direcao'));
+        $dados = $request->only(['nome']);
+        $datas = ['inicio_direcao' => $inicio_direcao, 'fim_direcao' => $fim_direcao];
+        $diretor = array_merge($dados, $datas);
+        return $diretor;
+    }
 }

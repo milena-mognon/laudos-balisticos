@@ -44,7 +44,8 @@ class EspingardasController extends Controller
     {
         Arma::create($request->all());
         return redirect()->route('laudos.show',
-            ['laudo_id' => $request->input('laudo_id')]);
+            ['laudo_id' => $request->input('laudo_id')])
+            ->with('success', __('flash.create_f', ['model' => 'Espingarda']));
     }
 
     /**
@@ -90,6 +91,7 @@ class EspingardasController extends Controller
     {
         $updated_arma = $request->all();
         Arma::find($espingarda->id)->fill($updated_arma)->save();
-        return redirect()->route('laudos.show', ['id' => $laudo_id]);
+        return redirect()->route('laudos.show', ['id' => $laudo_id])
+            ->with('success', __('flash.update_f', ['model' => 'Espingarda']));
     }
 }

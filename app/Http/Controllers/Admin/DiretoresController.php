@@ -46,12 +46,7 @@ class DiretoresController extends Controller
      */
     public function store(DiretorRequest $request)
     {
-        $inicio_direcao = formatar_data($request->input('inicio_direcao'));
-        $fim_direcao = formatar_data($request->input('fim_direcao'));
-        $dados = $request->only(['nome']);
-        $datas = ['inicio_direcao' => $inicio_direcao, 'fim_direcao' => $fim_direcao];
-        $diretor = array_merge($dados, $datas);
-
+        $diretor = Diretor::config_diretor_info($request);
         Diretor::create($diretor);
 
         return redirect()->route('diretores.index')
@@ -79,11 +74,7 @@ class DiretoresController extends Controller
      */
     public function update(DiretorRequest $request, Diretor $diretor)
     {
-        $inicio_direcao = formatar_data($request->input('inicio_direcao'));
-        $fim_direcao = formatar_data($request->input('fim_direcao'));
-        $dados = $request->only(['nome']);
-        $datas = ['inicio_direcao' => $inicio_direcao, 'fim_direcao' => $fim_direcao];
-        $diretor_updates = array_merge($dados, $datas);
+        $diretor_updates = Diretor::config_diretor_info($request);
         Diretor::find($diretor->id)->fill($diretor_updates)->save();
 
         return redirect()->route('diretores.index')

@@ -6,8 +6,7 @@ $.ajaxSetup({
 
 $(function () {
     $('#solicitante_id').on('change', function () {
-        let idSelecionado = $(this).val();
-        if (idSelecionado === $('#cadastrar_solicitante').val()) {
+        if ($('#solicitante_id').val() === 'Cadastrar Opção') {
             $("#solicitante_modal").modal();
         }
     });

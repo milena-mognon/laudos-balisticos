@@ -1,16 +1,7 @@
-{{--@extends('main')--}}
-
 @section('style')
-    <link rel="stylesheet" href="{{ url('/css/dropzone.css') }}">
-    <link rel="stylesheet" href="{{ url('/css/dropzone_custom.css') }}">
-    <link rel="stylesheet" href="{{ url('/css/cropper.css') }}">
-@endsection
-
-@section('js')
-    <script src="{{ url('/js/cropper.js') }}"></script>
-    <script src="{{ url('/js/dropzone.js') }}"></script>
-    <script src="{{ url('/js/dropzone_config.js') }}"></script>
-    <script src="{{ url('/js/cropper_image.js') }}"></script>
+    <link rel="stylesheet" href="{{ url('css/dropzone.css') }}">
+    <link rel="stylesheet" href="{{ url('css/dropzone_custom.css') }}">
+    <link rel="stylesheet" href="{{ url('css/cropper.css') }}">
 @endsection
 
 @include('perito.modals.imagem_modal')

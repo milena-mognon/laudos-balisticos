@@ -1,4 +1,3 @@
-{{----}}
 {!! Html::script('js/jquery.js') !!}
 {!! Html::script('js/app.js') !!}
 {!! Html::script('jquery-ui-1.12.1.custom/jquery-ui.js') !!}
@@ -10,9 +9,7 @@
 {!! Html::script('js/select2.min.js') !!}
 {!! Html::script('js/pt-BR.js') !!}
 
-
 {{--My js files--}}
-{{--{!! Html::script('js/calendar.js') !!}--}}
 {!! Html::script('js/deletes.js') !!}
 {!! Html::script('js/num_serie.js') !!}
 {!! Html::script('js/select2_and_masks.js') !!}

@@ -41,7 +41,7 @@ Route::prefix('admin')->middleware('cargo:Administrador')->group(function () {
 Route::resource('laudos', 'Perito\LaudosController')->except(['edit']);
 
 Route::get('laudos/solicitantes/cidade/{cidade_id}',
-    'Admin\OrgaosSolicitantesController@filtrar_por_cidade')->name('solicitantes.filtrar');
+    'Perito\OrgaosSolicitantesController@filtrar_por_cidade')->name('solicitantes.filtrar');
 
 Route::post('laudos/armas/{arma}/images', 'Perito\ArmasController@store_image')->name('armas.images');
 

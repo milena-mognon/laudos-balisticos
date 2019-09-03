@@ -64,7 +64,7 @@ class Shared extends Model
             return "Submetida esta arma de fogo a prova de disparo foi observado o funcionamento normal dos seus mecanismos, estando a mesma $funcionamento para a realização de tiros.";
         }
         if ($funcionamento == 'ineficiente') {
-            return "Submetida esta arma de fogo a prova de disparo foi observado o funcionamento anormal dos seus mecanismos, estando a mesma $funcionamento para a realização de tiros, podendo ainda ser utilizada como instrumento contundente e/ou de intimidação.";
+            return "Submetida esta arma de fogo a prova de disparo foi observado o funcionamento dos seus mecanismos, porém a mesma não percutiu eficientemente os estojos a fim de deflagrar a munição, não estando apta para realização de disparos, podendo ainda ser utilizada como instrumento contundente e/ou de intimidação.";
         }
     }
 

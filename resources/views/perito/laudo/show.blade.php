@@ -3,6 +3,10 @@
     {!! Html::script('js/calendar.js') !!}
     {!! Html::script('js/filtrar_solicitantes.js') !!}
     {!! Html::script('js/cadastrar_opcao.js') !!}
+    {!! Html::script('js/cropper.js') !!}
+    {!! Html::script('js/dropzone.js') !!}
+    {!! Html::script('js/dropzone_config.js') !!}
+    {!! Html::script('js/cropper_image.js') !!}
 @endsection
 @section('page')
     <div class="col-8">
@@ -67,18 +71,31 @@
             </table>
         </div>
 
-        <a class="btn btn-success" href="{{ route('laudos.materiais', $laudo )}}">
-            <i class="fas fa-plus" aria-hidden="true"></i>
-            Adicionar Material
-        </a>
-        <a class="btn btn-primary" href="{{ route('laudos.docx', $laudo )}}">
-            <i class="fas fa-file-download" aria-hidden="true"></i>
-            Gerar Docx
-        </a>
+        <div class="row mb-3">
+            <div class="col-lg-3 mt-2">
+                <a class="btn btn-secondary btn-block" href="{{ route('laudos.materiais', $laudo) }}">
+                    <i class="fas fa-arrow-circle-left"></i> Voltar</a>
+            </div>
+
+            <div class="col-lg-3 mt-2">
+                <a class="btn btn-success btn-block" href="{{ route('laudos.materiais', $laudo )}}">
+                    <i class="fas fa-plus" aria-hidden="true"></i>
+                    Adicionar Material
+                </a>
+            </div>
+            <div class="col-lg-3 mt-2">
+                <a class="btn btn-primary btn-block" href="{{ route('laudos.docx', $laudo )}}">
+                    <i class="fas fa-file-download" aria-hidden="true"></i>
+                    Gerar Docx
+                </a>
+            </div>
+        </div>
         {{--<a class="btn btn-danger" href="{{ route('laudos.pdf', $laudo )}}">--}}
         {{--<i class="fas fa-file-pdf" aria-hidden="true"></i>--}}
         {{--Gerar PDF--}}
         {{--</a>--}}
     </div>
+    @include('perito.modals.solicitante_modal')
+
     {{--    @include('perito.modals.upload')--}}
 @endsection

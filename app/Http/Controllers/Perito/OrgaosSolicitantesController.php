@@ -32,4 +32,10 @@ class OrgaosSolicitantesController extends Controller
             'nome' => $solicitante->nome
         ]);
     }
+
+    public function filtrar_por_cidade($cidade_id)
+    {
+        $solicitantes = OrgaoSolicitante::fromCity($cidade_id);
+        return response()->json(['data' => $solicitantes]);
+    }
 }

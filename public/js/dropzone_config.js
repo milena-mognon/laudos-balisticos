@@ -19,7 +19,7 @@ Dropzone.options.myDropzone = {
     timeout: 10000,
     autoProcessQueue: false,
     parallelUploads: 1,
-    maxFiles: 1,
+    maxFiles: 3,
 
     init: function () {
         myDropzone = this;

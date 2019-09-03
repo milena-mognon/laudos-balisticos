@@ -34,7 +34,7 @@ class RevolverRequest extends FormRequest
             'laudo_id' => 'required|integer',
             'modelo' => 'nullable',
             'tipo_serie' => 'required|between:5,40',
-//            'num_serie' => 'nullable'
+            'num_serie' => 'nullable',
             'quantidade_raias' => 'required|integer|min:0|max:30',
             'comprimento_cano' => 'required|between:5,10',
             'comprimento_total' => 'required|between:5,10',

@@ -39,7 +39,7 @@
     </div>
     <div class="row">
         <div class="col-lg-4 mb-4">
-            <button type="submit" class="btn btn-success btn-block"><strong>
+            <button type="submit" class="btn btn-success btn-block submit_arma_form"><strong>
                     <i class="fas fa-plus" aria-hidden="true"></i> {{ $acao }}</strong>
             </button>
             {{ Form::close() }}

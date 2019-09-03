@@ -107,7 +107,6 @@ class LaudosController extends Controller
      */
     public function destroy($laudo)
     {
-//        dd($laudo->id);
         Laudo::destroy($laudo->id);
         return response()->json(['success' => 'done']);
     }
@@ -129,17 +128,4 @@ class LaudosController extends Controller
             return $phpWord;
         }
     }
-
-//    public function generate_pdf(Laudo $laudo)
-//    {
-//        if($laudo->armas->isEmpty()){
-//            return redirect()->route('laudos.show', compact('laudo'))
-//                ->with('warning', 'É preciso ter ao menos 1 (um) material cadastrado para gerar o laudo!');
-//        } else {
-//            $phpWord = new Gerar();
-//            $phpWord = $phpWord->create_pdf($laudo);
-//
-//            return $phpWord;
-//        }
-//    }
 }

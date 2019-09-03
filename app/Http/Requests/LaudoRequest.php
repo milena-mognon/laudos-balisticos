@@ -30,8 +30,8 @@ class LaudoRequest extends FormRequest
         return [
             'oficio' => 'required',
             'rep' => 'required',
-            'data_designacao' => 'required|date_format:"d/m/Y"',
-            'data_solicitacao' => 'required|date_format:"d/m/Y"',
+            'data_designacao' => 'required|date_format:"d/m/Y"|after_or_equal:data_solicitacao',
+            'data_solicitacao' => 'required|date_format:"d/m/Y"|before_or_equal:data_designacao',
             'secao_id' => 'required',
             'cidade_id' => 'required',
             'solicitante_id' => 'required',

@@ -1,4 +1,9 @@
 @extends('layout.component')
+@section('js')
+    {!! Html::script('js/calendar.js') !!}
+    {!! Html::script('js/filtrar_solicitantes.js') !!}
+    {!! Html::script('js/cadastrar_opcao.js') !!}
+@endsection
 @section('page')
     <div class="col-8">
         <h4>Visão Geral do Laudo</h4>

@@ -39,7 +39,7 @@ class CreateArmasTable extends Migration
             $table->string('num_lacre', 20)->nullable();
             $table->string('cabo', 40)->nullable();
             $table->string('funcionamento', 25)->nullable();
-            $table->string('sistema_funcionamento', 25)->nullable();
+            $table->string('sistema_funcionamento', 30)->nullable();
             $table->string('num_canos', 15)->nullable();
             $table->string('disposicao_canos', 40)->nullable();
             $table->string('teclas_gatilho', 25)->nullable();

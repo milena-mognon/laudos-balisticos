@@ -125,6 +125,8 @@ return [
         'secao_id' => 'seção',
         'diretor_id' => 'diretor',
         'inquerito' => 'inquerito policial',
+        'data_solicitacao' => 'data da solicitação',
+        'data_designacao' => 'data da designação',
         'quantidade_raias' => 'quantidade de raias',
         'capacidade_tambor' => 'capacidade do tambor',
         'num_serie' => 'número de série',

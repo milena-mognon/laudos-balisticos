@@ -1,4 +1,7 @@
 @extends('layout.component')
+@section('js')
+    {!! Html::script('js/calendar.js') !!}
+@endsection
 @section('page')
     <div class="col-8">
         <h4>Cadastrar Diretor</h4>

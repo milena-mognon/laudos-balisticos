@@ -12,10 +12,9 @@
 
 
 {{--My js files--}}
-{!! Html::script('js/calendar.js') !!}
+{{--{!! Html::script('js/calendar.js') !!}--}}
 {!! Html::script('js/deletes.js') !!}
-{!! Html::script('js/filtrar_solicitantes.js') !!}
 {!! Html::script('js/num_serie.js') !!}
-{!! Html::script('js/mascara.js') !!}
+{!! Html::script('selselect2_and_masks.jsasks.js') !!}
 
 @yield('js')

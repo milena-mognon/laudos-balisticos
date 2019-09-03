@@ -4,5 +4,5 @@
         <h4>Cadastro de Espingarda</h4>
     </div>
     <hr>
-    @include('perito.espingarda.form', ['acao' => 'Cadastrar'])
+    @include('perito.armas.espingarda.form', ['acao' => 'Cadastrar'])
 @endsection

@@ -30,7 +30,7 @@ class RevolveresController extends Controller
         $marcas = Marca::categoria('armas');
         $origens = Origem::all();
         $calibres = Calibre::arma('revólver');
-        return view('perito.revolver.create',
+        return view('perito.armas.revolver.create',
             compact('laudo', 'marcas', 'origens', 'calibres'));
     }
 
@@ -58,7 +58,7 @@ class RevolveresController extends Controller
 //        $marcas = Marca::marcasWithTrashed('armas', $revolver->marca);
 //        $origens = Origem::origensWithTrashed($revolver->origem);
 //        $calibres = Calibre::calibresWithTrashed('revólver', $revolver->calibre);
-        return view('perito.revolver.show',
+        return view('perito.armas.revolver.show',
             compact('arma'));
     }
 
@@ -74,7 +74,7 @@ class RevolveresController extends Controller
         $marcas = Marca::marcasWithTrashed('armas', $revolver->marca);
         $origens = Origem::origensWithTrashed($revolver->origem);
         $calibres = Calibre::calibresWithTrashed('revólver', $revolver->calibre);
-        return view('perito.revolver.edit',
+        return view('perito.armas.revolver.edit',
             compact('revolver', 'laudo', 'marcas', 'origens', 'calibres'));
 
     }

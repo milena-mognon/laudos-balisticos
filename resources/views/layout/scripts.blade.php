@@ -15,6 +15,6 @@
 {{--{!! Html::script('js/calendar.js') !!}--}}
 {!! Html::script('js/deletes.js') !!}
 {!! Html::script('js/num_serie.js') !!}
-{!! Html::script('selselect2_and_masks.jsasks.js') !!}
+{!! Html::script('js/select2_and_masks.js') !!}
 
 @yield('js')

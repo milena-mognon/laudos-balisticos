@@ -14,15 +14,15 @@
                 <td> {{ $laudo->cidade->nome }}</td>
                 <td> {{ $laudo->solicitante->nome }}</td>
                 <td>
-                    <a class="btn btn-primary" href="{{ route('laudos.show', $laudo) }}">
+                    <a class="btn btn-primary mt-1" href="{{ route('laudos.show', $laudo) }}">
                         <i class="fa fa-fw fa-eye"></i> Visualizar</a>
 
-                    <button value="{{ route('laudos.destroy', $laudo) }}" class="btn btn-danger delete">
+                    <button value="{{ route('laudos.destroy', $laudo) }}" class="btn btn-danger delete mt-1">
                         <i class="fa fa-fw fa-trash"></i>
                         Deletar
                     </button>
 
-                    <a class="btn btn-primary" href="{{ route('laudos.docx', $laudo) }}">
+                    <a class="btn btn-primary mt-1" href="{{ route('laudos.docx', $laudo) }}">
                         <i class="fa fa-download" aria-hidden="true"></i> Gerar Laudo</a>
                 </td>
             </tr>

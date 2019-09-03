@@ -4,5 +4,5 @@
         <h4>Atualizar Espingarda</h4>
     </div>
     <hr>
-    @include('perito.espingarda.form', ['acao' => 'Atualizar'])
+    @include('perito.armas.espingarda.form', ['acao' => 'Atualizar'])
 @endsection

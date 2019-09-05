@@ -1,5 +1,5 @@
 <div class="col-lg-{{ $size ?? "4" }} mt-2">
-    <label for="secao_id">Seção</label>
+    <label for="secao_id">Seção *</label>
     <select class="js-single-secoes form-control {{ $errors->has('secao_id') ? ' is-invalid' : '' }}"
             name="secao_id" id="secao_id">
         @foreach($secoes as $secao)

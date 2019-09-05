@@ -18,8 +18,8 @@
         @include('perito.armas.attributes2.marca', ['marca2' =>  $espingarda->marca->id ?? old('marca_id')])
         @include('perito.armas.attributes2.origem', ['origem2' =>  $espingarda->origem->id ?? old('origem_id')])
         @include('perito.armas.attributes2.calibre', ['calibre2' =>  $espingarda->calibre->id ?? old('calibre_id')])
+        @include('perito.armas.attributes2.calibre_real', ['calibre_real' =>  $espingarda->calibre_real ?? old('calibre_real')])
         @include('perito.armas.attributes2.serie', ['tipo_serie2' =>  $espingarda->tipo_serie ?? old('tipo_serie'), 'num_serie' =>  $espingarda->num_serie ?? old('num_serie')])
-
         @include('perito.armas.attributes2.sistema_funcionamento', ['sistema_funcionamento2' =>  $espingarda->sistema_funcionamento ?? old('sistema_funcionamento')])
         @include('perito.armas.attributes2.tipo_carregador', ['tipo_carregador2' =>  $espingarda->tipo_carregador ?? old('tipo_carregador')])
         @include('perito.armas.attributes2.numero_canos', ['num_canos2' =>  $espingarda->num_canos ?? old('num_canos')])
@@ -30,6 +30,7 @@
         @include('perito.armas.attributes2.sistema_engatilhamento', ['sistema_engatilhamento2' =>  $espingarda->sistema_engatilhamento ?? old('sistema_engatilhamento')])
         @include('perito.armas.attributes2.tipo_acabamento', ['tipo_acabamento2' =>  $espingarda->tipo_acabamento ?? old('tipo_acabamento')])
         @include('perito.armas.attributes2.coronha_fuste', ['coronha_fuste2' =>  $espingarda->coronha_fuste ?? old('coronha_fuste')])
+        @include('perito.armas.attributes2.bandoleira', ['bandoleira2' =>  $espingarda->bandoleira ?? old('bandoleira')])
         @include('perito.armas.attributes2.sistema_percussao', ['sistema_percussao2' =>  $espingarda->sistema_percussao ?? old('sistema_percussao')])
         @include('perito.armas.attributes2.estado_geral', ['estado_geral2' =>  $espingarda->estado_geral ?? old('estado_geral')])
         @include('perito.armas.attributes2.comprimento', ['comprimento_total' =>  $espingarda->comprimento_total ?? old('comprimento_total')])
@@ -39,7 +40,7 @@
     </div>
     <div class="row justify-content-between mb-4">
         <div class="col-lg-4 mt-1">
-            <a class="btn btn-secondary btn-block" href="{{ route('laudos.materiais', $laudo) }}">
+            <a class="btn btn-secondary btn-block" href="{{ URL::previous() }}">
                 <i class="fas fa-arrow-circle-left"></i> Voltar</a>
         </div>
         <div class="col-lg-4 mt-1">

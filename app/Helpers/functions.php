@@ -3,10 +3,10 @@
 /* formata a data para o padrão do Banco de Dados*/
 function formatar_data($data)
 {
-    $ano= substr($data, 6, 4); // 28/12/2018
-    $mes= substr($data, 3, 2);
-    $dia= substr($data, 0, 2);
-    return $ano."-".$mes."-".$dia; // 2018-12-28
+    $ano = substr($data, 6, 4); // 28/12/2018
+    $mes = substr($data, 3, 2);
+    $dia = substr($data, 0, 2);
+    return $ano . "-" . $mes . "-" . $dia; // 2018-12-28
 }
 
 /* formata a data para o padrão dia/mes/anos */
@@ -74,7 +74,7 @@ function data_extenso($dia, $mes, $ano)
         "2023" => "dois mil e vinte e três", "2024" => "dois mil e vinte e quatro",
         "2025" => "dois mil e vinte e cinco", "2026" => "dois mil e vinte e seis"];
 
-    if($dia == 1){
+    if ($dia == 1) {
         $day = "Ao $dias[$dia] dia";
     } else {
         $day = "Aos $dias[$dia] dias";
@@ -87,11 +87,11 @@ function data_extenso($dia, $mes, $ano)
 function data($data)
 {
     $dia = substr("$data", 8, 2); // retorna o dia -> 2018-01-02
-    if(substr("$dia", 0, 1) == 0){
+    if (substr("$dia", 0, 1) == 0) {
         $dia = substr("$data", 9, 1); // retorna dia sem o 0 na frente = 01 -> 1
     }
     $mes = substr("$data", 5, 2); // retorna só o mês -> 2017-10 = 10
-    if(substr("$mes", 0, 1) == 0){
+    if (substr("$mes", 0, 1) == 0) {
         $mes = substr("$data", 6, 1); // retorna mês sem o 0 na frente = 01 -> 1
     }
     $ano = substr("$data", 0, 4); // retorna o ano
@@ -101,12 +101,19 @@ function data($data)
     return $data_extenso;
 }
 
-function armas_route_name($material){
-    switch ($material){
-        case 'Revólver': return 'revolveres';
-        break;
-        case 'Espingarda': return 'espingardas';
-        break;
-        default: return 'armas';
+function armas_route_name($material)
+{
+    switch ($material) {
+        case 'Revólver':
+            return 'revolveres';
+            break;
+        case 'Espingarda':
+            return 'espingardas';
+            break;
+        case 'Garrucha':
+            return 'garruchas';
+            break;
+        default:
+            return 'armas';
     }
 }

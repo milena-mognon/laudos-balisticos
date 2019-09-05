@@ -16,11 +16,10 @@ class Geral
     {
         $header = $section->addHeader();
         $header->addTextBreak(1);
-        $page = $header->addPreserveText('FLS. {PAGE}', array('bold' => true, 'size' => 10, 'name' => 'arial'), $config->paragraphRight()); // adiciona contador de folhas
+        $header->addPreserveText('FLS. {PAGE}', array('bold' => true, 'size' => 10, 'name' => 'arial'), $config->paragraphRight()); // adiciona contador de folhas
 
         $num_laudo = "LAUDO Nº $laudo->rep";
         $header->addText($num_laudo, array('bold' => true, 'size' => 10, 'name' => 'arial'), array('alignment' => Jc::RIGHT));
-        //$header->addTextBreak(1);
 
         $intCrim = "INSTITUTO DE CRIMINALÍSTICA";
 
@@ -28,22 +27,18 @@ class Geral
         $diretor = $laudo->diretor->nome;
         $delegacia = $laudo->solicitante->nome;
         $oficio = $laudo->oficio;
-//      $cidade = $laudo->cidade->nome;
         $secao = $laudo->secao->nome;
 
-//      $aux = Util::tituloETipoExame($armas, $municoes, $componentes);
-
-        $aux = ['exame' => 'dd'];
+        $aux = self::titulo_e_exame($laudo->armas()->count(), 0, 0);
         $cabecalho2 = "Em consequência, o Perito procedeu ao exame solicitado, relatando-o com a verdade e com todas as circunstâncias relevantes, da forma como segue:";
 
         $exame = "DO EXAME DO MATERIAL APRESENTADO";
 
         $data_solic = data($laudo->data_solicitacao);
         $data_desig = formatar_data_do_bd($laudo->data_designacao);
-        //date('d/m/Y', strtotime($rep->data_solicitacao)
-        $text = [
 
-//      $section->addText($aux['titulo'], $config->arial14Bold(), $config->paragraphCenter()),
+        $text = [
+            $section->addText($aux['titulo'], $config->arial14Bold(), $config->paragraphCenter()),
             $textrun = $section->addTextRun($config->paragraphJustify()),
             $textrun->addText("$data_solic, nesta cidade de $secao e no ", $config->arial12()),
             $textrun->addText($intCrim, $config->arial12Bold()),
@@ -54,7 +49,9 @@ class Geral
             $textrun->addText(", para proceder ao exame " . $aux['exame'] . ", a fim de ser atendida uma solicitação contida no Ofício nº. ", $config->arial12()),
             $textrun->addText($oficio, $config->arial12Bold()),
             $textrun->addText(", recebido dia $data_desig, oriundo da ", $config->arial12()),
-            $textrun->addText($delegacia . ".", $config->arial12Bold()),
+            $textrun->addText($delegacia, $config->arial12Bold()),
+            Geral::inquerito($textrun, $config, $laudo->tipo_inquerito, $laudo->inquerito),
+            Geral::indiciado($textrun, $config, $laudo->indiciado),
             $section->addText($cabecalho2, $config->arial12(), $config->paragraphJustify()),
             $section->addText($exame, $config->arial12Bold(), $config->paragraphJustifyExam()), 'phpWord' => $phpWord];
 
@@ -72,29 +69,29 @@ class Geral
         return $final;
     }
 
-    public function titulo_e_exame($armas, $municoes, $componentes)
+    private static function titulo_e_exame($armas, $municoes, $componentes)
     {
-        if (count($armas) == 1 && count($municoes) == 0) {
+        if ($armas == 1 && $municoes == 0) {
             $titulo = "LAUDO DE EXAME DE ARMA DE FOGO";
             $exame = "na arma de fogo abaixo descrita";
         } else {
-            if (count($armas) == 1 && count($municoes) > 0) {
+            if ($armas == 1 && $municoes > 0) {
                 $titulo = "LAUDO DE EXAME DE ARMA DE FOGO E MUNIÇÃO";
                 $exame = "na arma de fogo e munições abaixo descritas";
             } else {
-                if (count($armas) > 1 && count($municoes) > 0) {
+                if ($armas > 1 && $municoes > 0) {
                     $titulo = "LAUDO DE EXAME DE ARMA DE FOGO E MUNIÇÃO";
                     $exame = "nas armas de fogo e munições abaixo descritas";
                 } else {
-                    if (count($armas) > 0 && count($municoes) <= 0) {
+                    if ($armas > 0 && $municoes <= 0) {
                         $titulo = "LAUDO DE EXAME DE ARMAS DE FOGO";
                         $exame = "nas armas de fogo abaixo descritas";
                     } else {
-                        if (count($armas) <= 0 && count($municoes) > 0) {
+                        if ($armas <= 0 && $municoes > 0) {
                             $titulo = "LAUDO DE EXAME DE MUNIÇÃO";
                             $exame = "nas munições abaixo descritas";
                         } else {
-                            if (count($armas) == 0 && count($municoes) == 0 && count($componentes) > 0) {
+                            if ($armas == 0 && $municoes == 0 && $componentes > 0) {
                                 $titulo = "LAUDO DE EXAME DE CONSTATAÇÃO";
                                 $exame = "nos componentes abaixo descritos";
                             }
@@ -105,4 +102,28 @@ class Geral
         }
         return ['exame' => $exame, 'titulo' => $titulo];
     }
+
+    private static function indiciado($textrun, $config, $indiciado)
+    {
+        if($indiciado==''){
+            return $textrun;
+        } else {
+        [$textrun->addText(", e tendo como indiciado ", $config->arial12()),
+            $textrun->addText($indiciado . ".", $config->arial12Bold())];
+        return $textrun;
+        }
+    }
+
+    private static function inquerito($textrun, $config, $tipo_inquerito, $inquerito)
+    {
+        if($tipo_inquerito==''){
+            return $textrun->addText('.', $config->arial12());
+        } else {
+            [$textrun->addText(", referente ao $tipo_inquerito nº ", $config->arial12()),
+                $textrun->addText($inquerito, $config->arial12Bold())];
+            return $textrun;
+        }
+
+    }
+
 }

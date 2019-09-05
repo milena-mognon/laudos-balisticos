@@ -1,5 +1,5 @@
 <div class="col-lg-{{ $size ?? "12" }} mt-2">
-    <label for="cidade_id">Cidade</label>
+    <label for="cidade_id">Cidade *</label>
     <select class="js-single-cidades form-control {{ $errors->has('cidade_id') ? ' is-invalid' : '' }}"
             name="cidade_id" id="{{ $id ?? '' }}">
         <option></option>

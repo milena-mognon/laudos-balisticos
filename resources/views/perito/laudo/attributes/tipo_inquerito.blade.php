@@ -1,7 +1,8 @@
 <div class="col-lg-3 mt-2">
     <label for="tipo_inquerito">Tipo do Inquerito</label>
-    <select class="js-single form-control {{ $errors->has('tipo_inquerito') ? ' is-invalid' : '' }}"
+    <select class="js-single-select form-control {{ $errors->has('tipo_inquerito') ? ' is-invalid' : '' }}"
             name="tipo_inquerito">
+        <option value=""></option>
         @foreach(['BO', 'Inquerito Policial', 'Inquerito Policial Flagrante Delito'] as $tipo_inquerito)
             <option value="{{ $tipo_inquerito }}" {{ $tipo_inquerito == $tipo_inquerito2 ? 'selected=selected' : '' }}>
                 {{$tipo_inquerito}}

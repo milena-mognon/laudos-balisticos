@@ -48,6 +48,10 @@ class CreateArmasTable extends Migration
             $table->string('coronha_fuste', 40)->nullable();
             $table->string('chave_abertura', 70)->nullable();
             $table->string('tipo_carregador', 40)->nullable();
+            $table->string('calibre_real', 40)->nullable();
+            $table->string('bandoleira', 70)->nullable();
+            $table->string('cao', 40)->nullable();
+            $table->string('placas_laterais', 50)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

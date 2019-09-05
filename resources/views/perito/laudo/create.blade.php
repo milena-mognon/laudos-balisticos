@@ -26,10 +26,14 @@
         @include('shared.attributes.cidades', ['id' => 'cidade_id', 'size' => '4', 'cidade2' =>  $laudo->cidade_id ?? old('cidade_id')])
         @include('perito.laudo.attributes.solicitante', ['solicitante2' =>  $laudo->solicitante_id ?? old('solicitante_id')])
         @include('perito.laudo.attributes.diretor', ['diretor2' =>  $laudo->diretor_id ?? old('diretor_id')])
-
+    </div>
+    <div class="row m-auto">
+        <div class="col-lg-3 mt-3">
+            <p>* Obrigatório</p>
+        </div>
     </div>
     <div class="row m-auto justify-content-between">
-        <div class="col-lg-4 mt-5 mb-4">
+        <div class="col-lg-4 mt-3 mb-4">
             <a class="btn btn-secondary btn-block" href="{{ route('laudos.index') }}">
                 <i class="fas fa-arrow-circle-left"></i> Voltar</a>
         </div>

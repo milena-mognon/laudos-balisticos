@@ -8,18 +8,17 @@
     <input type="hidden" name="laudo_id" value="{{$laudo}}">
     <div class="col-12">
         <div class="row border mb-3">
-            <div class="col-lg-4 mt-3">
-                @include('shared.block_button', ['col_name' => 'tipo_arma', 'value' => 'Revólver',
-                'route' => 'revolveres.create', 'laudo' => $laudo])
-                {{--@include('shared.block_button', ['col_name' => 'tipo_arma', 'value' => 'Garrucha', 'route' => 'armas.create'])--}}
-                {{--@include('shared.block_button', ['col_name' => 'tipo_arma', 'value' => 'Pistola', 'route' => 'armas.create'])--}}
+            <div class="col-lg-3 mt-3">
+                @include('shared.block_button', ['col_name' => 'tipo_arma',
+                'value' => 'Revólver', 'route' => 'revolveres.create'])
             </div>
-            <div class="col-lg-4 mt-3">
+            <div class="col-lg-3 mt-3">
                 @include('shared.block_button', ['col_name' => 'tipo_arma',
                 'value' => 'Espingarda', 'route' => 'espingardas.create'])
             </div>
-            <div class="col-lg-4 mt-3">
-
+            <div class="col-lg-3 mt-3">
+                @include('shared.block_button', ['col_name' => 'tipo_arma',
+                'value' => 'Garrucha', 'route' => 'garruchas.create'])
             </div>
             <div class="col-lg-4 mt-3">
 

@@ -46,15 +46,13 @@ Route::get('laudos/solicitantes/cidade/{cidade_id}',
 Route::post('laudos/armas/{arma}/images', 'Perito\ArmasController@store_image')->name('armas.images');
 
 Route::prefix('laudos/{laudo}')->group(function () {
-    Route::resource('armas', 'Perito\ArmasController')->except(['destroy']);
+    Route::get('materiais', 'Perito\LaudosController@materiais')->name('laudos.materiais');
+    Route::get('gerar_docx', 'Perito\LaudosController@generate_docx')->name('laudos.docx');
     Route::resource('revolveres', 'Perito\Armas\RevolveresController')
         ->parameters(['revolveres' => 'revolver'])->except(['destroy']);
     Route::resource('espingardas', 'Perito\Armas\EspingardasController')->except(['destroy']);
-
+    Route::resource('garruchas', 'Perito\Armas\GarruchasController')->except(['destroy']);
 });
 
 Route::delete('armas/{arma}', 'Perito\ArmasController@destroy')->name('armas.destroy');
-Route::get('materiais/{laudo}', 'Perito\LaudosController@materiais')->name('laudos.materiais');
-Route::get('gerar_docx/{laudo}', 'Perito\LaudosController@generate_docx')->name('laudos.docx');
-
 Route::post('solicitantes', 'Perito\OrgaosSolicitantesController@store')->name('perito.solicitante.store');

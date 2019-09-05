@@ -37,8 +37,9 @@ class LaudoRequest extends FormRequest
             'solicitante_id' => 'required',
             'perito_id' => 'required',
             'diretor_id' => 'required',
-            'indiciado' => 'required|min:6',
-            'inquerito' => 'required'
+            'indiciado' => 'nullable|min:6|max:80',
+            'tipo_inquerito' => 'nullable|max:80',
+            'inquerito' => 'nullable|max:20',
         ];
     }
 }

@@ -1,5 +1,5 @@
 <div class="col-lg-{{ $size ?? "4" }} mt-2">
-    <label for="solicitante_id">Órgão Solicitante</label>
+    <label for="solicitante_id">Órgão Solicitante *</label>
     <select class="form-control js-single-solicitante {{ $errors->has('solicitante_id') ? ' is-invalid' : '' }}"
             name="solicitante_id" id="solicitante_id">
         <option value=""></option>

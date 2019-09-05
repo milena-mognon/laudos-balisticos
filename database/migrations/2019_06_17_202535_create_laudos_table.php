@@ -29,9 +29,9 @@ class CreateLaudosTable extends Migration
             $table->foreign('perito_id')->references('id')->on('users');
             $table->integer('diretor_id')->unsigned();
             $table->foreign('diretor_id')->references('id')->on('diretores');
-            $table->string('indiciado', 50);
-            $table->string('inquerito', 20);
-            $table->string('tipo_inquerito', 60);
+            $table->string('indiciado', 80)->nullable();
+            $table->string('inquerito', 20)->nullable();
+            $table->string('tipo_inquerito', 60)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

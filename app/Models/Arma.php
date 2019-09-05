@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Armas\Espingarda;
+use App\Models\Armas\Garrucha;
 use App\Models\Armas\Revolver;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -20,7 +21,8 @@ class Arma extends Model
         'comprimento_total', 'altura', 'quantidade_raias', 'sentido_raias', 'num_lacre',
         'cabo', 'funcionamento', 'sistema_funcionamento', 'num_canos', 'disposicao_canos',
         'teclas_gatilho', 'sistema_carregamento', 'sistema_engatilhamento', 'coronha_fuste',
-        'chave_abertura', 'tipo_carregador'
+        'chave_abertura', 'tipo_carregador', 'calibre_real', 'bandoleira', 'placas_laterais',
+        'cao'
     ];
 
     protected $dates = ['deleted_at'];
@@ -58,9 +60,9 @@ class Arma extends Model
             case "Espingarda":
                 return Espingarda::text($arma);
                 break;
-//            case "Garrucha":
-//                return Garrucha::garrucha($arma);
-//                break;
+            case "Garrucha":
+                return Garrucha::text($arma);
+                break;
         }
     }
 }

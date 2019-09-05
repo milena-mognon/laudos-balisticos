@@ -13,5 +13,6 @@
 {!! Html::script('js/deletes.js') !!}
 {!! Html::script('js/num_serie.js') !!}
 {!! Html::script('js/select2_and_masks.js') !!}
+{!! Html::script('js/help.js') !!}
 
 @yield('js')

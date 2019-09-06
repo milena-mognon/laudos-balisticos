@@ -29,6 +29,6 @@
 @if ($errors->any())
     <div class="alert alert-danger">
         <button type="button" class="close" data-dismiss="alert">×</button>
-        Existe alguns erros no formulário. {{$errors}}
+        Existe alguns erros no formulário.
     </div>
 @endif

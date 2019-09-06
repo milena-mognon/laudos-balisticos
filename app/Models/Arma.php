@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Armas\Espingarda;
 use App\Models\Armas\Garrucha;
+use App\Models\Armas\Pistola;
 use App\Models\Armas\Revolver;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -22,7 +23,8 @@ class Arma extends Model
         'cabo', 'funcionamento', 'sistema_funcionamento', 'num_canos', 'disposicao_canos',
         'teclas_gatilho', 'sistema_carregamento', 'sistema_engatilhamento', 'coronha_fuste',
         'chave_abertura', 'tipo_carregador', 'calibre_real', 'bandoleira', 'placas_laterais',
-        'cao'
+        'cao', 'carregador', 'capacidade_carregador', 'trava_ferrolho', 'trava_gatilho',
+        'trava_seguranca', 'retem_carregador', 'carregamento'
     ];
 
     protected $dates = ['deleted_at'];
@@ -54,9 +56,9 @@ class Arma extends Model
             case "Revólver":
                 return Revolver::text($arma);
                 break;
-//            case "Pistola":
-//                return Pistola::pistola($arma);
-//                break;
+            case "Pistola":
+                return Pistola::text($arma);
+                break;
             case "Espingarda":
                 return Espingarda::text($arma);
                 break;

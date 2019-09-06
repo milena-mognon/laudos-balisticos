@@ -29,7 +29,7 @@ class PistolasController extends Controller
     {
         $marcas = Marca::categoria('armas');
         $origens = Origem::all();
-        $calibres = Calibre::arma('pistolas');
+        $calibres = Calibre::arma('pistola');
         return view('perito.armas.pistola.create',
             compact('laudo', 'marcas', 'origens', 'calibres'));
     }

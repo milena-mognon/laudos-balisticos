@@ -52,6 +52,13 @@ class CreateArmasTable extends Migration
             $table->string('bandoleira', 70)->nullable();
             $table->string('cao', 40)->nullable();
             $table->string('placas_laterais', 50)->nullable();
+            $table->string('carregador', 40)->nullable();
+            $table->integer('capacidade_carregador')->nullable();
+            $table->string('trava_ferrolho', 40)->nullable();
+            $table->string('trava_gatilho', 40)->nullable();
+            $table->string('trava_seguranca', 40)->nullable();
+            $table->string('retem_carregador', 40)->nullable();
+            $table->string('carregamento', 40)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

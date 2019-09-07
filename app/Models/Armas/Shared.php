@@ -10,6 +10,27 @@ use Illuminate\Database\Eloquent\Model;
 
 class Shared extends Model
 {
+    public static function modelo($modelo)
+    {
+        return $modelo != '' ? " modelo $modelo," : '';
+    }
+
+    public static function sentido_raias($sentido_raias)
+    {
+        switch ($sentido_raias) {
+            case 'dextrógiro':
+                return 'dextrógiras';
+                break;
+            case 'sinistrógiro':
+                return 'sinistrógiras';
+                break;
+            case 'danificado':
+                return 'danificado';
+                break;
+            default:
+                return '';
+        }
+    }
 
     public static function acabamento($acabamento)
     {

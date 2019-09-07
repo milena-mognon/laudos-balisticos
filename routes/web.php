@@ -53,7 +53,6 @@ Route::prefix('laudos/{laudo}')->group(function () {
     Route::resource('espingardas', 'Perito\Armas\EspingardasController')->except(['destroy']);
     Route::resource('garruchas', 'Perito\Armas\GarruchasController')->except(['destroy']);
     Route::resource('pistolas', 'Perito\Armas\PistolasController')->except(['destroy']);
-
 });
 
 Route::delete('armas/{arma}', 'Perito\ArmasController@destroy')->name('armas.destroy');

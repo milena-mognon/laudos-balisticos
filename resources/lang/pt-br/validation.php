@@ -144,5 +144,7 @@ return [
         'sentido_raias' => 'sentido das raias',
         'funcionamento' => 'funcionamento',
         'num_lacre' => 'número do lacre',
+        'inicio_direcao' => 'início da direção',
+        'fim_direcao' => 'fim da direção'
     ],
 ];

@@ -29,8 +29,8 @@ class DiretorRequest extends FormRequest
     {
         return [
             'nome' => 'required|min:6',
-            'inicio_direcao' => 'required|date_format:d/m/Y',
-            'fim_direcao' => 'required|date_format:d/m/Y'
+            'inicio_direcao' => 'required|date_format:d/m/Y|before:fim_direcao',
+            'fim_direcao' => 'required|date_format:d/m/Y|after:inicio_direcao'
         ];
     }
 }

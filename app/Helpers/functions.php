@@ -54,6 +54,21 @@ function converter_numero(INT $numero)
     return $num_extenso;
 }
 
+function converter_numero_raias(INT $numero)
+{
+    switch ($numero) {
+        case 1:
+            return 'uma';
+            break;
+        case 2:
+            return 'duas';
+            break;
+        default:
+            return converter_numero($numero);
+    }
+
+}
+
 /* Converte a data para escrita em extenso */
 function data_extenso($dia, $mes, $ano)
 {

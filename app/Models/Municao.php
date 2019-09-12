@@ -19,6 +19,8 @@ class Municao extends Model
 
     protected $dates = ['deleted_at'];
 
+    /* -- Relationships -- */
+
     /* ->withTrashed() é utilizado para retornar um registro
     *  mesmo que tenha sido deletado.
     * Objetivo é evitar erros quando acessar $arma->marca->nome, por exemplo
@@ -37,4 +39,6 @@ class Municao extends Model
     {
         return $this->belongsTo(Laudo::class);
     }
+
+    /* -- End Relationships -- */
 }

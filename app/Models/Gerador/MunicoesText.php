@@ -15,8 +15,9 @@ class MunicoesText extends Model
 {
     private static $i;
 
-    public static function addText($municoes, $id, $section, $phpWord, $config, $i)
+    public static function addText($municoes, $section, $config, $i)
     {
+        dd($municoes);
         // grupo de munições separado por calibre
         $grupoMunicoes = Municao::findCalibreGroup($id)->toArray();
         //dd($grupoMunicoes);
@@ -98,5 +99,46 @@ class MunicoesText extends Model
             }
         }
         return array('i' => $i, 'section' => $section);
+    }
+
+    private static function cabecalho_tabela($section, $config){
+        //$section->addTextBreak(1);
+        // cria uma tabela
+        $table = $section->addTable($config->tabelaConfig());
+
+        $table->addRow(500);
+        $table->addCell(1550)->addText("Quantidade", $config->fonteTabela(), $config->cellCenter());
+        $table->addCell(1550)->addText("Calibre", $config->fonteTabela(), $config->cellCenter());
+        $table->addCell(1550)->addText("Marca", $config->fonteTabela(), $config->cellCenter());
+        $table->addCell(1550)->addText("Origem", $config->fonteTabela(), $config->cellCenter());
+        $table->addCell(1550)->addText("Estojo/Espoleta", $config->fonteTabela(), $config->cellCenter());
+        $table->addCell(1550)->addText("Projétil", $config->fonteTabela(), $config->cellCenter());
+
+    }
+
+    private static function conteudo_tabela($table, $config, $municao){
+        $table->addRow(500);
+        $table->addCell(1550)->addText(ucfirst($municao->quantidade), $config->fonteTabela(), $config->cellCenter());
+        $table->addCell(1550)->addText(ucfirst($municao->calibre), $config->fonteTabela(), $config->cellCenter());
+        $table->addCell(1550)->addText(ucfirst($municao->marca), $config->fonteTabela(), $config->cellCenter());
+        $table->addCell(1550)->addText(ucfirst($municao->origem), $config->fonteTabela(), $config->cellCenter());
+        $table->addCell(1550)->addText(ucfirst($municao->estojo), $config->fonteTabela(), $config->cellCenter());
+        $table->addCell(1550)->addText(ucfirst($municao->projetil . "/ " . $municao->tipo_projetil), $config->fonteTabela(), $config->cellCenter());
+    }
+
+    private static function individual(){
+
+    }
+
+    private static function estojo(){
+
+    }
+
+    private static function cartucho(){
+
+    }
+
+    private static function projetil(){
+
     }
 }

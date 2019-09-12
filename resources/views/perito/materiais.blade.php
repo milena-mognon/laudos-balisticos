@@ -29,8 +29,13 @@
     <h5>Munição, Estojo e/ou Projétil</h5>
     <div class="col-12">
         <div class="row border mb-3 mt-3">
-            <div class="col-lg-4 mt-3">
-
+            <div class="col-lg-3 mt-3">
+                @include('shared.block_button', ['col_name' => 'tipo_municao',
+                'value' => 'Cartucho Arma Curta ', 'route' => 'armas_curtas.create'])
+            </div>
+            <div class="col-lg-3 mt-3">
+                @include('shared.block_button', ['col_name' => 'tipo_municao',
+                'value' => 'Cartucho Arma Longa', 'route' => 'armas_longas.create'])
             </div>
         </div>
     </div>

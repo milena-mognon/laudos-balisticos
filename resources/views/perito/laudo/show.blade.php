@@ -64,9 +64,8 @@
                 </thead>
                 <tbody align="center">
                 @includeWhen(count($armas) > 0, 'perito.laudo.partials.arma')
-
+                @includeWhen(count($municoes) > 0, 'perito.laudo.partials.municao')
                 </tbody>
-                {{--@includeWhen(count($municoes) > 0, 'perito.laudo.partials.municao', ['municoes' => $municoes])--}}
                 {{--@includeWhen(count($componentes) > 0, 'perito.laudo.partials.componente', ['componentes' => $componentes])--}}
             </table>
         </div>

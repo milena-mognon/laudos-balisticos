@@ -47,6 +47,11 @@ class Laudo extends Model
         return $this->hasMany(Arma::class);
     }
 
+    public function municoes()
+    {
+        return $this->hasMany(Municao::class);
+    }
+
     // this is a recommended way to declare event handlers
     public static function boot() {
         parent::boot();
@@ -54,16 +59,15 @@ class Laudo extends Model
         static::deleting(function($laudo) { // before delete() method call this
 
             $laudo->armas()->delete();
-            // do the rest of the cleanup...
+            $laudo->municoes()->delete();
         });
     }
 
     /**
-     * Local Scope utilizado para filtrar a categoria da Marca
-     * (Arma ou Munição)
+     * Local Scope utilizado para filtrar somente os laudos de um perito
      *
      * @param $query
-     * @param $categoria
+     * @param $perito
      * @return mixed
      */
     public function scopeFindMyReps($query, $perito)

@@ -75,11 +75,10 @@ class LaudosController extends Controller
         $diretores = Diretor::allOrdered();
         $solicitantes = OrgaoSolicitante::fromCity($laudo->cidade_id);
         $armas = $laudo->armas;
-//        $municoes = Municao::findAll($id);
-//        $componentes = Componente::findAll($id);
+        $municoes = $laudo->municoes;
         return view('perito.laudo.show',
             compact('laudo', 'cidades', 'solicitantes',
-                'diretores', 'secoes', 'armas'));
+                'diretores', 'secoes', 'armas', 'municoes'));
     }
 
     /**

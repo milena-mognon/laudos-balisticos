@@ -53,7 +53,19 @@ Route::prefix('laudos/{laudo}')->group(function () {
     Route::resource('espingardas', 'Perito\Armas\EspingardasController')->except(['destroy']);
     Route::resource('garruchas', 'Perito\Armas\GarruchasController')->except(['destroy']);
     Route::resource('pistolas', 'Perito\Armas\PistolasController')->except(['destroy']);
+
+    Route::resource('municoes', 'Perito\Municoes\MunicoesController')
+        ->parameters(['municoes' => 'municao'])->only(['store', 'update']);
+
+    Route::resource('municoes/armas_curtas', 'Perito\Municoes\ArmasCurtasController')
+        ->parameters(['armas_curtas' => 'municao'])->only(['create', 'edit', 'show']);
+
+    Route::resource('municoes/armas_longas', 'Perito\Municoes\ArmasLongasController')
+        ->parameters(['armas_longas' => 'municao'])->only(['create', 'edit', 'show'])
+        ;;
 });
 
 Route::delete('armas/{arma}', 'Perito\ArmasController@destroy')->name('armas.destroy');
+Route::delete('municoes/{municao}', 'Perito\Municoes\MunicoesController@destroy')->name('municoes.destroy');
+
 Route::post('solicitantes', 'Perito\OrgaosSolicitantesController@store')->name('perito.solicitante.store');

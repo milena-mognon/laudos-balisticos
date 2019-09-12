@@ -3,7 +3,7 @@
         <label>Sistema de Percussão</label>
         <select class="js-single form-control{{ $errors->has('sistema_percussao') ? ' is-invalid' : '' }}"
                 name="sistema_percussao">
-            @foreach (['Direta', 'Indireta'] as $sistema_percussao)
+            @foreach (['Direta', 'Indireta', 'Com Engatilhamento Embutido'] as $sistema_percussao)
                 <option value="{{ mb_strtolower($sistema_percussao)}}" {{ (mb_strtolower($sistema_percussao) == mb_strtolower($sistema_percussao2)) ? 'selected=selected' : '' }}>
                     {{$sistema_percussao}}
                 </option>

@@ -13,9 +13,8 @@ use PhpOffice\PhpWord\SimpleType\Jc;
 
 class ArmasText extends Model
 {
-    public static function addText($armas, $section, $phpWord, $config, $i)
+    public static function addText($armas, $section, $config, $i)
     {
-//	    dd($armas);
         foreach ($armas as $arma) {
 
             $i++;

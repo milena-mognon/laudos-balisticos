@@ -40,6 +40,23 @@ class Calibre extends Model
     }
 
     /**
+     * Local Scope utilizado para filtrar os calibres
+     * de acordo com os tipos de arma em que é utilizado
+     *
+     * @param $query
+     * @param $arma1
+     * @param $arma2
+     * @return mixed
+     */
+    public function scopeArmas($query, $arma1, $arma2)
+    {
+        return $query->where('tipo_arma', $arma1)
+            ->orWhere('tipo_arma', $arma2)
+            ->get();
+//
+    }
+
+    /**
      * Local Scope utilizado para filtrar os Calibres
      * cadastrados.
      *

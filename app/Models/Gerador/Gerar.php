@@ -35,10 +35,13 @@ class Gerar extends Model
         Settings::setOutputEscapingEnabled(true);
 
         Geral::addText($laudo, self::$section, self::$phpW, self::$conf);
-        $armasText = ArmasText::addText($laudo->armas, self::$section, self::$phpW, self::$conf, $i);
-        $i = $armasText['i']; // esta retornando apenas o valor de i
-//        $municoesText = MunicoesText::addText($municoes, $id, self::$section, self::$phpW, self::$conf, $i);
-//        $i = $municoesText['i'];
+
+        $armasText = ArmasText::addText($laudo->armas, self::$section,  self::$conf, $i);
+        $i = $armasText['i'];
+
+        $municoesText = MunicoesText::addText($laudo->municoes, self::$section, self::$conf, $i);
+        $i = $municoesText['i'];
+
 //        $componentesText = ComponentesText::addText($componentes, self::$section, self::$phpW, self::$conf, $i);
         Geral::addFinalText($laudo->perito->nome, self::$section, self::$conf);
 

@@ -45,5 +45,4 @@
     </div>
     {{ Form::close() }}
     @include('perito.modals.solicitante_modal')
-
 @endsection

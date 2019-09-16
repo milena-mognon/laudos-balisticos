@@ -6,48 +6,49 @@
 
 namespace App\Models\Gerador;
 
-use Illuminate\Database\Eloquent\Model;
 use PhpOffice\PhpWord\IOFactory;
 use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\Settings;
 use PhpOffice\PhpWord\Style\Language;
 
-class Gerar extends Model
+class Gerar
 {
-
     private $phpWord;
-    private static $section;
-    private static $conf;
-    private static $phpW;
+    private $section;
+    private $conf;
+    private $phpW;
+    private $geral;
 
     public function __construct()
     {
         $this->phpWord = new PhpWord();
-        self::$conf = new Config($this->phpWord);
-        self::$section = self::$conf->getSection();
-        self::$phpW = $this->phpWord;
+        $this->conf = new Config($this->phpWord);
+        $this->section = $this->conf->getSection();
+        $this->phpW = $this->phpWord;
     }
 
-    public static function create_docx($laudo)
+    public function create_docx($laudo)
     {
         $i = 0;
-        self::$phpW->getSettings()->setThemeFontLang(new Language(Language::PT_BR));
+        $this->phpW->getSettings()->setThemeFontLang(new Language(Language::PT_BR));
         Settings::setOutputEscapingEnabled(true);
 
-        Geral::addText($laudo, self::$section, self::$phpW, self::$conf);
+        $this->geral = new Geral($this->section, $this->conf, $this->phpW);
+        $this->geral->addText($laudo);
 
-        $armasText = ArmasText::addText($laudo->armas, self::$section,  self::$conf, $i);
+        $armasText = new ArmasText($this->section, $this->conf, $i);
+        $armasText = $armasText->addText($laudo->armas);
         $i = $armasText['i'];
 
-        $municoesText = MunicoesText::addText($laudo->municoes, self::$section, self::$conf, $i);
+        $municoesText = new MunicoesText($this->section, $this->conf, $i);
+        $municoesText = $municoesText->addText($laudo->municoes);
         $i = $municoesText['i'];
 
-//        $componentesText = ComponentesText::addText($componentes, self::$section, self::$phpW, self::$conf, $i);
-        Geral::addFinalText($laudo->perito->nome, self::$section, self::$conf);
+        $this->geral->addFinalText($laudo->perito->nome);
 
-        self::$section->addFooter();
+        $this->section->addFooter();
 
-        $objWriter = IOFactory::createWriter(self::$phpW, 'Word2007');
+        $objWriter = IOFactory::createWriter($this->phpW, 'Word2007');
 
         $nome_arquivo = 'Laudo ' . str_replace("/", "-", $laudo->rep) . '.docx';
 
@@ -63,34 +64,4 @@ class Gerar extends Model
         return response()->download(storage_path('laudos/' . $nome_arquivo));
 
     }
-
-//    public static function create_pdf($laudo)
-//    {
-//        $i = 0;
-////        self::$phpW->getSettings()->setThemeFontLang(new Language(Language::PT_BR));
-//        Settings::setOutputEscapingEnabled(true);
-//
-//        $inicio = Geral::addText($laudo, self::$section, self::$phpW, self::$conf);
-//        $armasText = ArmasText::addText($laudo->armas, self::$section, self::$phpW, self::$conf, $i);
-//        $i = $armasText['i']; // esta retornando apenas o valor de i
-////        $municoesText = MunicoesText::addText($municoes, $id, self::$section, self::$phpW, self::$conf, $i);
-////        $i = $municoesText['i'];
-////        $componentesText = ComponentesText::addText($componentes, self::$section, self::$phpW, self::$conf, $i);
-//        $final = Geral::addFinalText($laudo->perito->nome, self::$section, self::$conf);
-//
-//        $footer = self::$section->addFooter();
-//
-//        Settings::setPdfRendererPath('../vendor/dompdf/dompdf');
-//        Settings::setPdfRendererName('DomPDF');//'../../vendor/dompdf/dompdf'
-//
-//        $objWriter = IOFactory::createWriter(self::$phpW, 'PDF');
-//
-//        $nome_arquivo = str_replace("/", "-", $laudo->rep);
-//        try {
-//            $objWriter->save("Laudo $nome_arquivo.pdf");
-//        } catch (Exception $e) {
-//            echo "erro";
-//        }
-//        return response()->download("Laudo $nome_arquivo.pdf");
-//    }
 }

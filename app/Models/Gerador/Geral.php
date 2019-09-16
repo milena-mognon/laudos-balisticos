@@ -6,20 +6,29 @@
 
 namespace App\Models\Gerador;
 
-use Criminalistica\Models\Util;
 use PhpOffice\PhpWord\SimpleType\Jc;
 
 class Geral
 {
+    private $section, $config, $phpWord;
 
-    public static function addText($laudo, $section, $phpWord, $config)
+    public function __construct($section, $config, $phpWord)
     {
-        $header = $section->addHeader();
+        $this->section = $section;
+        $this->config = $config;
+        $this->phpWord = $phpWord;
+    }
+
+    public function addText($laudo)
+    {
+        $header = $this->section->addHeader();
         $header->addTextBreak(1);
-        $header->addPreserveText('FLS. {PAGE}', array('bold' => true, 'size' => 10, 'name' => 'arial'), $config->paragraphRight()); // adiciona contador de folhas
+        $header->addPreserveText('FLS. {PAGE}', array('bold' => true,
+            'size' => 10, 'name' => 'arial'), $this->config->paragraphRight());
 
         $num_laudo = "LAUDO Nº $laudo->rep";
-        $header->addText($num_laudo, array('bold' => true, 'size' => 10, 'name' => 'arial'), array('alignment' => Jc::RIGHT));
+        $header->addText($num_laudo, array('bold' => true,
+            'size' => 10, 'name' => 'arial'), array('alignment' => Jc::END));
 
         $intCrim = "INSTITUTO DE CRIMINALÍSTICA";
 
@@ -29,7 +38,7 @@ class Geral
         $oficio = $laudo->oficio;
         $secao = $laudo->secao->nome;
 
-        $aux = self::titulo_e_exame($laudo->armas()->count(), 0, 0);
+        $aux = $this->titulo_e_exame($laudo->armas()->count(), $laudo->municoes()->count(), 0);
         $cabecalho2 = "Em consequência, o Perito procedeu ao exame solicitado, relatando-o com a verdade e com todas as circunstâncias relevantes, da forma como segue:";
 
         $exame = "DO EXAME DO MATERIAL APRESENTADO";
@@ -38,38 +47,38 @@ class Geral
         $data_desig = formatar_data_do_bd($laudo->data_designacao);
 
         $text = [
-            $section->addText($aux['titulo'], $config->arial14Bold(), $config->paragraphCenter()),
-            $textrun = $section->addTextRun($config->paragraphJustify()),
-            $textrun->addText("$data_solic, nesta cidade de $secao e no ", $config->arial12()),
-            $textrun->addText($intCrim, $config->arial12Bold()),
-            $textrun->addText(" do Estado, foi designado pelo Diretor do Instituto, ", $config->arial12()),
-            $textrun->addText($diretor, $config->arial12Bold()),
-            $textrun->addText(" por indicação do chefe da Seção, o Perito Criminal ", $config->arial12()),
-            $textrun->addText($perito, $config->arial12Bold()),
-            $textrun->addText(", para proceder ao exame " . $aux['exame'] . ", a fim de ser atendida uma solicitação contida no Ofício nº. ", $config->arial12()),
-            $textrun->addText($oficio, $config->arial12Bold()),
-            $textrun->addText(", recebido dia $data_desig, oriundo da ", $config->arial12()),
-            $textrun->addText($delegacia, $config->arial12Bold()),
-            Geral::inquerito($textrun, $config, $laudo->tipo_inquerito, $laudo->inquerito),
-            Geral::indiciado($textrun, $config, $laudo->indiciado),
-            $section->addText($cabecalho2, $config->arial12(), $config->paragraphJustify()),
-            $section->addText($exame, $config->arial12Bold(), $config->paragraphJustifyExam()), 'phpWord' => $phpWord];
+            $this->section->addText($aux['titulo'], $this->config->arial14Bold(), $this->config->paragraphCenter()),
+            $textrun = $this->section->addTextRun($this->config->paragraphJustify()),
+            $textrun->addText("$data_solic, nesta cidade de $secao e no ", $this->config->arial12()),
+            $textrun->addText($intCrim, $this->config->arial12Bold()),
+            $textrun->addText(" do Estado, foi designado pelo Diretor do Instituto, ", $this->config->arial12()),
+            $textrun->addText($diretor, $this->config->arial12Bold()),
+            $textrun->addText(" por indicação do chefe da Seção, o Perito Criminal ", $this->config->arial12()),
+            $textrun->addText($perito, $this->config->arial12Bold()),
+            $textrun->addText(", para proceder ao exame " . $aux['exame'] . ", a fim de ser atendida uma solicitação contida no Ofício nº. ", $this->config->arial12()),
+            $textrun->addText($oficio, $this->config->arial12Bold()),
+            $textrun->addText(", recebido dia $data_desig, oriundo da ", $this->config->arial12()),
+            $textrun->addText($delegacia, $this->config->arial12Bold()),
+            $this->inquerito($textrun, $laudo->tipo_inquerito, $laudo->inquerito),
+            $this->indiciado($textrun, $laudo->indiciado),
+            $this->section->addText($cabecalho2, $this->config->arial12(), $this->config->paragraphJustify()),
+            $this->section->addText($exame, $this->config->arial12Bold(), $this->config->paragraphJustifyExam()), 'phpWord' => $this->phpWord];
 
-        return $section;
+        return $this->section;
     }
 
-    public static function addFinalText($perito, $section, $config)
+    public function addFinalText($perito)
     {
-        $textrun = $section->addTextRun($config->paragraphJustify());
+        $textrun = $this->section->addTextRun($this->config->paragraphJustify());
 
-        $final = [$textrun->addText("Este laudo foi redigido pelo Perito $perito e disponibilizado em arquivo digital contendo uma folha de rosto e ", $config->arial12(), $config->paragraphJustify()),
+        $final = [$textrun->addText("Este laudo foi redigido pelo Perito $perito e disponibilizado em arquivo digital contendo uma folha de rosto e ", $this->config->arial12(), $this->config->paragraphJustify()),
             $textrun->addField('NUMPAGES', array(), array()),
-            $textrun->addText(" página(s). Por nada mais haver e sendo essas as declarações que tem a fazer, deu-se por findo o exame solicitado que de tudo se lavrou o presente laudo, o qual segue digitalmente assinado.", $config->arial12(), $config->paragraphJustify())];
+            $textrun->addText(" página(s). Por nada mais haver e sendo essas as declarações que tem a fazer, deu-se por findo o exame solicitado que de tudo se lavrou o presente laudo, o qual segue digitalmente assinado.", $this->config->arial12(), $this->config->paragraphJustify())];
 
         return $final;
     }
 
-    private static function titulo_e_exame($armas, $municoes, $componentes)
+    private function titulo_e_exame($armas, $municoes, $componentes)
     {
         if ($armas == 1 && $municoes == 0) {
             $titulo = "LAUDO DE EXAME DE ARMA DE FOGO";
@@ -103,27 +112,26 @@ class Geral
         return ['exame' => $exame, 'titulo' => $titulo];
     }
 
-    private static function indiciado($textrun, $config, $indiciado)
+    private function indiciado($textrun, $indiciado)
     {
-        if($indiciado==''){
+        if ($indiciado == '') {
             return $textrun;
         } else {
-        [$textrun->addText(", e tendo como indiciado ", $config->arial12()),
-            $textrun->addText($indiciado . ".", $config->arial12Bold())];
-        return $textrun;
+            [$textrun->addText(", e tendo como indiciado ", $this->config->arial12()),
+                $textrun->addText($indiciado . ".", $this->config->arial12Bold())];
+            return $textrun;
         }
     }
 
-    private static function inquerito($textrun, $config, $tipo_inquerito, $inquerito)
+    private function inquerito($textrun, $tipo_inquerito, $inquerito)
     {
-        if($tipo_inquerito==''){
-            return $textrun->addText('.', $config->arial12());
+        if ($tipo_inquerito == '') {
+            return $textrun->addText('.', $this->config->arial12());
         } else {
-            [$textrun->addText(", referente ao $tipo_inquerito nº ", $config->arial12()),
-                $textrun->addText($inquerito, $config->arial12Bold())];
+            [$textrun->addText(", referente ao $tipo_inquerito nº ", $this->config->arial12()),
+                $textrun->addText($inquerito, $this->config->arial12Bold())];
             return $textrun;
         }
 
     }
-
 }

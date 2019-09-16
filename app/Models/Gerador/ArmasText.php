@@ -7,37 +7,45 @@
 namespace App\Models\Gerador;
 
 use App\Models\Arma;
-use Illuminate\Database\Eloquent\Model;
 use PhpOffice\PhpWord\SimpleType\Jc;
 
-
-class ArmasText extends Model
+class ArmasText
 {
-    public static function addText($armas, $section, $config, $i)
+    private $section, $i, $config;
+
+    public function __construct($section, $config, $i)
+    {
+        $this->section = $section;
+        $this->config = $config;
+        $this->i = $i;
+    }
+
+    public function addText($armas)
     {
         foreach ($armas as $arma) {
-
-            $i++;
+            $this->i++;
             $laudo = Arma::arma($arma);
-            $textrun = $section->addTextRun($config->paragraphJustify());
-            $text = [$textrun->addText($i . "- " . $laudo["inicio"], $config->arial12Bold()),
-                $textrun->addText($laudo["corpo"], $config->arial12()),
-                $section->addText($laudo["resultado"], $config->arial12Underline(), $config->paragraphJustify()),
-                $section->addText($laudo["fim"], $config->arial12Bold(), $config->paragraphJustify())];
-            $section->addTextBreak(1);
+            $textrun = $this->section->addTextRun($this->config->paragraphJustify());
+            $text = [$textrun->addText($this->i . "- " . $laudo["inicio"], $this->config->arial12Bold()),
+                $textrun->addText($laudo["corpo"], $this->config->arial12()),
+                $this->section->addText($laudo["resultado"], $this->config->arial12Underline(), $this->config->paragraphJustify()),
+                $this->section->addText($laudo["fim"], $this->config->arial12Bold(), $this->config->paragraphJustify())];
+            $this->section->addTextBreak(1);
 
-            if ($arma->ref_imagem <> null && $arma->ref_imagem <> "") {
-                $source = "upload/$arma->ref_imagem";
-                if (file_exists($source)) {
-                    $fileContent = file_get_contents($source);
-                    $section->addImage($fileContent, array('alignment' => Jc::CENTER, 'width' => 450));
-                    $section->addTextBreak(2);
-                } else {
-                    $section->addText("Ocorreu um erro com a imagem.", ['color' => "FF0000", 'size' => 14]);
+            $imagens = $arma->imagens;
+            if ($imagens->count() > 0) {
+                foreach ($imagens as $imagem) {
+                    $source = storage_path('imagens/' . $imagem->nome);
+                    if (file_exists($source)) {
+                        $fileContent = file_get_contents($source);
+                        $this->section->addImage($fileContent, array('alignment' => Jc::CENTER, 'width' => 450));
+                        $this->section->addTextBreak(2);
+                    } else {
+                        $this->section->addText("Ocorreu um erro com a imagem.", ['color' => "FF0000", 'size' => 14]);
+                    }
                 }
             }
         }
-        return array('i' => $i, 'section' => $section);
+        return array('i' => $this->i, 'section' => $this->section);
     }
-
 }

@@ -12,6 +12,11 @@ class Imagem extends Model
 
     public $timestamps = false;
 
+    public function armas()
+    {
+        return $this->belongsTo(Arma::class);
+    }
+
     /*
      * Configurações necessárias para a salvar a imagem
      * return image_name

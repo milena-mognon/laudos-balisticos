@@ -135,3 +135,20 @@ function armas_route_name($material)
             return 'armas';
     }
 }
+
+function plural_tipo_municoes($tipo_municao)
+{
+    switch ($tipo_municao) {
+        case 'cartucho':
+            return 'cartuchos';
+            break;
+        case 'estojo':
+            return 'estojos';
+            break;
+        case 'projétil':
+            return 'projéteis';
+            break;
+        default:
+            return '';
+    }
+}

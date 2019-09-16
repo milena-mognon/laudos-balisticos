@@ -18,5 +18,4 @@
             </button>
         </td>
     </tr>
-    </tr>
 @endforeach

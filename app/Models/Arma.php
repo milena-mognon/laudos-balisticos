@@ -50,6 +50,10 @@ class Arma extends Model
         return $this->belongsTo(Origem::class)->withTrashed();
     }
 
+    public function imagens(){
+        return $this->hasMany(Imagem::class);
+    }
+
     public static function arma($arma)
     {
         switch ($arma->tipo_arma) {

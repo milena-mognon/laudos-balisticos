@@ -30,7 +30,7 @@ class GarruchasController extends Controller
         $marcas = Marca::categoria('armas');
         $origens = Origem::all();
         $calibres = Calibre::arma('revólver');
-        return view('perito.armas.garrucha.create',
+        return view('perito.laudo.materiais.armas.garrucha.create',
             compact('laudo', 'marcas', 'origens', 'calibres'));
     }
 
@@ -59,7 +59,7 @@ class GarruchasController extends Controller
 //        $marcas = Marca::marcasWithTrashed('armas', $garrucha->marca);
 //        $origens = Origem::origensWithTrashed($garrucha->origem);
 //        $calibres = Calibre::calibresWithTrashed('revólver', $garrucha->calibre);
-        return view('perito.armas.garrucha.show',
+        return view('perito.laudo.materiais.armas.garrucha.show',
             compact('arma'));
     }
 
@@ -75,7 +75,7 @@ class GarruchasController extends Controller
         $marcas = Marca::marcasWithTrashed('armas', $garrucha->marca);
         $origens = Origem::origensWithTrashed($garrucha->origem);
         $calibres = Calibre::calibresWithTrashed('garrucha', $garrucha->calibre);
-        return view('perito.armas.garrucha.edit',
+        return view('perito.laudo.materiais.armas.garrucha.edit',
             compact('garrucha', 'laudo', 'marcas', 'origens', 'calibres'));
 
     }

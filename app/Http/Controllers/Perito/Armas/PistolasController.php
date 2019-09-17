@@ -30,7 +30,7 @@ class PistolasController extends Controller
         $marcas = Marca::categoria('armas');
         $origens = Origem::all();
         $calibres = Calibre::arma('pistola');
-        return view('perito.armas.pistola.create',
+        return view('perito.laudo.materiais.armas.pistola.create',
             compact('laudo', 'marcas', 'origens', 'calibres'));
     }
 
@@ -59,7 +59,7 @@ class PistolasController extends Controller
 //        $marcas = Marca::marcasWithTrashed('armas', $pistola->marca);
 //        $origens = Origem::origensWithTrashed($pistola->origem);
 //        $calibres = Calibre::calibresWithTrashed('revólver', $pistola->calibre);
-        return view('perito.armas.pistola.show',
+        return view('perito.laudo.materiais.armas.pistola.show',
             compact('arma'));
     }
 
@@ -75,7 +75,7 @@ class PistolasController extends Controller
         $marcas = Marca::marcasWithTrashed('armas', $pistola->marca);
         $origens = Origem::origensWithTrashed($pistola->origem);
         $calibres = Calibre::calibresWithTrashed('pistola', $pistola->calibre);
-        return view('perito.armas.pistola.edit',
+        return view('perito.laudo.materiais.armas.pistola.edit',
             compact('pistola', 'laudo', 'marcas', 'origens', 'calibres'));
 
     }

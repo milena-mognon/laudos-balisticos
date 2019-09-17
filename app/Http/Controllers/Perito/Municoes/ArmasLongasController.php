@@ -18,7 +18,7 @@ class ArmasLongasController extends Controller
     {
         $marcas = Marca::categoria('municoes');
         $calibres = Calibre::arma('espingarda');
-        return view('perito.municoes.arma_longa.create',
+        return view('perito.laudo.materiais.municoes.arma_longa.create',
             compact('laudo', 'marcas', 'origens', 'calibres'));
     }
 
@@ -43,7 +43,7 @@ class ArmasLongasController extends Controller
     {
         $marcas = Marca::marcasWithTrashed('municoes', $municao->marca);
         $calibres = Calibre::calibresWithTrashed('espingarda', $municao->calibre);
-        return view('perito.municoes.arma_longa.edit',
+        return view('perito.laudo.materiais.municoes.arma_longa.edit',
             compact('municao', 'laudo', 'marcas', 'calibres'));
     }
 }

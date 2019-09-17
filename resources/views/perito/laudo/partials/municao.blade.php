@@ -9,8 +9,8 @@
         <td></td>
         <td>
             <a class="btn btn-primary"
-               href="#">
-                <i class="far fa-edit"></i>
+               href="{{ route('municoes.edit', [$laudo, $municao]) }}">
+            <i class="far fa-edit"></i>
             </a>
 
             <button value="{{ route('municoes.destroy', $municao) }}" type="submit" class="btn btn-danger delete">

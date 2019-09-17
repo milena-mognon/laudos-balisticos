@@ -77,4 +77,11 @@ class Calibre extends Model
         return $query->whereRaw("(nome = '$used_calibre->nome' and tipo_arma = '$tipo_arma') 
         or tipo_arma = '$tipo_arma'")->get();
     }
+
+    public function scopeCalibresMunicoesWithTrashed($query, $tipo_arma1, $tipo_arma2, $used_calibre)
+    {
+        // select * from `calibres` where (nome = '.32ACP' and tipo_arma in ('revólver', 'pistola')) or (tipo_arma in ('revólver', 'pistola'))  and `calibres`.`deleted_at` is null order by `nome` asc
+        return $query->whereRaw("(nome = '$used_calibre->nome' and tipo_arma in ('$tipo_arma1', '$tipo_arma2')) 
+        or (tipo_arma in ('$tipo_arma1', '$tipo_arma2')) ")->get();
+    }
 }

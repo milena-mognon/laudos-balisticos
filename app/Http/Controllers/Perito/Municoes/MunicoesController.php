@@ -23,6 +23,21 @@ class MunicoesController extends Controller
     }
 
     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  Municao $municao
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($laudo, Municao $municao)
+    {
+        if(strstr($municao->calibre, "GA") == "GA"){
+            return redirect()->route('armas_longas.edit', [$laudo, $municao]);
+        } else {
+            return redirect()->route('armas_curtas.edit', [$laudo, $municao]);
+        }
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request

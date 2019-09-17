@@ -26,7 +26,7 @@
     </div>
     <div class="row justify-content-between mb-4">
         <div class="col-lg-4 mt-1">
-            <a class="btn btn-secondary btn-block" href="{{ URL::previous() }}">
+            <a class="btn btn-secondary btn-block" href="{{ route('laudos.materiais', $laudo) }}">
                 <i class="fas fa-arrow-circle-left"></i> Voltar</a>
         </div>
         <div class="col-lg-4 mt-1">

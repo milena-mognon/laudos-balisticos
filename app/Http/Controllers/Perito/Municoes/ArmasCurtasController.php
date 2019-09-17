@@ -39,10 +39,10 @@ class ArmasCurtasController extends Controller
      * @param  Municao $municao
      * @return \Illuminate\Http\Response
      */
-    public function edit(Municao $municao)
+    public function edit($laudo, Municao $municao)
     {
         $marcas = Marca::marcasWithTrashed('municoes', $municao->marca);
-        $calibres = Calibre::calibresWithTrashed('municao', $municao->calibre);
+        $calibres = Calibre::calibresMunicoesWithTrashed('revólver', 'pistola', $municao->calibre);
         return view('perito.municoes.arma_curta.edit',
             compact('municao', 'laudo', 'marcas', 'calibres'));
     }

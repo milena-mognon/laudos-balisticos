@@ -55,7 +55,7 @@ Route::prefix('laudos/{laudo}')->group(function () {
     Route::resource('pistolas', 'Perito\Armas\PistolasController')->except(['destroy']);
 
     Route::resource('municoes', 'Perito\Municoes\MunicoesController')
-        ->parameters(['municoes' => 'municao'])->only(['store', 'update']);
+        ->parameters(['municoes' => 'municao'])->only(['store', 'update', 'edit']);
 
     Route::resource('municoes/armas_curtas', 'Perito\Municoes\ArmasCurtasController')
         ->parameters(['armas_curtas' => 'municao'])->only(['create', 'edit', 'show']);

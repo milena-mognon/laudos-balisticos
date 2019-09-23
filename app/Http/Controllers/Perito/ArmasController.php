@@ -25,7 +25,7 @@ class ArmasController extends Controller
      * @param  int $arma
      * @return \Illuminate\Http\Response
      */
-    public function destroy($arma)
+    public function destroy($laudo, $arma)
     {
         Arma::destroy($arma);
         return response()->json(['success'=>'done']);

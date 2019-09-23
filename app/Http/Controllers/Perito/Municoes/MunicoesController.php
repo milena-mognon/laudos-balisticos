@@ -58,7 +58,7 @@ class MunicoesController extends Controller
      * @param  int $municao
      * @return \Illuminate\Http\Response
      */
-    public function destroy($municao)
+    public function destroy($laudo, $municao)
     {
         Municao::destroy($municao);
         return response()->json(['success' => 'done']);

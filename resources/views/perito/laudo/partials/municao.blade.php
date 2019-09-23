@@ -13,7 +13,7 @@
             <i class="far fa-edit"></i>
             </a>
 
-            <button value="{{ route('municoes.destroy', $municao) }}" type="submit" class="btn btn-danger delete">
+            <button value="{{ route('municoes.destroy', [$laudo, $municao]) }}" type="submit" class="btn btn-danger delete">
                 <i class="far fa-trash-alt"></i>
             </button>
         </td>

@@ -49,23 +49,33 @@ Route::prefix('laudos/{laudo}')->group(function () {
     Route::get('materiais', 'Perito\LaudosController@materiais')->name('laudos.materiais');
     Route::get('gerar_docx', 'Perito\LaudosController@generate_docx')->name('laudos.docx');
     Route::resource('revolveres', 'Perito\Armas\RevolveresController')
-        ->parameters(['revolveres' => 'revolver'])->except(['destroy']);
-    Route::resource('espingardas', 'Perito\Armas\EspingardasController')->except(['destroy']);
-    Route::resource('garruchas', 'Perito\Armas\GarruchasController')->except(['destroy']);
-    Route::resource('pistolas', 'Perito\Armas\PistolasController')->except(['destroy']);
+        ->parameters(['revolveres' => 'revolver']);
+    Route::resource('espingardas', 'Perito\Armas\EspingardasController');
+    Route::resource('garruchas', 'Perito\Armas\GarruchasController');
+    Route::resource('pistolas', 'Perito\Armas\PistolasController');
+    Route::delete('armas/{arma}', 'Perito\ArmasController@destroy')->name('armas.destroy');
 
     Route::resource('municoes', 'Perito\Municoes\MunicoesController')
-        ->parameters(['municoes' => 'municao'])->only(['store', 'update', 'edit']);
+        ->parameters(['municoes' => 'municao'])->except(['create', 'index', 'show']);
 
     Route::resource('municoes/armas_curtas', 'Perito\Municoes\ArmasCurtasController')
         ->parameters(['armas_curtas' => 'municao'])->only(['create', 'edit', 'show']);
 
     Route::resource('municoes/armas_longas', 'Perito\Municoes\ArmasLongasController')
         ->parameters(['armas_longas' => 'municao'])->only(['create', 'edit', 'show'])
-        ;;
+        ;
+    Route::resource('componentes', 'Perito\Componentes\ComponentesController')
+        ->only(['store', 'update', 'destroy']);
+
+    Route::resource('componentes/balins_chumbo', 'Perito\Componentes\BalinsChumboController')
+        ->only(['create', 'edit']);
+    Route::resource('componentes/espoletas', 'Perito\Componentes\EspoletasController')
+        ->only(['create', 'edit']);
+    Route::resource('componentes/polvora', 'Perito\Componentes\PolvoraController')
+        ->only(['create', 'edit']);
 });
 
-Route::delete('armas/{arma}', 'Perito\ArmasController@destroy')->name('armas.destroy');
-Route::delete('municoes/{municao}', 'Perito\Municoes\MunicoesController@destroy')->name('municoes.destroy');
+//Route::delete('armas/{arma}', 'Perito\ArmasController@destroy')->name('armas.destroy');
+//Route::delete('municoes/{municao}', 'Perito\Municoes\MunicoesController@destroy')->name('municoes.destroy');
 
 Route::post('solicitantes', 'Perito\OrgaosSolicitantesController@store')->name('perito.solicitante.store');

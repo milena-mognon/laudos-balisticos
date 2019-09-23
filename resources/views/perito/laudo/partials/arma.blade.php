@@ -23,7 +23,7 @@
                 <i class="far fa-edit"></i>
             </a>
 
-            <button value="{{ route('armas.destroy', $arma) }}" type="submit" class="btn btn-danger delete">
+            <button value="{{ route('armas.destroy', [$laudo, $arma]) }}" type="submit" class="btn btn-danger delete">
                 <i class="far fa-trash-alt"></i>
             </button>
         </td>

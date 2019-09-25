@@ -36,3 +36,5 @@ $(document).ready(function() {
 });
 
 $(".tamanho").mask('9,999');
+$(".quantidade").mask('999,9');
+

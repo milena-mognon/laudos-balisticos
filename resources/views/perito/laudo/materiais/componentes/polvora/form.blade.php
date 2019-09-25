@@ -11,7 +11,9 @@
 
 <div class="col-lg-12" style="padding: 0 5% 0">
     <div class="row mb-3">
-
+        @include('perito.laudo.materiais.attributes.quantidade_frascos', ['quantidade_frascos' =>  $componente->quantidade_frascos ?? old('quantidade_frascos')])
+        @include('perito.laudo.materiais.attributes.material_frasco', ['material_frascos2' =>  $componente->material_frascos ?? old('material_frasco')])
+        @include('perito.laudo.materiais.attributes.quantidade_componente', ['componente' => 'Pólvora', 'quantidade' =>  $componente->quantidade ?? old('quantidade')])
 
     </div>
     <div class="row justify-content-between mb-4">

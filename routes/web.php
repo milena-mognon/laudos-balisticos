@@ -62,10 +62,10 @@ Route::prefix('laudos/{laudo}')->group(function () {
         ->parameters(['armas_curtas' => 'municao'])->only(['create', 'edit', 'show']);
 
     Route::resource('municoes/armas_longas', 'Perito\Municoes\ArmasLongasController')
-        ->parameters(['armas_longas' => 'municao'])->only(['create', 'edit', 'show'])
-        ;
+        ->parameters(['armas_longas' => 'municao'])->only(['create', 'edit', 'show']);
+
     Route::resource('componentes', 'Perito\Componentes\ComponentesController')
-        ->only(['store', 'update', 'destroy']);
+        ->only(['store', 'update', 'destroy', 'edit']);
 
     Route::resource('componentes/balins_chumbo', 'Perito\Componentes\BalinsChumboController')
         ->only(['create', 'edit']);
@@ -74,8 +74,5 @@ Route::prefix('laudos/{laudo}')->group(function () {
     Route::resource('componentes/polvora', 'Perito\Componentes\PolvoraController')
         ->only(['create', 'edit']);
 });
-
-//Route::delete('armas/{arma}', 'Perito\ArmasController@destroy')->name('armas.destroy');
-//Route::delete('municoes/{municao}', 'Perito\Municoes\MunicoesController@destroy')->name('municoes.destroy');
 
 Route::post('solicitantes', 'Perito\OrgaosSolicitantesController@store')->name('perito.solicitante.store');

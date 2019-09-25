@@ -14,11 +14,11 @@ class MunicoesController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(MunicaoRequest $request)
+    public function store(MunicaoRequest $request, $laudo)
     {
         Municao::create($request->all());
         return redirect()->route('laudos.show',
-            ['laudo_id' => $request->input('laudo_id')])
+            ['laudo_id' => $laudo->id])
             ->with('success', __('flash.create_f', ['model' => 'Munição']));
     }
 

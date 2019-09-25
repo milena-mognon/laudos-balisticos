@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Perito;
+namespace App\Http\Controllers\Perito\Componentes;
 
 use App\Http\Controllers\Controller;
 
@@ -11,9 +11,10 @@ class PolvoraController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($laudo)
     {
-        //
+        return view('perito.laudo.materiais.componentes.polvora.create',
+            compact('laudo'));
     }
 
     /**

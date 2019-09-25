@@ -44,15 +44,15 @@
         <div class="row border mb-3 mt-3">
             <div class="col-lg-3 mt-3">
                 @include('shared.block_button', ['col_name' => 'componente',
-                'value' => 'Balins de Chumbo ', 'route' => 'componentes.create'])
+                'value' => 'Balins de Chumbo ', 'route' => 'balins_chumbo.create'])
             </div>
             <div class="col-lg-3 mt-3">
                 @include('shared.block_button', ['col_name' => 'componente',
-                'value' => 'Espoletas ', 'route' => 'componentes.create'])
+                'value' => 'Espoletas ', 'route' => 'espoletas.create'])
             </div>
             <div class="col-lg-3 mt-3">
                 @include('shared.block_button', ['col_name' => 'componente',
-                'value' => 'Pólvora ', 'route' => 'componentes.create'])
+                'value' => 'Pólvora ', 'route' => 'polvora.create'])
             </div>
         </div>
     </div>

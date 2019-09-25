@@ -52,6 +52,11 @@ class Laudo extends Model
         return $this->hasMany(Municao::class);
     }
 
+    public function componentes()
+    {
+        return $this->hasMany(Componente::class);
+    }
+
     // this is a recommended way to declare event handlers
     public static function boot() {
         parent::boot();
@@ -60,6 +65,7 @@ class Laudo extends Model
 
             $laudo->armas()->delete();
             $laudo->municoes()->delete();
+            $laudo->componentes()->delete();
         });
     }
 

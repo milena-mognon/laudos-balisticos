@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Perito;
+namespace App\Http\Controllers\Perito\Componentes;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\ComponenteRequest;
 use App\Http\Controllers\Controller;
+use App\Models\Componente;
 
 class ComponentesController extends Controller
 {
@@ -14,9 +15,11 @@ class ComponentesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ComponenteRequest $request, $laudo)
     {
-        //
+        Componente::create($request->all());
+        return redirect()->route('laudos.show', ['id' => $laudo->id])
+            ->with('success', __('flash.update_f', ['model' => 'Componente']));
     }
 
     /**
@@ -26,7 +29,7 @@ class ComponentesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ComponenteRequest $request, $laudo, $id)
     {
         //
     }
@@ -37,7 +40,7 @@ class ComponentesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($laudo, $id)
     {
         //
     }

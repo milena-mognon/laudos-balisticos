@@ -76,9 +76,10 @@ class LaudosController extends Controller
         $solicitantes = OrgaoSolicitante::fromCity($laudo->cidade_id);
         $armas = $laudo->armas;
         $municoes = $laudo->municoes;
+        $componentes = $laudo->componentes;
         return view('perito.laudo.show',
             compact('laudo', 'cidades', 'solicitantes',
-                'diretores', 'secoes', 'armas', 'municoes'));
+                'diretores', 'secoes', 'armas', 'municoes', 'componentes'));
     }
 
     /**

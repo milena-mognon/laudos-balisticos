@@ -1,23 +1,22 @@
 @foreach ($componentes as $componente)
 
     <tr align="center">
-        <td> {{ mb_strtoupper($componente->conteudo) }} </td>
+        <td> {{ mb_strtoupper($componente->componente) }} </td>
         <td></td>
         <td></td>
         <td> {{ $componente->quantidade }}
-            (@if(mb_strtoupper($componente->conteudo)=="ESPOLETAS") Unidades ) @else Gramas
+            (@if(mb_strtoupper($componente->componente)=="ESPOLETAS") Unidades ) @else Gramas
             ) @endif </td>
         <td></td>
         <td></td>
         <td>
             <a class="btn btn-primary"
-               href="{{ url("componente/$componente->id/edit") }}">
-                <i class="fa fa-pencil"></i>Editar
+               href="{{ route('componentes.edit', [$laudo, $componente]) }}">
+                <i class="far fa-edit"></i>
             </a>
-        </td>
-        <td>
-            <button value="{{ $componente->id }}" type="submit"
-                    class="btn btn-danger deleteComponente"><i class="fa fa-trash"></i> Deletar
+            <button value="{{ route('componentes.destroy', [$laudo, $componente]) }}" type="submit"
+                    class="btn btn-danger delete">
+                <i class="far fa-trash-alt"></i>
             </button>
         </td>
     </tr>

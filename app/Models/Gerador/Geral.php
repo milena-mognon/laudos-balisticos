@@ -38,7 +38,10 @@ class Geral
         $oficio = $laudo->oficio;
         $secao = $laudo->secao->nome;
 
-        $aux = $this->titulo_e_exame($laudo->armas()->count(), $laudo->municoes()->count(), 0);
+        $aux = $this->titulo_e_exame(
+            $laudo->armas()->count(),
+            $laudo->municoes()->count(),
+            $laudo->componentes()->count());
         $cabecalho2 = "Em consequência, o Perito procedeu ao exame solicitado, relatando-o com a verdade e com todas as circunstâncias relevantes, da forma como segue:";
 
         $exame = "DO EXAME DO MATERIAL APRESENTADO";

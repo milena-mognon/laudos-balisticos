@@ -30,7 +30,7 @@ class MunicoesController extends Controller
      */
     public function edit($laudo, Municao $municao)
     {
-        if(strstr($municao->calibre, "GA") == "GA"){
+        if (strstr($municao->calibre, "GA") == "GA") {
             return redirect()->route('armas_longas.edit', [$laudo, $municao]);
         } else {
             return redirect()->route('armas_curtas.edit', [$laudo, $municao]);
@@ -55,12 +55,13 @@ class MunicoesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $municao
+     * @param $laudo
+     * @param $municao
      * @return \Illuminate\Http\Response
      */
     public function destroy($laudo, $municao)
     {
-        Municao::destroy($municao);
+        Municao::destroy($municao->id);
         return response()->json(['success' => 'done']);
     }
 }

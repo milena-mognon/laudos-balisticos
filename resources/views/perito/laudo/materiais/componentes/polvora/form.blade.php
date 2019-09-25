@@ -1,3 +1,7 @@
+@section('js')
+    {!! Html::script('js/form_componentes.js') !!}
+@endsection
+
 @if ($acao == 'Cadastrar')
     {!! Form::open(['route' => ['componentes.store', $laudo ]]) !!}
 @elseif ($acao == 'Atualizar')

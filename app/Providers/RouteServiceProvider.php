@@ -3,9 +3,11 @@
 namespace App\Providers;
 
 use App\Models\Calibre;
+use App\Models\Componente;
 use App\Models\Diretor;
 use App\Models\Laudo;
 use App\Models\Marca;
+use App\Models\Municao;
 use App\Models\OrgaoSolicitante;
 use App\Models\Origem;
 use App\Models\Arma;
@@ -41,10 +43,15 @@ class RouteServiceProvider extends ServiceProvider
         Route::model('calibre', Calibre::class);
         Route::model('secao', Secao::class);
         Route::model('laudo', Laudo::class);
-        Route::model('revolver', Arma::class);
         Route::model('diretor', Diretor::class);
         Route::model('user', User::class);
         Route::model('solicitante', OrgaoSolicitante::class);
+        Route::model('revolver', Arma::class);
+        Route::model('garrucha', Arma::class);
+        Route::model('espingarda', Arma::class);
+        Route::model('pistola', Arma::class);
+        Route::model('componente', Componente::class);
+        Route::model('municao', Municao::class);
 
     }
 
@@ -72,8 +79,8 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapWebRoutes()
     {
         Route::middleware('web')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/web.php'));
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web.php'));
     }
 
     /**
@@ -86,8 +93,8 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapApiRoutes()
     {
         Route::prefix('api')
-             ->middleware('api')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/api.php'));
+            ->middleware('api')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/api.php'));
     }
 }

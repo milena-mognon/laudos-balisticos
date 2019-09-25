@@ -44,6 +44,10 @@ class Gerar
         $municoesText = $municoesText->addText($laudo->municoes);
         $i = $municoesText['i'];
 
+        $componentesText = new ComponentesText($this->section, $this->conf, $i);
+        $componentesText = $componentesText->addText($laudo->componentes);
+        $i = $componentesText['i'];
+
         $this->geral->addFinalText($laudo->perito->nome);
 
         $this->section->addFooter();

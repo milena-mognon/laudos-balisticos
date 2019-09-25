@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Componentes\BalinsChumbo;
+use App\Models\Componentes\Espoletas;
+use App\Models\Componentes\Polvora;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -19,5 +22,20 @@ class Componente extends Model
     public function laudo()
     {
         return $this->belongsTo(Laudo::class);
+    }
+
+    public static function componente($componente)
+    {
+        switch ($componente->componente) {
+            case "Pólvora":
+                return Polvora::text($componente);
+                break;
+            case "Balins de Chumbo":
+                return BalinsChumbo::text($componente);
+                break;
+            case "Espoletas":
+                return Espoletas::text($componente);
+                break;
+        }
     }
 }

@@ -118,7 +118,7 @@ class LaudosController extends Controller
 
     public function generate_docx(Laudo $laudo)
     {
-        if ($laudo->armas->isEmpty()) {
+        if ($laudo->armas->isEmpty() && $laudo->municoes->isEmpty() && $laudo->componentes->isEmpty()) {
             return redirect()->route('laudos.show', compact('laudo'))
                 ->with('warning', 'É preciso ter ao menos 1 (um) material cadastrado para gerar o laudo!');
         } else {

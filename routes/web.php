@@ -65,14 +65,14 @@ Route::prefix('laudos/{laudo}')->group(function () {
         ->parameters(['armas_longas' => 'municao'])->only(['create', 'edit', 'show']);
 
     Route::resource('componentes', 'Perito\Componentes\ComponentesController')
-        ->only(['store', 'update', 'destroy', 'edit']);
+        ->except(['create', 'index']);
 
     Route::resource('componentes/balins_chumbo', 'Perito\Componentes\BalinsChumboController')
-        ->only(['create', 'edit']);
+        ->parameters(['balins_chumbo' => 'componente'])->only(['create', 'edit']);
     Route::resource('componentes/espoletas', 'Perito\Componentes\EspoletasController')
-        ->only(['create', 'edit']);
+        ->parameters(['espoletas' => 'componente'])->only(['create', 'edit']);
     Route::resource('componentes/polvora', 'Perito\Componentes\PolvoraController')
-        ->only(['create', 'edit']);
+        ->parameters(['polvora' => 'componente'])->only(['create', 'edit']);
 });
 
 Route::post('solicitantes', 'Perito\OrgaosSolicitantesController@store')->name('perito.solicitante.store');

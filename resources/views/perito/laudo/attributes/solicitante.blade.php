@@ -8,7 +8,7 @@
                 {{$solicitante->nome}}
             </option>
         @endforeach
-        <option id="cadastrar_solicitante" value="cadastrar_solicitante">Cadastrar Opção</option>
+        <option id="cadastrar_solicitante">Cadastrar Opção</option>
     </select>
     @include('shared.error_feedback', ['name' => 'solicitante_id'])
 </div>

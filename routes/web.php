@@ -35,6 +35,11 @@ Route::prefix('admin')->middleware('cargo:Administrador')->group(function () {
         ->parameters(['origens' => 'origem'])->except(['show']);
     Route::resource('diretores', 'Admin\DiretoresController')
         ->parameters(['diretores' => 'diretor'])->except(['show']);
+    Route::get('relatorios/index', 'Admin\RelatoriosController@index')
+        ->name('admin.relatorios.index');
+    Route::get('relatorios/todos_laudos', 'Admin\RelatoriosController@relatorio_completo')
+        ->name('admin.relatorios.relatorio_completo');
+
 });
 
 /* Peritos routes */
@@ -74,5 +79,9 @@ Route::prefix('laudos/{laudo}')->group(function () {
     Route::resource('componentes/polvora', 'Perito\Componentes\PolvoraController')
         ->parameters(['polvora' => 'componente'])->only(['create', 'edit']);
 });
+Route::get('relatorios/index', 'Perito\RelatoriosController@index')
+    ->name('perito.relatorios.index');
+Route::get('relatorios/create_report', 'RelatoriosController@create_report')
+    ->name('relatorios.create_report');
 
 Route::post('solicitantes', 'Perito\OrgaosSolicitantesController@store')->name('perito.solicitante.store');

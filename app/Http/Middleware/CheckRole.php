@@ -17,6 +17,9 @@ class CheckRole
      */
     public function handle($request, Closure $next, $cargo)
     {
+        if($request->user()==null){
+            return redirect('login');
+        }
         if ($request->user()->cargo->nome !== $cargo) {
             return redirect('unauthorized');
         }

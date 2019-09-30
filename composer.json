@@ -6,8 +6,8 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "barryvdh/laravel-dompdf": "^0.8.5",
         "davejamesmiller/laravel-breadcrumbs": "4.x",
-        "dompdf/dompdf": "^0.8.3",
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",

@@ -31,7 +31,8 @@
         @yield('style')
     </head>
     <body>
-        @include('layout.menu')
+        @includeWhen(Auth::user()->cargo->nome=='Administrador','layout.menu_admin')
+        @includeWhen(Auth::user()->cargo->nome!='Administrador','layout.menu')
         <div id="content-wrapper">
             <div class="container-fluid">
                 {{ Breadcrumbs::render() }}

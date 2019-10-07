@@ -131,6 +131,9 @@ function armas_route_name($material)
         case 'Pistola':
             return 'pistolas';
             break;
+        case 'Espingarda Artesanal':
+            return 'espingardas_artesanais';
+            break;
         default:
             return 'armas';
     }

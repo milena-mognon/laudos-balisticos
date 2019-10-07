@@ -1,6 +1,6 @@
 <div class="col-lg-3">
     <div class="form-group">
-        <label>Disposição dos Canos</label>
+        <label>Disposição dos Canos *</label>
         <select class="js-single-select form-control{{ $errors->has('disposicao_canos') ? ' is-invalid' : '' }}"
                 name="disposicao_canos" id="disposicao_canos">
             <option value=""></option>

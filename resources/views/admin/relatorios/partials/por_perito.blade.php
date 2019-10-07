@@ -1,7 +1,10 @@
 @component('admin.relatorios.shared.table')
-@slot('table_title') 
- Total de Laudos Realizados por Perito(a)
-@endslot
+    @slot('colspan')
+        4
+    @endslot
+    @slot('table_title')
+        Total de Laudos Realizados por Perito(a)
+    @endslot
     <tr style="background-color: #d3d3d3;">
         <th colspan="2">Perito(a)</th>
         <th colspan="2">Total de Laudos</th>

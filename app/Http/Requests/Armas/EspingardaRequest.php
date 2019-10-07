@@ -50,6 +50,7 @@ class EspingardaRequest extends FormRequest
             'coronha_fuste' => 'required|between:5,30',
             'chave_abertura' => 'nullable|max: 70',
             'tipo_carregador' => 'nullable|max: 40',
+            'bandoleira' => 'nullable|max: 70',
         ];
     }
 }

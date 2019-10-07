@@ -1,6 +1,6 @@
 <div class="col-lg-3">
     <div class="form-group">
-        <label for="calibre_id">Calibre Nominal</label>
+        <label for="calibre_id">Calibre Nominal {{ $obrigatorio ? '*' : '' }}</label>
         <select class="js-single-calibres form-control{{ $errors->has('calibre_id') ? ' is-invalid' : '' }}"
                 name="calibre_id" id="calibre_id">
             <option></option>

@@ -1,5 +1,5 @@
-$(document).ready(function() {
-    $.fn.select2.defaults.set( "theme", "bootstrap" );
+$(document).ready(function () {
+    $.fn.select2.defaults.set("theme", "bootstrap");
 
     $('.js-single-cidades').select2({
         placeholder: "Selecione uma Cidade",
@@ -32,6 +32,12 @@ $(document).ready(function() {
     $('.js-single').select2({
         language: 'pt-BR',
         minimumResultsForSearch: -1
+    });
+
+    $(".js-multiple-limit").select2({
+        language: 'pt-BR',
+        maximumSelectionLength: 5,
+        placeholder: "Clique para selecionar (opcional)",
     });
 });
 

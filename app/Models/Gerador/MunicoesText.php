@@ -32,15 +32,15 @@ class MunicoesText
         $tipo = '';
         if ($tipo_municao == 'cartucho') {
             if ($nao_deflagrado) {
-                $tipo = 'percutidos e não deflagrados';
+                $tipo = ' percutidos e não deflagrados';
             } else {
-                $tipo = 'intactos';
+                $tipo = ' intactos';
             }
         }
         $this->i++;
         $textrun = $this->section->addTextRun($this->config->paragraphJustify());
         $textrun->addText($this->i . " - " . ucfirst(plural_tipo_municoes($tipo_municao)) . " Calibre $calibre:", $this->config->arial12Bold());
-        $textrun->addText(" Trata-se de $quantidade " . plural_tipo_municoes($tipo_municao) . " $tipo conforme tabela abaixo:", $this->config->arial12());
+        $textrun->addText(" Trata-se de $quantidade " . plural_tipo_municoes($tipo_municao) . "$tipo conforme tabela abaixo:", $this->config->arial12());
         $table = $this->section->addTable($this->config->tabelaConfig());
 
         $table->addRow(500);

@@ -16,7 +16,7 @@
     <div class="row mb-3">
         @include('perito.laudo.materiais.attributes.marca', ['marca2' =>  $garrucha->marca->id ?? old('marca_id')])
         @include('perito.laudo.materiais.attributes.origem', ['origem2' =>  $garrucha->origem->id ?? old('origem_id')])
-        @include('perito.laudo.materiais.attributes.calibre', ['calibre2' =>  $garrucha->calibre->id ?? old('calibre_id')])
+        @include('perito.laudo.materiais.attributes.calibre', ['obrigatorio' => true, 'calibre2' =>  $garrucha->calibre->id ?? old('calibre_id')])
         @include('perito.laudo.materiais.attributes.serie', ['tipo_serie2' =>  $garrucha->tipo_serie ?? old('tipo_serie'), 'num_serie' =>  $garrucha->num_serie ?? old('num_serie')])
         @include('perito.laudo.materiais.attributes.numero_canos', ['num_canos2' =>  $garrucha->num_canos ?? old('num_canos')])
         @include('perito.laudo.materiais.attributes.disposicao_canos', ['disposicao_canos2' =>  $garrucha->disposicao_canos ?? old('disposicao_canos')])

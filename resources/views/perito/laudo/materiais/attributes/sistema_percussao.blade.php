@@ -1,6 +1,6 @@
 <div class="col-lg-3">
     <div class="form-group">
-        <label>Sistema de Percussão</label>
+        <label>Sistema de Percussão *</label>
         <select class="js-single form-control{{ $errors->has('sistema_percussao') ? ' is-invalid' : '' }}"
                 name="sistema_percussao">
             @foreach (['Direta', 'Indireta', 'Com Engatilhamento Embutido'] as $sistema_percussao)

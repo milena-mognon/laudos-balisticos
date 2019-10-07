@@ -13,7 +13,7 @@ class Espingarda extends Model
 {
     public static function text($arma)
     {
-        if ($arma->sistema_carregamento === "antecarga") {
+        if ($arma->tipo_arma === "Espingarda Artesanal") {
             $text = self::espingarda_artesanal($arma);
         } else {
             if ($arma->num_canos === "dois") {
@@ -33,13 +33,9 @@ class Espingarda extends Model
     private static function espingarda_artesanal($arma)
     {
         $calibre = $arma->calibre->nome;
-        $tipo_acabamento = Shared::acabamento($arma->tipo_acabamento);
-        $serie = Shared::serie($arma->tipo_serie, $arma->num_serie);
-        $marca = Shared::marca($arma->marca->nome);
-        $sistema_funcionamento = Shared::sistemaFuncionamento($arma->sistema_funcionamento);
-        $origem = mb_strtolower($arma->origem->fabricacao);
-        $inicio = "$arma->tipo_arma artesanal: ";
-        $corpo = "Trata-se de uma " . mb_strtolower($arma->tipo_arma) . " $sistema_funcionamento, marca $marca, de fabricação $origem, de calibre nominal $calibre, $serie, com sistema de carregamento tipo $arma->sistema_carregamento, $arma->num_canos cano, sistema de engatilhamento $arma->sistema_engatilhamento e sistema de percussão $arma->sistema_percussao. $tipo_acabamento, apresenta coronha e fuste em $arma->coronha_fuste e encontra-se em $arma->estado_geral estado de conservação. Suas medidas são: comprimento total: " . str_replace(".", ",", $arma->comprimento_total) . "m e o cano mede " . str_replace(".", ",", $arma->comprimento_cano) . "m.";
+        $coronha_fuste = Shared::coronha_fuste($arma->coronha_fuste);
+        $inicio = "$arma->tipo_arma: ";
+        $corpo = "Trata-se de uma " . mb_strtolower($arma->tipo_arma) . " de tiro unitário simples, sem marca aparente, sem número de série, de calibre nominal $calibre, com sistema de carregamento tipo antecarga, $coronha_fuste, em $arma->estado_geral estado de conservação. Suas medidas são: comprimento total: $arma->comprimento_total" . "m e o cano mede $arma->comprimento_cano" . "m.";
         return ['inicio' => $inicio, 'corpo' => $corpo];
     }
 

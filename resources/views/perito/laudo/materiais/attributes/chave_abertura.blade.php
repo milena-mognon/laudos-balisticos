@@ -1,6 +1,6 @@
 <div class="col-lg-3">
     <div class="form-group">
-        <label>Chave de Abertura</label>
+        <label>Chave de Abertura *</label>
         <select class="js-single-select form-control{{ $errors->has('chave_abertura') ? ' is-invalid' : '' }}"
                 name="chave_abertura" id="chave_abertura">
             <option id="sem_valor" value=""></option>

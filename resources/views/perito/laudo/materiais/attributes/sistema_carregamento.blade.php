@@ -1,6 +1,6 @@
 <div class="col-lg-3">
     <div class="form-group">
-        <label>Sistema de Carregamento</label>
+        <label>Sistema de Carregamento *</label>
         <select class="js-single form-control{{ $errors->has('sistema_carregamento') ? ' is-invalid' : '' }}"
                 name="sistema_carregamento" id="sistema_carregamento">
             @foreach (['Retro-carga', 'Antecarga'] as $sistema_carregamento)

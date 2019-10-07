@@ -1,6 +1,6 @@
 <div class="col-lg-3">
     <div class="form-group">
-        <label>Teclas de Gatilho</label>
+        <label>Teclas de Gatilho *</label>
         <select class="js-single-select form-control{{ $errors->has('teclas_gatilho') ? ' is-invalid' : '' }}"
                 name="teclas_gatilho" id="teclas_gatilho">
             <option value=""></option>

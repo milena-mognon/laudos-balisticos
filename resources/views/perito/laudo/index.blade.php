@@ -27,7 +27,7 @@
                 </td>
             </tr>
         @endforeach
-        @else
+    @else
         <tr>
             <td colspan="5">Nenhum Resultado Encontrado</td>
         </tr>

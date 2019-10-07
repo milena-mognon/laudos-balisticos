@@ -63,7 +63,7 @@ class Arma extends Model
             case "Pistola":
                 return Pistola::text($arma);
                 break;
-            case "Espingarda":
+            case "Espingarda" || "Espingarda Artesanal":
                 return Espingarda::text($arma);
                 break;
             case "Garrucha":

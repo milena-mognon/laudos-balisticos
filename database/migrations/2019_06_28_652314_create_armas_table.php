@@ -16,11 +16,11 @@ class CreateArmasTable extends Migration
         Schema::create('armas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('tipo_arma', 30);
-            $table->integer('marca_id')->unsigned();
+            $table->integer('marca_id')->unsigned()->nullable();
             $table->foreign('marca_id')->references('id')->on('marcas');
-            $table->integer('calibre_id')->unsigned();
+            $table->integer('calibre_id')->unsigned()->nullable();
             $table->foreign('calibre_id')->references('id')->on('calibres');
-            $table->integer('origem_id')->unsigned();
+            $table->integer('origem_id')->unsigned()->nullable();
             $table->foreign('origem_id')->references('id')->on('origens');
             $table->integer('laudo_id')->unsigned();
             $table->foreign('laudo_id')->references('id')->on('laudos')->onDelete('cascade');

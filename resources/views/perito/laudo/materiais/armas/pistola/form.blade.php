@@ -17,7 +17,7 @@
         @include('perito.laudo.materiais.attributes.marca', ['marca2' =>  $pistola->marca->id ?? old('marca_id')])
         @include('perito.laudo.materiais.attributes.modelo', ['modelo' => $revolver->modelo ?? old('modelo')])
         @include('perito.laudo.materiais.attributes.origem', ['origem2' =>  $pistola->origem->id ?? old('origem_id')])
-        @include('perito.laudo.materiais.attributes.calibre', ['calibre2' =>  $pistola->calibre->id ?? old('calibre_id')])
+        @include('perito.laudo.materiais.attributes.calibre', ['obrigatorio' => true,'calibre2' =>  $pistola->calibre->id ?? old('calibre_id')])
         @include('perito.laudo.materiais.attributes.serie', ['tipo_serie2' =>  $pistola->tipo_serie ?? old('tipo_serie'), 'num_serie' =>  $pistola->num_serie ?? old('num_serie')])
         @include('perito.laudo.materiais.attributes.carregamento', ['carregamento2' =>  $pistola->carregamento ?? old('carregamento')])
         @include('perito.laudo.materiais.attributes.cao', ['cao2' =>  $pistola->cao ?? old('cao')])

@@ -1,6 +1,6 @@
 <div class="col-lg-3">
     <div class="form-group">
-        <label>Tipo do Carregador</label>
+        <label>Tipo do Carregador *</label>
         <select class="js-single-select form-control{{ $errors->has('tipo_carregador') ? ' is-invalid' : '' }}"
                 name="tipo_carregador" id="tipo_carregador">
             <option value=""></option>

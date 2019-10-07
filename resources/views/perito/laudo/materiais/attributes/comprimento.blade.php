@@ -1,6 +1,6 @@
 <div class="col-lg-3">
     <div class="form-group">
-        <label>Comprimento</label>
+        <label>Comprimento *</label>
         <input class="form-control tamanho {{ $errors->has('comprimento_total') ? ' is-invalid' : '' }}"
                name="comprimento_total" placeholder="0,000 (metros)" autocomplete="off"
                value="{{ old('comprimento_total', $comprimento_total) }}" required/>

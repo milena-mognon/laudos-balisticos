@@ -1,6 +1,6 @@
 <div class="col-lg-3">
 	<div class="form-group">
-		<label>Sistema de Funcionamento</label>
+		<label>Sistema de Funcionamento *</label>
 		<select class="js-single form-control{{ $errors->has('sistema_funcionamento') ? ' is-invalid' : '' }}"
 				name="sistema_funcionamento" id="sistema_funcionamento">
 			@foreach (['Unitário', 'Repetição', 'Semi-automático', 'Automático'] as $sistema_funcionamento)

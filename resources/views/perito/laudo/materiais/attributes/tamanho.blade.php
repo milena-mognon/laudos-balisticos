@@ -1,6 +1,6 @@
 <div class="col-lg-3">
     <div class="form-group">
-        <label>Tamanho (mm)</label>
+        <label>Tamanho (mm) *</label>
         <input class="form-control {{ $errors->has('tamanho') ? ' is-invalid' : '' }}"
                name="tamanho" autocomplete="off"
                value="{{ old('tamanho', $tamanho) }}" min="0" required/>

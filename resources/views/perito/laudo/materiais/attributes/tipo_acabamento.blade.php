@@ -1,6 +1,6 @@
 <div class="col-lg-3">
     <div class="form-group">
-        <label>Tipo de Acabamento</label>
+        <label>Tipo de Acabamento *</label>
         <select class="js-single form-control{{ $errors->has('tipo_acabamento') ? ' is-invalid' : '' }}"
                 name="tipo_acabamento">
             @foreach (['Desprovido', 'Cromado', 'Emborrachado', 'Niquelado', 'Oxidado'] as $acabamento)

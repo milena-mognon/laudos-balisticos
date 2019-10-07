@@ -2,8 +2,8 @@
 
     <tr>
         <td> {{ mb_strtoupper($arma->tipo_arma) }} </td>
-        <td> {{ $arma->marca->nome }} </td>
-        <td> {{ $arma->calibre->nome }} </td>
+        <td> {{ isset($arma->marca->nome) ? $arma->marca->nome : '' }} </td>
+        <td> {{ $arma->calibre->nome ? $arma->calibre->nome : $arma->calibre_real }} </td>
         <td></td>
         <td> {{ $arma->num_serie }} </td>
         <td> {{ $arma->num_lacre }} </td>

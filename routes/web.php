@@ -1,16 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 /* public routes*/
 Route::get('/', 'HomeController@index')->name('home');
 
@@ -39,7 +28,8 @@ Route::prefix('admin')->middleware('cargo:Administrador')->group(function () {
         ->name('admin.relatorios.index');
     Route::get('relatorios/todos_laudos', 'Admin\RelatoriosController@relatorio_completo')
         ->name('admin.relatorios.relatorio_completo');
-
+    Route::post('relatorios/create_custom_report', 'Admin\RelatoriosController@create_custom_report')
+        ->name('admin.relatorios.personalizados');
 });
 
 /* Peritos routes */
@@ -56,6 +46,8 @@ Route::prefix('laudos/{laudo}')->group(function () {
     Route::resource('revolveres', 'Perito\Armas\RevolveresController')
         ->parameters(['revolveres' => 'revolver']);
     Route::resource('espingardas', 'Perito\Armas\EspingardasController');
+    Route::resource('espingardas_artesanais', 'Perito\Armas\EspingardasArtesanaisController')
+        ->parameters(['espingardas_artesanais' => 'espingarda']);
     Route::resource('garruchas', 'Perito\Armas\GarruchasController');
     Route::resource('pistolas', 'Perito\Armas\PistolasController');
     Route::delete('armas/{arma}', 'Perito\ArmasController@destroy')->name('armas.destroy');
@@ -79,9 +71,5 @@ Route::prefix('laudos/{laudo}')->group(function () {
     Route::resource('componentes/polvora', 'Perito\Componentes\PolvoraController')
         ->parameters(['polvora' => 'componente'])->only(['create', 'edit']);
 });
-Route::get('relatorios/index', 'Perito\RelatoriosController@index')
-    ->name('perito.relatorios.index');
-Route::get('relatorios/create_report', 'RelatoriosController@create_report')
-    ->name('relatorios.create_report');
 
 Route::post('solicitantes', 'Perito\OrgaosSolicitantesController@store')->name('perito.solicitante.store');

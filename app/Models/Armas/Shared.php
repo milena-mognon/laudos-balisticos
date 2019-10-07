@@ -15,6 +15,24 @@ class Shared extends Model
         return $modelo != '' ? " modelo $modelo," : '';
     }
 
+    public static function coronha_fuste($coronha_fuste)
+    {
+        $text = 'coronha e fuste';
+        switch ($coronha_fuste) {
+            case 'madeira':
+                return 'com ' . $text . ' inteiriços em madeira';
+                break;
+            case 'material sintético':
+                return 'com ' . $text . ' em material sintético';
+                break;
+            case 'desprovido':
+                return 'desprovido de ' . $text;
+                break;
+            default:
+                return '';
+        }
+    }
+
     public static function sentido_raias($sentido_raias)
     {
         switch ($sentido_raias) {

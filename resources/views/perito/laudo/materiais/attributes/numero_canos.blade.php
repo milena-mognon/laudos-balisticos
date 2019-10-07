@@ -1,6 +1,6 @@
 <div class="col-lg-3">
     <div class="form-group">
-        <label>Número de Canos</label>
+        <label>Número de Canos *</label>
         <select class="js-single form-control{{ $errors->has('num_canos') ? ' is-invalid' : '' }}"
                 name="num_canos" id="num_canos">
             @foreach (['Um', 'Dois'] as $num_canos)

@@ -89,12 +89,6 @@
                 </a>
             </div>
         </div>
-        {{--<a class="btn btn-danger" href="{{ route('laudos.pdf', $laudo )}}">--}}
-        {{--<i class="fas fa-file-pdf" aria-hidden="true"></i>--}}
-        {{--Gerar PDF--}}
-        {{--</a>--}}
     </div>
     @include('perito.modals.solicitante_modal')
-
-    {{--    @include('perito.modals.upload')--}}
 @endsection

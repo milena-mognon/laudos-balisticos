@@ -24,7 +24,7 @@ class Arma extends Model
         'teclas_gatilho', 'sistema_carregamento', 'sistema_engatilhamento', 'coronha_fuste',
         'chave_abertura', 'tipo_carregador', 'calibre_real', 'bandoleira', 'placas_laterais',
         'cao', 'carregador', 'capacidade_carregador', 'trava_ferrolho', 'trava_gatilho',
-        'trava_seguranca', 'retem_carregador', 'carregamento'
+        'trava_seguranca', 'retem_carregador', 'carregamento', 'numeracao_montagem', 'modelo'
     ];
 
     protected $dates = ['deleted_at'];

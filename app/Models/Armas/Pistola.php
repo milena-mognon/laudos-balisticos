@@ -17,6 +17,7 @@ class Pistola extends Model
         $calibre = $arma->calibre->nome;
         $origem = mb_strtolower($arma->origem->fabricacao);
         $modelo = Shared::modelo($arma->modelo);
+        $numeracao_montagem = Shared::numeracao_montagem($arma->numeracao_montagem);
         $quantidade_raias = converter_numero_raias($arma->quantidade_raias);
         $sentido_raias = Shared::sentido_raias($arma->sentido_raias);
         $capacidade = converter_numero($arma->capacidade_carregador);
@@ -30,7 +31,7 @@ class Pistola extends Model
         $retem_carregador = self::retem_carregador($arma->retem_carregador);
 
         $inicio = "$arma->tipo_arma $arma->carregamento Marca $marca, $serie:";
-        $corpo = " Trata-se de uma ". mb_strtolower($arma->tipo_arma)." $arma->carregamento, de marca $marca,$modelo fabricação $origem, de calibre nominal $calibre, $serie e sistema de disparo com cão $arma->cao. Possui carregador $arma->carregador com capacidade para $capacidade cartuchos, $trava_seguranca $trava_gatilho $trava_ferrolho $retem_carregador. $tipo_acabamento e cabo de $arma->cabo. Encontra-se em $arma->estado_geral estado de conservação e possui as seguintes medidas: comprimento total: $arma->comprimento_total m; altura: $arma->altura m; o cano mede: $arma->comprimento_cano m de comprimento e apresenta internamente $quantidade_raias raias $sentido_raias em $arma->estado_geral estado de conservação.";
+        $corpo = " Trata-se de uma ". mb_strtolower($arma->tipo_arma)." $arma->carregamento, de marca $marca,$modelo fabricação $origem, de calibre nominal $calibre, $serie $numeracao_montagem e sistema de disparo com cão $arma->cao. Possui carregador $arma->carregador com capacidade para $capacidade cartuchos, $trava_seguranca $trava_gatilho $trava_ferrolho $retem_carregador. $tipo_acabamento e cabo de $arma->cabo. Encontra-se em $arma->estado_geral estado de conservação e possui as seguintes medidas: comprimento total: $arma->comprimento_total m; altura: $arma->altura m; o cano mede: $arma->comprimento_cano m de comprimento e apresenta internamente $quantidade_raias raias $sentido_raias em $arma->estado_geral estado de conservação.";
 
         $fim = "Observação: A pistola acima descrita acompanha o presente trabalho devidamente identificada com o lacre nº $arma->num_lacre.";
         $laudo = ['inicio' => $inicio, 'corpo' => $corpo, 'resultado' => $resultado, 'fim' => $fim];

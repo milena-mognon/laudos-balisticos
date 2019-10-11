@@ -15,6 +15,11 @@ class Shared extends Model
         return $modelo != '' ? " modelo $modelo," : '';
     }
 
+    public static function numeracao_montagem($numeracao_montagem)
+    {
+        return $numeracao_montagem ? " numeração de montagem $numeracao_montagem," : '';
+    }
+
     public static function coronha_fuste($coronha_fuste)
     {
         $text = 'coronha e fuste';

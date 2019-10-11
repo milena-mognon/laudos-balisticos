@@ -59,6 +59,8 @@ class CreateArmasTable extends Migration
             $table->string('trava_seguranca', 40)->nullable();
             $table->string('retem_carregador', 40)->nullable();
             $table->string('carregamento', 40)->nullable();
+            $table->string('numeracao_montagem', 50)->nullable();
+            $table->string('modelo', 40)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

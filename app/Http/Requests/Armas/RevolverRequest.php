@@ -48,6 +48,7 @@ class RevolverRequest extends FormRequest
             'cabo' => 'required|between:4,30',
             'tipo_acabamento' => 'required|between:5,30',
             'tipo_arma' => 'required|between:5,30',
+            'numeracao_montagem' => 'nullable|max: 50',
         ];
     }
 }

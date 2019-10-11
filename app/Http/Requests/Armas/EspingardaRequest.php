@@ -51,6 +51,7 @@ class EspingardaRequest extends FormRequest
             'chave_abertura' => 'nullable|max: 70',
             'tipo_carregador' => 'nullable|max: 40',
             'bandoleira' => 'nullable|max: 70',
+            'numeracao_montagem' => 'nullable|max: 50',
         ];
     }
 }

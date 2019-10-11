@@ -3,7 +3,7 @@
 @endsection
 
 @if ($acao == 'Cadastrar')
-    {!! Form::open(['route' => ['espingardas.store', $laudo ]]) !!}
+    {!! Form::open(['disabled', 'route' => ['espingardas.store', $laudo ]]) !!}
 @elseif ($acao == 'Atualizar')
     {!! Form::open(['route' => ['espingardas.update', $laudo, $espingarda], 'method' => 'patch']) !!}
 @else
@@ -17,9 +17,10 @@
     <div class="row mb-3">
         @include('perito.laudo.materiais.attributes.marca', ['marca2' =>  $espingarda->marca->id ?? old('marca_id')])
         @include('perito.laudo.materiais.attributes.origem', ['origem2' =>  $espingarda->origem->id ?? old('origem_id')])
-        @include('perito.laudo.materiais.attributes.calibre', ['calibre2' =>  $espingarda->calibre->id ?? old('calibre_id')])
+        @include('perito.laudo.materiais.attributes.calibre', ['obrigatorio' => true, 'calibre2' =>  $espingarda->calibre->id ?? old('calibre_id')])
         @include('perito.laudo.materiais.attributes.calibre_real', ['calibre_real' =>  $espingarda->calibre_real ?? old('calibre_real')])
         @include('perito.laudo.materiais.attributes.serie', ['tipo_serie2' =>  $espingarda->tipo_serie ?? old('tipo_serie'), 'num_serie' =>  $espingarda->num_serie ?? old('num_serie')])
+        @include('perito.laudo.materiais.attributes.numeracao_montagem', ['numeracao_montagem' =>  $revolver->numeracao_montagem ?? old('numeracao_montagem')])
         @include('perito.laudo.materiais.attributes.sistema_funcionamento', ['sistema_funcionamento2' =>  $espingarda->sistema_funcionamento ?? old('sistema_funcionamento')])
         @include('perito.laudo.materiais.attributes.tipo_carregador', ['tipo_carregador2' =>  $espingarda->tipo_carregador ?? old('tipo_carregador')])
         @include('perito.laudo.materiais.attributes.numero_canos', ['num_canos2' =>  $espingarda->num_canos ?? old('num_canos')])

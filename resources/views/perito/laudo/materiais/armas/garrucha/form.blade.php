@@ -18,6 +18,7 @@
         @include('perito.laudo.materiais.attributes.origem', ['origem2' =>  $garrucha->origem->id ?? old('origem_id')])
         @include('perito.laudo.materiais.attributes.calibre', ['obrigatorio' => true, 'calibre2' =>  $garrucha->calibre->id ?? old('calibre_id')])
         @include('perito.laudo.materiais.attributes.serie', ['tipo_serie2' =>  $garrucha->tipo_serie ?? old('tipo_serie'), 'num_serie' =>  $garrucha->num_serie ?? old('num_serie')])
+        @include('perito.laudo.materiais.attributes.numeracao_montagem', ['numeracao_montagem' =>  $revolver->numeracao_montagem ?? old('numeracao_montagem')])
         @include('perito.laudo.materiais.attributes.numero_canos', ['num_canos2' =>  $garrucha->num_canos ?? old('num_canos')])
         @include('perito.laudo.materiais.attributes.disposicao_canos', ['disposicao_canos2' =>  $garrucha->disposicao_canos ?? old('disposicao_canos')])
         @include('perito.laudo.materiais.attributes.teclas_gatilho', ['teclas_gatilho2' =>  $garrucha->teclas_gatilho ?? old('teclas_gatilho')])

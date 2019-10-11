@@ -1,7 +1,7 @@
 @if ($acao == 'Cadastrar')
     {!! Form::open(['route' => ['revolveres.store', $laudo ]]) !!}
 @elseif ($acao == 'Atualizar')
-    {!! Form::open(['route' => ['revolveres.update', $laudo, $revolver], 'method' => 'patch']) !!}
+    {!! Form::open(['route' => ['revolveres.update', $laudo, $revolver], 'method' => 'patch'], 'disabled') !!}
 @else
     {!! Form::open() !!}
 @endif
@@ -16,6 +16,7 @@
         @include('perito.laudo.materiais.attributes.origem', ['origem2' =>  $revolver->origem->id ?? old('origem_id')])
         @include('perito.laudo.materiais.attributes.calibre', ['obrigatorio' => true,'calibre2' =>  $revolver->calibre->id ?? old('calibre_id')])
         @include('perito.laudo.materiais.attributes.serie', ['tipo_serie2' =>  $revolver->tipo_serie ?? old('tipo_serie'), 'num_serie' =>  $revolver->num_serie ?? old('num_serie')])
+        @include('perito.laudo.materiais.attributes.numeracao_montagem', ['numeracao_montagem' =>  $revolver->numeracao_montagem ?? old('numeracao_montagem')])
         @include('perito.laudo.materiais.attributes.tambor', ['tambor_rebate2' =>  $revolver->tambor_rebate ?? old('tambor_rebate')])
         @include('perito.laudo.materiais.attributes.capacidade_tambor', ['capacidade_tambor' =>  $revolver->capacidade_tambor ?? old('capacidade_tambor')])
         @include('perito.laudo.materiais.attributes.sistema_percussao', ['sistema_percussao2' =>  $revolver->sistema_percussao ?? old('sistema_percussao')])
@@ -29,6 +30,9 @@
         @include('perito.laudo.materiais.attributes.sentido_raias', ['sentido_raias2' =>  $revolver->sentido_raias ?? old('sentido_raias')])
         @include('perito.laudo.materiais.attributes.funcionamento', ['funcionamento2' =>  $revolver->funcionamento ?? old('funcionamento')])
         @include('perito.laudo.materiais.attributes.lacre', ['num_lacre' =>  $revolver->num_lacre ?? old('num_lacre')])
+        <hr>
+
+
     </div>
 
     <div class="row justify-content-between mb-4">

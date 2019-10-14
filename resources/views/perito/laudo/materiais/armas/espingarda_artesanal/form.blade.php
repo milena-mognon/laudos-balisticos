@@ -11,7 +11,7 @@
 
 <div class="col-lg-12" style="padding: 0 5% 0">
     <div class="row mb-3">
-        @include('perito.laudo.materiais.attributes.calibre', ['calibre2' =>  $espingarda->calibre->id ?? old('calibre_id')])
+        @include('perito.laudo.materiais.attributes.calibre', ['obrigatorio' => false, 'calibre2' =>  $espingarda->calibre->id ?? old('calibre_id')])
         @include('perito.laudo.materiais.attributes.calibre_real', ['calibre_real' =>  $espingarda->calibre_real ?? old('calibre_real')])
         @include('perito.laudo.materiais.attributes.coronha_fuste', ['coronha_fuste2' =>  $espingarda->coronha_fuste ?? old('coronha_fuste')])
         @include('perito.laudo.materiais.attributes.bandoleira', ['bandoleira2' =>  $espingarda->bandoleira ?? old('bandoleira')])
@@ -27,7 +27,7 @@
                 <i class="fas fa-arrow-circle-left"></i> Voltar</a>
         </div>
         <div class="col-lg-4 mt-1">
-            <button type="submit" class="btn btn-success btn-block submit_arma_form"><strong>
+            <button type="submit" class="btn btn-success btn-block"><strong>
                     <i class="fas fa-plus" aria-hidden="true"></i> {{ $acao }}</strong>
             </button>
             {{ Form::close() }}

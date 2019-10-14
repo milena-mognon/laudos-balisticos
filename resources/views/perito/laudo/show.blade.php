@@ -1,8 +1,6 @@
 @extends('layout.component')
 @section('js')
     {!! Html::script('js/calendar.js') !!}
-    {!! Html::script('js/filtrar_solicitantes.js') !!}
-    {!! Html::script('js/cadastrar_opcao.js') !!}
     {!! Html::script('js/cropper.js') !!}
     {!! Html::script('js/dropzone.js') !!}
     {!! Html::script('js/dropzone_config.js') !!}

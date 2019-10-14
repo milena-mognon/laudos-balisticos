@@ -66,7 +66,7 @@ class MunicoesText
             $table->addCell(2300)->addText(ucfirst($municao->estojo), $this->config->fonteTabela(), $this->config->cellCenter());
         }
         if ($municao->tipo_municao != 'estojo') {
-            $table->addCell(2800)->addText(ucfirst($municao->projetil . "/ " . $municao->tipo_projetil), $this->config->fonteTabela(), $this->config->cellCenter());
+            $table->addCell(2800)->addText(ucfirst($municao->projetil . "/ " . ($municao->tipo_projetil ? $municao->tipo_projetil : '' )), $this->config->fonteTabela(), $this->config->cellCenter());
         }
     }
 

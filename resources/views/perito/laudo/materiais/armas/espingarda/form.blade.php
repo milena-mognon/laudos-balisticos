@@ -3,7 +3,7 @@
 @endsection
 
 @if ($acao == 'Cadastrar')
-    {!! Form::open(['disabled', 'route' => ['espingardas.store', $laudo ]]) !!}
+    {!! Form::open(['route' => ['espingardas.store', $laudo ]]) !!}
 @elseif ($acao == 'Atualizar')
     {!! Form::open(['route' => ['espingardas.update', $laudo, $espingarda], 'method' => 'patch']) !!}
 @else

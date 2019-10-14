@@ -44,34 +44,33 @@ $(function () {
         }
     });
     // /*---------------------------------------------------------*/
-    // $('#marca').on('change', function () {
-    //     let idSelecionado = $(this).val();
-    //     if (idSelecionado == "outraMarca") {
-    //         $("#marca-modal").modal();
-    //     }
-    // });
-    // $('#marca').trigger("change");
-    //
-    // $('#cadastroMarca').on('click', function () {
-    //     let nome_marca = $('#nome').val();
-    //     let tipo = $("#tipo_marca").val();
-    //     $.ajax({
-    //         url: "/marca/",
-    //         type: "POST",
-    //         data: {
-    //             "nome": nome_marca,
-    //             "tipo": tipo,
-    //         },
-    //         success: function (data) {
-    //             $('#marca-modal').modal('hide');
-    //             $('#marca').append($('<option>', {
-    //                 value: data['id'],
-    //                 text: data['nome']
-    //             }));
-    //             $("#marca").val(data['id']);
-    //         }
-    //     });
-    // });
+    let marca_id = $('#marca_id');
+    marca_id.on('change', function () {
+        if ($(this).val() === "cadastrar_marca") {
+            $("#marca-modal").modal();
+        }
+    });
+    marca_id.trigger("change");
+
+    $('#cadastroMarca').on('click', function () {
+        let nome_marca = $('#nome').val();
+        let categoria = $("#categoria").val();
+
+        $.ajax({
+            url: "/marcas",
+            type: "POST",
+            data: {'nome': nome_marca, 'categoria': categoria },
+            success: function (data) {
+                console.log(data['id']);
+                $('#marca-modal').modal('hide');
+                marca_id.append($('<option>', {
+                    value: data['id'],
+                    text: data['nome']
+                }));
+                marca_id.val(data['id']);
+            }
+        });
+    });
     //
     // /*-------------------------------------------------------*/
     // $('#calibre').on('change', function () {

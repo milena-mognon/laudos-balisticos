@@ -6,14 +6,21 @@ $.ajaxSetup({
 
 $(function () {
     $('#solicitante_id').on('change', function () {
+
+        console.log('entrou');
         if ($('#solicitante_id').val() === 'Cadastrar Opção') {
-            $("#solicitante_modal").modal();
+            $("#solicitante-modal").modal();
+            console.log($('#cidade').val());
+
+            $('.js-cidade-modal').val($('#cidade').val()); // Select the option with a value of '1'
+            $('.js-cidade-modal').trigger('change');
         }
     });
+    $('#solicitante_id').trigger('click');
 
     $('#cadastro_solicitante').on('click', function () {
-        let nome2 = $('#nome_solicitante').val();
-        let cidade_id2 = $("#cidade2").val();
+        var nome2 = $('#nome_solicitante').val();
+        var cidade_id2 = $("#cidade2").val();
 
         if (nome2.length < 8) {
             swal.fire({
@@ -30,12 +37,12 @@ $(function () {
                     "cidade_id": cidade_id2,
                 },
                 success: function (data) {
-                    $('#solicitante_modal').modal('hide');
+                    $('#solicitante-modal').modal('hide');
                     $('#solicitante_id').append($('<option>', {
-                        value: data['id'],
-                        text: data['nome']
+                        value: data.id,
+                        text: data.nome
                     }));
-                    $("#solicitante_id").val(data['id']);
+                    $("#solicitante_id").val(data.id);
                 },
                 error: function () {
                     swal.fire('Existem erros no formulário!')
@@ -44,90 +51,90 @@ $(function () {
         }
     });
     // /*---------------------------------------------------------*/
-    let marca_id = $('#marca_id');
-    marca_id.on('change', function () {
+    var marca = $('#marca');
+    marca.on('change', function () {
         if ($(this).val() === "cadastrar_marca") {
             $("#marca-modal").modal();
         }
     });
-    marca_id.trigger("change");
+    marca.trigger("change");
 
     $('#cadastroMarca').on('click', function () {
-        let nome_marca = $('#nome').val();
-        let categoria = $("#categoria").val();
+        var nome_marca = $('#nome').val();
+        var categoria = $("#categoria").val();
 
         $.ajax({
             url: "/marcas",
             type: "POST",
-            data: {'nome': nome_marca, 'categoria': categoria },
+            data: { 'nome': nome_marca, 'categoria': categoria },
             success: function (data) {
-                console.log(data['id']);
                 $('#marca-modal').modal('hide');
-                marca_id.append($('<option>', {
-                    value: data['id'],
-                    text: data['nome']
+                marca.append($('<option>', {
+                    value: data.id,
+                    text: data.nome
                 }));
-                marca_id.val(data['id']);
+                marca.val(data.id);
             }
         });
     });
-    //
-    // /*-------------------------------------------------------*/
-    // $('#calibre').on('change', function () {
-    //     let idSelecionado = $(this).val();
-    //     if (idSelecionado == "outroCalibre") {
-    //         $("#calibre-modal").modal();
-    //     }
-    // });
-    // $('#calibre').trigger("change");
-    // $('#cadastroCalibre').on('click', function () {
-    //     let calibre = $('#nome_calibre').val();
-    //     let tipo = $("#tipo_calibre").val();
-    //     $.ajax({
-    //         url: "/calibre/",
-    //         type: "POST",
-    //         data: {
-    //             "calibre": calibre,
-    //             "cal_extenso": null,
-    //             "tipo": tipo,
-    //         },
-    //         success: function (data) {
-    //             $('#calibre-modal').modal('hide');
-    //             $('#calibre').append($('<option>', {
-    //                 value: data['id'],
-    //                 text: data['calibre']
-    //             }));
-    //             $("#calibre").val(data['id']);
-    //         }
-    //     });
-    // });
-    // /*------------------------------------------------------------*/
-    //
-    // $('#pais').on('change', function () {
-    //     let idSelecionado = $(this).val();
-    //     if (idSelecionado == "outroPais") {
-    //         $("#pais-modal").modal();
-    //     }
-    // });
-    // $('#pais').trigger("change");
-    // $('#cadastroPais').on('click', function () {
-    //     let pais = $('#nome_pais').val();
-    //     let fabricacao = $("#fabricacao").val();
-    //     $.ajax({
-    //         url: "/origem/",
-    //         type: "POST",
-    //         data: {
-    //             "nome": pais,
-    //             "fabricacao": fabricacao,
-    //         },
-    //         success: function (data) {
-    //             $('#pais-modal').modal('hide');
-    //             $('#pais').append($('<option>', {
-    //                 value: data['id'],
-    //                 text: data['nome']
-    //             }));
-    //             $("#pais").val(data['id']);
-    //         }
-    //     });
-    // });
+
+    /*-------------------------------------------------------*/
+    var calibre = $('#calibre');
+    calibre.on('change', function () {
+        if ($(this).val() == "cadastrar_calibre") {
+            $("#calibre-modal").modal();
+        }
+    });
+    calibre.trigger("change");
+
+    $('#cadastroCalibre').on('click', function () {
+        var nome_calibre = $('#nome_calibre').val();
+        var tipo = $("#tipo_arma").val();
+        $.ajax({
+            url: "/calibres/",
+            type: "POST",
+            data: {
+                "nome": nome_calibre,
+                "tipo_arma": tipo,
+            },
+            success: function (data) {
+                $('#calibre-modal').modal('hide');
+                calibre.append($('<option>', {
+                    value: data.data.id,
+                    text: data.data.nome
+                }));
+                calibre.val(data.data.id);
+            }
+        });
+    });
+    /*------------------------------------------------------------*/
+
+    var pais = $('#pais');
+    pais.on('change', function () {
+        if ($(this).val() === "cadastrar_pais") {
+            $("#pais-modal").modal();
+        }
+    });
+    pais.trigger("change");
+
+    $('#cadastroPais').on('click', function () {
+        var nome_pais = $('#nome_pais').val();
+        var fabricacao = $("#fabricacao").val();
+        $.ajax({
+            url: "/origens/",
+            type: "POST",
+            data: {
+                "nome": nome_pais,
+                "fabricacao": fabricacao,
+            },
+            success: function (data) {
+                $('#pais-modal').modal('hide');
+                pais.append($('<option>', {
+                    value: data.data.id,
+                    text: data.data.nome
+                }));
+                pais.val(data.data.id);
+            }
+        });
+    });
 });

@@ -26,16 +26,12 @@ class OrgaosSolicitantesController extends Controller
     public function store(OrgaoSolicitanteRequest $request)
     {
         $solicitante = OrgaoSolicitante::create($request->all());
-        return response()->json([
-            'success' => 'done',
-            'id' => $solicitante->id,
-            'nome' => $solicitante->nome
-        ]);
+        return response()->json($solicitante);
     }
 
     public function filtrar_por_cidade($cidade_id)
     {
         $solicitantes = OrgaoSolicitante::fromCity($cidade_id);
-        return response()->json(['data' => $solicitantes]);
+        return response()->json($solicitantes);
     }
 }

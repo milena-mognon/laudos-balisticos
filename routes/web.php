@@ -74,3 +74,6 @@ Route::prefix('laudos/{laudo}')->group(function () {
 
 Route::post('solicitantes', 'Perito\OrgaosSolicitantesController@store')->name('perito.solicitante.store');
 Route::post('marcas', 'Perito\MarcasController@store')->name('perito.marcas.store');
+Route::post('calibres', 'Perito\CalibresController@store')->name('perito.calibres.store');
+Route::post('origens', 'Perito\OrigensController@store')->name('perito.origens.store');
+

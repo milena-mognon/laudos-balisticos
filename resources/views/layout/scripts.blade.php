@@ -10,7 +10,6 @@
 {!! Html::script('js/pt-BR.js') !!}
 
 {{--My js files--}}
-{!! Html::script('js/filtrar_solicitantes.js') !!}
 {!! Html::script('js/cadastrar_opcao.js') !!}
 {!! Html::script('js/deletes.js') !!}
 {!! Html::script('js/num_serie.js') !!}

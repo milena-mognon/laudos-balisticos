@@ -5,14 +5,14 @@
 // });
 
 $(function () {
-    if ($('#cidade_id').val() !== '') {
+    if ($('#cidade').val() !== '') {
         var cidade_id = $('#cidade_id').val();
         var solicitante = $("#solicitante_id");
         filtrar_solicitantes(cidade_id, solicitante);
     }
 
     $('.js-single-cidades').on('change', function () {
-        var cidade_id = $('#cidade_id').val();
+        var cidade_id = $('#cidade').val();
         var solicitante = $("#solicitante_id");
         filtrar_solicitantes(cidade_id, solicitante);
     });
@@ -25,7 +25,7 @@ $(function () {
             dataType: "JSON",
             success(data) {
                 solicitante.html("");
-                $.each(data['data'], function (i, solicitante) {
+                $.each(data, function (i, solicitante) {
                     $("#solicitante_id").append($('<option>', {
                         value: solicitante.id,
                         text: solicitante.nome

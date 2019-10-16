@@ -7,10 +7,10 @@
 namespace App\Http\Controllers\Perito;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MarcaRequest;
-use App\Models\Marca;
+use App\Http\Requests\OrigemRequest;
+use App\Models\Origem;
 
-class MarcasController extends Controller
+class OrigensController extends Controller
 {
     public function __construct()
     {
@@ -23,9 +23,9 @@ class MarcasController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(MarcaRequest $request)
+    public function store(OrigemRequest $request)
     {
-        $marca = Marca::create($request->all());
-        return response()->json($marca);
+        $origem = Origem::create($request->all());
+        return response()->json(['data' => $origem]);
     }
 }

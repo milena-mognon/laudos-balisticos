@@ -1,8 +1,7 @@
 @extends('layout.component')
 @section('js')
     {!! Html::script('js/calendar.js') !!}
-    {{--{!! Html::script('js/filtrar_solicitantes.js') !!}--}}
-    {{--{!! Html::script('js/cadastrar_opcao.js') !!}--}}
+    {!! Html::script('js/filtrar_solicitantes.js') !!}
 @endsection
 @section('page')
     <div class="col-8">
@@ -23,7 +22,7 @@
         <input class="form-control" type="hidden" name="perito_id" autocomplete="off"
                value="{{ Auth::id() }}"/>
         @include('shared.attributes.secao', ['secao2' =>  $laudo->secao_id ?? old('secao_id')])
-        @include('shared.attributes.cidades', ['id' => 'cidade_id', 'size' => '4', 'cidade2' =>  $laudo->cidade_id ?? old('cidade_id')])
+        @include('shared.attributes.cidades', ['size' => '4', 'cidade2' =>  $laudo->cidade_id ?? old('cidade_id')])
         @include('perito.laudo.attributes.solicitante', ['solicitante2' =>  $laudo->solicitante_id ?? old('solicitante_id')])
         @include('perito.laudo.attributes.diretor', ['diretor2' =>  $laudo->diretor_id ?? old('diretor_id')])
     </div>

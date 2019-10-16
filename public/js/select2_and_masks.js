@@ -5,13 +5,16 @@ $(document).ready(function () {
         placeholder: "Selecione uma Cidade",
         language: 'pt-BR'
     });
+
     $('.js-single-solicitante').select2({
         placeholder: "Selecione um Órgão Solicitante",
         language: 'pt-BR'
     });
-    $('.js-single-secoes, .js-single-diretores').select2({
+
+    $('.js-single-secoes, .js-single-diretores, .js-cidade-modal').select2({
         language: 'pt-BR'
     });
+
     $('.js-single-marcas').select2({
         placeholder: "Selecione uma Marca",
         language: 'pt-BR'

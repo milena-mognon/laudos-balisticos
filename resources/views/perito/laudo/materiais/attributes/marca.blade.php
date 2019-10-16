@@ -2,7 +2,7 @@
     <div class="form-group">
         <label>Marca *</label>
         <select class="js-single-marcas form-control{{ $errors->has('marca_id') ? ' is-invalid' : '' }}"
-                name="marca_id" id="marca_id">
+                name="marca_id" id="marca">
             <option></option>
             @foreach ($marcas as $marca)
                 <option value="{{ $marca->id }}" {{ $marca->id == $marca2 ? 'selected=selected' : '' }}>

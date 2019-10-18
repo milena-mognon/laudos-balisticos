@@ -75,8 +75,9 @@ class PistolasController extends Controller
         $marcas = Marca::marcasWithTrashed('armas', $pistola->marca);
         $origens = Origem::origensWithTrashed($pistola->origem);
         $calibres = Calibre::calibresWithTrashed('pistola', $pistola->calibre);
+        $imagens = $pistola->imagens;
         return view('perito.laudo.materiais.armas.pistola.edit',
-            compact('pistola', 'laudo', 'marcas', 'origens', 'calibres'));
+            compact('pistola', 'laudo', 'marcas', 'origens', 'calibres', 'imagens'));
 
     }
 

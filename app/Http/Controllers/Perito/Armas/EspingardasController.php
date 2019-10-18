@@ -75,8 +75,9 @@ class EspingardasController extends Controller
         $marcas = Marca::marcasWithTrashed('armas', $espingarda->marca);
         $origens = Origem::origensWithTrashed($espingarda->origem);
         $calibres = Calibre::calibresWithTrashed('espingarda', $espingarda->calibre);
+        $imagens = $espingarda->imagens;
         return view('perito.laudo.materiais.armas.espingarda.edit',
-            compact('espingarda', 'laudo', 'marcas', 'origens', 'calibres'));
+            compact('espingarda', 'laudo', 'marcas', 'origens', 'calibres', 'imagens'));
 
     }
 

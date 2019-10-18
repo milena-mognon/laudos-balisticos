@@ -71,8 +71,9 @@ class EspingardasArtesanaisController extends Controller
     public function edit($laudo, Arma $espingarda)
     {
         $calibres = Calibre::calibresWithTrashed('espingarda', $espingarda->calibre);
+        $imagens = $espingarda->imagens;
         return view('perito.laudo.materiais.armas.espingarda_artesanal.edit',
-            compact('espingarda', 'laudo', 'calibres'));
+            compact('espingarda', 'laudo', 'calibres', 'imagens'));
 
     }
 

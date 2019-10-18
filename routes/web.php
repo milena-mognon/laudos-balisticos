@@ -39,6 +39,7 @@ Route::get('laudos/solicitantes/cidade/{cidade_id}',
     'Perito\OrgaosSolicitantesController@filtrar_por_cidade')->name('solicitantes.filtrar');
 
 Route::post('laudos/armas/{arma}/images', 'Perito\ArmasController@store_image')->name('armas.images');
+Route::delete('laudos/armas/{arma}/images', 'Perito\ArmasController@delete_image')->name('armas.images.delete');
 
 Route::prefix('laudos/{laudo}')->group(function () {
     Route::get('materiais', 'Perito\LaudosController@materiais')->name('laudos.materiais');

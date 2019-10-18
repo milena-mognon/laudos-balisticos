@@ -75,8 +75,9 @@ class GarruchasController extends Controller
         $marcas = Marca::marcasWithTrashed('armas', $garrucha->marca);
         $origens = Origem::origensWithTrashed($garrucha->origem);
         $calibres = Calibre::calibresWithTrashed('garrucha', $garrucha->calibre);
+        $imagens = $garrucha->imagens;
         return view('perito.laudo.materiais.armas.garrucha.edit',
-            compact('garrucha', 'laudo', 'marcas', 'origens', 'calibres'));
+            compact('garrucha', 'laudo', 'marcas', 'origens', 'calibres', 'imagens'));
 
     }
 

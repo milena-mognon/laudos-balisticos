@@ -127,3 +127,8 @@ label.filtro_span > span {
     font-size: 13px;
     color: #707070;
 }
+
+.imagem_arma {
+    max-width: 250px;
+    max-height: 150px;
+}

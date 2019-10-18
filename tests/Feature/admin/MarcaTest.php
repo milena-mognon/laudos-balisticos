@@ -4,23 +4,17 @@ namespace Tests\Feature;
 
 use App\Models\Marca;
 use App\Models\User;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class MarcaTest extends TestCase
 {
     use DatabaseTransactions;
-//    use WithoutMiddleware;
     protected $user;
 
     public function setUp()
     {
         parent::setUp();
-//        dd(DB::connection()->getConfig(null));
         $this->user = factory(User::class)->create();;
         $this->actingAs($this->user)->get(route('login'));
 
@@ -40,12 +34,7 @@ class MarcaTest extends TestCase
         }
     }
 
-//    /*
-//     *
-//     * Response status code [419] is not a redirect status code.
-//        Failed asserting that false is true.
-//    */
-    public function teste_marca_create()
+    public function teste_marca_create_ok()
     {
         $this->assertAuthenticated();
         $marca = factory(Marca::class)->make();
@@ -56,5 +45,74 @@ class MarcaTest extends TestCase
             ->assertSeeText(__('flash.create_f', ['model' => 'Marca']))
             ->assertSeeText($marca['nome'])
             ->assertSeeText($marca['categoria']);
+    }
+
+    public function teste_marca_create_fail()
+    {
+        $this->assertAuthenticated();
+        $marca = [
+            'nome' => '',
+            'categoria' => ''
+        ];
+        $response = $this->get(route('marcas.create'));
+        $response->assertStatus(200);
+        $this->followingRedirects()->post(route('marcas.store',
+            array_merge($marca,  ['_token' => csrf_token()])))
+            ->assertSee('<div class="alert alert-danger">')
+            ->assertSeeText('Existe alguns erros no formulário.');
+    }
+
+    public function teste_marca_update_ok()
+    {
+        $this->assertAuthenticated();
+        $marca = factory(Marca::class)->create();
+
+        $response = $this->get(route('marcas.edit', $marca))
+            ->assertStatus(200)
+            ->assertViewIs('admin.marcas.edit');
+
+        $updated_data = [
+            'nome' => ucfirst(str_random(10)), // campo editado
+            'categoria' => $marca['categoria'],
+        ];
+
+        $this->followingRedirects()->patch(route('marcas.update', $marca),
+            array_merge($updated_data,  ['_token' => csrf_token()]))
+            ->assertSeeText(__('flash.update_f', ['model' => 'Marca']))
+            ->assertSeeText($updated_data['nome'])
+            ->assertSeeText($updated_data['categoria']);
+    }
+
+    public function teste_marca_update_fail()
+    {
+        $this->assertAuthenticated();
+        $marca = factory(Marca::class)->create();
+
+        $response = $this->get(route('marcas.edit', $marca))
+            ->assertStatus(200)
+            ->assertViewIs('admin.marcas.edit');
+
+        $updated_data = [
+            'nome' => '', // campo editado
+            'categoria' => '',
+        ];
+
+        $this->followingRedirects()->patch(route('marcas.update', $marca),
+            array_merge($updated_data,  ['_token' => csrf_token()]))
+            ->assertSee('<div class="alert alert-danger">')
+            ->assertSeeText('Existe alguns erros no formulário.');
+    }
+
+    public function teste_marca_destroy_ok()
+    {
+        $this->assertAuthenticated();
+        $marca = factory(Marca::class)->create();
+        $response = $this->delete(route('marcas.destroy', $marca));
+        $response->assertStatus(200);
+        $this->get(route('marcas.index'))
+            ->assertStatus(200)
+            ->assertViewIs('admin.marcas.index')
+            ->assertDontSeeText($marca->nome)
+            ->assertDontSeeText($marca->categoria);
     }
 }

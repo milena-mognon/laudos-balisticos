@@ -1,5 +1,0 @@
-@include('perito.modals.marca_modal')
-@include('perito.modals.calibre_modal')
-@include('perito.modals.pais_modal')
-@include('perito.modals.imagem_modal')
-@include('perito.modals.visualizar_imagem_modal')

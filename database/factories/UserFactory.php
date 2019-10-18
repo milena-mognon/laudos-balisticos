@@ -18,11 +18,11 @@ use App\Models\Secao;
 
 $factory->define(User::class, function (Faker $faker) {
     return [
-        'nome' => $faker->name,
+        'nome' => mb_strtolower($faker->name),
         'email' => $faker->unique()->safeEmail,
         'cargo_id' => factory(Cargo::class),
         'secao_id' => factory(Secao::class),
-        'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+        'password' => bcrypt(str_random(10)), // secret
         'remember_token' => str_random(10),
     ];
 });

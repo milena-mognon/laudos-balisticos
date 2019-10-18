@@ -25,8 +25,6 @@
         <link rel="stylesheet" href="{{ URL::asset('fontawesome-free/css/all.css')}}">
         <link rel="stylesheet" href="{{ URL::asset('css/select2.min.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('css/select2-bootstrap.css') }}">
-        <link rel="stylesheet" href="{{ URL::asset('DataTables/css/jquery.dataTables.min.css') }}">
-        <link rel="stylesheet" href="{{ URL::asset('DataTables/css/dataTables.bootstrap4.min.css') }}">
 
         <link rel="stylesheet" href="{{ URL::asset('css/my_select2.css') }}">
 {{--        <link rel="stylesheet" href="{{ URL::asset('css/dropzone_custom.css') }}">--}}

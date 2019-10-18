@@ -1,4 +1,4 @@
-@component('shared.modal')
+@component('layout.modal')
     @slot('modal_id')
         marca-modal
     @endslot

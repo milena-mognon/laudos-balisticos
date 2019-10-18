@@ -75,8 +75,9 @@ class RevolveresController extends Controller
         $marcas = Marca::marcasWithTrashed('armas', $revolver->marca);
         $origens = Origem::origensWithTrashed($revolver->origem);
         $calibres = Calibre::calibresWithTrashed('revólver', $revolver->calibre);
+        $imagens = $revolver->imagens;
         return view('perito.laudo.materiais.armas.revolver.edit',
-            compact('revolver', 'laudo', 'marcas', 'origens', 'calibres'));
+            compact('revolver', 'laudo', 'marcas', 'origens', 'calibres', 'imagens'));
 
     }
 

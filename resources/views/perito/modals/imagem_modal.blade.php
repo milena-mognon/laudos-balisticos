@@ -9,8 +9,7 @@
                 <h5 id="image-info">É possível adicionar até 3 imagens por arma, porém elas devem ser adicionadas
                     separadamente para realizar o recorte. <br>
                     <strong>A imagem só será salva na tela de recorte.</strong></h5>
-                <form method="post" action="#"
-                      enctype="multipart/form-data" class="dropzone" id="my-dropzone">
+                <form method="post" action="#" enctype="multipart/form-data" class="dropzone" id="my-dropzone">
                     {{ csrf_field() }}
 
                     <div class="dz-message">

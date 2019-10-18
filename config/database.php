@@ -79,12 +79,12 @@ return [
         ],
 
         'testing' => [
-            'driver' => 'mysql',
-            'host' => env('DB_TEST_HOST', '127.0.0.1'),
-            'port' => env('DB_TEST_PORT', '5432'),
-            'database' => env('DB_TEST_DATABASE', 'laudos_balisticos_tests'),
-            'username' => env('DB_TEST_USERNAME', 'root'),
-            'password' => env('DB_TEST_PASSWORD', ' '),
+            'driver' => env('DB_DRIVER', 'mysql'),
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '5432'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',

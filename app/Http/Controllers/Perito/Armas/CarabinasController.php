@@ -75,8 +75,9 @@ class CarabinasController extends Controller
         $marcas = Marca::marcasWithTrashed('armas', $carabina->marca);
         $origens = Origem::origensWithTrashed($carabina->origem);
         $calibres = Calibre::calibresWithTrashed('carabina', $carabina->calibre);
+        $imagens = $carabina->imagens;
         return view('perito.laudo.materiais.armas.carabina.edit',
-            compact('carabina', 'laudo', 'marcas', 'origens', 'calibres'));
+            compact('carabina', 'laudo', 'marcas', 'origens', 'calibres', 'imagens'));
 
     }
 

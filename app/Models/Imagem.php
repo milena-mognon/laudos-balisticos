@@ -32,8 +32,8 @@ class Imagem extends Model
      *
      * */
     private static function create_path(){
-        if (!is_dir(storage_path('imagens'))) { // verifica se existe a pasta upload
-            mkdir(storage_path('imagens'), 0755, true); // cria a pasta caso não exista
+        if (!is_dir(storage_path('app/public/imagens'))) { // verifica se existe a pasta upload
+            mkdir(storage_path('app/public/imagens'), 0755, true); // cria a pasta caso não exista
         };
     }
 

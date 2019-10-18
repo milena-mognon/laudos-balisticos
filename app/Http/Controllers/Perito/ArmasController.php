@@ -36,8 +36,24 @@ class ArmasController extends Controller
         $imagem = $_FILES['croppedImage']['tmp_name'];
         $image_name = Imagem::config();
         $image = Imagem::create(['nome' => $image_name, 'arma_id' => $arma]);
-        $path = storage_path('imagens/') . $image_name;
+        $path = storage_path('app/public/imagens/') . $image_name;
         move_uploaded_file($imagem, $path);
         return response()->json(['success' => 'done', 'image' => $image]);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int $arma
+     * @return \Illuminate\Http\Response
+     */
+    public function delete_image($imagem)
+    {
+        $image_name = Imagem::find($imagem)->nome;
+        Imagem::destroy($imagem);
+        if(file_exists(storage_path('app/public/imagens/'.$image_name))){
+            unlink(storage_path('app/public/imagens/'.$image_name));
+        }
+        return response()->json(['success'=>'done']);
     }
 }

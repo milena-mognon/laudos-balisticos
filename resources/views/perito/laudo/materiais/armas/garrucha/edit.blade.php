@@ -5,4 +5,5 @@
     </div>
     <hr>
     @include('perito.laudo.materiais.armas.garrucha.form', ['acao' => 'Atualizar'])
+    @include('perito.modals.visualizar_imagem_modal')
 @endsection

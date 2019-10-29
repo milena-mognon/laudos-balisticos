@@ -66,7 +66,17 @@ class MunicoesText
             $table->addCell(2300)->addText(ucfirst($municao->estojo), $this->config->fonteTabela(), $this->config->cellCenter());
         }
         if ($municao->tipo_municao != 'estojo') {
-            $table->addCell(2800)->addText(ucfirst($municao->projetil . "/ " . ($municao->tipo_projetil ? $municao->tipo_projetil : '' )), $this->config->fonteTabela(), $this->config->cellCenter());
+            $table->addCell(2800)->addText(ucfirst($municao->projetil . ($municao->tipo_projetil ? "/ " . $municao->tipo_projetil : '' )), $this->config->fonteTabela(), $this->config->cellCenter());
+        }
+    }
+
+    public static function funcionamento_cartuchos($funcionamento)
+    {
+        if ($funcionamento == 'eficiente') {
+            return 'Submetidas estas munições à prova de disparo, foi observado o funcionamento normal dos seus componentes. Foram utilizados para os tiros de prova, todos os cartuchos encaminhados, os quais deflagraram as respectivas cargas de projeção ao serem as espoletas percutidas por uma só vez.';
+        }
+        if ($funcionamento == 'ineficiente') {
+            return 'Submetidas estas munições à prova de disparo, foi observado o funcionamento anormal dos seus componentes, estando as mesmas ineficientes.';
         }
     }
 
@@ -146,11 +156,17 @@ class MunicoesText
             if (count($grupo) > 1) {
                 $quantidade = converter_numero($grupo->sum('quantidade'));
                 $tipo_municao = $grupo->pluck('tipo_municao')->first();
+                $eficiencia = $grupo->pluck('funcionamento')->first();
                 $calibre = $grupo->pluck('calibre')->first()->nome;
                 $nao_deflagrado = $grupo->pluck('nao_deflagrado')->first();
                 $table = $this->cabecalho_tabela($tipo_municao, $quantidade, $calibre, $nao_deflagrado);
                 foreach ($grupo as $municao) {
                     $this->conteudo_tabela($table, $municao);
+                }
+                if($tipo_municao == 'cartucho'){
+                    $this->section->addTextBreak(1);
+                    $this->section->addText($this->funcionamento_cartuchos($eficiencia),
+                    $this->config->arial12Underline(), $this->config->paragraphJustify());
                 }
                 $this->section->addTextBreak(1);
             } else {

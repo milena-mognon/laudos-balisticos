@@ -15,7 +15,7 @@ class DashboardTest extends TestCase
     {
         $this->user = factory(User::class)->create();;
         $this->actingAs($this->user)->get(route('login'));
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $this->get(route('dashboard'))
             ->assertStatus(200)
             ->assertSee('<li class="nav-item dropdown admin_menu">')   

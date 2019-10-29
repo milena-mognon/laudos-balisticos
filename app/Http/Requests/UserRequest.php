@@ -32,7 +32,7 @@ class UserRequest extends FormRequest
             'nome' => 'required|min:6',
             'secao_id' => 'required|int',
             'cargo_id' => 'required|int',
-            'password' => 'required|string|min:6',
+            'password' => 'required|string|min:6:confirmed',
             'confirmacao_senha' => 'required|same:password|min:6'
         ];
     }
@@ -48,7 +48,8 @@ class UserRequest extends FormRequest
         return [
             'secao_id' => 'seção',
             'cargo_id' => 'cargo',
-            'confirmacao_senha' => 'confirmação de senha'
+            'confirmacao_senha' => 'confirmação de senha',
+            'password' => 'senha'
         ];
     }
 }

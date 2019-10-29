@@ -48,4 +48,7 @@
         </div>
     </div>
 </div>
-@include('perito.modals.all_modals')
+@include('perito.modals.calibre_modal')
+@if($acao == 'Atualizar')
+@include('perito.modals.visualizar_imagens_modal', ['arma_id' => $espingarda->id])
+@endif

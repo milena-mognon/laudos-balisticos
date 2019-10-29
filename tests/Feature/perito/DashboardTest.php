@@ -26,7 +26,7 @@ class DashboardTest extends TestCase
 
     public function test_admin_menu()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $this->get(route('dashboard'))
             ->assertStatus(200)
             ->assertDontSee('<li class="nav-item dropdown admin_menu">')   
@@ -39,10 +39,14 @@ class DashboardTest extends TestCase
             'marcas', 'origens', 'users', 'calibres', 'solicitantes',
             'diretores', 'secoes'
         ];
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         foreach($routes as $route){
             $this->followingRedirects()->get(route($route.'.index'))
             ->assertSeeText('Acesso Restrito!');
-        } 
+        }
+        foreach($routes as $route){
+            $this->followingRedirects()->get(route($route.'.create'))
+            ->assertSeeText('Acesso Restrito!');
+        }  
     }
 }

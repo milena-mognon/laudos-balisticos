@@ -71,8 +71,9 @@
             </button>
             {{ Form::close() }}
         </div>
-
-
     </div>
 </div>
-@include('perito.modals.all_modals')
+@include('perito.modals.calibre_modal')
+@include('perito.modals.marca_modal')
+@include('perito.modals.pais_modal')
+@include('perito.modals.visualizar_imagens_modal')

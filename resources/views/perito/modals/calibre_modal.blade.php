@@ -10,7 +10,7 @@ Cadastrar Calibre
     <input class="form-control" type="text" id="nome_calibre" name="calibre" autocomplete="off" />
 
     <label>Tipo: *</label>
-    <select class="form-control" name="tipo" id="tipo_calibre">
+    <select class="form-control" name="tipo_arma" id="tipo_arma">
         <option value="espingarda">Espingarda</option>
         <option value="pistola">Pistola</option>
         <option value="revolver">Revolver</option>

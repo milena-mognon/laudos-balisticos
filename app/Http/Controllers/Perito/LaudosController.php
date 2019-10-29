@@ -95,8 +95,7 @@ class LaudosController extends Controller
         Laudo::find($laudo->id)->fill($updated_laudo)->save();
         $laudo_id = $laudo->id;
         return redirect()->route('laudos.show', compact('laudo_id'))
-            ->with('success', 'Laudo Atualizado com sucesso!');
-
+            ->with('success', __('flash.update_m', ['model' => 'Laudo']));
     }
 
     /**

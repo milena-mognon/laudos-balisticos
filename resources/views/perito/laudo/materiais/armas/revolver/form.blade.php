@@ -44,8 +44,6 @@
         old('funcionamento')])
         @include('perito.laudo.materiais.attributes.lacre', ['num_lacre' => $revolver->num_lacre ?? old('num_lacre')])
         <hr>
-
-
     </div>
 
     <div class="row justify-content-between mb-4">
@@ -67,4 +65,6 @@
         </div>
     </div>
 </div>
-{{--@include('perito.modals.all_modals')--}}
+@include('perito.modals.calibre_modal')
+@include('perito.modals.marca_modal')
+@include('perito.modals.pais_modal')

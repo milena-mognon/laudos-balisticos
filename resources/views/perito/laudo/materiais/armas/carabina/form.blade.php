@@ -20,7 +20,7 @@
         @include('perito.laudo.materiais.attributes.serie', ['tipo_serie2' => $carabina->tipo_serie ??
         old('tipo_serie'), 'num_serie' => $carabina->num_serie ?? old('num_serie')])
         @include('perito.laudo.materiais.attributes.numeracao_montagem', ['numeracao_montagem' =>
-        $revolver->numeracao_montagem ?? old('numeracao_montagem')])
+        $carabina->numeracao_montagem ?? old('numeracao_montagem')])
         @include('perito.laudo.materiais.attributes.sistema_funcionamento', ['sistema_funcionamento2' =>
         $carabina->sistema_funcionamento ?? old('sistema_funcionamento')])
         @include('perito.laudo.materiais.attributes.tipo_carregador', ['tipo_carregador2' => $carabina->tipo_carregador
@@ -45,6 +45,10 @@
         old('bandoleira')])
         @include('perito.laudo.materiais.attributes.sistema_percussao', ['sistema_percussao2' =>
         $carabina->sistema_percussao ?? old('sistema_percussao')])
+        @include('perito.laudo.materiais.attributes.quantidade_raias', ['quantidade_raias' =>
+        $carabina->quantidade_raias ?? old('quantidade_raias')])
+        @include('perito.laudo.materiais.attributes.sentido_raias', ['sentido_raias2' => $carabina->sentido_raias ??
+        old('sentido_raias')])
         @include('perito.laudo.materiais.attributes.estado_geral', ['estado_geral2' => $carabina->estado_geral ??
         old('estado_geral')])
         @include('perito.laudo.materiais.attributes.comprimento', ['comprimento_total' => $carabina->comprimento_total
@@ -74,4 +78,6 @@
         </div>
     </div>
 </div>
-@include('perito.modals.all_modals')
+@include('perito.modals.calibre_modal')
+@include('perito.modals.marca_modal')
+@include('perito.modals.pais_modal')

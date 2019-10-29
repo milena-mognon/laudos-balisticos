@@ -1,28 +1,35 @@
 @section('js')
-    {!! Html::script('js/form_municoes.js') !!}
+{!! Html::script('js/form_municoes.js') !!}
 @endsection
 
 @if ($acao == 'Cadastrar')
-    {!! Form::open(['route' => ['municoes.store', $laudo ]]) !!}
+{!! Form::open(['route' => ['municoes.store', $laudo ]]) !!}
 @elseif ($acao == 'Atualizar')
-    {!! Form::open(['route' => ['municoes.update', $laudo, $municao], 'method' => 'patch']) !!}
+{!! Form::open(['route' => ['municoes.update', $laudo, $municao], 'method' => 'patch']) !!}
 @else
-    {!! Form::open() !!}
+{!! Form::open() !!}
 @endif
 
 <input type="hidden" name="laudo_id" id="laudo_id" value="{{ $laudo->id }}">
 
 <div class="col-lg-12" style="padding: 0 5% 0">
     <div class="row mb-3">
-        @include('perito.laudo.materiais.attributes.tipo_municao', ['tipo_municao2' =>  $municao->tipo_municao ?? old('tipo_municao')])
-        @include('perito.laudo.materiais.attributes.marca', ['marca2' =>  $municao->marca->id ?? old('marca_id')])
-        @include('perito.laudo.materiais.attributes.calibre', ['calibre2' =>  $municao->calibre->id ?? old('calibre_id')])
-        @include('perito.laudo.materiais.attributes.quantidade', ['quantidade' =>  $municao->quantidade ?? old('quantidade')])
-        @include('perito.laudo.materiais.attributes.estojo', ['estojo2' =>  $municao->estojo ?? old('estojo')])
-        @include('perito.laudo.materiais.attributes.projetil_arma_curta', ['projetil2' =>  $municao->projetil ?? old('projetil')])
-        @include('perito.laudo.materiais.attributes.tipo_projetil', ['tipo_projetil2' =>  $municao->tipo_projetil ?? old('tipo_projetil')])
-        @include('perito.laudo.materiais.attributes.funcionamento', ['funcionamento2' =>  $municao->funcionamento ?? old('funcionamento')])
-        @include('perito.laudo.materiais.attributes.nao_deflagrado', ['nao_deflagrado' =>  $municao->nao_deflagrado ?? old('nao_deflagrado')])
+        @include('perito.laudo.materiais.attributes.tipo_municao', ['tipo_municao2' => $municao->tipo_municao ??
+        old('tipo_municao')])
+        @include('perito.laudo.materiais.attributes.marca', ['marca2' => $municao->marca->id ?? old('marca_id')])
+        @include('perito.laudo.materiais.attributes.calibre', ['obrigatorio' => 'true', 'calibre2' =>
+        $municao->calibre->id ?? old('calibre_id')])
+        @include('perito.laudo.materiais.attributes.quantidade', ['quantidade' => $municao->quantidade ??
+        old('quantidade')])
+        @include('perito.laudo.materiais.attributes.estojo', ['estojo2' => $municao->estojo ?? old('estojo')])
+        @include('perito.laudo.materiais.attributes.projetil_arma_curta', ['projetil2' => $municao->projetil ??
+        old('projetil')])
+        @include('perito.laudo.materiais.attributes.tipo_projetil', ['tipo_projetil2' => $municao->tipo_projetil ??
+        old('tipo_projetil')])
+        @include('perito.laudo.materiais.attributes.funcionamento', ['funcionamento2' => $municao->funcionamento ??
+        old('funcionamento')])
+        @include('perito.laudo.materiais.attributes.nao_deflagrado', ['nao_deflagrado' => $municao->nao_deflagrado ??
+        old('nao_deflagrado')])
     </div>
     <div class="row justify-content-between mb-4">
         <div class="col-lg-4 mt-1">

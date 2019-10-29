@@ -115,9 +115,8 @@ return [
     */
 
     'attributes' => [
-        'current_password' => 'Senha atual',
-        'new_password' => 'Nova senha',
-        'confirm_new_password' => 'Confirmação da senha',
+        'confirmacao_senha' => 'confirmação da senha',
+        'password' => 'senha',
         'rep' => 'REP',
         'oficio' => 'Ofício',
         'cidade_id' => 'cidade',

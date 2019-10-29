@@ -22,12 +22,10 @@ class OrgaoSolicitanteTest extends TestCase
 
     public function test_solicitante_index()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $solicitantes = factory(OrgaoSolicitante::class, 3)->create();
-        $response = $this->get(route('solicitantes.index'));
-        $response->assertStatus(200);
-        $response->assertViewIs('admin.orgaos_solicitantes.index');
-        $response->assertSuccessful();
+        $response = $this->get(route('solicitantes.index'))->assertStatus(200)
+            ->assertViewIs('admin.orgaos_solicitantes.index')->assertSuccessful();
         foreach ($solicitantes as $solicitante) {
             $response->assertSeeText($solicitante->nome);
             $response->assertSeeText($solicitante->cidade->nome);
@@ -36,10 +34,9 @@ class OrgaoSolicitanteTest extends TestCase
 
     public function teste_solicitante_create_ok()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $solicitante = factory(OrgaoSolicitante::class)->make();
-        $response = $this->get(route('solicitantes.create'));
-        $response->assertStatus(200);
+        $this->get(route('solicitantes.create'))->assertStatus(200);
         $this->followingRedirects()->post(route('solicitantes.store',
             array_merge($solicitante->toArray(),  ['_token' => csrf_token()])))
             ->assertSeeText(__('flash.create_m', ['model' => 'Órgão Solicitante']))
@@ -48,13 +45,12 @@ class OrgaoSolicitanteTest extends TestCase
 
     public function teste_solicitante_create_fail()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $solicitante = [
             'nome' => '',
             'cidade_id' => ''
         ];
-        $response = $this->get(route('solicitantes.create'));
-        $response->assertStatus(200);
+        $this->get(route('solicitantes.create'))->assertStatus(200);
         $this->followingRedirects()->post(route('solicitantes.store',
             array_merge($solicitante,  ['_token' => csrf_token()])))
             ->assertSee('<div class="alert alert-danger">')
@@ -63,11 +59,10 @@ class OrgaoSolicitanteTest extends TestCase
 
     public function teste_solicitante_update_ok()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $solicitante = factory(OrgaoSolicitante::class)->create();
 
-        $response = $this->get(route('solicitantes.edit', $solicitante))
-            ->assertStatus(200)
+        $this->get(route('solicitantes.edit', $solicitante))->assertStatus(200)
             ->assertViewIs('admin.orgaos_solicitantes.edit');
 
         $updated_data = [
@@ -83,11 +78,10 @@ class OrgaoSolicitanteTest extends TestCase
 
     public function teste_solicitante_update_fail()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $solicitante = factory(OrgaoSolicitante::class)->create();
 
-        $response = $this->get(route('solicitantes.edit', $solicitante))
-            ->assertStatus(200)
+        $this->get(route('solicitantes.edit', $solicitante))->assertStatus(200)
             ->assertViewIs('admin.orgaos_solicitantes.edit');
 
         $updated_data = [
@@ -102,10 +96,9 @@ class OrgaoSolicitanteTest extends TestCase
 
     public function teste_solicitante_destroy_ok()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $solicitante = factory(OrgaoSolicitante::class)->create();
-        $response = $this->delete(route('solicitantes.destroy', $solicitante));
-        $response->assertStatus(200);
+        $this->delete(route('solicitantes.destroy', $solicitante))->assertStatus(200);
         $this->get(route('solicitantes.index'))
             ->assertStatus(200)
             ->assertViewIs('admin.orgaos_solicitantes.index')

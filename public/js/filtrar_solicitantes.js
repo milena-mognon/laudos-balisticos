@@ -6,7 +6,7 @@
 
 $(function () {
     if ($('#cidade').val() !== '') {
-        var cidade_id = $('#cidade_id').val();
+        var cidade_id = $('#cidade').val();
         var solicitante = $("#solicitante_id");
         filtrar_solicitantes(cidade_id, solicitante);
     }

@@ -22,12 +22,10 @@ class SecaoTest extends TestCase
 
     public function test_secao_index()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $secoes = factory(Secao::class, 3)->create();
-        $response = $this->get(route('secoes.index'));
-        $response->assertStatus(200);
-        $response->assertViewIs('admin.secoes.index');
-        $response->assertSuccessful();
+        $response = $this->get(route('secoes.index'))->assertStatus(200)
+            ->assertViewIs('admin.secoes.index')->assertSuccessful();
         foreach ($secoes as $secao) {
             $response->assertSeeText($secao->nome);
         }
@@ -35,10 +33,9 @@ class SecaoTest extends TestCase
 
     public function teste_secao_create_ok()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $secao = factory(Secao::class)->make();
-        $response = $this->get(route('secoes.create'));
-        $response->assertStatus(200);
+        $this->get(route('secoes.create'))->assertStatus(200);
         $this->followingRedirects()->post(route('secoes.store',
             array_merge($secao->toArray(),  ['_token' => csrf_token()])))
             ->assertSeeText(__('flash.create_f', ['model' => 'Seção']))
@@ -47,13 +44,12 @@ class SecaoTest extends TestCase
 
     public function teste_secao_create_fail()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $secao = [
             'nome' => '',
             'categoria' => ''
         ];
-        $response = $this->get(route('secoes.create'));
-        $response->assertStatus(200);
+        $this->get(route('secoes.create'))->assertStatus(200);
         $this->followingRedirects()->post(route('secoes.store',
             array_merge($secao,  ['_token' => csrf_token()])))
             ->assertSee('<div class="alert alert-danger">')
@@ -62,11 +58,10 @@ class SecaoTest extends TestCase
 
     public function teste_secao_update_ok()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $secao = factory(Secao::class)->create();
 
-        $response = $this->get(route('secoes.edit', $secao))
-            ->assertStatus(200)
+        $this->get(route('secoes.edit', $secao))->assertStatus(200)
             ->assertViewIs('admin.secoes.edit');
 
         $updated_data = [
@@ -82,11 +77,10 @@ class SecaoTest extends TestCase
 
     public function teste_secao_update_fail()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $secao = factory(Secao::class)->create();
 
-        $response = $this->get(route('secoes.edit', $secao))
-            ->assertStatus(200)
+        $this->get(route('secoes.edit', $secao))->assertStatus(200)
             ->assertViewIs('admin.secoes.edit');
 
         $updated_data = [
@@ -101,10 +95,9 @@ class SecaoTest extends TestCase
 
     public function teste_secao_destroy_ok()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $secao = factory(Secao::class)->create();
-        $response = $this->delete(route('secoes.destroy', $secao));
-        $response->assertStatus(200);
+        $this->delete(route('secoes.destroy', $secao))->assertStatus(200);
         $this->get(route('secoes.index'))
             ->assertStatus(200)
             ->assertViewIs('admin.secoes.index')

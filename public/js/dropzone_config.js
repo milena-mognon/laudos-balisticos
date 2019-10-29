@@ -26,7 +26,7 @@ Dropzone.options.myDropzone = {
         var _this = this;
         _this.hiddenFileInput.removeAttribute('multiple');
         this.on("thumbnail", function (file) {
-            if(!cancelar && !interromper){
+            if (!cancelar && !interromper) {
                 $('#crop-modal').modal();
                 var image_holder = $('#image-holder');
                 image_holder.empty();

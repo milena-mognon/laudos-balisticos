@@ -22,12 +22,10 @@ class MarcaTest extends TestCase
 
     public function test_marca_index()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $marcas = factory(Marca::class, 3)->create();
-        $response = $this->get(route('marcas.index'));
-        $response->assertStatus(200);
-        $response->assertViewIs('admin.marcas.index');
-        $response->assertSuccessful();
+        $response = $this->get(route('marcas.index'))->assertStatus(200)
+            ->assertViewIs('admin.marcas.index')->assertSuccessful();
         foreach ($marcas as $marca) {
             $response->assertSeeText($marca->nome);
             $response->assertSeeText($marca->categoria);
@@ -36,10 +34,9 @@ class MarcaTest extends TestCase
 
     public function teste_marca_create_ok()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $marca = factory(Marca::class)->make();
-        $response = $this->get(route('marcas.create'));
-        $response->assertStatus(200);
+        $this->get(route('marcas.create'))->assertStatus(200);
         $this->followingRedirects()->post(route('marcas.store',
             array_merge($marca->toArray(),  ['_token' => csrf_token()])))
             ->assertSeeText(__('flash.create_f', ['model' => 'Marca']))
@@ -49,13 +46,12 @@ class MarcaTest extends TestCase
 
     public function teste_marca_create_fail()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $marca = [
             'nome' => '',
             'categoria' => ''
         ];
-        $response = $this->get(route('marcas.create'));
-        $response->assertStatus(200);
+        $this->get(route('marcas.create'))->assertStatus(200);
         $this->followingRedirects()->post(route('marcas.store',
             array_merge($marca,  ['_token' => csrf_token()])))
             ->assertSee('<div class="alert alert-danger">')
@@ -64,11 +60,10 @@ class MarcaTest extends TestCase
 
     public function teste_marca_update_ok()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $marca = factory(Marca::class)->create();
 
-        $response = $this->get(route('marcas.edit', $marca))
-            ->assertStatus(200)
+        $this->get(route('marcas.edit', $marca))->assertStatus(200)
             ->assertViewIs('admin.marcas.edit');
 
         $updated_data = [
@@ -85,11 +80,10 @@ class MarcaTest extends TestCase
 
     public function teste_marca_update_fail()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $marca = factory(Marca::class)->create();
 
-        $response = $this->get(route('marcas.edit', $marca))
-            ->assertStatus(200)
+        $this->get(route('marcas.edit', $marca))->assertStatus(200)
             ->assertViewIs('admin.marcas.edit');
 
         $updated_data = [
@@ -105,10 +99,9 @@ class MarcaTest extends TestCase
 
     public function teste_marca_destroy_ok()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $marca = factory(Marca::class)->create();
-        $response = $this->delete(route('marcas.destroy', $marca));
-        $response->assertStatus(200);
+        $this->delete(route('marcas.destroy', $marca))->assertStatus(200);
         $this->get(route('marcas.index'))
             ->assertStatus(200)
             ->assertViewIs('admin.marcas.index')

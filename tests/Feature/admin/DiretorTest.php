@@ -22,12 +22,10 @@ class DiretorTest extends TestCase
 
     public function test_diretor_index()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $diretores = factory(Diretor::class, 3)->create();
-        $response = $this->get(route('diretores.index'));
-        $response->assertStatus(200);
-        $response->assertViewIs('admin.diretores.index');
-        $response->assertSuccessful();
+        $response = $this->get(route('diretores.index'))->assertStatus(200)
+            ->assertViewIs('admin.diretores.index')->assertSuccessful();
         foreach ($diretores as $diretor) {
             $response->assertSeeText($diretor->nome);
             $response->assertSeeText(formatar_data_do_bd($diretor->inicio_direcao));
@@ -37,7 +35,7 @@ class DiretorTest extends TestCase
 
     public function teste_diretor_create_ok()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $diretor = factory(Diretor::class)->make();
 
         $diretor = [
@@ -46,8 +44,7 @@ class DiretorTest extends TestCase
             'fim_direcao' => formatar_data_do_bd($diretor['fim_direcao'])
         ];
         
-        $response = $this->get(route('diretores.create'));
-        $response->assertStatus(200);
+        $this->get(route('diretores.create'))->assertStatus(200);
         $this->followingRedirects()->post(route('diretores.store',
             array_merge($diretor,  ['_token' => csrf_token()])))
             ->assertSeeText(__('flash.create_m', ['model' => 'Diretor']))
@@ -58,14 +55,13 @@ class DiretorTest extends TestCase
 
     public function teste_diretor_create_fail()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $diretor = [
             'nome' => '',
             'inicio_direcao' => '',
             'fim_direcao' => '',
         ];
-        $response = $this->get(route('diretores.create'));
-        $response->assertStatus(200);
+        $this->get(route('diretores.create'))->assertStatus(200);
         $this->followingRedirects()->post(route('diretores.store',
             array_merge($diretor,  ['_token' => csrf_token()])))
             ->assertSee('<div class="alert alert-danger">')
@@ -74,11 +70,10 @@ class DiretorTest extends TestCase
 
     public function teste_diretor_update_ok()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $diretor = factory(Diretor::class)->create();
 
-        $response = $this->get(route('diretores.edit', $diretor))
-            ->assertStatus(200)
+        $this->get(route('diretores.edit', $diretor))->assertStatus(200)
             ->assertViewIs('admin.diretores.edit');
 
         $updated_data = [
@@ -97,11 +92,10 @@ class DiretorTest extends TestCase
 
     public function teste_diretor_update_fail()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $diretor = factory(Diretor::class)->create();
 
-        $response = $this->get(route('diretores.edit', $diretor))
-            ->assertStatus(200)
+        $this->get(route('diretores.edit', $diretor))->assertStatus(200)
             ->assertViewIs('admin.diretores.edit');
 
         $updated_data = [
@@ -118,10 +112,9 @@ class DiretorTest extends TestCase
 
     public function teste_diretor_destroy_ok()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $diretor = factory(Diretor::class)->create();
-        $response = $this->delete(route('diretores.destroy', $diretor));
-        $response->assertStatus(200);
+        $this->delete(route('diretores.destroy', $diretor))->assertStatus(200);
         $this->get(route('diretores.index'))
             ->assertStatus(200)
             ->assertViewIs('admin.diretores.index')

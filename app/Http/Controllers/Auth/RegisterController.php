@@ -41,8 +41,8 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        $cargos = Cargo::orderBy('nome')->get();
-        $secoes = Secao::orderBy('nome')->get();
+        $cargos = Cargo::all();
+        $secoes = Secao::all();
         return view('admin/users/create', compact('cargos', 'secoes'));
     }
 

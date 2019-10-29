@@ -22,7 +22,7 @@ $factory->define(User::class, function (Faker $faker) {
         'email' => $faker->unique()->safeEmail,
         'cargo_id' => factory(Cargo::class),
         'secao_id' => factory(Secao::class),
-        'password' => bcrypt(str_random(10)), // secret
+        'password' => 'senha_teste', // secret
         'remember_token' => str_random(10),
     ];
 });

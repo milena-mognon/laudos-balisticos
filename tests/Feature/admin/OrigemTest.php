@@ -22,12 +22,10 @@ class OrigemTest extends TestCase
 
     public function test_origem_index()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $origens = factory(Origem::class, 3)->create();
-        $response = $this->get(route('origens.index'));
-        $response->assertStatus(200);
-        $response->assertViewIs('admin.origens.index');
-        $response->assertSuccessful();
+        $response = $this->get(route('origens.index'))->assertStatus(200)
+            ->assertViewIs('admin.origens.index')->assertSuccessful();
         foreach ($origens as $origem) {
             $response->assertSeeText($origem->nome);
             $response->assertSeeText($origem->fabricacao);
@@ -36,10 +34,9 @@ class OrigemTest extends TestCase
 
     public function teste_origem_create_ok()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $origem = factory(Origem::class)->make();
-        $response = $this->get(route('origens.create'));
-        $response->assertStatus(200);
+        $this->get(route('origens.create'))->assertStatus(200);
         $this->followingRedirects()->post(route('origens.store',
             array_merge($origem->toArray(),  ['_token' => csrf_token()])))
             ->assertSeeText(__('flash.create_m', ['model' => 'País de Origem']))
@@ -49,13 +46,12 @@ class OrigemTest extends TestCase
 
     public function teste_origem_create_fail()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $origem = [
             'nome' => '',
             'fabricacao' => ''
         ];
-        $response = $this->get(route('origens.create'));
-        $response->assertStatus(200);
+        $this->get(route('origens.create'))->assertStatus(200);
         $this->followingRedirects()->post(route('origens.store',
             array_merge($origem,  ['_token' => csrf_token()])))
             ->assertSee('<div class="alert alert-danger">')
@@ -64,11 +60,10 @@ class OrigemTest extends TestCase
 
     public function teste_origem_update_ok()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $origem = factory(Origem::class)->create();
 
-        $response = $this->get(route('origens.edit', $origem))
-            ->assertStatus(200)
+        $this->get(route('origens.edit', $origem))->assertStatus(200)
             ->assertViewIs('admin.origens.edit');
 
         $updated_data = [
@@ -85,11 +80,10 @@ class OrigemTest extends TestCase
 
     public function teste_origem_update_fail()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $origem = factory(Origem::class)->create();
 
-        $response = $this->get(route('origens.edit', $origem))
-            ->assertStatus(200)
+        $this->get(route('origens.edit', $origem))->assertStatus(200)
             ->assertViewIs('admin.origens.edit');
 
         $updated_data = [
@@ -105,10 +99,9 @@ class OrigemTest extends TestCase
 
     public function teste_origem_destroy_ok()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $origem = factory(Origem::class)->create();
-        $response = $this->delete(route('origens.destroy', $origem));
-        $response->assertStatus(200);
+        $this->delete(route('origens.destroy', $origem))->assertStatus(200);
         $this->get(route('origens.index'))
             ->assertStatus(200)
             ->assertViewIs('admin.origens.index')

@@ -22,7 +22,7 @@ class CalibreTest extends TestCase
 
     public function test_calibre_index()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $calibres = factory(Calibre::class, 3)->create();
         $response = $this->get(route('calibres.index'));
         $response->assertStatus(200);
@@ -37,7 +37,7 @@ class CalibreTest extends TestCase
 
     public function teste_calibre_create_ok()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $calibre = factory(Calibre::class)->make();
         $response = $this->get(route('calibres.create'));
         $response->assertStatus(200);
@@ -50,7 +50,7 @@ class CalibreTest extends TestCase
 
     public function teste_calibre_create_fail()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $calibre = [
             'nome' => '',
             'tipo_arma' => ''
@@ -65,7 +65,7 @@ class CalibreTest extends TestCase
 
     public function teste_calibre_update_ok()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $calibre = factory(Calibre::class)->create();
 
         $response = $this->get(route('calibres.edit', $calibre))
@@ -86,7 +86,7 @@ class CalibreTest extends TestCase
 
     public function teste_calibre_update_fail()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $calibre = factory(Calibre::class)->create();
 
         $response = $this->get(route('calibres.edit', $calibre))
@@ -106,7 +106,7 @@ class CalibreTest extends TestCase
 
     public function teste_calibre_destroy_ok()
     {
-        $this->assertAuthenticated();
+        $this->assertAuthenticatedAs($this->user);
         $calibre = factory(Calibre::class)->create();
         $response = $this->delete(route('calibres.destroy', $calibre));
         $response->assertStatus(200);

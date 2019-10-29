@@ -8,6 +8,12 @@ Visualizar Imagens
 @slot('cadastro')
 @endslot
 <div class="table-responsive-sm div-ver-imagem">
+    <div class="col-lg-6 float-right mb-2">
+        <button value="{{ $arma_id }}" type="button" class="btn btn-block btn-success addImagem">
+            <i class="fas fa-camera"></i> Cadastrar Imagem
+        </button>
+    </div>
+
     <table class="table table-bordered table-hover table-striped">
         <thead>
             <tr align="center">

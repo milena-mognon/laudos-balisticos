@@ -132,3 +132,11 @@ label.filtro_span > span {
     max-width: 250px;
     max-height: 150px;
 }
+
+.btn-cadastro {
+    background-color: #3274ad;
+    border-radius: 4px;
+    color: #fff;
+    border: #ddd;
+    font-size: 14px;
+}

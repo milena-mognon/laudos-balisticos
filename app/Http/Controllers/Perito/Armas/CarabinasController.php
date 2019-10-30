@@ -78,7 +78,6 @@ class CarabinasController extends Controller
         $imagens = $carabina->imagens;
         return view('perito.laudo.materiais.armas.carabina.edit',
             compact('carabina', 'laudo', 'marcas', 'origens', 'calibres', 'imagens'));
-
     }
 
     /**

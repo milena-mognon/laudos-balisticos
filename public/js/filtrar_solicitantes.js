@@ -1,9 +1,3 @@
-// $.ajaxSetup({
-//     headers: {
-//         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-//     }
-// });
-
 $(function () {
     if ($('#cidade').val() !== '') {
         var cidade_id = $('#cidade').val();
@@ -31,19 +25,9 @@ $(function () {
                         text: solicitante.nome
                     }));
                 });
-                solicitante.append($('<option>'));
-                solicitante.append($('<option>', {
-                    id: 'cadastrar_solicitante',
-                    text: 'Cadastrar Opção',
-                }));
             },
             error() {
                 solicitante.html("");
-                solicitante.append($('<option>'));
-                solicitante.append($('<option>', {
-                    id: 'cadastrar_solicitante',
-                    text: 'Cadastrar Opção',
-                }));
             },
         });
     }

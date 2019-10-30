@@ -37,7 +37,8 @@ class EspingardaArtesanalRequest extends FormRequest
             'funcionamento' => 'required|between:5,25',
             'tipo_arma' => 'required|between:5,30',
             'coronha_fuste' => 'required|between:5,30',
-            'bandoleira' => 'nullable|between: 5,70'
+            'bandoleira' => 'nullable|between: 5,70',
+            'num_lacre' => 'required'
         ];
     }
 }

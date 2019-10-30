@@ -1,6 +1,9 @@
 <div class="col-lg-3">
     <div class="form-group">
         <label>País de Origem *</label>
+        <button type="button" class="btn-cadastro float-right" id="cadastrar_pais">
+            <i class="fas fa-plus" aria-hidden="true"></i> Cadastrar
+        </button>
         <select class="js-single-origens form-control{{ $errors->has('origem_id') ? ' is-invalid' : '' }}"
             name="origem_id" id="pais">
             <option></option>
@@ -9,7 +12,6 @@
                 {{$origem->nome}}
             </option>
             @endforeach
-            <option value="cadastrar_pais">Cadastrar Outro</option>
         </select>
         @include('shared.error_feedback', ['name' => 'origem_id'])
     </div>

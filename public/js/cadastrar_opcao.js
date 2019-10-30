@@ -5,18 +5,11 @@ $.ajaxSetup({
 });
 
 $(function () {
-    $('#solicitante_id').on('change', function () {
-
-        console.log('entrou');
-        if ($('#solicitante_id').val() === 'Cadastrar Opção') {
-            $("#solicitante-modal").modal();
-            console.log($('#cidade').val());
-
-            $('.js-cidade-modal').val($('#cidade').val()); // Select the option with a value of '1'
-            $('.js-cidade-modal').trigger('change');
-        }
+    $('#cadastrar_solicitante').on('click', function () {
+        $("#solicitante-modal").modal();
+        $('.js-cidade-modal').val($('#cidade').val()); // Select the option with a value of '1'
+        $('.js-cidade-modal').trigger('change');
     });
-    $('#solicitante_id').trigger('click');
 
     $('#cadastro_solicitante').on('click', function () {
         var nome2 = $('#nome_solicitante').val();
@@ -38,6 +31,7 @@ $(function () {
                 },
                 success: function (data) {
                     $('#solicitante-modal').modal('hide');
+                    $('#nome_solicitante').val('');
                     $('#solicitante_id').append($('<option>', {
                         value: data.id,
                         text: data.nome
@@ -52,12 +46,9 @@ $(function () {
     });
     // /*---------------------------------------------------------*/
     var marca = $('#marca');
-    marca.on('change', function () {
-        if ($(this).val() === "cadastrar_marca") {
-            $("#marca-modal").modal();
-        }
+    $('#cadastrar_marca').on('click', function () {
+        $("#marca-modal").modal();
     });
-    marca.trigger("change");
 
     $('#cadastroMarca').on('click', function () {
         var nome_marca = $('#nome').val();
@@ -80,12 +71,9 @@ $(function () {
 
     /*-------------------------------------------------------*/
     var calibre = $('#calibre');
-    calibre.on('change', function () {
-        if ($(this).val() == "cadastrar_calibre") {
-            $("#calibre-modal").modal();
-        }
+    $('#cadastrar_calibre').on('click', function () {
+        $("#calibre-modal").modal();
     });
-    calibre.trigger("change");
 
     $('#cadastroCalibre').on('click', function () {
         var nome_calibre = $('#nome_calibre').val();
@@ -110,12 +98,9 @@ $(function () {
     /*------------------------------------------------------------*/
 
     var pais = $('#pais');
-    pais.on('change', function () {
-        if ($(this).val() === "cadastrar_pais") {
-            $("#pais-modal").modal();
-        }
+    $('#cadastrar_pais').on('click', function () {
+        $("#pais-modal").modal();
     });
-    pais.trigger("change");
 
     $('#cadastroPais').on('click', function () {
         var nome_pais = $('#nome_pais').val();

@@ -5,16 +5,30 @@ crop-modal
 @slot('modal_title')
 Recortar Imagem
 @endslot
+@slot('cadastro')
+@endslot
+@slot('modal_size')
+lg
+@endslot
 <div id="wrapper">
     <div id="image-holder" style="max-width: 750px"></div>
 </div>
 
-<div class="btn-group">
-    <button type="button" class="btn btn-primary" id="girarEsquerda"><i class="fas fa-rotate-left"></i>
-    </button>
-    <button type="button" class="btn btn-primary" id="girarDireita"><i class="fa fa-rotate-right"></i>
-    </button>
+<div class="row mb-3">
+    <div class="col-lg-4 mt-2">
+        <button type="button" class="btn btn-primary btn-block" id="girarEsquerda">
+            <i class="fas fa-undo-alt"></i> Girar para esquerda
+        </button>
+    </div>
+    <div class="col-lg-4 mt-2">
+        <button type="button" class="btn btn-primary btn-block" id="girarDireita">
+            <i class="fas fa-redo-alt"></i> Girar para direita
+        </button>
+    </div>
+    <div class="col-lg-4 mt-2">
+        <button type="button" class="btn btn-success btn-block" id="uploadCroppedImage">
+            <i class="fas fa-crop-alt"></i>Recortar e Salvar</button>
+    </div>
 </div>
 
-<button type="button" class="btn btn-success" id="uploadCroppedImage">Recortar e Salvar</button>
 @endcomponent

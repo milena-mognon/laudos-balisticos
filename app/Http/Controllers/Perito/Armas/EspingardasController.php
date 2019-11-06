@@ -29,7 +29,7 @@ class EspingardasController extends Controller
     {
         $marcas = Marca::categoria('armas');
         $origens = Origem::all();
-        $calibres = Calibre::arma('espingarda');
+        $calibres = Calibre::whereArma('Espingarda');
         return view('perito.laudo.materiais.armas.espingarda.create',
             compact('laudo', 'marcas', 'origens', 'calibres'));
     }
@@ -74,7 +74,7 @@ class EspingardasController extends Controller
     {
         $marcas = Marca::marcasWithTrashed('armas', $espingarda->marca);
         $origens = Origem::origensWithTrashed($espingarda->origem);
-        $calibres = Calibre::calibresWithTrashed('espingarda', $espingarda->calibre);
+        $calibres = Calibre::calibresWithTrashed('Espingarda', $espingarda->calibre);
         $imagens = $espingarda->imagens;
         return view('perito.laudo.materiais.armas.espingarda.edit',
             compact('espingarda', 'laudo', 'marcas', 'origens', 'calibres', 'imagens'));

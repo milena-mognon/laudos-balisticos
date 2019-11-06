@@ -34,7 +34,7 @@ class Calibre extends Model
      * @param $tipo_arma
      * @return mixed
      */
-    public function scopeArma($query, $tipo_arma)
+    public function scopeWhereArma($query, $tipo_arma)
     {
         return $query->where('tipo_arma', $tipo_arma)->get();
     }
@@ -44,16 +44,12 @@ class Calibre extends Model
      * de acordo com os tipos de arma em que é utilizado
      *
      * @param $query
-     * @param $arma1
-     * @param $arma2
+     * @param $armas
      * @return mixed
      */
-    public function scopeArmas($query, $arma1, $arma2)
+    public function scopeWhereNotArmas($query, $armas)
     {
-        return $query->where('tipo_arma', $arma1)
-            ->orWhere('tipo_arma', $arma2)
-            ->get();
-//
+        return $query->whereNotIn('tipo_arma', $armas)->get();
     }
 
     /**
@@ -78,10 +74,13 @@ class Calibre extends Model
         or tipo_arma = '$tipo_arma'")->get();
     }
 
-    public function scopeCalibresMunicoesWithTrashed($query, $tipo_arma1, $tipo_arma2, $used_calibre)
+    public function scopeCalibresMunicoesWithTrashed($query, $tipos_armas, $used_calibre)
     {
-        // select * from `calibres` where (nome = '.32ACP' and tipo_arma in ('revólver', 'pistola')) or (tipo_arma in ('revólver', 'pistola'))  and `calibres`.`deleted_at` is null order by `nome` asc
-        return $query->whereRaw("(nome = '$used_calibre->nome' and tipo_arma in ('$tipo_arma1', '$tipo_arma2')) 
-        or (tipo_arma in ('$tipo_arma1', '$tipo_arma2')) ")->get();
+        return $query->whereRaw(
+            "(nome = '$used_calibre->nome' and tipo_arma in ('" . implode("','",$tipos_armas). "')) 
+            or (tipo_arma in ('" . implode("','",$tipos_armas). "')) ")
+            ->get()->unique('nome');
     }
 }
+
+        // select * from `calibres` where (nome = '.32ACP' and tipo_arma in ('revólver', 'pistola')) or (tipo_arma in ('revólver', 'pistola'))  and `calibres`.`deleted_at` is null order by `nome` asc

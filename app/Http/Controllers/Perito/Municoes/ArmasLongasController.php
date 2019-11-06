@@ -17,7 +17,7 @@ class ArmasLongasController extends Controller
     public function create($laudo)
     {
         $marcas = Marca::categoria('municoes');
-        $calibres = Calibre::arma('espingarda');
+        $calibres = Calibre::whereArma('espingarda');
         return view('perito.laudo.materiais.municoes.arma_longa.create',
             compact('laudo', 'marcas', 'origens', 'calibres'));
     }

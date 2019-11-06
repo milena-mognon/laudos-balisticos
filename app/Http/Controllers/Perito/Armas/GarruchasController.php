@@ -29,7 +29,7 @@ class GarruchasController extends Controller
     {
         $marcas = Marca::categoria('armas');
         $origens = Origem::all();
-        $calibres = Calibre::arma('revólver');
+        $calibres = Calibre::whereArma('Garrucha');
         return view('perito.laudo.materiais.armas.garrucha.create',
             compact('laudo', 'marcas', 'origens', 'calibres'));
     }
@@ -74,7 +74,7 @@ class GarruchasController extends Controller
     {
         $marcas = Marca::marcasWithTrashed('armas', $garrucha->marca);
         $origens = Origem::origensWithTrashed($garrucha->origem);
-        $calibres = Calibre::calibresWithTrashed('garrucha', $garrucha->calibre);
+        $calibres = Calibre::calibresWithTrashed('Garrucha', $garrucha->calibre);
         $imagens = $garrucha->imagens;
         return view('perito.laudo.materiais.armas.garrucha.edit',
             compact('garrucha', 'laudo', 'marcas', 'origens', 'calibres', 'imagens'));

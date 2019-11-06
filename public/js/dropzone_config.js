@@ -7,6 +7,14 @@ $('.addImagem').on('click', function () {
     arma_id = $(this).val();
 });
 
+/*-------------- Girar Imagem -------------------*/
+$('#girarDireita').on('click', function () {
+    $('#image').cropper('rotate', 90);
+});
+$('#girarEsquerda').on('click', function () {
+    $('#image').cropper('rotate', -90);
+});
+
 Dropzone.options.myDropzone = {
     maxFilesize: 16,
     acceptedFiles: "image/*",

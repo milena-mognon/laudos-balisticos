@@ -3,7 +3,7 @@
 use App\Models\Calibre;
 use Illuminate\Database\Seeder;
 
-class CalibrePistolaSeeder extends Seeder
+class CalibreCarabinaSeeder extends Seeder
 {
 
     public function run()
@@ -16,7 +16,7 @@ class CalibrePistolaSeeder extends Seeder
         foreach ($calibres as $calibre) {
             Calibre::create([
                 'nome' => $calibre,
-                'tipo_arma' => 'Pistola'
+                'tipo_arma' => 'Carabina'
             ]);
         }
     }

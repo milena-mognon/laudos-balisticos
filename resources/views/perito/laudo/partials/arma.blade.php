@@ -21,5 +21,5 @@
         </button>
     </td>
 </tr>
-@include('perito.modals.upload')
 @endforeach
+@include('perito.modals.upload')

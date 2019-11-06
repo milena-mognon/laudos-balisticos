@@ -27,7 +27,7 @@ class EspingardasArtesanaisController extends Controller
      */
     public function create($laudo)
     {
-        $calibres = Calibre::arma('espingarda');
+        $calibres = Calibre::whereArma('Espingarda');
         return view('perito.laudo.materiais.armas.espingarda_artesanal.create',
             compact('laudo', 'calibres'));
     }
@@ -70,7 +70,7 @@ class EspingardasArtesanaisController extends Controller
      */
     public function edit($laudo, Arma $espingarda)
     {
-        $calibres = Calibre::calibresWithTrashed('espingarda', $espingarda->calibre);
+        $calibres = Calibre::calibresWithTrashed('Espingarda', $espingarda->calibre);
         $imagens = $espingarda->imagens;
         return view('perito.laudo.materiais.armas.espingarda_artesanal.edit',
             compact('espingarda', 'laudo', 'calibres', 'imagens'));

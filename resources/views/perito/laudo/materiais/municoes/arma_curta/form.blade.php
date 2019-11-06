@@ -44,3 +44,5 @@
         </div>
     </div>
 </div>
+@include('perito.modals.calibre_modal')
+@include('perito.modals.marca_modal')

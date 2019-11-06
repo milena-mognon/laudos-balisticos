@@ -17,7 +17,7 @@ class ArmasCurtasController extends Controller
     public function create($laudo)
     {
         $marcas = Marca::categoria('municoes');
-        $calibres = Calibre::armas('revólver', 'pistola');
+        $calibres = Calibre::whereNotArmas(['Espingarda']);
         return view('perito.laudo.materiais.municoes.arma_curta.create',
             compact('laudo', 'marcas', 'calibres'));
     }
@@ -42,7 +42,7 @@ class ArmasCurtasController extends Controller
     public function edit($laudo, Municao $municao)
     {
         $marcas = Marca::marcasWithTrashed('municoes', $municao->marca);
-        $calibres = Calibre::calibresMunicoesWithTrashed('revólver', 'pistola', $municao->calibre);
+        $calibres = Calibre::calibresMunicoesWithTrashed(['revólver', 'pistola'], $municao->calibre);
         return view('perito.laudo.materiais.municoes.arma_curta.edit',
             compact('municao', 'laudo', 'marcas', 'calibres'));
     }

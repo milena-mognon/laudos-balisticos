@@ -16,7 +16,7 @@ class CalibreRevolverSeeder extends Seeder
         foreach ($calibres as $calibre) {
             Calibre::create([
                 'nome' => $calibre,
-                'tipo_arma' => 'revólver'
+                'tipo_arma' => 'Revólver'
             ]);
         }
     }

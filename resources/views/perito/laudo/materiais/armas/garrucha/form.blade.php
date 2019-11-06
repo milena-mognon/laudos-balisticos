@@ -73,7 +73,9 @@
         </div>
     </div>
 </div>
-@include('perito.modals.calibre_modal')
+@include('perito.modals.calibre_modal', ['tipo_arma' => 'garrucha'])
 @include('perito.modals.marca_modal')
 @include('perito.modals.pais_modal')
-@include('perito.modals.visualizar_imagens_modal')
+@if($acao == 'Atualizar')
+@include('perito.modals.visualizar_imagens_modal', ['arma_id' => $garrucha->id])
+@endif

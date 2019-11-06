@@ -34,6 +34,7 @@ Route::prefix('admin')->middleware('cargo:Administrador')->group(function () {
 
 /* Peritos routes */
 Route::resource('laudos', 'Perito\LaudosController')->except(['edit']);
+Route::get('laudos/search/{rep}', 'Perito\LaudosController@search')->name('laudos.search');
 
 Route::get('laudos/solicitantes/cidade/{cidade_id}',
     'Perito\OrgaosSolicitantesController@filtrar_por_cidade')->name('solicitantes.filtrar');

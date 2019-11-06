@@ -127,4 +127,16 @@ class LaudosController extends Controller
             return $phpWord;
         }
     }
+
+    public function search($rep)
+    {
+        $laudo = Laudo::where('rep', $rep)->first();
+        if(empty($laudo)){
+            return response()->json(['response' => 'false',
+            'message' => 'Nenhum laudo encontrado em este número (' . $rep . ')']);
+        } else {
+            return response()->json(['response' => 'true', 
+            'result' => $laudo ]);
+        }
+    }
 }

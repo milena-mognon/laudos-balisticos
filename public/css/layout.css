@@ -140,3 +140,20 @@ label.filtro_span > span {
     border: #ddd;
     font-size: 14px;
 }
+
+.modal-atention-info {
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+.modal-color {
+    background-color: black;
+    border-radius: 5px;
+}
+
+.obrigatorio {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: black bold;
+}

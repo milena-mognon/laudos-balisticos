@@ -42,6 +42,11 @@ $(document).ready(function () {
         maximumSelectionLength: 5,
         placeholder: "Clique para selecionar (opcional)",
     });
+    $(".js-multiple-limit-calibre").select2({
+        language: 'pt-BR',
+        maximumSelectionLength: 5,
+        placeholder: "Selecione",
+    });
 });
 
 $(".tamanho").mask('9,999');

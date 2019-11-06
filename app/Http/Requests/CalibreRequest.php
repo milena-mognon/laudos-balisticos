@@ -29,7 +29,7 @@ class CalibreRequest extends FormRequest
     {
         return [
             'nome' => 'required|min:3',
-            'tipo_arma' => 'required|min:6'
+            // 'tipo_arma' => 'required|min:6'
         ];
     }
 }

@@ -5,6 +5,9 @@ solicitante-modal
 @slot('modal_title')
 Cadastrar Órgão Solicitante
 @endslot
+@slot('modal_size')
+md
+@endslot
 <div class="form-group">
     <label>Órgão Solicitante: *</label>
     <input class="form-control" type="text" id="nome_solicitante" name="nome" autocomplete="off" />

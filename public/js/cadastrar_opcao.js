@@ -88,10 +88,10 @@ $(function () {
             success: function (data) {
                 $('#calibre-modal').modal('hide');
                 calibre.append($('<option>', {
-                    value: data.data.id,
-                    text: data.data.nome
+                    value: data.id,
+                    text: data.nome
                 }));
-                calibre.val(data.data.id);
+                calibre.val(data.id);
             }
         });
     });

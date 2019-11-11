@@ -50,7 +50,7 @@ class EspingardaTest extends TestCase
             'laudo_id' => $this->laudo,
             'marca_id' => '',
             'calibre_id' => '',
-            'lacre' => '',
+            'num_lacre' => '',
             '_token' => csrf_token()
         ]); 
 
@@ -73,7 +73,7 @@ class EspingardaTest extends TestCase
 
         $espingarda->toArray();
         $espingarda['marca_id'] = factory(Marca::class);
-        $espingarda['lacre'] = '326587';
+        $espingarda['num_lacre'] = '326587';
         $updated_data = factory(Arma::class, 'Espingarda')->make($espingarda->toArray());
 
         $this->followingRedirects()->patch(route('espingardas.update', [$this->laudo, $espingarda]),

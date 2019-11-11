@@ -35,7 +35,7 @@ class ArmasText
             $imagens = $arma->imagens;
             if ($imagens->count() > 0) {
                 foreach ($imagens as $imagem) {
-                    $source = storage_path('storage/imagens' . $imagem->nome);
+                    $source = storage_path('app/public/imagens/' . $imagem->nome);
                     if (file_exists($source)) {
                         $fileContent = file_get_contents($source);
                         $this->section->addImage($fileContent, array('alignment' => Jc::CENTER, 'width' => 450));

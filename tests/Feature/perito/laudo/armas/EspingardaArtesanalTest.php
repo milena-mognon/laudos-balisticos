@@ -46,7 +46,8 @@ class EspingardaArtesanalTest extends TestCase
         $this->assertAuthenticatedAs($this->user);
         $espingarda = factory(Arma::class, 'Espingarda Artesanal')->make([
             'laudo_id' => $this->laudo,
-            'lacre' => '',
+            'num_lacre' => '',
+            'funcionamento' => '',
             '_token' => csrf_token()
         ]); 
 
@@ -65,11 +66,11 @@ class EspingardaArtesanalTest extends TestCase
         ]);
 
         $this->get(route('espingardas_artesanais.edit', [$this->laudo, $espingarda]))->assertStatus(200)
-            ->assertViewIs('perito.laudo.materiais.armas.espingarda.edit');
+            ->assertViewIs('perito.laudo.materiais.armas.espingarda_artesanal.edit');
 
         $espingarda->toArray();
         $espingarda['calibre_id'] = factory(Calibre::class);
-        $espingarda['lacre'] = '326587';
+        $espingarda['num_lacre'] = '326587';
         $updated_data = factory(Arma::class, 'Espingarda Artesanal')->make($espingarda->toArray());
 
         $this->followingRedirects()->patch(route('espingardas_artesanais.update', [$this->laudo, $espingarda]),
@@ -88,7 +89,7 @@ class EspingardaArtesanalTest extends TestCase
             ->assertViewIs('perito.laudo.materiais.armas.espingarda_artesanal.edit');
 
         $espingarda->toArray();
-        $espingarda['lacre'] = '';
+        $espingarda['num_lacre'] = '';
         $updated_data = factory(Arma::class, 'Espingarda Artesanal')->make($espingarda->toArray());
 
         $this->followingRedirects()->patch(route('espingardas_artesanais.update', [$this->laudo, $espingarda]),

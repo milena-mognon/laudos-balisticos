@@ -50,7 +50,7 @@ class RevolverTest extends TestCase
             'laudo_id' => $this->laudo,
             'marca_id' => '',
             'calibre_id' => '',
-            'lacre' => '',
+            'num_lacre' => '',
             '_token' => csrf_token()
         ]); 
 
@@ -73,7 +73,7 @@ class RevolverTest extends TestCase
 
         $revolver->toArray();
         $revolver['marca_id'] = factory(Marca::class);
-        $revolver['lacre'] = '326587';
+        $revolver['num_lacre'] = '326587';
         $updated_data = factory(Arma::class, 'Revolver')->make($revolver->toArray());
 
         $this->followingRedirects()->patch(route('revolveres.update', [$this->laudo, $revolver]),

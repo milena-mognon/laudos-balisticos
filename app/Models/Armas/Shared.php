@@ -10,6 +10,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Shared extends Model
 {
+    public static function bandoleira($bandoleira)
+    {
+        return $bandoleira != 'não possui' ? " possui bandoleira de $bandoleira," : '';
+    }
+
     public static function modelo($modelo)
     {
         return $modelo != '' ? " modelo $modelo," : '';

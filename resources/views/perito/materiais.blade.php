@@ -10,6 +10,10 @@
     <div class="row border mb-3">
         <div class="col-lg-3 mt-3">
             @include('shared.block_button', ['col_name' => 'tipo_arma',
+            'value' => 'Carabina', 'route' => 'carabinas.create'])
+        </div>
+        <div class="col-lg-3 mt-3">
+            @include('shared.block_button', ['col_name' => 'tipo_arma',
             'value' => 'Garrucha', 'route' => 'garruchas.create'])
         </div>
         <div class="col-lg-3 mt-3">

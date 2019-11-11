@@ -73,7 +73,7 @@
 
     <div class="row mb-3">
         <div class="col-lg-3 mt-2">
-            <a class="btn btn-secondary btn-block" href="{{ route('laudos.materiais', $laudo) }}">
+            <a class="btn btn-secondary btn-block" href="{!! URL::previous() !!}">
                 <i class="fas fa-arrow-circle-left"></i> Voltar</a>
         </div>
 

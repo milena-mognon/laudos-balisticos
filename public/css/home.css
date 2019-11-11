@@ -100,12 +100,14 @@
     color: #fff;
 }
 
-#home .btn-solicita {
+#home .btn-home-page {
     border: 2px solid #fff;
     color: #fff;
+    border-radius: 4px;
 }
 
-#home .btn-solicita:hover {
-    background: #03C4EB;
-    border: 2px solid #03C4EB;
+#home .btn-home-page:hover {
+    background: rgb(105, 75, 46);
+    border: 2px solid rgb(92, 65, 41);
+    border-radius: 4px;
 }

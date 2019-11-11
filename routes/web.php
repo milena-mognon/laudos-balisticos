@@ -52,6 +52,7 @@ Route::prefix('laudos/{laudo}')->group(function () {
         ->parameters(['espingardas_artesanais' => 'espingarda']);
     Route::resource('garruchas', 'Perito\Armas\GarruchasController');
     Route::resource('pistolas', 'Perito\Armas\PistolasController');
+    Route::resource('carabinas', 'Perito\Armas\CarabinasController');
     Route::delete('armas/{arma}', 'Perito\ArmasController@destroy')->name('armas.destroy');
 
     Route::resource('municoes', 'Perito\Municoes\MunicoesController')

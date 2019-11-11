@@ -13,10 +13,8 @@
     <div class="row mb-3">
         @include('perito.laudo.materiais.attributes.marca', ['marca2' => $carabina->marca->id ?? old('marca_id')])
         @include('perito.laudo.materiais.attributes.origem', ['origem2' => $carabina->origem->id ?? old('origem_id')])
-        @include('perito.laudo.materiais.attributes.calibre', ['calibre2' => $carabina->calibre->id ??
-        old('calibre_id')])
-        @include('perito.laudo.materiais.attributes.calibre_real', ['calibre_real' => $carabina->calibre_real ??
-        old('calibre_real')])
+        @include('perito.laudo.materiais.attributes.calibre', ['obrigatorio' => 'true', 'calibre2' =>
+        $carabina->calibre->id ?? old('calibre_id')])
         @include('perito.laudo.materiais.attributes.serie', ['tipo_serie2' => $carabina->tipo_serie ??
         old('tipo_serie'), 'num_serie' => $carabina->num_serie ?? old('num_serie')])
         @include('perito.laudo.materiais.attributes.numeracao_montagem', ['numeracao_montagem' =>

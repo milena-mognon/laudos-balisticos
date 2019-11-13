@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Cargo;
 use App\Models\Secao;
 use App\Models\User;
-use Illuminate\Http\Request;
+use App\Http\Requests\UserUpdateRequest;
 
 class UsersController extends Controller
 {
@@ -51,9 +51,16 @@ class UsersController extends Controller
      * @param  \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(UserUpdateRequest $request, User $user)
     {
-        $user_updates = $request->all();
+        $nova_senha = $request->input('nova_senha');
+        if(empty($nova_senha)){
+            $user_updates = $request->except('nova_senha', 'confirmacao_nova_senha');
+        } else {
+            $user_updates = $request->except('nova_senha', 'confirmacao_nova_senha');
+            $user_updates = array_merge($user_updates, ['password' => bcrypt($nova_senha)]);
+        }
+
         User::find($user->id)->fill($user_updates)->save();
 
         return redirect()->route('users.index')

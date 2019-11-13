@@ -69,9 +69,6 @@ class Arma extends Model
             case "Garrucha":
                 return Garrucha::text($arma);
                 break;
-            case "Carabina":
-                return Carabina::text($arma);
-                break;
         }
     }
 }

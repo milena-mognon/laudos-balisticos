@@ -16,8 +16,15 @@
         @include('admin.shared.attributes.email', ['email' => $user->email ?? old('email')])
 
         @if($acao != 'Atualizar')
-        @include('admin.shared.attributes.senha', ['label' => 'Senha', 'name' => 'password'])
-        @include('admin.shared.attributes.senha', ['label' => 'Confirmação da Senha', 'name' => 'confirmacao_senha'])
+        @include('admin.shared.attributes.senha', ['label' => 'Senha', 'name' => 'password', 'required' => 'required'])
+        @include('admin.shared.attributes.senha', ['label' => 'Confirmação da Senha', 'name' => 'confirmacao_senha',
+        'required' => 'required'])
+        @endif
+
+        @if($acao == 'Atualizar')
+        @include('admin.shared.attributes.senha', ['label' => 'Nova Senha', 'name' => 'nova_senha'])
+        @include('admin.shared.attributes.senha', ['label' => 'Confirmação da Nova Senha', 'name' =>
+        'confirmacao_nova_senha'])
         @endif
 
         @include('admin.shared.buttons', ['acao' => $acao, 'voltar_route' => route('users.index')])

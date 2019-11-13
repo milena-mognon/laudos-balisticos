@@ -128,9 +128,6 @@ function armas_route_name($material)
         case 'Garrucha':
             return 'garruchas';
             break;
-        case 'Carabina':
-            return 'carabinas';
-            break;
         case 'Pistola':
             return 'pistolas';
             break;

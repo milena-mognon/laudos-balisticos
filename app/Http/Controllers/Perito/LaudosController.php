@@ -132,11 +132,11 @@ class LaudosController extends Controller
     {
         $laudo = Laudo::where('rep', $rep)->first();
         if(empty($laudo)){
-            return response()->json(['response' => 'false',
+            return response()->json(['fail' => 'true',
             'message' => 'Nenhum laudo encontrado em este número (' . $rep . ')']);
         } else {
-            return response()->json(['response' => 'true', 
-            'result' => $laudo ]);
+            $laudo_id = $laudo->id;
+            return response()->json(['url' => route('laudos.show', $laudo)]);
         }
     }
 }

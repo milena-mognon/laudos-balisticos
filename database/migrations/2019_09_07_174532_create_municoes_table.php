@@ -28,6 +28,7 @@ class CreateMunicoesTable extends Migration
             $table->string('funcionamento', 40)->nullable();
             $table->string('tipo_projetil',40)->nullable();
             $table->string('nao_deflagrado',40)->nullable();
+            $table->string('municao_de', 40)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

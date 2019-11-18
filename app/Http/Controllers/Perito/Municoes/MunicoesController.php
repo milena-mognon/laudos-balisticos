@@ -30,7 +30,7 @@ class MunicoesController extends Controller
      */
     public function edit($laudo, Municao $municao)
     {
-        if (strstr($municao->calibre, "GA") == "GA") {
+        if ($municao->municao_de == "arma longa") {
             return redirect()->route('armas_longas.edit', [$laudo, $municao]);
         } else {
             return redirect()->route('armas_curtas.edit', [$laudo, $municao]);

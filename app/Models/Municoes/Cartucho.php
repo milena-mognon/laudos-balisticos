@@ -19,7 +19,7 @@ class Cartucho extends Model
         self::$marca = $municao->marca->nome;
         self::$calibre = $municao->calibre->nome;
 
-        if (strstr($municao->calibre, "GA") == "GA") {
+        if ($municao->municao_de == "arma longa") {
             $text = self::cartucho_arma_longa($municao);
         } else {
             $text = self::cartucho_arma_curta($municao);

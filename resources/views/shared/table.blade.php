@@ -9,8 +9,8 @@
             <input type="text" class="form-control search-input" placeholder="{{ $pesquisar }}"
                 aria-label="{{ $pesquisar }}" aria-describedby="basic-addon2" required>
             <div class="input-group-append">
-                <button class="btn btn-outline-secondary search-button" type="button" value="{{$route_search_name}}"
-                    disabled>
+
+                <button class="btn btn-outline-secondary search-button" type="button" value="{{$route_search_name}}">
                     <i class="fas fa-fw fa-search"></i> Pesquisar</button>
             </div>
         </div>

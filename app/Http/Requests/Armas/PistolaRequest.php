@@ -54,6 +54,7 @@ class PistolaRequest extends FormRequest
             'capacidade_carregador' => 'required',
             'carregador' => 'required|max:40',
             'numeracao_montagem' => 'nullable|max: 50',
+            'num_lacre' => 'required'
         ];
     }
 }

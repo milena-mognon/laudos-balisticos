@@ -8,7 +8,6 @@ namespace App\Models\Municoes;
 
 use Illuminate\Database\Eloquent\Model;
 
-
 class Estojo extends Model
 {
     public static function text($municao)

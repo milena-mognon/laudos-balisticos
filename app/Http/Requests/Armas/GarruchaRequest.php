@@ -52,6 +52,7 @@ class GarruchaRequest extends FormRequest
             'chave_abertura' => 'nullable|max: 70',
             'cao' => 'required|max:40',
             'placas_laterais' => 'required|max:50',
+            'num_lacre' => 'required',
             'numeracao_montagem' => 'nullable|max: 50',
         ];
     }

@@ -19,7 +19,7 @@ class ComponentesController extends Controller
     {
         Componente::create($request->all());
         return redirect()->route('laudos.show', ['id' => $laudo->id])
-            ->with('success', __('flash.update_f', ['model' => 'Componente']));
+            ->with('success', __('flash.create_m', ['model' => 'Componente']));
     }
 
     /**

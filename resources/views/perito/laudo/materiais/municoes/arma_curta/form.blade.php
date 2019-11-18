@@ -11,6 +11,8 @@
 @endif
 
 <input type="hidden" name="laudo_id" id="laudo_id" value="{{ $laudo->id }}">
+<input type="hidden" name="municao_de" id="laudo_id" value="arma curta">
+
 
 <div class="col-lg-12" style="padding: 0 5% 0">
     <div class="row mb-3">

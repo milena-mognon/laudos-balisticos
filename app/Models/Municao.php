@@ -10,8 +10,8 @@ class Municao extends Model
     use SoftDeletes;
 
     protected $fillable = ['marca_id', 'origem_id', 'calibre_id', 'laudo_id', 'estojo',
-        'projetil', 'funcionamento', 'quantidade', 'tipo_municao', 'tipo_projetil', 'ref_imagem',
-        'nao_deflagrado'];
+        'projetil', 'funcionamento', 'quantidade', 'tipo_municao', 'tipo_projetil',
+        'nao_deflagrado', 'municao_de'];
 
     protected $table = 'municoes';
 

@@ -1,6 +1,7 @@
 @extends('shared.table', ['card_name' => 'Diretores',
 'model_name_plural' => 'Diretores',
 'model_name_singular' => 'Diretor',
+'habilitar_pesquisa' => false,
 'route_create_name' => 'diretores.create',
 'pesquisar' => 'Digite o nome do diretor',
 'route_search_name' => 'diretores',

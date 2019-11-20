@@ -130,6 +130,7 @@ class LaudosController extends Controller
 
     public function search($rep)
     {
+        $rep = str_replace('-', '/', $rep);
         $laudo = Laudo::where('rep', $rep)->first();
         if(empty($laudo)){
             return response()->json(['fail' => 'true',

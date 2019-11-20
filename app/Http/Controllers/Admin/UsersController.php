@@ -78,4 +78,16 @@ class UsersController extends Controller
         User::destroy($user->id);
         return response()->json(['success' => 'done']);
     }
+
+    public function search($nome)
+    {
+        $user = User::where('nome', 'like',"%$nome%")->first();
+        if(empty($user)){
+            return response()->json(['fail' => 'true',
+            'message' => 'Nenhum usuário encontrado em este nome (' . $nome . ')']);
+        } else {
+            $user_id = $user->id;
+            return response()->json(['url' => route('users.edit', $user_id)]);
+        }
+    }
 }

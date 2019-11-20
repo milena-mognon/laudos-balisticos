@@ -1,6 +1,7 @@
 @extends('shared.table', ['card_name' => 'Listar Calibres',
 'model_name_plural' => 'Calibres',
 'model_name_singular' => 'Calibre',
+'habilitar_pesquisa' => false,
 'route_create_name' => 'calibres.create',
 'pesquisar' => 'Digite o calibre',
 'route_search_name' => 'calibres',

@@ -1,6 +1,7 @@
 @extends('shared.table', ['card_name' => 'Listar Usuários',
 'model_name_plural' => 'Usuários',
 'model_name_singular' => 'Usuário',
+'habilitar_pesquisa' => true,
 'pesquisar' => 'Digite o nome do usuário',
 'route_search_name' => 'users',
 'route_create_name' => 'register',

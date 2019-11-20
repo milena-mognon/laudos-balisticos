@@ -13,8 +13,10 @@ $(function () {
     if (tipo_municao.val() === 'cartucho') {
         if_cartucho();
     }
-    if (tipo_municao.val() === 'projetil') {
-        if_projetil();
+    if ($(nao_deflagrado).is(':checked')) {
+        $(this).val('true');
+    } else {
+        $(this).val('false');
     }
 
     tipo_municao.on('change', function () {
@@ -31,11 +33,10 @@ $(function () {
 
     nao_deflagrado.on('change', function () {
         if ($(this).is(':checked')) {
-            funcionamento.attr('disabled', true);
             $(this).val("true");
             funcionamento.val("ineficiente");
+            funcionamento.trigger('change');
         } else {
-            funcionamento.attr('disabled', false);
             $(this).val("false");
         }
     });
@@ -52,14 +53,6 @@ $(function () {
         estojo.attr('disabled', false);
         projetil.attr('disabled', true);
         tipo_projetil.attr('disabled', true);
-        funcionamento.attr('disabled', true);
-        div_nao_deflagrado.hide();
-    }
-
-    function if_projetil() {
-        projetil.attr('disabled', false);
-        tipo_projetil.attr('disabled', false);
-        estojo.attr('disabled', true);
         funcionamento.attr('disabled', true);
         div_nao_deflagrado.hide();
     }

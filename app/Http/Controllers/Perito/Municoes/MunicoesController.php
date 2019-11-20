@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Perito\Municoes;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Armas\MunicaoRequest;
+use App\Http\Requests\MunicaoRequest;
 use App\Models\Municao;
 
 class MunicoesController extends Controller
@@ -32,9 +32,13 @@ class MunicoesController extends Controller
     {
         if ($municao->municao_de == "arma longa") {
             return redirect()->route('armas_longas.edit', [$laudo, $municao]);
-        } else {
+        } 
+        if($municao->municao_de == "arma curta") {
             return redirect()->route('armas_curtas.edit', [$laudo, $municao]);
         }
+        return redirect()->route('laudos.show',
+            ['laudo_id' => $laudo->id])
+            ->with('warning', 'Não é possível editar este material!');
     }
 
     /**

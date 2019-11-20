@@ -1,6 +1,7 @@
 $(function () {
     $('.search-button').on('click', function () {
         var input_value = $('.search-input').val();
+        input_value = input_value.replace("/", "-");
         var route = $(this).val();
         if (!input_value) {
             Swal.fire({

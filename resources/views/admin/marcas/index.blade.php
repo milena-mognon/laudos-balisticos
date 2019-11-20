@@ -1,6 +1,7 @@
 @extends('shared.table', ['card_name' => 'Listar Marcas',
 'model_name_plural' => 'Marcas',
 'model_name_singular' => 'Marca',
+'habilitar_pesquisa' => false,
 'route_create_name' => 'marcas.create',
 'pesquisar' => 'Digite o nome da marca',
 'route_search_name' => 'marcas',

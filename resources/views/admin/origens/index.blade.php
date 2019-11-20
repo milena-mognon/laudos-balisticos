@@ -1,6 +1,7 @@
 @extends('shared.table', ['card_name' => 'Países',
 'model_name_plural' => 'Países',
 'model_name_singular' => 'País',
+'habilitar_pesquisa' => false,
 'route_create_name' => 'origens.create',
 'pesquisar' => 'Digite o nome do país',
 'route_search_name' => 'origens',

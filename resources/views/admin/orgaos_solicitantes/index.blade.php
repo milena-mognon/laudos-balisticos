@@ -1,6 +1,7 @@
 @extends('shared.table', ['card_name' => 'Órgãos Solicitantes',
 'model_name_plural' => 'Órgãos Solicitantes',
 'model_name_singular' => 'Órgão Solicitante',
+'habilitar_pesquisa' => false,
 'route_create_name' => 'solicitantes.create',
 'pesquisar' => 'Digite o nome do órgão solicitante',
 'route_search_name' => 'solicitantes',

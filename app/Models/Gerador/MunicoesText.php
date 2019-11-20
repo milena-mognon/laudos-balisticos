@@ -47,9 +47,7 @@ class MunicoesText
         $table->addCell(1550)->addText("Quantidade", $this->config->fonteTabela(), $this->config->cellCenter());
         $table->addCell(1550)->addText("Calibre", $this->config->fonteTabela(), $this->config->cellCenter());
         $table->addCell(1550)->addText("Marca", $this->config->fonteTabela(), $this->config->cellCenter());
-        if ($tipo_municao != 'projétil') {
-            $table->addCell(2300)->addText("Estojo/Espoleta", $this->config->fonteTabela(), $this->config->cellCenter());
-        }
+        $table->addCell(2300)->addText("Estojo/Espoleta", $this->config->fonteTabela(), $this->config->cellCenter());
         if ($tipo_municao != 'estojo') {
             $table->addCell(2800)->addText("Projétil", $this->config->fonteTabela(), $this->config->cellCenter());
         }
@@ -62,9 +60,7 @@ class MunicoesText
         $table->addCell(1550)->addText(ucfirst($municao->quantidade), $this->config->fonteTabela(), $this->config->cellCenter());
         $table->addCell(1550)->addText(ucfirst($municao->calibre->nome), $this->config->fonteTabela(), $this->config->cellCenter());
         $table->addCell(1550)->addText(ucfirst($municao->marca->nome), $this->config->fonteTabela(), $this->config->cellCenter());
-        if ($municao->tipo_municao != 'projétil') {
-            $table->addCell(2300)->addText(ucfirst($municao->estojo), $this->config->fonteTabela(), $this->config->cellCenter());
-        }
+        $table->addCell(2300)->addText(ucfirst($municao->estojo), $this->config->fonteTabela(), $this->config->cellCenter());
         if ($municao->tipo_municao != 'estojo') {
             $table->addCell(2800)->addText(ucfirst($municao->projetil . ($municao->tipo_projetil ? "/ " . $municao->tipo_projetil : '' )), $this->config->fonteTabela(), $this->config->cellCenter());
         }
@@ -88,9 +84,6 @@ class MunicoesText
                 break;
             case 'estojo':
                 $this->estojo($municao);
-                break;
-            case 'projétil':
-                $this->projetil($municao);
                 break;
         }
     }

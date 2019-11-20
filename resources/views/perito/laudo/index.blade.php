@@ -1,6 +1,7 @@
 @extends('shared.table', ['card_name' => 'Laudos',
 'model_name_plural' => 'Laudos',
 'model_name_singular' => 'Laudo',
+'habilitar_pesquisa' => 'true',
 'pesquisar' => 'Digite o número da REP',
 'route_search_name' => 'laudos',
 'route_create_name' => 'laudos.create',

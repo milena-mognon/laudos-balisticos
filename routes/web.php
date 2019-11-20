@@ -31,9 +31,11 @@ Route::prefix('admin')->middleware('cargo:Administrador')->group(function () {
     Route::post('relatorios/create_custom_report', 'Admin\RelatoriosController@create_custom_report')
         ->name('admin.relatorios.personalizados');
 });
+Route::get('admin/users/search/{nome}', 'Admin\UsersController@search')->name('users.search');
 
 /* Peritos routes */
 Route::resource('laudos', 'Perito\LaudosController')->except(['edit']);
+
 Route::get('laudos/search/{rep}', 'Perito\LaudosController@search')->name('laudos.search');
 
 Route::get('laudos/solicitantes/cidade/{cidade_id}',
@@ -78,4 +80,3 @@ Route::post('solicitantes', 'Perito\OrgaosSolicitantesController@store')->name('
 Route::post('marcas', 'Perito\MarcasController@store')->name('perito.marcas.store');
 Route::post('calibres', 'Perito\CalibresController@store')->name('perito.calibres.store');
 Route::post('origens', 'Perito\OrigensController@store')->name('perito.origens.store');
-

@@ -30,16 +30,16 @@
         </div>
     </div>
 </div>
-<h5>Munição, Estojo e/ou Projétil</h5>
+<h5>Cartucho e Estojo</h5>
 <div class="col-12">
     <div class="row border mb-3 mt-3">
         <div class="col-lg-3 mt-3">
             @include('shared.block_button', ['col_name' => 'tipo_municao',
-            'value' => 'Cartucho Arma Curta ', 'route' => 'armas_curtas.create'])
+            'value' => 'Cartucho/Estojo Arma Curta ', 'route' => 'armas_curtas.create'])
         </div>
         <div class="col-lg-3 mt-3">
             @include('shared.block_button', ['col_name' => 'tipo_municao',
-            'value' => 'Cartucho Arma Longa', 'route' => 'armas_longas.create'])
+            'value' => 'Cartucho/Estojo Arma Longa', 'route' => 'armas_longas.create'])
         </div>
     </div>
 </div>
@@ -60,14 +60,6 @@
         </div>
     </div>
 </div>
-{{-- <h5>Objetos</h5>
-<div class="col-12">
-    <div class="row border mb-3 mt-3">
-        <div class="col-lg-3 mt-3">
-
-        </div>
-    </div>
-</div> --}}
 <div class="col-lg-3 mt-2">
     <a class="btn btn-secondary btn-block" href="{{ route('laudos.show', $laudo) }}">
         <i class="fas fa-arrow-circle-left"></i> Voltar ao Laudo</a>

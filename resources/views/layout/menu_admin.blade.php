@@ -45,7 +45,11 @@
                 <i class="fa fa-fw fa-chart-bar"></i>
                 <span>Relatórios</span></a>
         </li>
-
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.laudos.index') }}">
+                <i class="fa fa-fw fa-folder-open"></i>
+                <span>Todos os Laudos</span></a>
+        </li>
         <li class="nav-item">
             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">

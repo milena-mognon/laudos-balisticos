@@ -131,7 +131,7 @@ class LaudosController extends Controller
     public function search($rep)
     {
         $rep = str_replace('-', '/', $rep);
-        $laudo = Laudo::where('rep', $rep)->first();
+        $laudo = Laudo::where([['rep', $rep], ['perito_id', Auth::id()]])->first();
         if(empty($laudo)){
             return response()->json(['fail' => 'true',
             'message' => 'Nenhum laudo encontrado em este número (' . $rep . ')']);

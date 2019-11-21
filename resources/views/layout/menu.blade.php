@@ -24,16 +24,6 @@
                 <i class="fa fa-fw fa-folder-open"></i>
                 <span>Meus Laudos</span></a>
         </li>
-        <li class="nav-item admin_reports">
-            <a class="nav-link" href="{{ route('relatorios.index') }}">
-                <i class="fa fa-fw fa-chart-bar"></i>
-                <span>Relatórios</span></a>
-        </li>
-        {{--<li class="nav-item">--}}
-        {{--<a class="nav-link" href="{{ route('perito.relatorios.index') }}">--}}
-        {{--<i class="fa fa-fw fa-chart-bar"></i>--}}
-        {{--<span>Relatórios</span></a>--}}
-        {{--</li>--}}
 
         <li class="nav-item">
             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();

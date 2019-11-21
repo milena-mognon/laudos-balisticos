@@ -31,8 +31,9 @@ Route::prefix('admin')->middleware('cargo:Administrador')->group(function () {
     Route::post('relatorios/create_custom_report', 'Admin\RelatoriosController@create_custom_report')
         ->name('admin.relatorios.personalizados');
 });
+Route::get('admin/laudos/search/{rep}', 'Admin\LaudosController@search')->name('admin.laudos.search');
 Route::get('admin/users/search/{nome}', 'Admin\UsersController@search')->name('users.search');
-
+Route::get('admin/laudos', 'Admin\LaudosController@index')->name('admin.laudos.index');
 /* Peritos routes */
 Route::resource('laudos', 'Perito\LaudosController')->except(['edit']);
 

@@ -27,9 +27,9 @@ Crie uma base de dados no MySql.
 No repositório clonado do projeto, faça uma cópia do arquivo .env.exemple com o nome .env
    
 Modifique a database, username e password do banco de dados no arquivo .env.
-    DB_DATABASE=nome_do_bd
-	DB_USERNAME=nome_usuário
-	DB_PASSWORD=senha
+   	* DB_DATABASE=nome_do_bd
+	* DB_USERNAME=nome_usuário
+	* DB_PASSWORD=senha
 
 
 No repositório, rode os seguintes comando:

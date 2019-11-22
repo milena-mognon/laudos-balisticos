@@ -24,7 +24,7 @@
         @include('perito.laudo.materiais.attributes.serie', ['tipo_serie2' => $espingarda->tipo_serie ??
         old('tipo_serie'), 'num_serie' => $espingarda->num_serie ?? old('num_serie')])
         @include('perito.laudo.materiais.attributes.numeracao_montagem', ['numeracao_montagem' =>
-        $revolver->numeracao_montagem ?? old('numeracao_montagem')])
+        $espingarda->numeracao_montagem ?? old('numeracao_montagem')])
         @include('perito.laudo.materiais.attributes.sistema_funcionamento', ['sistema_funcionamento2' =>
         $espingarda->sistema_funcionamento ?? old('sistema_funcionamento')])
         @include('perito.laudo.materiais.attributes.tipo_carregador', ['tipo_carregador2' =>

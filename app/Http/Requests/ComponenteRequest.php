@@ -31,7 +31,7 @@ class ComponenteRequest extends FormRequest
             'componente' => 'required|max:40',
             'quantidade_frascos' => 'required|integer',
             'quantidade' => 'required|max:10',
-            'tamanho' => 'required_unless:componente,Pólvora|max:15',
+            'tamanho' => 'required_if:componente,Espoletas|max:15',
             'material_frascos' => 'required_unless:quantidade_frascos,0|max:40'
         ];
     }

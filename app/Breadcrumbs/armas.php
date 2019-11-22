@@ -39,3 +39,13 @@ Breadcrumbs::register('pistolas.edit', function ($breadcrumbs, $laudo, $arma) {
     $breadcrumbs->parent('laudos.show', $laudo);
     $breadcrumbs->push("Editar $arma->tipo_arma" , route('pistolas.edit',[ $laudo, $arma]));
 });
+
+Breadcrumbs::register('espingardas_artesanais.create', function ($breadcrumbs, $laudo) {
+    $breadcrumbs->parent('laudos.materiais', $laudo);
+    $breadcrumbs->push('Nova Espingarda Artesanal', route('espingardas_artesanais.create', $laudo));
+});
+
+Breadcrumbs::register('espingardas_artesanais.edit', function ($breadcrumbs, $laudo, $arma) {
+    $breadcrumbs->parent('laudos.show', $laudo);
+    $breadcrumbs->push("Editar $arma->tipo_arma" , route('espingardas_artesanais.edit',[ $laudo, $arma]));
+});

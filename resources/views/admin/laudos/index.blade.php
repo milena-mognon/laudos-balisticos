@@ -30,7 +30,7 @@
 @endforeach
 @else
 <tr>
-    <td colspan="5">Nenhum Laudo Encontrado</td>
+    <td colspan="6">Nenhum Laudo Encontrado</td>
 </tr>
 @endif
 @endsection

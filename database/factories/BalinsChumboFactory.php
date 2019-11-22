@@ -12,6 +12,6 @@ $factory->defineAs(Componente::class, 'Balins de Chumbo' , function (Faker $fake
         'componente' => 'Balins de Chumbo', 
         'quantidade_frascos' => '2',
         'material_frascos' => $material_frasco[rand(0, 2)],
-        'tamanho' => '6,25'
+        // 'tamanho' => '6,25'
     ];
 });

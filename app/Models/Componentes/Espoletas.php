@@ -19,7 +19,7 @@ class Espoletas
         }
         $inicio = ucfirst($frasco) . " contendo $componente->componente: ";
 
-        $corpo = "Trata-se de $quantidade_frascos $frasco $material_frasco, contendo $componente->quantidade $componente->componente de $componente->tamanho" . "mm";
+        $corpo = "Trata-se de $quantidade_frascos $frasco $material_frasco, contendo $componente->quantidade ". mb_strtolower($componente->componente) ." de $componente->tamanho" . "mm.";
 
         $laudo = ['inicio' => $inicio, 'corpo' => $corpo];
 

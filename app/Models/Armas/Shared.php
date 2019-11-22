@@ -12,7 +12,7 @@ class Shared extends Model
 {
     public static function bandoleira($bandoleira)
     {
-        return $bandoleira != 'não possui' ? " possui bandoleira de $bandoleira," : '';
+        return $bandoleira != 'não possui' ? ", possui bandoleira de $bandoleira" : '';
     }
 
     public static function modelo($modelo)
@@ -22,7 +22,7 @@ class Shared extends Model
 
     public static function numeracao_montagem($numeracao_montagem)
     {
-        return $numeracao_montagem ? " numeração de montagem $numeracao_montagem," : '';
+        return $numeracao_montagem ? ", numeração de montagem $numeracao_montagem" : '';
     }
 
     public static function coronha_fuste($coronha_fuste)
@@ -141,6 +141,14 @@ class Shared extends Model
             return "duas teclas de gatilho";
         } else {
             return "uma tecla de gatilho";
+        }
+    }
+
+    public static function calibre($calibre, $calibre_real){
+        if(empty($calibre_real)){
+            return "de calibre nominal $calibre";
+        } else {
+            return "de calibre real $calibre_real";
         }
     }
 

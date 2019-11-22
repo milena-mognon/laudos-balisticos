@@ -20,7 +20,7 @@ class Polvora
         }
         $inicio = ucfirst($frasco) . " contendo $componente->componente: ";
 
-        $corpo = "Trata-se de $quantidade_frascos $frasco $material_frasco, contendo $componente->quantidade" . "g de $componente->componente no seu interior.";
+        $corpo = "Trata-se de $quantidade_frascos $frasco $material_frasco, contendo ".str_replace(',0', '',$componente->quantidade) . "g de ". mb_strtolower($componente->componente) ." no seu interior.";
 
         $laudo = ['inicio' => $inicio, 'corpo' => $corpo];
 

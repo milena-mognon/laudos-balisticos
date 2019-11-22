@@ -19,7 +19,7 @@ class BalinsChumbo
         }
         $inicio = ucfirst($frasco) . " contendo $componente->componente: ";
 
-        $corpo = "Trata-se de $quantidade_frascos $frasco $material_frasco, contendo $componente->componente, comumente utilizados como carga de projeção em munições de armas com cano de alma lisa, perfazendo um total de aproximadamente $componente->quantidade" . "g.";
+        $corpo = "Trata-se de $quantidade_frascos $frasco $material_frasco, contendo ". mb_strtolower($componente->componente) .", comumente utilizados como carga de projeção em munições de armas com cano de alma lisa, perfazendo um total de aproximadamente $componente->quantidade" . "g.";
 
         $laudo = ['inicio' => $inicio, 'corpo' => $corpo];
 

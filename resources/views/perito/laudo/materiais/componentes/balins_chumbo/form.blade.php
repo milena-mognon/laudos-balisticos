@@ -1,9 +1,9 @@
 @if ($acao == 'Cadastrar')
-    {!! Form::open(['route' => ['componentes.store', $laudo ]]) !!}
+{!! Form::open(['route' => ['componentes.store', $laudo ]]) !!}
 @elseif ($acao == 'Atualizar')
-    {!! Form::open(['route' => ['componentes.update', $laudo, $componente], 'method' => 'patch']) !!}
+{!! Form::open(['route' => ['componentes.update', $laudo, $componente], 'method' => 'patch']) !!}
 @else
-    {!! Form::open() !!}
+{!! Form::open() !!}
 @endif
 
 <input type="hidden" name="laudo_id" id="laudo_id" value="{{ $laudo->id }}">
@@ -11,10 +11,13 @@
 
 <div class="col-lg-12" style="padding: 0 5% 0">
     <div class="row mb-3">
-        @include('perito.laudo.materiais.attributes.quantidade_frascos', ['quantidade_frascos' =>  $componente->quantidade_frascos ?? old('quantidade_frascos')])
-        @include('perito.laudo.materiais.attributes.material_frasco', ['material_frascos2' =>  $componente->material_frascos ?? old('material_frasco')])
-        @include('perito.laudo.materiais.attributes.quantidade_componente', ['componente' => 'Balins de Chumbo', 'quantidade' =>  $componente->quantidade ?? old('quantidade')])
-        @include('perito.laudo.materiais.attributes.tamanho', ['tamanho' =>  $componente->tamanho ?? old('tamanho')])
+        @include('perito.laudo.materiais.attributes.quantidade_frascos', ['quantidade_frascos' =>
+        $componente->quantidade_frascos ?? old('quantidade_frascos')])
+        @include('perito.laudo.materiais.attributes.material_frasco', ['material_frascos2' =>
+        $componente->material_frascos ?? old('material_frasco')])
+        @include('perito.laudo.materiais.attributes.quantidade_componente', ['componente' => 'Balins de Chumbo',
+        'quantidade' => $componente->quantidade ?? old('quantidade')])
+        {{-- @include('perito.laudo.materiais.attributes.tamanho', ['tamanho' =>  $componente->tamanho ?? old('tamanho')]) --}}
     </div>
     <div class="row justify-content-between mb-4">
         <div class="col-lg-4 mt-1">
